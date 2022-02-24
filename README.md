@@ -12,7 +12,7 @@ A legenda de cores é dada por:
 - Roxo: Tarefa para a segunda etapa (TCC2)
 - Azul: Objetivo principal do trabalho
 
-![Blank board (1)](https://user-images.githubusercontent.com/71079801/155548271-465674d6-4b25-485b-87d3-4516e4a71cd4.png)
+![Blank board (2)](https://user-images.githubusercontent.com/71079801/155579988-1f3fabd6-ac46-480a-b3f0-8d7e4ba0e067.png)
 
   ### Autor
 ---
