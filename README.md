@@ -1,8 +1,8 @@
-# quantum-exploration
+## quantum-exploration
 <h1 align="center">Repositório de texto para o desenvolvimento do meu Trabalho de Conclusão de Curso!</h1>
 
 
-#Etapas da execução do trabalho
+<b>Etapas da execução do trabalho</b>
 </br>
 Para iniciar o desenvolvimento do meu TCC, decidi criar um grafo com os objetivos e objetos de estudo do meu trabalho. No grafo apresentado na imagem, temos o objetivo principal e as etapas para a realização do mesmo. 
 A legenda de cores é dada por:
