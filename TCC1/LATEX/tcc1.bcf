@@ -2260,20 +2260,9 @@
   <!-- CITATION DATA -->
   <!-- SECTION 0 -->
   <bcf:bibdata section="0">
-    <bcf:datasource type="file" datatype="bibtex">../tcc.bib</bcf:datasource>
+    <bcf:datasource type="file" datatype="bibtex">./tcc.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="0">
-    <bcf:citekey order="1">Collobert2011</bcf:citekey>
-    <bcf:citekey order="2">Collobert2011</bcf:citekey>
-    <bcf:citekey order="3">Collobert2011</bcf:citekey>
-    <bcf:citekey order="4">Collobert2011</bcf:citekey>
-    <bcf:citekey order="5">Collobert2011</bcf:citekey>
-    <bcf:citekey order="6">Souza2010</bcf:citekey>
-    <bcf:citekey order="7">vene2008</bcf:citekey>
-    <bcf:citekey order="8">Collobert2011</bcf:citekey>
-    <bcf:citekey order="9">braess2007</bcf:citekey>
-    <bcf:citekey order="10">Souza2010</bcf:citekey>
-    <bcf:citekey order="12">Souza2010</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nty">
