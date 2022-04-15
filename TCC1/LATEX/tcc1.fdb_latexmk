@@ -1,24 +1,28 @@
 # Fdb version 3
-["biber tcc1"] 1646768550 "tcc1.bcf" "tcc1.bbl" "tcc1" 1646768557
-  "tcc1.bcf" 1646768556 106493 fb46bd09fb27ffb1f1617cb72f8b0ea1 "xelatex"
+["biber tcc1"] 1649981380 "tcc1.bcf" "tcc1.bbl" "tcc1" 1649982549
+  "./tcc.bib" 1649981057 6739 5fef111191375a7aedefeb19c0f0d066 ""
+  "tcc1.bcf" 1649982549 108612 10dc82e41b64884fac17b636b3cb4c37 "xelatex"
   (generated)
   "tcc1.bbl"
   "tcc1.blg"
-["xdvipdfmx"] 1646768556 "tcc1.xdv" "tcc1.pdf" "tcc1" 1646768557
-  "tcc1.xdv" 1646768556 114340 3a62e8cfddeddf7a1797de9dd75a5ec6 "xelatex"
+["xdvipdfmx"] 1649982549 "tcc1.xdv" "tcc1.pdf" "tcc1" 1649982549
+  "tcc1.xdv" 1649982549 241636 8823c3f9631efc15d6002a46de1a55b2 "xelatex"
   (generated)
   "tcc1.pdf"
-["xelatex"] 1646768553 "tcc1.tex" "tcc1.xdv" "tcc1" 1646768557
+["xelatex"] 1649982546 "tcc1.tex" "tcc1.xdv" "tcc1" 1649982549
   "/etc/texmf/web2c/texmf.cnf" 1646329094 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm" 1136768653 1528 f853c4d1b4e0550255e02831fdc8496f ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1246382020 916 f87d7c45f9c908e672703b83b72241a3 ""
+  "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam5.tfm" 1246382020 924 9904cf1d39e9767e7a3622f2a125a565 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam7.tfm" 1246382020 928 2dc8d444221b7a635bb58038579b861a ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm" 1246382020 908 2921f8a10601f252058503cc6570e581 ""
+  "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm" 1246382020 940 75ac932a52f80982a9f8ea75d03a34cf ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm" 1246382020 940 228d6584342e91276bf566bcf9716b83 ""
-  "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm" 1136768653 1524 4414a8315f39513458b80dfc63bff03a ""
+  "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi10.tfm" 1136768653 1528 abec98dbc43e172678c11b3b9031252a ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi6.tfm" 1136768653 1512 f21f83efb36853c0b70002322c1ab3ad ""
-  "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi8.tfm" 1136768653 1520 eccf95517727cb11801f4f1aee3a21b4 ""
+  "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi7.tfm" 1136768653 1528 e2423ae06dc7dee599cceb79d1c9dc32 ""
+  "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi9.tfm" 1136768653 1524 d89e2d087a9828407a196f428428ef4a ""
   "/usr/share/texlive/texmf-dist/tex/generic/atbegshi/atbegshi.sty" 1575674566 24708 5584a51a7101caf7e6bbf1fc27d8f7b1 ""
   "/usr/share/texlive/texmf-dist/tex/generic/babel-portuges/portuges.ldf" 1367878976 6605 2bd2937f1ce929b4a1367cc2d320364e ""
   "/usr/share/texlive/texmf-dist/tex/generic/babel/babel.def" 1581719732 87344 ec128793fb5196bbcc1741e5366ddac1 ""
@@ -178,7 +182,7 @@
   "/usr/share/texlive/texmf-dist/tex/latex/makecmds/makecmds.sty" 1252026102 2296 b097750ac8010251101d5bbe1da4d1be ""
   "/usr/share/texlive/texmf-dist/tex/latex/mathtools/mathtools.sty" 1579298046 55081 be7d8405cd93834f75bdf98c6521d2a0 ""
   "/usr/share/texlive/texmf-dist/tex/latex/mathtools/mhsetup.sty" 1496786006 5317 cf75154a8a7e6436f05a5be497f0b05e ""
-  "/usr/share/texlive/texmf-dist/tex/latex/memoir/mem12.clo" 1522962627 4116 5fe0c2a416d1cb22b81998676a52b199 ""
+  "/usr/share/texlive/texmf-dist/tex/latex/memoir/mem11.clo" 1522962627 4077 5d04a9cb96fd41142ce6975b19e59afd ""
   "/usr/share/texlive/texmf-dist/tex/latex/memoir/memhfixc.sty" 1573854034 11647 0886aa4d43ffbaa0dae601dd01a50eb1 ""
   "/usr/share/texlive/texmf-dist/tex/latex/memoir/memoir.cls" 1574372939 411547 8104fee2ab76e39ef47291c7befa0ac2 ""
   "/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype-xetex.def" 1574121697 14109 448fe4388dde5981289f9ae8c547a196 ""
@@ -214,6 +218,7 @@
   "/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty" 1580683321 10216 5efd55f2010055e7b7875afd6a75be82 ""
   "/usr/share/texlive/texmf-dist/tex/latex/tools/dcolumn.sty" 1580683321 2759 94d3a6c47039c68836a032f9cbf842a2 ""
   "/usr/share/texlive/texmf-dist/tex/latex/tools/delarray.sty" 1580683321 2158 bfd1b4b4fa014b1e798735877f027288 ""
+  "/usr/share/texlive/texmf-dist/tex/latex/tools/indentfirst.sty" 1580683321 1619 d4cd7231755dd1dfa89af8ceddfb0e4d ""
   "/usr/share/texlive/texmf-dist/tex/latex/tools/multicol.sty" 1580683321 31532 04852e45d7c17cb384689d2f83b628d3 ""
   "/usr/share/texlive/texmf-dist/tex/latex/tools/tabularx.sty" 1580683321 7148 4ba718200276533b3a293c311a9349e0 ""
   "/usr/share/texlive/texmf-dist/tex/latex/translator/translator-basic-dictionary-English.dict" 1512078926 3435 0a4d096dde3f8fe682c2aedd33b8137d ""
@@ -229,13 +234,14 @@
   "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1581979058 38841 ce3692aa899bb693b90b87eaa5d4d84e ""
   "/usr/share/texmf/web2c/texmf.cnf" 1581979058 38841 ce3692aa899bb693b90b87eaa5d4d84e ""
   "/var/lib/texmf/web2c/xetex/xelatex.fmt" 1646333763 4646619 c6405f388e3fb475c11f9efcd868231c ""
-  "tcc1.aux" 1646768556 3776 cb6cb25ee3b2ccc2d5bb408ca01db281 "xelatex"
-  "tcc1.bbl" 1646768550 466 f7f239c736cf01ac6ce7bd829f9b3c7b "biber tcc1"
-  "tcc1.run.xml" 1646768556 2510 e30308773f241d02bf0dbc41a0ce50c7 "xelatex"
-  "tcc1.tex" 1646768509 27474 fb2af29b615a2188a381d5facf920b02 ""
+  "comunicadorshannon.png" 1649368557 8323 7418ee9c6fca806b4e69797ac1d36901 ""
+  "tcc1.aux" 1649982549 9444 8811c678569dcda010ca3f6bc04cf939 "xelatex"
+  "tcc1.bbl" 1649981381 25210 1ec25c755bba153c5e27a60a8e0db9c4 "biber tcc1"
+  "tcc1.run.xml" 1649982549 2510 e30308773f241d02bf0dbc41a0ce50c7 "xelatex"
+  "tcc1.tex" 1649982506 40761 3ed89a5624ad07cec42c28ee80a6ddf5 ""
   (generated)
   "tcc1.aux"
-  "tcc1.log"
   "tcc1.run.xml"
-  "tcc1.bcf"
+  "tcc1.log"
   "tcc1.xdv"
+  "tcc1.bcf"

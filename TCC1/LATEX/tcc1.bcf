@@ -2263,6 +2263,44 @@
     <bcf:datasource type="file" datatype="bibtex">./tcc.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="0">
+    <bcf:citekey order="1">conceitoinformação</bcf:citekey>
+    <bcf:citekey order="2">conceitoinformação</bcf:citekey>
+    <bcf:citekey order="3">CiênciaTransiçãoSeculosa</bcf:citekey>
+    <bcf:citekey order="4">MTC</bcf:citekey>
+    <bcf:citekey order="5">MTC</bcf:citekey>
+    <bcf:citekey order="6">MTC</bcf:citekey>
+    <bcf:citekey order="7">MTC</bcf:citekey>
+    <bcf:citekey order="8">MTC</bcf:citekey>
+    <bcf:citekey order="9">mathematical</bcf:citekey>
+    <bcf:citekey order="10">MTC</bcf:citekey>
+    <bcf:citekey order="11">MTC</bcf:citekey>
+    <bcf:citekey order="12">eniac</bcf:citekey>
+    <bcf:citekey order="13">moore</bcf:citekey>
+    <bcf:citekey order="14">moore</bcf:citekey>
+    <bcf:citekey order="15">chipibm</bcf:citekey>
+    <bcf:citekey order="16">TeoQuanInfoEntreCopia</bcf:citekey>
+    <bcf:citekey order="17">CompInfoQuantica</bcf:citekey>
+    <bcf:citekey order="18">CompInfoQuantica</bcf:citekey>
+    <bcf:citekey order="19">dwave</bcf:citekey>
+    <bcf:citekey order="20">dwave</bcf:citekey>
+    <bcf:citekey order="21">materialdidaticomecquantica</bcf:citekey>
+    <bcf:citekey order="22">chuang</bcf:citekey>
+    <bcf:citekey order="23">materialdidaticomecquantica</bcf:citekey>
+    <bcf:citekey order="24">materialdidaticomecquantica</bcf:citekey>
+    <bcf:citekey order="25">materialdidaticomecquantica</bcf:citekey>
+    <bcf:citekey order="26">fonzar</bcf:citekey>
+    <bcf:citekey order="27">TeoQuanInfoEntreCopia</bcf:citekey>
+    <bcf:citekey order="28">materialdidaticomecquantica</bcf:citekey>
+    <bcf:citekey order="29">TeoQuanInfoEntreCopia</bcf:citekey>
+    <bcf:citekey order="30">TeoQuanInfoEntreCopia</bcf:citekey>
+    <bcf:citekey order="31">bennet</bcf:citekey>
+    <bcf:citekey order="32">bennet</bcf:citekey>
+    <bcf:citekey order="33">bennet</bcf:citekey>
+    <bcf:citekey order="34">experimentalqt</bcf:citekey>
+    <bcf:citekey order="35">zeilinger</bcf:citekey>
+    <bcf:citekey order="36">brassard1996teleportation</bcf:citekey>
+    <bcf:citekey order="37">materialdidaticomecquantica</bcf:citekey>
+    <bcf:citekey order="38">fonzar</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nty">

@@ -20,12 +20,14 @@
 %%% Baseado em template do Prof. James A. Souza
 %%%
 
-\documentclass[12pt,oneside,brazil,hidelinks,article,sumario=tradicional,a4paper]{abntex2}
+\documentclass[11pt,oneside,brazil,hidelinks,article,sumario=tradicional,a4paper]{abntex2}
 
 % Pacotes padrão da American Mathematical Society
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{mathtools}
+\usepackage{indentfirst}
+
 
 %%%
 %%% São usadas as fontes:
@@ -62,9 +64,10 @@
   BoldItalicFont = *-BoldOblique,
   Scale          = MatchLowercase
 ]
+
 \usepackage[math-style=TeX]{unicode-math}
-%\setmathfont{Asana-Math.otf}[Scale=MatchLowercase]
-%\setmathfont{STIXTwoMath-Regular.otf}[Scale=MatchLowercase]
+\setmathfont{Asana-Math.otf}[Scale=MatchLowercase]
+%\setmathfont{STIXTwoMath-Regular.pfb}[Scale=MatchLowercase]
 %\setmathfont{texgyredejavu-math.otf}[Scale=MatchLowercase]
 
 
@@ -192,22 +195,26 @@
 % \imprimirfolhaderosto
 
 \begin{resumo} % Resumo em PT-BR
-  O resumo é um mini projeto de pesquisa onde deve conter uma breve descrição de toda a proposta, desde a área de pesquisa, referencial teórico no caso de ensino, teoria, experimento, objetivos a serem alcançados, metodologia e resultados esperados. Este deve indicar quais questões vocês (aluno e orientador), como pesquisadores, pretendem responder, permitindo ao leitor acessar rapidamente a ideia básica e os objetivos de sua proposta. O resumo deve ser escrito em um único parágrafo sem espaçamento no início, como nesse exemplo.
+%  O resumo é um mini projeto de pesquisa onde deve conter uma breve descrição de toda a proposta, desde a área de pesquisa, referencial teórico no caso de ensino, teoria, experimento, objetivos a serem alcançados, metodologia e resultados esperados. Este deve indicar quais questões vocês (aluno e orientador), como pesquisadores, pretendem responder, permitindo ao leitor acessar rapidamente a ideia básica e os objetivos de sua proposta. O resumo deve ser escrito em um único parágrafo sem espaçamento no início, como nesse exemplo.
   \vspace{\onelineskip}
 
   \noindent
-  \textbf{Palavras-chave}: são aquelas que mais aparecem no texto especificando o fenômeno em estudo, a área de concentração, alguma técnica específica, etc. Pelo menos três palavras e no máximo cinco, separadas por ponto (Palavra 1. Palavra 2. Palavra 3).
+%  \textbf{Palavras-chave}: são aquelas que mais aparecem no texto especificando o fenômeno em estudo, a área de concentração, alguma técnica específica, etc. Pelo menos três palavras e no máximo cinco, separadas por ponto (Palavra 1. Palavra 2. Palavra 3).
 \end{resumo}
+\newpage
+
 
 \begin{resumo}[Abstract] % Resumo em EN
   \begin{otherlanguage*}{english}
-    Same as above, but in English.
+ %   Same as above, but in English.
     \vspace{\onelineskip}
 
     \noindent
-    \textbf{Keywords}: Word 1. Word 2. Word 3.
+%    \textbf{Keywords}: Word 1. Word 2. Word 3.
   \end{otherlanguage*}
 \end{resumo}
+\newpage
+
 
 %%% Caso já seja um trabalho final
 % \listoffigures*
@@ -230,46 +237,113 @@
 %%%
 \section{Introdução}\label{sec:intro}
 
-Na atualidade, a presença de computadores em nossa rotina é cada vez mais corriqueira, visto que, desde efetivamente nossos computadores, até nossos eletrodomésticos possuem cada vez mais a capacidade de processamento de informação.
 
-Desde a proposição da Máquina de Turing, em 1936, onde o mesmo apresenta um aparato lógico para o processamento de informação e ainda define as unidades conhecidas como bits (binary digit), até os computadores mais modernos, a maneira de se processar a informação é basicamente a mesma. A ideia central de um computador, e aqui vamos classificá-lo como clássico, consiste em realizar operações lógicas de combinações de bits cujos valores podem ser 0 (zero) ou 1 (um), é assim que o computador que escrevo esse trabalho consegue traduzir e apresentar o que digito no teclado na tela do mesmo. 
+Segundo \textcite{conceitoinformação}, o conceito de informação cotidianamente possui seu significado atribuído como \textit{conhecimento comunicado}. Nesse sentido, a informação já existia nas pinturas rupestres, ou seja, cerca de 45,5 mil anos atrás, nas quais estão registradas uma série de imagens no intuito de comunicar, seja um evento ou ainda uma quantidade. 
+Apesar do conceito de informação aparecer desde os primórdios do estabelecimento da humanidade, é apenas na década de 1940 que a mesma passa a ser objeto de estudo com os trabalhos de Claude Elwood Shannon (1916-2001), onde o mesmo desenvolve uma teoria matemática para a informação \cite{CiênciaTransiçãoSeculosa} .
 
-É fato que, ao longo dos anos, a velocidade com que as operações são realizadas em um computador aumentou devido ao aperfeiçoamento das unidades de processamento (processadores/microprocessadores), o que trouxe por consequência o aumento das possibilidades de resolução de problemas utilizando a programação.(1)
+O objetivo principal da Teoria da Comunicação de Shannon ou Teoria Matemática da Comunicação (TMC), consistiu em sistematizar o conhecimento, até então, acerca da compreensão da eficiência em sistemas de comunicação. Tal teoria, descreve o funcionamento lógico-matemático de um destes sitemas composto por um gerador de informação, um meio de transmissão e um receptor, conforme Figura~\ref{comunicshannon} \cite{MTC}.
 
-Em linhas gerais, portanto, um computador clássico utiliza um sistema binário, cuja unidade representativa é o bit, para decodificar e processar a informação. Esse processo porém, possui um limite físico, associado a quantidade de bits processados e a velocidade para execução de determinadas tarefas. Esse limite que excede a capacidade de processadores clássicos se encontra principalmente nos estudos de fronteira das ciências da natureza.(2)
+\begin{figure}[ht!]
+ \centering
+ \caption{Esquema geral de um sistema de comunicação com a Fonte de Informação (\textit{Information Source}) criando uma Mensagem (\textit{Message}) a ser transmitida pelo Transmissor (\textit{Transmiter}) transformando a mesma em um Sinal (\textit{Signal}). Na transmissão pode haver uma fonte de ruído (\textit{Noise Source}). O sinal é recebido (\textit{Received Signal}) pelo Receptor (\textit{Receiver}) e finalmente a mensagem chega ao seu destino (\textit{Destination}).}\label{comunicshannon}
+\includegraphics[width=0.65\textwidth]{comunicadorshannon.png}  
+\fonte{\textcite[p. 380]{MTC}.}
+\end{figure}
 
-Uma proposta para a resolução desse limite foi apresentada por Richard P. Feymann na década de 1980, de maneira a apenas apresentar uma hipótese: Seria possível a construção de um dispositivo de processamento que se baseasse no modo que a natureza se expressa em sua essência? A resposta para essa pergunta, surgiu anos depois com a criação do computador de arquitetura quântica.(3)
+De acordo com  a TMC, um Gerador de informação é um objeto capaz de produzir um conjunto $X$ de $n$ eventos com probabilidade de ocorrencia $P(X)$ e um Receptor possui portanto um conjunto $Y$ de mesmo valor $n$ de eventos, com probabilidades associadas de $P(Y)$. Durante a transmissão, é possível que parte da informação seja perdida, devido a ocorrencia de ruídos na transmissão e isso resulta diretamente, na modificação dos valores de probabilidade dos elementos recebidos do conjunto $Y$. Reconhecendo portanto os elementos de $X$ e suas probabilidades associadas, espera-se que uma mensagem bem transmitida, ou seja, sem interferência de ruídos, seja aquela cujo as probabilidades dos elementos do conjunto $Y$ sejam as mesmas dos conjunto de elementos de $X$ portanto, se essas probabilidades forem distintas, podemos concluir que houve perda de informação na transmissão \cite{mathematical}.
 
-Para compreender melhor como este funciona, vale ressaltar alguns tópicos que descrevem a teoria em que esses dispositivos se baseiam, a Mecânica Quântica.
+De maneira geral, a informação é quantificada de acordo com os recursos físicos necessários para que a mesma seja representada, ou seja, na capacidade de armazenamento, comunicação e representação de um conjunto $X$ de possíveis informações. Em um computador, por exemplo, armazenamos nossa informação através das unidades binárias chamadas \textit{bits} \footnote{Nome proposto, segundo o artigo original de Shannon por J.W. Turkey \cite{MTC}.} Os \textit{bits} são portanto a menor unidade de armazenamento de informação em um computador de arquitetura clássica, podendo representar o estado 1 ou o estado 0 \cite{MTC}.
 
-%PARAGRAFO SOBRE MECÂNICA QUÂNTICA E ARQUITETURA QUÂNTICA (QUBITS) (PROVAVELMENTE BASEADO NO LIVRO DO MARKOV)(griffths)
+A combinação desses \textit{bits}, faz com que uma mensagem possa ser armazenada, processada ou transmitida em um computador clássico. Nesse sentido, quão maior, ou ainda, quão mais complexa for a mensagem a se operar, mais \textit{bits} serão necessários e consequentemente mais recursos físicos para a representação destes. Com a evolução dos computadores e consequentemente a necessidade de um maior número de \textit{bits} a se operar, ocorreu um processo de miniaturização do hardware, nesse caso, do dispositivo transistor.
+Com transistores cada vez menores, menos espaço físico era necessário para operar a informação e cada vez mais informação foi capaz de ser operada simultâneamente. Basta recordar que o tamanho de um smartphone é razoávelmente menor do que a primeira unidade de computador eletrônico criado, o ENIAC que ocupava o espaço de 180 metros quadrados \cite{eniac}.
 
-Utilizando desses postulados, temos uma sequência de estudos que culmina na efetiva consolidação do computador quântico a se destacar:
+Porém, um limite de processamento devido ao número de transistores necessários limitados em um pequeno espaço versus a dissipação de calor dos mesmos, o que corrompe a informação, foi estabelecido em 1965 por Gordon E. Moore, a chamada ''Lei de Moore''. Nela, \textcite{moore} determina que o número de transistores de um computador dobraria a cada dois anos sem que seu valor fosse alterado. Esse limite foi brevemente superado por novas tecnologias de materiais \footnote{A empresa IBM, produziu em 2014 um nanochip de silício de 7 nm e em 2015 anunciou a produção de chips de processamento com nanotubos de carbono de tamanho 1,8nm \cite{chipibm}.}porém, deixou evidente a necessidade de expandir a capacidade de processamento dos sistemas atuais, visto que, a tendência de crescimento na quantidade de informação processada é cada vez mais urgente.
+
+Em 1981, o físico Richard Feynman, em um de seus seminários, sugere que os conceitos de Mecânica Quântica fossem aplicados à computação para que a informação pudesse ser operada de maneira mais rápida e em maior quantidade \cite{TeoQuanInfoEntreCopia}. 
+
+A Mecânica Quântica é o ramo da física que surge na virada do século XX a partir de uma série de experimentos que não puderam ser explicados classicamente. As hipoteses produzidas por nomes como Planck, Eistein, Bohr e De Broglie e posteriormente aperfeiçoadas por Schrödinger, Heisenberg e Dirac, descrevem uma nova área na física. Para o desenvolvimento de um computador de arquitetura quântica, destacamos a importância do Princípio da Superposição de Estados.
+
+O Princípio da Superposição de Estados determina que um estado de um sistema físico é composto por todas as informações possíveis de serem estraídas do mesmo em uma medição. Disso ocorre que um estado possui definição probabilística a partir de todos as possibilidades de ocupação do mesmo. Tais estados são representados por um vetor do espaço complexo de Hilbert $H$, chamados também, pela notação de Dirac, de \textit{kets} e representados por $|\psi>$.
+
+Nesse sentido, unindo a teoria quântica às necessidades de aumento no processamento de informação, surge uma nova área de estudo, a Computação Quântica. Segundo \textcite{CompInfoQuantica} e \textcite{dwave}, a devida construção de um Computador de arquitetura quântica foi precedida pelos eventos descritos a seguir:
+
 \begin{itemize}
-    \item  David Deustch (1985), propõe matematicamente o primeiro computador quântico universal, conhecido também com Maquina de Turing Quântica.%(VER SE VALE A PENA EXPLICAR UM POUCO MAIS SOBRE ELA, TALVEZ EM COMPARAÇÃO COM A CLÁSSICA, TALVEZ SEJA ALGO PARA O TCC EM SÍ); se for bem resumido ok!
-    
-    \item  Peter Shor (1994), criou o primeiro programa essencialmente quântico, ou seja, ele não poderia ser executado em um computador clássico. Este programa, conhecido como Algoritmo de Shor reduziria o tempo de fatoração de números grandes de possíveis meses para apenas segundos caso fosse utilizado em um computador de arquitetura quântica.
-    
-    \item  Em 1999 o MIT apresenta o primeiro protótipo de um computador quântico real % (BUSCAR MAIS INFORMAÇÕES SOBRE)
-    
-    \item  E empresa D-Wave apresenta, em 2007, o primeiro computador essencialmente quântico.
+\item  David Deustch em 1985, propõe matematicamente o primeiro computador quântico universal;
+\item Peter Shor em 1994, criou o primeiro programa essencialmente quântico, ou seja, ele não poderia ser executado em um computador clássico. Este programa, conhecido como Algoritmo de Shor reduziria o tempo de fatoração de números grandes de possíveis meses para apenas segundos caso fosse utilizado em um computador de arquitetura quântica;
+\item Em 1999 o MIT apresenta o primeiro protótipo de um computador quântico real;
+\item A empresa D-Wave apresenta, em 2007, o primeiro computador essencialmente quântico;
 \end{itemize}
- 
-Com a efetiva construção física de um computador de arquitetura quântica, as possibilidades para resolução de problemas ainda não estavam totalmente definidas. Isso porque, os primeiros processadores quânticos conseguiam utilizar apenas uma quantidade muito pequena de qubits emaranhados, o que, apesar de útil, apenas reduz o tempo de resposta de um programa, deixando alguns problemas mais complexos, ainda sem solução.
 
-A evolução da Computação Quântica consiste, portanto, em não apenas aumentar o número desses qubits processados simultaneamente, mas no aumento da qualidade dos mesmos no processamento da informação.
 
-%PARAGRAFO SOBRE AS PROMESSAS DA IBM, GOOGLE E MICROSOFT SOBRE QUANTIDADE DE QUBITS SIMULTÂNEOS
-De modo a aprimorar as relações de qubits e se preparar para as possibilidades apresentadas pelas empresas acima, a utilização de simulações para o estudo de temas de Computação Quântica é cada vez mais necessário. Uma simulação é essencialmente diferente da realidade, mas tenta, o melhor possível, se aproximar desta o que se torna útil na previsão de possíveis problemas na evolução de sistemas quânticos.
+A descrição da arquitetura de um computador quântico, esbarra no mesmo princípio de um computador clássico, ou seja, em sua unidade fundamental de armazenamento de informação. De maneira análoga ao computador clássico que utiliza como unidade de informação o \textit{bit}, o computador quântico utilizará o \textit{qubit}(ou q-bit, ou ainda, quantum bit). 
 
-%PARÁGRAFO SOBRE O FUNCIONAMENTO DE UMA SIMULAÇÃO QUÂNTICA
-Algumas áreas exploram com afinco as possibilidades da simulação quântica, mesmo que em computadores de arquitetura clássica, para prever demandas de quando esta tecnologia avançar o bastante tornando possível, por exemplo, a transmissão de informação utilizando propriedades quânticas, o que é chamado de Teoria da Informação Quântica.
+Um bit quântico, que nesse trabalho chamaremos de \textit{qubit} pode ser produzido de maneiras distintas \footnote{Podemos criar fisicamente \textit{qubits} utilizando por exemplo, spins de átomos presos em uma armadilha. Tal armadilha pode ser do tipo óptica ou até mesmo magnética. É possível também polarizar fótons para a obtenção destes. A determinação do método é definida principalmente pelo mecanismo que melhor conseguir isolar o \textit{qubit}, já que este é facilmente influenciado pelo ambiente externo \cite{materialdidaticomecquantica}.}, porém nosso foco de estudo está nas suas propriedades. Um \textit{qubit} é uma unidade com propriedades quânticas que atua sob o regime de superposição de estados. Isso significa que este consegue armazenar simultâneamente mais de um estado de informação, diferente do bit clássico que armazena apenas um dos estados por vez. Decorre desta propriedade a maior capacidade de operar a informação em comparação aos mecanismos clássicos segundo apresentado na tabela \ref{tabelabit}.
 
-%PARAGRAFO SOBRE A TEORIA DA INFORMAÇÃO QUÂNTICA
-Uma situação onde a teoria da informação e a mecânica quântica se unem é no fenômeno de teletransporte quântico.
-%PARÁGRAFO SOBRE TELETRANSPORTE QUÂNTICO (EXPERIMENTO DA ALICE E DO BOB), PROBLEMAS POSSÍVEIS NO PROCESSO (BREVE DESCRIÇÃO DO QUE É UM RUÍDO E DA CORRELAÇÃO DO APERFEIÇOAMENTO DAS MAQUINAS QUÂNTICAS EM NÃO APENAS NÚMERO DE QUBITS MAS NA QUALIDADE DESTES)
+\begin{table}[ht!]
+\centering
+\vspace{0.5cm}
+\begin{center}
+\caption{Comparação entre a quantidade de bits clássicos e quânticos para se operar a informação}\label{tabelabit}
+\begin{tabular}{c|c|c}
+\hline
+Quantidade de informação & Quantidade de bits clássicos & Quantidade de qubits\\
+\hline
+1 byte & 8 bits & 3 qubits\\
+1 Megabyte & $8,3 x 10^{6}$ bits & 23 qubits\\
+1 Terabyte & $8,8 x 10^{12}$ bits & 43 qubits \\
+\hline
+\end{tabular}
+\fonte{Elaborada pelo autor.}
+\end{center} 
+\end{table}
 
-Diante do apresentado, a proposta de estudo deste trabalho consiste na elaboração de uma simulação, em um computador de arquitetura clássica, do fenômeno de teletransporte quântico para o estudo da transmissão de informação no mesmo.
+De modo a generalizar a comparação entre bits classicos e quânticos, podemos estabelecer a relação:
+\begin{equation} \label{bitvsqubit}
+n \ qubits = 2^{n}  \ bits
+\end{equation}
+
+Portanto, podemos concluir que menos \textit{qubits} são necessários para operar a informação, em comparação ao bit clássico, o que está diretamente relacionado a velocidade e capacidade de realização da mesma.
+
+A descrição de um \textit{qubit} consiste em uma combinação linear de dois possíveis estados quânticos $|0>$ e $|1>$ de modo que:
+
+\begin{equation} \label{comblinearqubit}
+ |\psi> = \alpha \ |0> + \ \beta \ |1>, \; \; \; com \ \alpha^{2} + \beta^{2} = 1,
+\end{equation}
+
+sendo $\alpha$ e $\beta$ as amplitudes probabilisticas dos estados quânticos $|0>$ e $|1>$.
+
+É interessante observar que, apesar de \textit{qubits} conseguirem armazenar mais informação devido à superposição de estados, a obtenção direta da mesma é impossível visto que, diferente da mecânica clássica onde podemos observar se um bit se encontra em um estado 0 ou um estado 1, em situações quânticas, a observação faz com que o sistema colapse. Portanto, o foco de aproveitamento de um \textit{qubit} está em conseguir transferir a informação que o mesmo armazena, sem que uma medida seja realizada diretamente nesta unidade quântica \cite{chuang}.
+
+Apesar dessa aparente dificuldade em se obter a informação quântica, existem alguns mecanismos que facilitam e possibilitam a obtenção desta. Segundo \textcite{materialdidaticomecquantica},para a compreensão destes serão necessários estabelecer alguns teoremas que regem a informação quântica, são eles:
+
+\begin{itemize}
+\item É impossível clonar um estado quântico, ou seja, qualquer dispositivo que receba um estado quântico como entrada, será incapaz de reproduzir como saída exatamente o mesmo estado quântico. Este teorema é conhecido como Teorema da não-clonagem.
+\item Não é possível obter um estado quântico desconhecido de um sistema único e individual realizando uma medição sobre este, independente do tipo e/ou sequência de medições que se realize.
+\end{itemize}
+
+Nos teoremas descritos, parece ser improvável a proposta de que a informação quântica se sobressaia em relação a clássica, mas são exatamente devido a eles e a mecanismos provenientes destes que a informação quântica se torna tão promissora. Os mecanismos que estudaremos nesse trabalho são o Emaranhamento (ou Entrelaçamento) Quântico e o Teletransporte Quântico.
+
+O Emaranhamento quântico é uma consequência quântica proveniente da superposição de estados de elementos dessa natureza. Vale ressaltar que objetos e fenômenos quânticos, nem sempre possuem o análogo clássico, como o caso de spins. Nesse fenômeno duas particulas interagem de modo que, o estado quântico de uma destas não pode ser mais descrito sem o da outra. Isso faz com que, mesmo que as partículas estejam distantes uma da outra, elas continuam a compartilhar os estados quânticos. Isso faz com que seja possível, conhecendo algumas propriedades de uma das partículas, a exemplo a posição, é possível determinar esta mesma característica da outra partícula. A determinação das propriedades de uma das partículas culmina na instantânea definição na segunda, pois elas compartilham o mesmo estado quântico, o que nos leva a utilização do Emaranhamento para a realização do Teletransporte Quântico \cites{materialdidaticomecquantica}{fonzar}{TeoQuanInfoEntreCopia}.
+
+O Teletransporte Quântico consiste em uma série de operações realizadas por intermédio de um circuito de natureza quântica que pretende enviar uma mensagem de um ponto A até um ponto B. Para a realização desse procedimento, dependemos essencialmente de, ao menos, três \textit{qubits}. Para introduzir ao leitor o conceito, iremos nos apropriar de uma história hipotética a título de esclarecer a ideia principal do fenômeno. Imagine por um instante que você deseja mandar uma fotografia para alguém que não vê há muito tempo. Existem essencialmente duas maneiras de realizar o envio, você pode enviar a foto pelo correio e aguardar que essa pessoa receba. Esse processo poderia ser chamado de Transporte de informação, ou ainda, você poderia criar um arquivo digital com informações sobre a fotografia, de maneira que a pessoa que recebe o arquivo, possa de alguma maneira recriar a foto, nesse segundo caso, a foto seria teletransportada \cite{materialdidaticomecquantica}.
+
+Trazendo a situação descrita para o universo quântico, o teletransporte de estados quanticos consiste em uma série de operações que possibilitam descrever no ponto B um estado existente no ponto A. A princípio, devido ao teorema da não-clonagem \footnote{A informação clássica pode ser facilmente reproduzida, basta recordar que um livro pode ser impresso com a tiragem de exemplares que desejar. Já a informação quântica não é plausível de reprodução direta. Algumas provas matemáticas desta impossibilidade estão apresentadas em \textcite{TeoQuanInfoEntreCopia}.}, seria impossível 'clonar' um \textit{qubit}, ou seja, teletransportar a informação de modo semelhante ao que ocorre com um canal clássico. Porém, segundo \textcite{bennet}, é possível contornar o problema utilizando um canal de informação clássico, semelhante ao apresentado por Shannon na TMC, porém utilizando como emissor-receptor um par de partículas emaranhadas quanticamente.
+
+Na literatura, encontram-se as mais diversas explicações sobre como funciona o teletransporte quântico \cites{bennet}{experimentalqt}{zeilinger}{brassard1996teleportation}{materialdidaticomecquantica} e na maioria dos casos, os leitores são introduzidos a dois personagens Alice e Bob.
+Na história, os cientistas Alice e Bob estão localizados em dois laboratórios distintos, cada um deles possui um \textit{qubit}, $q_{A}$ e $q_{B}$ e estes estão emaranhados, produzindo um estado quântico emaranhado denominado de $|\psi_{AB}>$. A Alice, precisa enviar uma mensagem urgente ao Bob utilizando um outro \textit{qubit}, $q_{C}$. Portanto no inicio do processo de teletransporte, a Alice possui dois \textit{qubits}, o que ela deseja enviar e o que possui o estado quântico emaranhado com o \textit{qubit} do Bob.
+Alice então, realiza uma série de operações entre seus \textit{qubits} e, como um deles está emaranhado com o \textit{qubit} de Bob, este saberá que algo está mudando. Para continuar o processo de teletransporte, Alice faz uma medição em seus \textit{qubits}, colapsando-os e envia, via canal clássico, a informação dos \textit{qubits} colapsados para Bob. Este por sua vez, por saber qual era o estado inicial de $q_{A}$, devido ao emaranhamento, conseque reconstruir a mensagem presente originalmente no \textit{qubit} $q_{C}$ enviado por Alice. Portanto, a mensagem é reconstruida e não clonada, não violando os princípio da não-clonagem, citado anteriormente. A não clonagem fica explicitada no momento em que a medida é realizada em $q_{A}$ e $q_{C}$, colapsando-os, de modo que existe apenas uma cópia do estado de $q_{C}$ dado por $|\psi_{C}>$. 
+
+O teletransporte quântico possui algumas questões a se salientar. A primeira delas é que, de fato, este é um método de transmissão de informação extremamente seguro, visto que, se o receptor não tiver o \textit{qubit} emaranhado com o do emissor, a mensagem não poderá ser recuperada, além do fato de que a informação original é destruída na transmissão da mensagem. Disso decorre imediatamente a segunda questão, a informação pode, eventualmente, sofrer interferência de ruídos externos durante o envio da mensagem e por não possuir mais a mensagem original, esta pode ser perdida.
+
+Portanto, o estudo dos possíveis ruídos que possam interferir no teletransporte, assim como na transmissão clássica, faz com que, mesmo que estes ocorram, seja possível recuperar a informação ao final do processo, corrigindo tais erros. Existem os mais diversos tipos de ruídos aos quais a mensagem pode ser exposta, o que torna praticamente impossível prever quais deles efetivamente ocorreram ao recuperar uma mensagem, porém, o estudo de ruídos familiares torna possível o reconhecimento destes tonrnado mais provável a recuperação da informação enviada \cite{fonzar}.
+
+A construção do sistema de teletransporte quântico demanda de um circuito onde operam as chamadas portas lógicas quânticas e portanto, a realização experimental de um teletransporte quântico demanda efetivamente de um computador de arquitetura quântica para que as operações ocorram sob os \textit{qubits}. Apesar de já existirem computadores quânticos, ainda é necessário estudos acerca do mesmo para que cada vez mais, a qualidade dos \textit{qubits} seja melhorada. Porém, devido aos recursos de simulação, podemos utilizar um computador de arquitetura clássica para simular tanto um \textit{qubit} quanto os circuitos lógicos necessários para a realização do teletransporte quântico, a título do estudo, por exemplo, dos efeitos de ruídos na transmissão da informação quântica conforme propomos nesse trabalho.
+
+
+
+
+\newpage
+
 
 %\begin{citacao}
  % \color{red}
@@ -278,7 +352,7 @@ Diante do apresentado, a proposta de estudo deste trabalho consiste na elaboraç
 
 %{\color{red}Nas citações indiretas não são colocadas ``\emph{aspas}'' e nem o número da página \cite{Collobert2011}.}
 
-Evitem o uso de citações diretas para o caso de definições de conceitos físicos, técnicas experimentais ou mesmo para opiniões de outros autores. Na maioria das vezes não é necessário fazer esse tipo de citações. Dê preferência para as citações indiretas. Leiam o texto referido até vocês entenderem e poderem expressar as ideias e conceitos por trás dos mesmos com as próprias palavras. Com isso vocês evitam que o texto de vocês seja composto por vários recortes de dizeres de outros autores. A citação direta é usualmente utilizada quando queremos expressar exatamente o que o autor citado escreveu.
+%Evitem o uso de citações diretas para o caso de definições de conceitos físicos, técnicas experimentais ou mesmo para opiniões de outros autores. Na maioria das vezes não é necessário fazer esse tipo de citações. Dê preferência para as citações indiretas. Leiam o texto referido até vocês entenderem e poderem expressar as ideias e conceitos por trás dos mesmos com as próprias palavras. Com isso vocês evitam que o texto de vocês seja composto por vários recortes de dizeres de outros autores. A citação direta é usualmente utilizada quando queremos expressar exatamente o que o autor citado escreveu.
 
 %No caso de ser necessário fazer uma citação indireta, como uma citação de uma citação, utilizem a palavra latina ``\emph{apud}'', cujo significado é ``\emph{junto a, perto de, em}'', mas que no contexto científico e acadêmico é utilizado como sinônimo de ``\emph{citado por}''. Especificamente, quando você utilizar o apud significa que você está citando a obra de um autor que você não leu, mas que foi citada na obra de outro autor cuja obra você leu e estudou. Isso ocorre comumente quando livros muito antigos e que não estão disponíveis em formato eletrônico ou mesmo impresso são citados. Isso pode ocorrer também quando vocês não têm acesso à revista (acesso pago) em que o artigo original foi publicado. Veja o exemplo:
 
@@ -303,11 +377,13 @@ O objetivo principal deste trabalho consiste em realizar um estudo acerca dos ef
 \item Definir o conceito de Teletransporte Quântico;
 \item Delinear as situações onde o fenômeno é utilizado;
 \item Elencar os tipos de ruídos que podem interferir na transmissão de informação durante o fenômeno;
+\item Construir a simulação de comportamento de um \textit{qubit};
 \item Estruturar as portas lógicas quânticas a serem simuladas para o presente estudo;
 \item Estabelecer uma sequência de testes com os algoritmos de ruído;
+\item Comparar os resultados obtidos na simulação desenvolvida com os resultados provenientes de simuladores em computadores de arquitetura quântica como o IBM Quantum e o Azure Quantum.
 \end{enumerate} 
 
-\subsection{Nome do tópico 1}\label{obj1}
+%\subsection{Nome do tópico 1}\label{obj1}
 
 %Descreva a importância do tópico 1 para a execução do seu projeto de pesquisa \cites{vene2008}{Collobert2011}{braess2007}.
 
@@ -327,7 +403,7 @@ O objetivo principal deste trabalho consiste em realizar um estudo acerca dos ef
 %%%
 \section{Metodologia}
 
-Descreva sua proposta metodológica de maneira detalhada seja ela experimental, através de técnicas específicas, ou teórica, desenvolvida matematicamente através de modelos analíticos ou simulações computacionais. Quais processos ou materiais vocês pretendem utilizar? Que tipos de equipamentos serão necessários?
+%Descreva sua proposta metodológica de maneira detalhada seja ela experimental, através de técnicas específicas, ou teórica, desenvolvida matematicamente através de modelos analíticos ou simulações computacionais. Quais processos ou materiais vocês pretendem utilizar? Que tipos de equipamentos serão necessários?
 
 %\noindent
 %\textbf{\color{red}IMPORTANTE:} Se for necessário na apresentação de quaisquer tópicos listados acima o uso de figuras para melhorar o entendimento da mesma, siga o exemplo da Figura~\ref{fig1} abaixo. Lembrando que não existe um padrão geral para isso. Seguiremos as normas da ABNT para o projeto. Siga a formatação dos exemplos abaixo.
@@ -352,21 +428,21 @@ Descreva sua proposta metodológica de maneira detalhada seja ela experimental, 
 
 %\textcolor{red}{\textbf{Observação:} As figuras, tabelas, ilustrações, etc., devem estar juntas com suas legendas e suas fontes na mesma página. A figura não pode ficar em uma página e sua legenda ou fonte em outra.}
 
-Se for necessário incluir alguma foto tirada por vocês mesmos ou uma foto retirada da internet siga o exemplo da Figura~\ref{fig3}.
+%Se for necessário incluir alguma foto tirada por vocês mesmos ou uma foto retirada da internet siga o exemplo da Figura~\ref{fig3}.
 
-Quando for necessário discutir ou apresentar equações em qualquer seção do projeto, estas devem ser numeradas e citadas no texto de acordo com o número. Veja o exemplo abaixo:
+%Quando for necessário discutir ou apresentar equações em qualquer seção do projeto, estas devem ser numeradas e citadas no texto de acordo com o número. Veja o exemplo abaixo:
 
-O período de oscilação \(T\) de um pêndulo simples pode ser calculado através da seguinte expressão:
+%O período de oscilação \(T\) de um pêndulo simples pode ser calculado através da seguinte expressão:
 
-\begin{equation}\label{periodo}
-    T = 2 \pi \sqrt{\dfrac{l}{g}},
-\end{equation}
-sendo $l$ o comprimento do fio que sustenta a massa $m$ do pêndulo e $g$ a aceleração da gravidade.
+%\begin{equation}\label{periodo}
+%    T = 2 \pi \sqrt{\dfrac{l}{g}},
+%\end{equation}
+%sendo $l$ o comprimento do fio que sustenta a massa $m$ do pêndulo e $g$ a aceleração da gravidade.
 
-\noindent
-{\textbf{\color{red}IMPORTANTE:} Todos os parâmetros das equações devem ser explicados no texto, como neste exemplo.}
+%\noindent
+%{\textbf{\color{red}IMPORTANTE:} Todos os parâmetros das equações devem ser explicados no texto, como neste exemplo.}
 
-Se o comprimento $l$ do fio for dado podemos utilizar a Equação~\eqref{periodo} ({\color{red}citar as equações no texto desta forma}) para determinar a aceleração da gravidade através da medida do período de oscilação do pêndulo.
+%Se o comprimento $l$ do fio for dado podemos utilizar a Equação~\eqref{periodo} ({\color{red}citar as equações no texto desta forma}) para determinar a aceleração da gravidade através da medida do período de oscilação do pêndulo.
 
 %\begin{figure}[ht!]
 %  \centering
@@ -381,46 +457,46 @@ Se o comprimento $l$ do fio for dado podemos utilizar a Equação~\eqref{periodo
 %%%
 \section{Cronograma de Atividades}
 
-Este tópico é importante para vocês mostrarem aos assessores que avaliarão o projeto, ou no caso para o professor-orientador da disciplina de TCC 1, como vocês pretendem executar a proposta diante do prazo disponível ou determinado. Listem as tarefas que serão executadas em determinado período como pesquisa bibliográfica, busca de materiais para realização do experimento, montagem ou construção do experimento, análise dos resultados obtidos, etc. Esta pode ser feita através de uma tabela. Se caso for necessário incluir outras tabelas na proposta de pesquisa siga o modelo da Tabela~\ref{tabela1} abaixo.
+%Este tópico é importante para vocês mostrarem aos assessores que avaliarão o projeto, ou no caso para o professor-orientador da disciplina de TCC 1, como vocês pretendem executar a proposta diante do prazo disponível ou determinado. Listem as tarefas que serão executadas em determinado período como pesquisa bibliográfica, busca de materiais para realização do experimento, montagem ou construção do experimento, análise dos resultados obtidos, etc. Esta pode ser feita através de uma tabela. Se caso for necessário incluir outras tabelas na proposta de pesquisa siga o modelo da Tabela~\ref{tabela1} abaixo.
 
-\begin{table}[ht!]
-  \centering
-  \caption{Cronograma tentativo de atividades.}\label{tabela1}
-  \begin{tabular}{cc}
-    \toprule
-    \textbf{\emph{Período}} & \textbf{\emph{Atividades}}\\
-    \midrule
-    3 primeiros meses      & Aquisição de materiais para a realização do experimento;        \\
-    2º semestre de 2021    & Montagem e testes do experimento;                               \\
-    E assim por diante ... & O período pode ser especificado em semanas, meses ou semestres. \\
-    \bottomrule
-  \end{tabular}
-  \fonte{Elaborada pelo autor.}
-\end{table}
+%\begin{table}[ht!]
+%  \centering
+%  \caption{Cronograma tentativo de atividades.}\label{tabela1}
+%  \begin{tabular}{cc}
+%    \toprule
+%    \textbf{\emph{Período}} & \textbf{\emph{Atividades}}\\
+%    \midrule
+%    3 primeiros meses      & Aquisição de materiais para a realização do experimento;        \\
+%    2º semestre de 2021    & Montagem e testes do experimento;                               %\\
+%    E assim por diante ... & O período pode ser especificado em semanas, meses ou semestres. \\
+%    \bottomrule
+%  \end{tabular}
+%  \fonte{Elaborada pelo autor.}
+%\end{table}
 
-É importante que o cronograma tentativo apresente de maneira clara o início das atividades, sua execução e a finalização das mesmas, com uma previsão de discussão dos resultados para a escrita da monografia final e a defesa do TCC.
+%É importante que o cronograma tentativo apresente de maneira clara o início das atividades, sua execução e a finalização das mesmas, com uma previsão de discussão dos resultados para a escrita da monografia final e a defesa do TCC.
 
-\begin{table}[ht!]
-  \begin{center}
-    \caption{Cronograma de desenvolvimento do projeto. Cada linha corresponde
-      a um objetivo específico da Seção~\ref{sec:objs}. Cada coluna
-      corresponde a um mês.}\label{tab:cronog}
-    \begin{ganttchart}[hgrid,
-                      vgrid,
-                      bar/.append style={fill=blue!10,draw=blue},
-                      bar top shift=0.1,
-                      bar height=0.8,
-                      x unit=20mm,
-                      y unit chart=6mm]{1}{6}
-      \gantttitle{Meses}{6} \\
-      \gantttitlelist{1,...,6}{1} \\
-      \ganttbar{Seção~\ref{obj1}}{1}{2} \\
-      \ganttbar{Seção~\ref{obj2}}{2}{3} \ganttbar{}{5}{6} \\
-      \ganttbar{Seção~\ref{obj3}}{4}{6} \\
-    \end{ganttchart}
-    \fonte{Elaborada pelo autor.}
-  \end{center}
-\end{table}
+%\begin{table}[ht!]
+%  \begin{center}
+%    \caption{Cronograma de desenvolvimento do projeto. Cada linha corresponde
+%      a um objetivo específico da Seção~\ref{sec:objs}. Cada coluna
+%      corresponde a um mês.}\label{tab:cronog}
+%    \begin{ganttchart}[hgrid,
+%                      vgrid,
+%                      bar/.append style={fill=blue!10,draw=blue},
+%                      bar top shift=0.1,
+%                     bar height=0.8,
+%                      x unit=20mm,
+%                      y unit chart=6mm]{1}{6}
+%      \gantttitle{Meses}{6} \\
+%      \gantttitlelist{1,...,6}{1} \\
+%      \ganttbar{Seção~\ref{obj1}}{1}{2} \\
+%      \ganttbar{Seção~\ref{obj2}}{2}{3} \ganttbar{}{5}{6} \\
+%      \ganttbar{Seção~\ref{obj3}}{4}{6} \\
+%    \end{ganttchart}
+%    \fonte{Elaborada pelo autor.}
+%  \end{center}
+%\end{table}
 
 % Imprime a bibliografia
 \clearpage
