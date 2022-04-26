@@ -20,14 +20,13 @@
 %%% Baseado em template do Prof. James A. Souza
 %%%
 
-\documentclass[11pt,oneside,brazil,hidelinks,article,sumario=tradicional,a4paper]{abntex2}
+\documentclass[12pt,oneside,brazil,hidelinks,article,sumario=tradicional,a4paper]{abntex2}
 
 % Pacotes padrão da American Mathematical Society
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{mathtools}
 \usepackage{indentfirst}
-
 
 %%%
 %%% São usadas as fontes:
@@ -98,6 +97,9 @@
 \sisetup{mode=text}
 \usepackage{braket}
 \usepackage{makecell}
+\usepackage{tikz}
+
+\usetikzlibrary{angles,matrix,arrows.meta,calc,positioning,intersections,shadows,quotes}
 
 %%%
 %%% CORES MANEIRÍSSIMAS
@@ -120,6 +122,25 @@
 \usepackage{tcolorbox}
 \tcbuselibrary{many}
 \tcbuselibrary{theorems}
+
+\tikzset{%
+  eixos/.style={draw=black!80,text=black!80,arrows=-{Latex[width=4pt,length=6pt]}},
+  eixos sem flecha/.style={draw=black!80,text=black!80},
+  eixos fantasma/.style={draw=black!20,text=black!60,arrows=-{Latex[width=4pt,length=6pt]}},
+  vetor/.style={draw=blue!80,text=blue!80,cap=round,arrows=-{Triangle[width=5pt,length=7pt]},very thick},
+  linhaforte/.style={draw=#1,ultra thick,cap=round},
+  linhamedia/.style={draw=#1,thick,cap=round},
+  ponto/.style={fill=#1!40,draw=#1,semithick,inner sep=2pt,circle},
+  projecao/.style={draw=#1,densely dotted,thick},
+  projecao 2/.style={draw=#1,densely dash dot,thin},
+  etiqueta/.style n args={3}{text=#1,draw=#2,fill=#3,solid,font=\scriptsize,inner sep=2pt,minimum height=13pt,drop shadow={opacity=0.8,shadow xshift=.3ex,shadow yshift=-.3ex}},
+  face/.style={draw=black,fill=white,thick,cap=round},
+  blocoq/.style={very thick,draw=black!70,fill=black!5,inner sep=8pt,align=center,drop shadow={opacity=0.8,shadow xshift=.3ex,shadow yshift=-.3ex}},
+  blocor/.style={very thick,draw=red!20,fill=red!5,inner sep=8pt,align=center,rounded corners,drop shadow={opacity=0.8,shadow xshift=.3ex,shadow yshift=-.3ex}},
+  blococ/.style={very thick,draw=green!20,ellipse,fill=green!5,inner sep=8pt,align=center,rounded corners,drop shadow={opacity=0.8,shadow xshift=.3ex,shadow yshift=-.3ex}},
+  conecta/.style={draw=black!50,text=black!80,cap=round,arrows=-{Triangle[width=5pt,length=7pt]},thick},
+  labelst/.style={label distance=-6pt,font=\scriptsize\scshape,align=center,black!80,inner sep=2pt}
+}
 
 \newtcbtheorem[number within=section]{theo}{Teorema}{
   enhanced,
@@ -169,16 +190,17 @@
 %%% Para saber mais:
 %%% https://www.overleaf.com/learn/latex/Bibliography_management_in_LaTeX
 %%%
-\usepackage[backend=biber,style=abnt,noslsn,repeatfields]{biblatex}
+\usepackage[backend=biber,style=abnt,noslsn,repeatfields,sccite,scbib,backref]{biblatex}
 \addbibresource{./tcc.bib}
 
 %%% Função seno em PT-BR
 \DeclareMathOperator{\sen}{sen}
+\DeclareMathOperator{\CNOT}{\mathbf{CNOT}}
 
 %%%
 %%% Configurações do documento para ABNTeX2
 %%%
-\titulo{Simulação de Circuitos Quânticos para o estudo de ruídos no fenômeno de teletransporte quântico}
+\titulo{SIMULAÇÃO DE CIRCUITOS QUÂNTICOS PARA O ESTUDO DE RUÍDOS NO FENÔMENO DE TELETRANSPORTE QUÂNTICO}
 \autor{Bianca Miyabe Santos Freitas}
 \orientador{Prof. Dr. Renato Fernandes Cantão}
 \instituicao{%
@@ -219,26 +241,29 @@
 \imprimircapa
 % \imprimirfolhaderosto
 
-\begin{resumo} % Resumo em PT-BR
-%  O resumo é um mini projeto de pesquisa onde deve conter uma breve descrição de toda a proposta, desde a área de pesquisa, referencial teórico no caso de ensino, teoria, experimento, objetivos a serem alcançados, metodologia e resultados esperados. Este deve indicar quais questões vocês (aluno e orientador), como pesquisadores, pretendem responder, permitindo ao leitor acessar rapidamente a ideia básica e os objetivos de sua proposta. O resumo deve ser escrito em um único parágrafo sem espaçamento no início, como nesse exemplo.
+\begin{resumo} 
+
+Com a hipótese da utilização da Mecânica Quântica para o processamento de informação, surge uma nova área de estudo a chamada Computação Quântica. Os estudos desta área remetem ao comportamento e implementação do  \textit{qubit} como unidade básica de informação. Apesar da implementação de um Computador Quântico já existir, os estudos sobre o comportamento do qubit, bem como dos mecanismos aos quais este pode se submeter se fazem necessários para o desenvolvimento de processadores com maior número e melhor qualidade destas entidades quânticas. Nesse sentido, a proposta deste trabalho consiste em elaborar uma simulação para o estudo do fenômeno de Teletransporte Quântico para a transmissão de informação quântica utilizando qubits emaranhados, bem como na verificação dos efeitos de possíveis ruídos na transmissão.
+
+
   \vspace{\onelineskip}
 
   \noindent
-%  \textbf{Palavras-chave}: são aquelas que mais aparecem no texto especificando o fenômeno em estudo, a área de concentração, alguma técnica específica, etc. Pelo menos três palavras e no máximo cinco, separadas por ponto (Palavra 1. Palavra 2. Palavra 3).
+  \textbf{Palavras-chave}: Informação quântica. Teletransporte quântico. Qubit.
 \end{resumo}
 \newpage
 
 
-\begin{resumo}[Abstract] % Resumo em EN
-  \begin{otherlanguage*}{english}
+%\begin{resumo}[Abstract] % Resumo em EN
+%  \begin{otherlanguage*}{english}
  %   Same as above, but in English.
-    \vspace{\onelineskip}
+%    \vspace{\onelineskip}
 
-    \noindent
+%    \noindent
 %    \textbf{Keywords}: Word 1. Word 2. Word 3.
-  \end{otherlanguage*}
-\end{resumo}
-\newpage
+%  \end{otherlanguage*}
+%\end{resumo}
+%\newpage
 
 
 %%% Caso já seja um trabalho final
@@ -248,8 +273,8 @@
 % \listoftables*
 % \clearpage
 
-% \tableofcontents*
-% \clearpage
+ \tableofcontents*
+ \clearpage
 
 %%% Pular página
 % \clearpage
@@ -269,9 +294,28 @@ O objetivo principal da Teoria da Comunicação de Shannon ou \textit{Teoria Mat
 
 \begin{figure}[ht!]
   \centering
-  \caption{Esquema geral de um sistema de comunicação com a Fonte de Informação (\textit{Information Source}) criando uma Mensagem (\textit{Message}) a ser transmitida pelo Transmissor (\textit{Transmitter}) que a transforma em um Sinal (\textit{Signal}). Na transmissão pode haver uma Fonte de Ruído (\textit{Noise Source}). O sinal é recebido (\textit{Received Signal}) pelo Receptor (\textit{Receiver}) e finalmente a mensagem chega ao seu Destino (\textit{Destination}).}\label{comunicshannon}
-  \includegraphics[width=0.65\textwidth]{comunicadorshannon.png}
-  \fonte{\textcite[p. 380]{MTC}.}
+  \caption{Esquema geral de um sistema de comunicação com a Fonte de Informação criando uma Mensagem a ser transmitida pelo Transmissor que a transforma em um Sinal. Na transmissão pode haver uma Fonte de Ruído. O sinal é recebido pelo Receptor e finalmente a mensagem chega ao seu Destino.}\label{comunicshannon}
+  % \includegraphics[width=0.65\textwidth]{comunicadorshannon.png}
+  \begin{tikzpicture}
+    \matrix (A) [matrix of nodes,
+    column sep=25pt,
+    row sep=30pt,
+    nodes={minimum size=35pt}]
+    {
+      \node[label={[labelst]above:Fonte de\\informação},blocoq] (fonte) {}; &
+      \node[label={[labelst]above:Transmissor},blocoq] (trans) {}; &
+      \node[minimum size=10pt,blocoq] (conn) {}; &
+      \node[label={[labelst]above:Receptor},blocoq] (rec) {}; &
+      \node[label={[labelst]above:Destino},blocoq] (dest) {}; \\
+      & & \node[label={[labelst]below:Fonte de \\ruído},blocoq] (ruido) {}; \\
+    };
+    \draw[conecta] (fonte) -- node[pos=0.5,below,labelst,yshift=-20pt] {Mensagem} (trans);
+    \draw[conecta] (trans) -- node[pos=0.5,below,labelst] {Sinal} (conn);
+    \draw[conecta] (conn) --  node[pos=0.5,below,labelst] {Sinal\\recebido} (rec);
+    \draw[conecta] (rec) -- node[pos=0.5,below,labelst,yshift=-20pt] {Mensagem} (dest);
+    \draw[conecta] (ruido) -- (conn);
+  \end{tikzpicture}
+  \fonte{Adaptado de \textcite[p. 380]{MTC}.}
 \end{figure}
 
 De acordo com  a TMC, um \textit{gerador de informação} é um objeto capaz de produzir um conjunto $X$ de $n$ eventos com probabilidade de ocorrência $P(X)$, enquanto um \textit{receptor} possui um conjunto $Y$, também com $n$ eventos, com probabilidades associadas $P(Y)$. Durante a transmissão é possível que parte da informação seja perdida, devido a ocorrência de ruídos, o que resulta diretamente na modificação dos valores de probabilidade dos elementos recebidos do conjunto $Y$. Reconhecendo portanto os elementos de $X$ e suas probabilidades associadas, espera-se que uma mensagem bem transmitida, ou seja, sem interferência de ruídos, seja aquela cujas probabilidades dos elementos do conjunto $Y$ sejam as mesmas dos conjunto de elementos de $X$. Assim, se essas probabilidades forem distintas, podemos concluir que houve perda de informação na transmissão \cite{mathematical}.
@@ -360,163 +404,99 @@ Portanto, o estudo dos possíveis ruídos que possam interferir no teletransport
 
 A construção do sistema de teletransporte quântico demanda um circuito onde operam as chamadas \textit{portas lógicas quânticas} e portanto, a realização experimental de um teletransporte quântico demanda efetivamente um computador de arquitetura quântica para que as operações ocorram sob os qubits. Apesar de já existirem computadores quânticos, ainda são necessários estudos acerca deste para que cada vez mais a qualidade dos qubits seja melhorada. Porém, devido aos recursos de simulação, podemos utilizar um computador de arquitetura clássica para simular tanto um qubit quanto os circuitos lógicos necessários para a realização do teletransporte quântico, a título do estudo, por exemplo, dos efeitos de ruídos na transmissão da informação quântica conforme propomos nesse trabalho.
 
-
-
-\clearpage
-
-
-%\begin{citacao}
- % \color{red}
-%  Citação direta com mais de 3 linhas, deve ser digitada com letra em tamanho menor da que foi utilizada no texto, sem aspas, e com recuo de 4 cm da margem esquerda e espaçamento simples. Deve-se mencionar, além do sobrenome do autor e data de publicação, o(s) número(s) da página de onde retirou a citação \cite[p. 32]{Collobert2011}.
-%\end{citacao}
-
-%{\color{red}Nas citações indiretas não são colocadas ``\emph{aspas}'' e nem o número da página \cite{Collobert2011}.}
-
-%Evitem o uso de citações diretas para o caso de definições de conceitos físicos, técnicas experimentais ou mesmo para opiniões de outros autores. Na maioria das vezes não é necessário fazer esse tipo de citações. Dê preferência para as citações indiretas. Leiam o texto referido até vocês entenderem e poderem expressar as ideias e conceitos por trás dos mesmos com as próprias palavras. Com isso vocês evitam que o texto de vocês seja composto por vários recortes de dizeres de outros autores. A citação direta é usualmente utilizada quando queremos expressar exatamente o que o autor citado escreveu.
-
-%No caso de ser necessário fazer uma citação indireta, como uma citação de uma citação, utilizem a palavra latina ``\emph{apud}'', cujo significado é ``\emph{junto a, perto de, em}'', mas que no contexto científico e acadêmico é utilizado como sinônimo de ``\emph{citado por}''. Especificamente, quando você utilizar o apud significa que você está citando a obra de um autor que você não leu, mas que foi citada na obra de outro autor cuja obra você leu e estudou. Isso ocorre comumente quando livros muito antigos e que não estão disponíveis em formato eletrônico ou mesmo impresso são citados. Isso pode ocorrer também quando vocês não têm acesso à revista (acesso pago) em que o artigo original foi publicado. Veja o exemplo:
-
-%De acordo com \textapud[p. 148]{Collobert2011}[p. 8]{Souza2010} a estabilidade de um foguete de garrafas PET pode ser obtida se o centro de massa do foguete estiver em torno de \SI{1.5}{\centi\meter} acima do seu centro de pressão.
-
-%As normas exigidas neste trabalho para a citação de livros e revistas são impostas automaticamente pelo estilo de ABN{\TeX}2. Vale ressaltar que não existe o padrão mais correto para a escrita de projetos e artigos científicos, o que existe são padrões e normativas exigidos. Um dos objetivos deste trabalho é aprender a seguir um padrão.
-
-%Apesar de toda a riqueza da língua portuguesa e inglesa para a escrita expositiva, o estilo da escrita científica é puramente técnico e conciso. Esta deve ser o mais claro possível, evitem utilizar uma linguagem barroca, rebuscada, transforme o texto de vocês em algo poderoso e convincente com simples e poucas palavras, evitem redundâncias. Isso é válido para projetos e artigos científicos, dissertações de mestrado, teses de doutorado e relatórios de prática. {\color{red}Com relação ao tempo verbal para a escrita do projeto, este deve estar no futuro, pois o projeto consiste de uma proposta que será executada no decorrer da graduação de vocês e finalizada, provavelmente, quando vocês cursarem a disciplina de TCC 2.} 
-
-%{\color{red}Mesmo que vocês escrevessem o projeto sozinhos, um único autor, utilizem o que chamamos de ``\emph{eu formal}'', que consiste em se referir às atividades de pesquisa na primeira pessoa do plural.} É como se vocês estivessem convidando o leitor para participar do projeto, por exemplo, ``\emph{Neste projeto desenvolveremos\ldots executaremos\ldots pesquisaremos sobre\ldots etc.}'' Em relatórios de prática é usual utilizarmos o tempo verbal na terceira pessoa, como ``\emph{foi feito\ldots foi analisado\ldots foi executado\ldots foi estabelecido\ldots etc.}'' Neste caso não existe autoria sobre o que foi desenvolvido, pois trata-se de uma reprodução, geralmente orientada através de um roteiro. Em um projeto ou artigo científico é importante exaltar a autoria do trabalho de vocês. Terceira pessoa será utilizada para os trabalhos de outros autores, pois vocês precisarão citar o que já foi feito por outros pesquisadores no tema escolhido. Quando vocês escrevem nós, fica claro o que foi realmente feito por vocês. Esta é uma tendência que já está sendo sugerida em várias revistas e jornais do mundo todo.
-
-%\noindent
-%\textbf{\color{red}IMPORTANTÍSSIMO:} Quando vocês forem utilizar informações de outras fontes, como definições ou técnicas experimentais específicas evitem se remeter ao texto original diretamente. Ou seja, não copiem na íntegra as frases de outros autores. Isso é plágio! No Brasil é considerado como crime pelo código penal (Art. 184) e em outros países trata-se de uma prática antiética e extremamente desrespeitosa. Para vocês se tornarem autores profissionais, competentes e respeitados leiam o artigo, revista ou livro até entenderem a ideia que vocês pretendem abordar na proposta, descrevendo a mesma com as próprias palavras. A ideia pode ser a mesma, mas cada um tem sua maneira de se expressar. É esta a razão de termos diversos autores de livros didáticos falando sobre os mesmos tópicos de um determinado assunto. Se vocês não forem capazes disso é porque o assunto ainda não foi entendido, o que significa que mais estudos precisam ser conduzidos. Em ciência procedemos dessa forma, o entendimento sobre qualquer assunto é efetivado quando vocês são capazes de processar a informação de modo a poder expressar os conceitos com as próprias palavras.
-
 %%%
 %%% OBJETIVOS
 %%%
-\section{Objetivos da Proposta}\label{sec:objs}
+\section{Justificativa e objetivos}\label{sec:just}
 
-O objetivo principal desta proposta consiste em realizar um estudo acerca dos efeitos de ruídos no fenômeno de teletransporte quântico, utilizando uma simulação de circuitos quânticos em um computador de arquitetura clássica. Para realizar este objetivo, pretende-se:
+Apesar da construção de um computador de arquitetura quântica não ser mais apenas uma projeção futurista, sua efetividade ainda depende de alguns fatores. Os dois principais são o número de qubits operando simultaneamente e a qualidade destes qubits.
+
+Quanto ao número de qubits, atualmente existe o processador \textit{Eagle} da empresa IBM, que opera com 127 qubits\footnote{O processador \textit{Eagle} foi apresentado pela IBM em Novembro de 2021 e, segundo a empresa, nos próximos anos devem ser apresentados os processadores de 433 e 1121 qubits \cite{processadoribm}.}, e também a startup QuEra que foi capaz de produzir um processador de 256 qubits \cite{quera}. Em relação à qualidade dos qubits, ou seja, na capacidade destes para a resolução de problemas reais, são necessários constantes aprimoramentos, visto que esta é uma tecnologia em ascensão.
+
+Nesse sentido, os estudos e projetos acerca das possíveis melhorias na direção da computação quântica efetiva, são muitas vezes realizados com o auxílio de ferramentas de simulação desenvolvidas em computadores de arquitetura clássica. A utilização deste tipo de simulação se faz necessária pois não existem ainda recursos capazes de reproduzir de forma conveniente a situação que se deseja analisar, principalmente por se tratar de uma área ainda nova e em constante desenvolvimento \cite{videoyoutube}.
+
+O objetivo principal desta proposta consiste portanto, em realizar um estudo acerca dos efeitos de possíveis ruídos no fenômeno de teletransporte quântico, utilizando uma simulação de circuitos quânticos em um computador de arquitetura clássica. Para realizar este objetivo, pretende-se:
 \begin{enumerate}
-\item Definir o conceito de Teletransporte Quântico;
-\item Delinear as situações onde o fenômeno é utilizado, em particular na transmissão de informação;
-\item Elencar os tipos de ruídos que podem interferir na transmissão de informação durante o fenômeno;
-\item Construir a simulação de comportamento de um qubit;
-\item Estruturar as portas lógicas quânticas a serem simuladas para o presente estudo;
-\item Estabelecer uma sequência de testes com os algoritmos de ruído;
-\item Comparar os resultados obtidos na simulação desenvolvida com os resultados provenientes de simuladores em computadores de arquitetura quântica como o IBM Quantum e o Azure Quantum.
-\end{enumerate} 
-
-%\subsection{Nome do tópico 1}\label{obj1}
-
-%Descreva a importância do tópico 1 para a execução do seu projeto de pesquisa \cites{vene2008}{Collobert2011}{braess2007}.
-
-
-%\subsection{Nome do tópico 2}\label{obj2}
-
-%Descreva a importância do tópico 2 para a execução do seu projeto de pesquisa e assim por diante.
-
-%Caso vocês e os respectivos orientadores prefiram iniciar uma nova seção para isso, como por exemplo: \emph{Fundamentação Teórica} ou algum título específico sobre o que será abordado no projeto não tem problema. O importante é que o projeto fique bem organizado e o assessor capte com facilidade a proposta e os principais conceitos a serem abordados no trabalho. O uso de subseções na seção de objetivos é apenas sugestivo.
-
-%\subsection{Nome do tópico 3}\label{obj3}
-
-%E por ai vai\ldots
+  \item Definir o conceito de Teletransporte Quântico;\label{obj1}
+  \item Delinear as situações onde o fenômeno é utilizado, em particular na transmissão de informação;\label{obj2}
+  \item Elencar os tipos de ruídos que podem interferir na transmissão de informação durante o fenômeno;\label{obj3}
+  \item Construir a simulação de comportamento de um qubit;\label{obj4}
+  \item Estruturar as portas lógicas quânticas a serem simuladas para o presente estudo;\label{obj5}
+  \item Estabelecer uma sequência de testes com os algoritmos de ruído;\label{obj6}
+  \item Comparar os resultados obtidos na simulação desenvolvida com os resultados provenientes de simuladores em computadores de arquitetura quântica como o IBM Quantum e o Azure Quantum.\label{obj7}
+\end{enumerate}
 
 %%%
 %%% METODOLOGIA
 %%%
 \section{Metodologia}
 
-%Descreva sua proposta metodológica de maneira detalhada seja ela experimental, através de técnicas específicas, ou teórica, desenvolvida matematicamente através de modelos analíticos ou simulações computacionais. Quais processos ou materiais vocês pretendem utilizar? Que tipos de equipamentos serão necessários?
+Para atingir os objetivos citados na Seção~\ref{sec:just}, pretende-se iniciar o desenvolvimento realizando uma revisão dos tópicos necessários de Mecânica Quântica, bem como das ferramentas matemáticas necessárias para definir conceitual e matematicamente o Teletransporte Quântico. Em linhas gerais, a compreensão da Mecânica Quântica demanda principalmente o domínio da Álgebra Linear com a notação de \textit{``bracket''} definida por Paul Dirac em 1939 \cite{DIRAC}.
 
-%\noindent
-%\textbf{\color{red}IMPORTANTE:} Se for necessário na apresentação de quaisquer tópicos listados acima o uso de figuras para melhorar o entendimento da mesma, siga o exemplo da Figura~\ref{fig1} abaixo. Lembrando que não existe um padrão geral para isso. Seguiremos as normas da ABNT para o projeto. Siga a formatação dos exemplos abaixo.
+Estabelecidos os conceitos necessários para a definição do fenômeno abordado, será possível delinear suas aplicações para justificar este trabalho. Nesse sentido, será necessária uma revisão bibliográfica para coletar as informações das mais recentes e promissoras aplicações do fenômeno.
 
-%{\color{red}Figuras ilustrativas podem ser coloridas ou em preto e branco. As ilustrações devem ser esclarecedoras, nítidas e com boa resolução (300 dpi ou mais). Se houver palavras ou números na figura faça com que o tamanho da fonte seja o mais próximo possível do tamanho da fonte do texto. Todas as Figuras devem ser numeradas e citadas no texto. ESTAS DEVEM SER ESCLARECEDORAS, NÍTIDAS E COM BOA RESOLUÇÃO.}
+Como o foco principal deste trabalho está nos estudos acerca dos efeitos de ruídos no fenômeno de Teletransporte, será necessário elencar os principais ruídos existentes para definir quais serão abordados no trabalho. Segundo \cite{teseufscar}, os principais tipos de ruídos associados à decoerência da informação quântica, ou seja, a sua alteração do estado original são:
 
-%\begin{figure}[ht!]
-%  \centering
-%  \caption{Esquema ilustrativo mostrando o aparato utilizado para colocar a vela em movimento retilíneo acelerado através da queda de uma massa de \(m = \SI{50}{\gram}\). O sistema é composto por (1) mesa, (2) plataforma de madeira, (3) carrinho de plástico, (4) base de madeira, (5) vela, (6) tubo de vidro aberto, (7) barbante, (8) roldana de varal de roupas, (9) cilindro de aço e (10) régua para liberar o sistema.}\label{fig1}
-%  \includegraphics[width=0.65\textwidth]{fig1.png}
-%  \fonte{\textcite[p. 37]{Souza2010}.}
-%\end{figure}
+\begin{description}
+  \item [Inversão de bit (\textit{bitflip})] esse ruído consiste essencialmente na inversão do estado dos qubits emaranhados, fazendo com que estes saiam de um chamado estado puro --- essencial para o fenomeno de emaranhamento --- para um estado misto.
+  \item [Inversão de fase (\textit{phaseflip})] inverte a fase da função de onda que representa os qubits emaranhados.
+  \item [Inversão de bit e fase (\textit{bit-phase flip})] inverte tanto o estado quanto a fase do qubit.
+\end{description}
 
-%Outro exemplo é a ilustração de um pêndulo simples, mostrado na Figura~\ref{fig2} {\color{red}(citar as figuras no texto desta forma)}, em que uma massa \(m\) presa a um fio de comprimento \(l\) oscila em torno de seu ponto de equilíbrio com ângulo \(\theta\) sob a ação da força da gravidade. Note que a legenda da Figura~\ref{fig2} contém basicamente as mesmas informações descritas no parágrafo acima, reforçando a ideia de que uma Figura deve ser independente do texto.
+Após os devidos estudos teóricos, pretende-se iniciar a construção da simulação. Para isso, o primeiro passo é a delimitação das ferramentas e linguagens a serem utilizadas. A escolha da linguagem de programação será o Python para este trabalho justifica-se pelo fato de sua versatilidade e ampla implementação tanto na Física quanto nas simulações físicas.
 
-%\begin{figure}[ht!]
- % \centering
-%  \caption{Pêndulo simples, mostrando uma massa \(m\) presa a um fio de comprimento \(l\) oscilando com ângulo \(\theta\) em torno do ponto de equilíbrio.}\label{fig2}
-%  \includegraphics[width=0.4\textwidth]{pendulo.png}
-%  \fonte{Elaborada pelo autor.}
-%\end{figure}
+Em seguida, pretende-se construir um algoritmo que seja capaz de simular a natureza quântica do qubit. É necessário simular, utilizando as ferramentas de Álgebra Linear, a função de onda que descreve o qubit para que este possa interagir com as portas lógicas, que também serão implementadas, no intuito de realizar, de forma puramente computacional, o fenômeno de teletransporte quântico. Serão utilizadas no fenômeno de teletransporte quântico as portas lógicas quânticas \textit{Controlled-Not} e \textit{Hadamard}.
 
-%\textcolor{red}{\textbf{Observação:} As figuras, tabelas, ilustrações, etc., devem estar juntas com suas legendas e suas fontes na mesma página. A figura não pode ficar em uma página e sua legenda ou fonte em outra.}
+A porta Controlled-Not, ou apenas \(\CNOT\), essencialmente opera entre dois qubits, sendo um deles de controle e o outro o qubit alvo. Ao passar por essa porta o qubit alvo sofrerá ou não uma inversão de fase dependendo do estado do qubit de controle. Esta porta pode ser representada matematicamente utilizando a matriz:
+\begin{equation}\label{CNOTMATRIX}
+  \mathbf{CNOT}=\begin{bmatrix}
+                  1 & 0 & 0 & 0\\
+                  0 & 1 & 0 & 0\\
+                  0 & 0 & 0 & 1\\
+                  0 & 0 & 1 & 0
+                \end{bmatrix}.
+              \end{equation}
 
-%Se for necessário incluir alguma foto tirada por vocês mesmos ou uma foto retirada da internet siga o exemplo da Figura~\ref{fig3}.
+Já a porta Hadamard, atua em apenas um qubit e possui como objetivo rotacioná-lo para que, ao invés de atuar sob as bases do espaço de Hilbert $\ket{0}$ e $\ket{1}$, estes passem a ser $\frac{\ket{0} + \ket{1}}{\sqrt{2}}$ e $\frac{\ket{0} - \ket{1}}{\sqrt{2}}$. Essa transformação essencialmente faz com que os qubits agora possuam chances iguais de colapsarem em \(0\) ou \(1\) quando medidos. A representação matemática da porta Hadamard é descrita por:
+\begin{equation}\label{HADAMARDMATRIX}
+  \mathbf{H}= \frac{1}{\sqrt{2}}\begin{bmatrix*}[r]
+                                  1 & 1 \\
+                                  1 & -1
+                                \end{bmatrix*}
+                              \end{equation}
 
-%Quando for necessário discutir ou apresentar equações em qualquer seção do projeto, estas devem ser numeradas e citadas no texto de acordo com o número. Veja o exemplo abaixo:
-
-%O período de oscilação \(T\) de um pêndulo simples pode ser calculado através da seguinte expressão:
-
-%\begin{equation}\label{periodo}
-%    T = 2 \pi \sqrt{\dfrac{l}{g}},
-%\end{equation}
-%sendo $l$ o comprimento do fio que sustenta a massa $m$ do pêndulo e $g$ a aceleração da gravidade.
-
-%\noindent
-%{\textbf{\color{red}IMPORTANTE:} Todos os parâmetros das equações devem ser explicados no texto, como neste exemplo.}
-
-%Se o comprimento $l$ do fio for dado podemos utilizar a Equação~\eqref{periodo} ({\color{red}citar as equações no texto desta forma}) para determinar a aceleração da gravidade através da medida do período de oscilação do pêndulo.
-
-%\begin{figure}[ht!]
-%  \centering
-%  \caption{Tubo de chama de onda estacionária.}\label{fig3}
-%  \vspace{1mm}
-%  \includegraphics[width=0.6\textwidth]{Chamas.jpg}
-%  \fonte{JUNIOR, G. \underline{Usando Física para criar um incrível experimento com Fogo e Música.} Disponível em: \url{http://marteeparaosfracos.blogspot.com/2014/04/usando-fisica-para-criar-um-incrivel.html}. Acesso em: 16 nov. 2018.}
-%\end{figure}
+Construídos os algoritmos que simularão o qubit, as portas lógicas e o fenômeno de Teletransporte, será necessária a execução de uma série de testes para a avaliação dos resultados obtidos. Para tal, pretende-se utilizar o IBM Quantum Tools o laboratório online de ferramentas quânticas que disponibiliza ferramentas de construção de código e circuitos que são operados diretamente em seu computador quântico. Portanto, será possível obter o comportamento das medidas esperadas em nossa simulação, diretamente de um computador de arquitetura quântica, tornando a comparação dos resultados mais consistente.
 
 %%%
 %%% CRONOGRAMA
 %%%
 \section{Cronograma de Atividades}
 
-%Este tópico é importante para vocês mostrarem aos assessores que avaliarão o projeto, ou no caso para o professor-orientador da disciplina de TCC 1, como vocês pretendem executar a proposta diante do prazo disponível ou determinado. Listem as tarefas que serão executadas em determinado período como pesquisa bibliográfica, busca de materiais para realização do experimento, montagem ou construção do experimento, análise dos resultados obtidos, etc. Esta pode ser feita através de uma tabela. Se caso for necessário incluir outras tabelas na proposta de pesquisa siga o modelo da Tabela~\ref{tabela1} abaixo.
 
-%\begin{table}[ht!]
-%  \centering
-%  \caption{Cronograma tentativo de atividades.}\label{tabela1}
-%  \begin{tabular}{cc}
-%    \toprule
-%    \textbf{\emph{Período}} & \textbf{\emph{Atividades}}\\
-%    \midrule
-%    3 primeiros meses      & Aquisição de materiais para a realização do experimento;        \\
-%    2º semestre de 2021    & Montagem e testes do experimento;                               %\\
-%    E assim por diante ... & O período pode ser especificado em semanas, meses ou semestres. \\
-%    \bottomrule
-%  \end{tabular}
-%  \fonte{Elaborada pelo autor.}
-%\end{table}
-
-%É importante que o cronograma tentativo apresente de maneira clara o início das atividades, sua execução e a finalização das mesmas, com uma previsão de discussão dos resultados para a escrita da monografia final e a defesa do TCC.
-
-%\begin{table}[ht!]
-%  \begin{center}
-%    \caption{Cronograma de desenvolvimento do projeto. Cada linha corresponde
-%      a um objetivo específico da Seção~\ref{sec:objs}. Cada coluna
-%      corresponde a um mês.}\label{tab:cronog}
-%    \begin{ganttchart}[hgrid,
-%                      vgrid,
-%                      bar/.append style={fill=blue!10,draw=blue},
-%                      bar top shift=0.1,
-%                     bar height=0.8,
-%                      x unit=20mm,
-%                      y unit chart=6mm]{1}{6}
-%      \gantttitle{Meses}{6} \\
-%      \gantttitlelist{1,...,6}{1} \\
-%      \ganttbar{Seção~\ref{obj1}}{1}{2} \\
-%      \ganttbar{Seção~\ref{obj2}}{2}{3} \ganttbar{}{5}{6} \\
-%      \ganttbar{Seção~\ref{obj3}}{4}{6} \\
-%    \end{ganttchart}
-%    \fonte{Elaborada pelo autor.}
-%  \end{center}
-%\end{table}
+\begin{table}[ht!]
+  \begin{center}
+    \caption{Cronograma de desenvolvimento do Trabalho de Conclusão de Curso. Cada linha corresponde a um objetivo específico da Seção~\ref{sec:just}. Cada coluna
+      corresponde a um mês de Maio a Setembro de 2022.}\label{tab:cronog}
+    \begin{ganttchart}[hgrid,
+                       vgrid,
+                       bar/.append style={fill=blue!10,draw=blue},
+                       bar top shift=0.1,
+                       bar height=0.8,
+                       x unit=20mm,
+                       y unit chart=6mm]{1}{5}
+     \gantttitle{Meses}{5} \\
+     \gantttitlelist{1,...,5}{1} \\
+      \ganttbar{\ref{obj1}}{1}{2}\\
+      \ganttbar{\ref{obj2}}{2}{2}  \\
+      \ganttbar{\ref{obj3}}{2}{2} \\
+      \ganttbar{\ref{obj4}}{2}{3} \\
+      \ganttbar{\ref{obj5}}{3}{4} \\
+      \ganttbar{\ref{obj6}}{4}{4} \\
+      \ganttbar{\ref{obj7}}{4}{5}
+    \end{ganttchart}
+    \fonte{Elaborada pelo autor.}
+  \end{center}
+\end{table}
 
 % Imprime a bibliografia
 \clearpage
@@ -524,4 +504,4 @@ O objetivo principal desta proposta consiste em realizar um estudo acerca dos ef
 
 \end{document}
 
-%%% end of skeleton_tcc_proj.tex
+%%% end of tcc1.tex

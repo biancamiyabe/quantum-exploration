@@ -1,0 +1,66 @@
+% Teste de figuras Tikz
+
+\documentclass[tikz]{standalone}
+
+\usetikzlibrary{angles,matrix,arrows.meta,calc,positioning,intersections,shadows,plotmarks,3d,quotes}
+
+% \usepackage{venturis2}
+\usepackage[small]{eulervm}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+
+\usepackage{xcolor}
+\definecolor{green}{RGB}{174,226,57}     % From https://www.colourlovers.com/palette/46688/fresh_cut_day (atomic bikini)
+
+\definecolor{yellow}{RGB}{237,229,116}   % From https://www.colourlovers.com/palette/937624/Dance_To_Forget (Give Your Heart)
+\definecolor{orange}{RGB}{255,164,70}    % From https://www.colourlovers.com/palette/1107950/Indecent_Proposal (exotic orange)
+\definecolor{cyan}{RGB}{108,243,213}     % From https://www.colourlovers.com/palette/940927/Acused (wrong cyan)
+\definecolor{red}{RGB}{199,8,8}          % From https://www.colourlovers.com/palette/79468/LipstickOnHisCollar (Flagged Down)
+\definecolor{blue}{RGB}{62,122,162}      % From https://www.colourlovers.com/palette/794774/be_here_for_me (kreuger)
+\definecolor{berry}{RGB}{95,13,59}       % From https://www.colourlovers.com/palette/117122/BurberryTenderTouch (BurberryTender)
+\definecolor{violet}{RGB}{87,30,240}     % From the original template (Violet Thanos)
+\definecolor{think}{HTML}{607848}        % From https://www.colourlovers.com/palette/38562/Hands_On
+
+\tikzset{%
+  eixos/.style={draw=black!80,text=black!80,arrows=-{Latex[width=4pt,length=6pt]}},
+  eixos sem flecha/.style={draw=black!80,text=black!80},
+  eixos fantasma/.style={draw=black!20,text=black!60,arrows=-{Latex[width=4pt,length=6pt]}},
+  vetor/.style={draw=blue!80,text=blue!80,cap=round,arrows=-{Triangle[width=5pt,length=7pt]},very thick},
+  linhaforte/.style={draw=#1,ultra thick,cap=round},
+  linhamedia/.style={draw=#1,thick,cap=round},
+  ponto/.style={fill=#1!40,draw=#1,semithick,inner sep=2pt,circle},
+  projecao/.style={draw=#1,densely dotted,thick},
+  projecao 2/.style={draw=#1,densely dash dot,thin},
+  etiqueta/.style n args={3}{text=#1,draw=#2,fill=#3,solid,font=\scriptsize,inner sep=2pt,minimum height=13pt,drop shadow={opacity=0.8,shadow xshift=.3ex,shadow yshift=-.3ex}},
+  face/.style={draw=black,fill=white,thick,cap=round},
+  blocoq/.style={very thick,draw=blue!90!black,fill=blue!5,inner sep=8pt,align=center,drop shadow={opacity=0.8,shadow xshift=.3ex,shadow yshift=-.3ex}},
+  blocor/.style={very thick,draw=red!20,fill=red!5,inner sep=8pt,align=center,rounded corners,drop shadow={opacity=0.8,shadow xshift=.3ex,shadow yshift=-.3ex}},
+  blococ/.style={very thick,draw=green!20,ellipse,fill=green!5,inner sep=8pt,align=center,rounded corners,drop shadow={opacity=0.8,shadow xshift=.3ex,shadow yshift=-.3ex}},
+  conecta/.style={draw=black!50,text=black!80,cap=round,arrows=-{Triangle[width=5pt,length=7pt]},thick},
+  labelst/.style={label distance=-6pt,font=\scriptsize\scshape,align=center,blue!90!black,inner sep=2pt}
+}
+
+\begin{document}
+
+\begin{tikzpicture}
+  \matrix (A) [matrix of nodes,
+               column sep=25pt,
+               row sep=30pt,
+               nodes={minimum size=35pt}]
+  {
+    \node[label={[labelst]above:Fonte de\\informação},blocoq] (fonte) {}; &
+    \node[label={[labelst]above:Transmissor},blocoq] (trans) {}; &
+    \node[minimum size=10pt,blocoq] (conn) {}; &
+    \node[label={[labelst]above:Receptor},blocoq] (rec) {}; &
+    \node[label={[labelst]above:Destino},blocoq] (dest) {}; \\
+    & & \node[label={[labelst]below:Fonte de \\ruído},blocoq] (ruido) {}; \\
+  };
+  \draw[conecta] (fonte) -- node[pos=0.5,below,labelst,yshift=-20pt] {Mensagem} (trans);
+  \draw[conecta] (trans) -- node[pos=0.5,below,labelst] {Sinal} (conn);
+  \draw[conecta] (conn) --  node[pos=0.5,below,labelst] {Sinal\\recebido} (rec);
+  \draw[conecta] (rec) -- node[pos=0.5,below,labelst,yshift=-20pt] {Mensagem} (dest);
+  \draw[conecta] (ruido) -- (conn);
+\end{tikzpicture}
+
+\end{document}
