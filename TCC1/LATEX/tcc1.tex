@@ -65,8 +65,8 @@
 ]
 
 \usepackage[math-style=TeX]{unicode-math}
-%\setmathfont{Asana-Math.otf}[Scale=MatchLowercase]
-\setmathfont{STIXTwoMath-Regular.otf}[Scale=MatchLowercase]
+\setmathfont{Asana-Math.otf}[Scale=MatchLowercase]
+%\setmathfont{STIXTwoMath-Regular.otf}[Scale=MatchLowercase]
 %\setmathfont{texgyredejavu-math.otf}[Scale=MatchLowercase]
 
 
@@ -200,7 +200,7 @@
 %%%
 %%% Configurações do documento para ABNTeX2
 %%%
-\titulo{SIMULAÇÃO DE CIRCUITOS QUÂNTICOS PARA O ESTUDO DE RUÍDOS NO FENÔMENO DE TELETRANSPORTE QUÂNTICO}
+\titulo{TRANSMISSÃO DE INFORMAÇÃO QUÂNTICA: SIMULAÇÃO DE RUÍDOS NO FENÔMENO DE TELETRANSPORTE QUÂNTICO}
 \autor{Bianca Miyabe Santos Freitas}
 \orientador{Prof. Dr. Renato Fernandes Cantão}
 \instituicao{%
@@ -320,7 +320,7 @@ O objetivo principal da Teoria da Comunicação de Shannon ou \textit{Teoria Mat
 
 De acordo com  a TMC, um \textit{gerador de informação} é um objeto capaz de produzir um conjunto $X$ de $n$ eventos com probabilidade de ocorrência $P(X)$, enquanto um \textit{receptor} possui um conjunto $Y$, também com $n$ eventos, com probabilidades associadas $P(Y)$. Durante a transmissão é possível que parte da informação seja perdida, devido a ocorrência de ruídos, o que resulta diretamente na modificação dos valores de probabilidade dos elementos recebidos do conjunto $Y$. Reconhecendo portanto os elementos de $X$ e suas probabilidades associadas, espera-se que uma mensagem bem transmitida, ou seja, sem interferência de ruídos, seja aquela cujas probabilidades dos elementos do conjunto $Y$ sejam as mesmas dos conjunto de elementos de $X$. Assim, se essas probabilidades forem distintas, podemos concluir que houve perda de informação na transmissão \cite{mathematical}.
 
-De maneira geral, a informação é quantificada de acordo com os recursos físicos necessários para que ela seja representada, ou seja, na capacidade de armazenamento, comunicação e representação de um conjunto $X$ de possíveis informações. Em um computador clássico, por exemplo, armazenamos informações através das unidades binárias chamadas \textit{bits}\footnote{Nome proposto, segundo o artigo original de Shannon por J.W. Turkey \cite{MTC}.} Dessa forma, os bits são a menor unidade de armazenamento de informação em um computador de arquitetura clássica, podendo representar o estado 1 ou o estado 0 \cite{MTC}.
+De maneira geral, a informação é quantificada de acordo com os recursos físicos necessários para que ela seja representada, ou seja, na capacidade de armazenamento, comunicação e representação de um conjunto $X$ de possíveis informações. Em um computador clássico, por exemplo, armazenamos informações através das unidades binárias chamadas \textit{bits}\footnote{Nome proposto, segundo o artigo original de Shannon por J.W. Turkey \cite{MTC}.}. Dessa forma, os bits são a menor unidade de armazenamento de informação em um computador de arquitetura clássica, podendo representar o estado 1 ou o estado 0 \cite{MTC}.
 
 A combinação desses bits faz com que uma mensagem possa ser armazenada, processada ou transmitida em um computador clássico. Nesse sentido, quão maior, ou ainda, quão mais complexa for a mensagem a se operar, mais bits serão necessários e consequentemente mais recursos físicos para a representação destes. Com a evolução dos computadores e consequentemente com a necessidade de um maior número de bits a se operar, ocorreu um processo de miniaturização do hardware, em particular, do dispositivo transistor. Com transistores cada vez menores, menos espaço físico era necessário para operar a informação e cada vez mais informação era possível de ser operada simultaneamente. Basta recordar que o tamanho de um smartphone moderno é muito menor do que a primeira unidade de computador eletrônico criado, o ENIAC que ocupava um espaço de \SI{180}{\square\meter} \cite{eniac}.
 
@@ -328,7 +328,7 @@ Porém, em 1965 foi estabelecido por Gordon E. Moore um limite de processamento 
 
 Em 1981, o físico Richard Feynman, em um de seus seminários, sugeriu que os conceitos de Mecânica Quântica fossem aplicados à computação para que a informação pudesse ser operada de maneira mais rápida e em maior quantidade \cite{TeoQuanInfoEntreCopia}.
 
-A Mecânica Quântica é o ramo da Física que surge na virada do século XX a partir de uma série de experimentos que não puderam ser explicados classicamente. As hipoteses produzidas por nomes como Planck, Eistein, Bohr e De Broglie e posteriormente aperfeiçoadas por Schrödinger, Heisenberg e Dirac, descrevem uma nova área na Física. Para o desenvolvimento de um computador de arquitetura quântica, destacamos a importância do \textit{Princípio da Superposição de Estados}.
+A Mecânica Quântica é o ramo da Física que surge na virada do século XX a partir de uma série de experimentos que não puderam ser explicados classicamente. As hipoteses produzidas por nomes como Planck, Eistein, Bohr e De Broglie e posteriormente complementadas por Schrödinger, Heisenberg e Dirac, descrevem uma nova área na Física. Para o desenvolvimento de um computador de arquitetura quântica, destacamos a importância do \textit{Princípio da Superposição de Estados}.
 
 O Princípio da Superposição de Estados determina que um estado de um sistema físico é composto por todas as informações possíveis de serem extraídas dele em uma medição. Disso ocorre que um estado possui definição probabilística a partir de todos as possibilidades de ocupação deste. Esses estados são representados por um vetor do espaço complexo de Hilbert $H$, chamados também, usando a notação de Dirac, de \textit{kets} e representados por $\ket{\psi}$.
 
@@ -345,12 +345,12 @@ A descrição da arquitetura de um computador quântico esbarra no mesmo princí
 
 Um qubit, ou bit quântico, pode ser produzido de maneiras distintas\footnote{Qubits podem ser fisicamente criados utilizando, por exemplo, spins de átomos presos em uma armadilha. Essa armadilha pode ser do tipo óptica ou até mesmo magnética. É possível também polarizar fótons para sua obtenção. A determinação do método é definida principalmente pelo mecanismo que melhor conseguir isolar o \textit{qubit}, já que este é facilmente influenciado pelo ambiente externo \cite{materialdidaticomecquantica}.}, porém nosso foco de estudo está nas suas propriedades. Um qubit é uma unidade com propriedades quânticas que atua sob o regime de superposição de estados. Isso significa que ele consegue armazenar simultaneamente mais de um estado de informação, diferente do bit clássico que armazena apenas um dos estados por vez. Decorre desta propriedade a maior capacidade de operar a informação em comparação aos mecanismos clássicos segundo apresentado na Tabela~\ref{tabelabit}.
 
-\begin{table}[ht!]
+\begin{table}[ht]
   \centering
   \caption{Comparação entre a quantidade de bits clássicos e quânticos necessários para se operar uma informação.}\label{tabelabit}
   \begin{tabular}{ccc}
     \toprule
-    \thead{Quantidade \\ de bytes} & \thead{Quantidade \\ de bits clássicos} & \thead{Quantidade \\ de qubits} \\
+    \thead{Quantidade \\ de bytes \\ (informação)} & \thead{Quantidade \\ de bits clássicos} & \thead{Quantidade \\ de qubits} \\
     \midrule
     1         & 8            & 3  \\
     \num{e6}  & \num{8.3e6}  & 23 \\
@@ -364,6 +364,7 @@ De modo a generalizar a comparação entre bits classicos e quânticos, podemos 
 \begin{equation} \label{bitvsqubit}
 n\, \text{qubits} = 2^{n}\,\text{bits}.
 \end{equation}
+
 Portanto, podemos concluir que menos qubits são necessários para operar a informação, em comparação ao bit clássico, o que está diretamente relacionado com a velocidade e com a capacidade de realização deste.
 
 A descrição de um qubit consiste em uma combinação linear de dois possíveis estados quânticos $\ket{0}$ e $\ket{1}$ de modo que:
@@ -384,9 +385,9 @@ Apesar dessa aparente dificuldade em se obter a informação quântica, existem 
 Não é possível obter um estado quântico desconhecido de um sistema único e individual realizando uma medição sobre este, independente do tipo e/ou sequência de medições que se realize.
 \end{theo}
 
-Pelos Teoremas~\ref{th:teo1} e~\ref{th:teo2} parece ser improvável a proposta de que a informação quântica se sobressaia em relação à clássica, mas é exatamente devido a eles e aos mecanismos que estes proporcionam destes que a informação quântica se torna tão promissora. Os mecanismos que estudaremos nesse trabalho são o \textit{Emaranhamento (ou Entrelaçamento) Quântico} e o \textit{Teletransporte Quântico}.
+Pelos Teoremas~\ref{th:teo1} e~\ref{th:teo2} parece ser improvável a proposta de que a informação quântica se sobressaia em relação à clássica, mas é exatamente devido a eles e aos mecanismos que estes proporcionam que a informação quântica se torna tão promissora. Os mecanismos que estudaremos nesse trabalho são o \textit{Emaranhamento (ou Entrelaçamento) Quântico} e o \textit{Teletransporte Quântico}.
 
-O Emaranhamento Quântico é uma consequência quântica proveniente da superposição de estados de elementos dessa natureza. Vale ressaltar que objetos e fenômenos quânticos nem sempre possuem o análogo clássico, como o caso de spins. Nesse fenômeno duas particulas interagem de modo que o estado quântico de uma delas não pode ser mais descrito sem o da outra. Isso faz com que, mesmo que as partículas estejam distantes uma da outra, elas continuam a compartilhar os estados quânticos. Isso faz com que seja possível, conhecendo algumas propriedades de uma das partículas com por exemplo a posição, seja possível determinar esta mesma característica da outra partícula. A determinação das propriedades de uma das partículas culmina na instantânea definição na segunda, pois elas compartilham o mesmo estado quântico, o que nos leva a utilização do Emaranhamento para a realização do Teletransporte Quântico \cites{materialdidaticomecquantica}{fonzar}{TeoQuanInfoEntreCopia}.
+O Emaranhamento Quântico é uma consequência quântica proveniente da superposição de estados de elementos dessa natureza. Vale ressaltar que objetos e fenômenos quânticos nem sempre possuem o análogo clássico, como o caso de spins. Nesse fenômeno duas particulas interagem de modo que o estado quântico de uma delas não pode ser mais descrito sem o da outra. Isso faz com que, mesmo que as partículas estejam distantes uma da outra, elas continuam a compartilhar os estados quânticos. É possível portanto, que conhecendo algumas propriedades de uma das partículas, seja possível determinar esta mesma característica da outra partícula. A determinação das propriedades de uma das partículas culmina na instantânea definição na segunda, pois elas compartilham o mesmo estado quântico, o que nos leva a utilização do Emaranhamento para a realização do Teletransporte Quântico \cites{materialdidaticomecquantica}{fonzar}{TeoQuanInfoEntreCopia}.
 
 O Teletransporte Quântico consiste em uma série de operações realizadas por intermédio de um circuito de natureza quântica que pretende enviar uma mensagem de um ponto \(A\) até um ponto \(B\). Para a realização desse procedimento, dependemos essencialmente de ao menos três qubits. Para introduzir esse conceito, iremos nos apropriar de uma história hipotética a título de esclarecer a ideia principal do fenômeno. Imagine por um instante que se deseja enviar uma fotografia para alguém que não se vê há muito tempo. Existem essencialmente duas maneiras de realizar o envio: pode-se enviar a foto pelo correio e aguardar que o destinatário a receba, processo chamado de transporte de informação, ou ainda, você poderia criar um arquivo digital com informações sobre a fotografia, de maneira que aquele que recebe o arquivo, possa de alguma maneira recriar a foto; nesse segundo caso, a foto seria teletransportada \cite{materialdidaticomecquantica}.
 
@@ -396,7 +397,7 @@ Na literatura encontram-se as mais diversas explicações sobre como funciona o 
 
 Na história, os cientistas Alice e Bob estão localizados em dois laboratórios distintos, cada um deles possui um qubit, $q_{A}$ e $q_{B}$ e estes estão emaranhados, produzindo um estado quântico emaranhado denominado de $\ket{\psi_{AB}}$. Alice precisa enviar uma mensagem urgente para Bob utilizando um outro qubit, $q_{C}$. Portanto, no início do processo de teletransporte, Alice possui dois qubits, o que ela deseja enviar e o que possui o estado quântico emaranhado com o qubit de Bob.
 
-Alice realiza então uma série de operações entre seus qubits e, como um deles está emaranhado com o de Bob, este saberá que algo está mudando. Para continuar o processo de teletransporte, Alice faz uma medição em seus qubits, colapsando-os e envia, via um canal clássico, a informação dos qubits colapsados para Bob. Este por sua vez, por saber qual era o estado inicial de $q_{A}$ devido ao emaranhamento, conseque reconstruir a mensagem presente originalmente no qubit $q_{C}$ enviado por Alice. Portanto, a mensagem é reconstruida e não clonada, não violando o princípio da não-clonagem (Teorema~\ref{th:teo1}). A não clonagem fica explicitada no momento em que a medida é realizada em $q_{A}$ e $q_{C}$, colapsando-os, de modo que existe apenas uma cópia do estado de $q_{C}$ dado por $\ket{\psi_{C}}$.
+Alice realiza então uma série de operações entre seus qubits e, como um deles está emaranhado com o de Bob, este saberá que algo está mudando. Para continuar o processo de teletransporte, Alice faz uma medição em seus qubits, colapsando-os e envia, via um canal clássico, a informação dos qubits colapsados para Bob. Este por sua vez, por saber qual era o estado inicial de $q_{A}$ devido ao emaranhamento, conseque reconstruir a mensagem presente originalmente no qubit $q_{C}$ enviado por Alice. Portanto, a mensagem é reconstruida e não clonada, não violando o princípio da não-clonagem (Teorema~\ref{th:teo1}). A não-clonagem fica explicitada no momento em que a medida é realizada em $q_{A}$ e $q_{C}$, colapsando-os, de modo que existe apenas uma cópia do estado de $q_{C}$ dado por $\ket{\psi_{C}}$.
 
 O teletransporte quântico possui algumas questões que devem ser salientadas. A primeira delas é que, de fato, este é um método de transmissão de informação extremamente seguro, visto que, se o receptor não tiver o qubit emaranhado com o do emissor, a mensagem não poderá ser recuperada, além do fato de que a informação original é destruída na transmissão da mensagem. Disso decorre imediatamente a segunda questão. A informação pode, eventualmente, sofrer interferências de ruídos externos durante seu envio e por não possuir mais a mensagem original, pode ser perdida.
 
@@ -435,15 +436,15 @@ Para atingir os objetivos citados na Seção~\ref{sec:just}, pretende-se iniciar
 
 Estabelecidos os conceitos necessários para a definição do fenômeno abordado, será possível delinear suas aplicações para justificar este trabalho. Nesse sentido, será necessária uma revisão bibliográfica para coletar as informações das mais recentes e promissoras aplicações do fenômeno.
 
-Como o foco principal deste trabalho está nos estudos acerca dos efeitos de ruídos no fenômeno de Teletransporte, será necessário elencar os principais ruídos existentes para definir quais serão abordados no trabalho. Segundo \cite{teseufscar}, os principais tipos de ruídos associados à decoerência da informação quântica, ou seja, a sua alteração do estado original são:
+Como o foco principal deste trabalho está nos estudos acerca dos efeitos de ruídos no fenômeno de Teletransporte, será necessário elencar os principais ruídos existentes para definir quais serão abordados no trabalho. Segundo \textcite{teseufscar}, os principais tipos de ruídos associados à decoerência da informação quântica, ou seja, a sua alteração do estado original são:
 
 \begin{description}
-  \item [Inversão de bit (\textit{bitflip})] esse ruído consiste essencialmente na inversão do estado dos qubits emaranhados, fazendo com que estes saiam de um chamado estado puro --- essencial para o fenomeno de emaranhamento --- para um estado misto.
-  \item [Inversão de fase (\textit{phaseflip})] inverte a fase da função de onda que representa os qubits emaranhados.
-  \item [Inversão de bit e fase (\textit{bit-phase flip})] inverte tanto o estado quanto a fase do qubit.
+  \item [Inversão de bit (\textit{bitflip}):] esse ruído consiste essencialmente na inversão do estado dos qubits emaranhados, fazendo com que estes saiam de um chamado estado puro --- essencial para o fenomeno de emaranhamento --- para um estado misto.
+  \item [Inversão de fase (\textit{phaseflip}):] inverte a fase da função de onda que representa os qubits emaranhados.
+  \item [Inversão de bit e fase (\textit{bit-phase flip}):] inverte tanto o estado quanto a fase do qubit.
 \end{description}
 
-Após os devidos estudos teóricos, pretende-se iniciar a construção da simulação. Para isso, o primeiro passo é a delimitação das ferramentas e linguagens a serem utilizadas. A escolha da linguagem de programação será o Python para este trabalho justifica-se pelo fato de sua versatilidade e ampla implementação tanto na Física quanto nas simulações físicas.
+Após os devidos estudos teóricos, pretende-se iniciar a construção da simulação. Para isso, o primeiro passo é a delimitação das ferramentas e linguagens a serem utilizadas. A escolha da linguagem de programação será o Python para este trabalho e justifica-se pelo fato de sua versatilidade e ampla implementação tanto na Física quanto nas simulações físicas.
 
 Em seguida, pretende-se construir um algoritmo que seja capaz de simular a natureza quântica do qubit. É necessário simular, utilizando as ferramentas de Álgebra Linear, a função de onda que descreve o qubit para que este possa interagir com as portas lógicas, que também serão implementadas, no intuito de realizar, de forma puramente computacional, o fenômeno de teletransporte quântico. Serão utilizadas no fenômeno de teletransporte quântico as portas lógicas quânticas \textit{Controlled-Not} e \textit{Hadamard}.
 
