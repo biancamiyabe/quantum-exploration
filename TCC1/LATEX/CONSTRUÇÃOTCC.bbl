@@ -1,0 +1,519 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global}
+    \entry{caldeira}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=daa10d417a1b0021aac5b07b689b4d39}{%
+           family={Caldeira},
+           familyi={C\bibinitperiod},
+           given={Amir},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{daa10d417a1b0021aac5b07b689b4d39}
+      \strng{fullhash}{daa10d417a1b0021aac5b07b689b4d39}
+      \strng{bibnamehash}{daa10d417a1b0021aac5b07b689b4d39}
+      \strng{authorbibnamehash}{daa10d417a1b0021aac5b07b689b4d39}
+      \strng{authornamehash}{daa10d417a1b0021aac5b07b689b4d39}
+      \strng{authorfullhash}{daa10d417a1b0021aac5b07b689b4d39}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1806-1117}
+      \field{journaltitle}{Revista Brasileira de Ensino de Física [online]}
+      \field{title}{Feynman, dissipação e computação quântica}
+      \field{volume}{40}
+      \field{year}{2018}
+      \verb{urlraw}
+      \verb https://doi.org/10.1590/1806-9126-RBEF-2017-0381
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1590/1806-9126-RBEF-2017-0381
+      \endverb
+    \endentry
+    \entry{conceitoinformação}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=8edd3402b5efe292d2fa512defd08d19}{%
+           family={Capurro},
+           familyi={C\bibinitperiod},
+           given={Rafael},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=56860d76b95995f13a16e83e84bb878a}{%
+           family={Hjorland},
+           familyi={H\bibinitperiod},
+           given={Birger},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{d13973c96f58bf536f96a37d3a7378f8}
+      \strng{fullhash}{d13973c96f58bf536f96a37d3a7378f8}
+      \strng{bibnamehash}{d13973c96f58bf536f96a37d3a7378f8}
+      \strng{authorbibnamehash}{d13973c96f58bf536f96a37d3a7378f8}
+      \strng{authornamehash}{d13973c96f58bf536f96a37d3a7378f8}
+      \strng{authorfullhash}{d13973c96f58bf536f96a37d3a7378f8}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1981-5344}
+      \field{journaltitle}{Perspectivas em Ciência da Informação [online].}
+      \field{month}{4}
+      \field{title}{O conceito de Informação}
+      \field{volume}{12}
+      \field{year}{2007}
+      \field{pages}{148\bibrangedash 207}
+      \range{pages}{60}
+      \verb{urlraw}
+      \verb https://www.scielo.br/j/pci/a/j7936SHkZJkpHGH5ZNYQXnC/?lang=pt#
+      \endverb
+      \verb{url}
+      \verb https://www.scielo.br/j/pci/a/j7936SHkZJkpHGH5ZNYQXnC/?lang=pt#
+      \endverb
+    \endentry
+    \entry{dwave}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=5234f9f6296127ac04b8e7e837c0a863}{%
+           family={FAPESP},
+           familyi={F\bibinitperiod},
+           given={Revista},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{5234f9f6296127ac04b8e7e837c0a863}
+      \strng{fullhash}{5234f9f6296127ac04b8e7e837c0a863}
+      \strng{bibnamehash}{5234f9f6296127ac04b8e7e837c0a863}
+      \strng{authorbibnamehash}{5234f9f6296127ac04b8e7e837c0a863}
+      \strng{authornamehash}{5234f9f6296127ac04b8e7e837c0a863}
+      \strng{authorfullhash}{5234f9f6296127ac04b8e7e837c0a863}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Computador quântico em ação}
+      \field{urlday}{7}
+      \field{urlmonth}{4}
+      \field{urlyear}{2022}
+      \field{year}{2007}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://revistapesquisa.fapesp.br/computador-quantico-em-acao/
+      \endverb
+      \verb{url}
+      \verb https://revistapesquisa.fapesp.br/computador-quantico-em-acao/
+      \endverb
+    \endentry
+    \entry{eniac}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=9de0ed4cd22f3dab8b5beca660d0fdbb}{%
+           family={Gadelha},
+           familyi={G\bibinitperiod},
+           given={Julia},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{9de0ed4cd22f3dab8b5beca660d0fdbb}
+      \strng{fullhash}{9de0ed4cd22f3dab8b5beca660d0fdbb}
+      \strng{bibnamehash}{9de0ed4cd22f3dab8b5beca660d0fdbb}
+      \strng{authorbibnamehash}{9de0ed4cd22f3dab8b5beca660d0fdbb}
+      \strng{authornamehash}{9de0ed4cd22f3dab8b5beca660d0fdbb}
+      \strng{authorfullhash}{9de0ed4cd22f3dab8b5beca660d0fdbb}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{A Evolução dos computadores}
+      \field{urlday}{7}
+      \field{urlmonth}{4}
+      \field{urlyear}{2022}
+      \field{year}{2015}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb http://www.ic.uff.br/~aconci/evolucao.html
+      \endverb
+      \verb{url}
+      \verb http://www.ic.uff.br/~aconci/evolucao.html
+      \endverb
+    \endentry
+    \entry{chipibm}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=cbf44511d041dc6d1dd73cc0c033122c}{%
+           family={IBM},
+           familyi={I\bibinitperiod}}}%
+      }
+      \strng{namehash}{cbf44511d041dc6d1dd73cc0c033122c}
+      \strng{fullhash}{cbf44511d041dc6d1dd73cc0c033122c}
+      \strng{bibnamehash}{cbf44511d041dc6d1dd73cc0c033122c}
+      \strng{authorbibnamehash}{cbf44511d041dc6d1dd73cc0c033122c}
+      \strng{authornamehash}{cbf44511d041dc6d1dd73cc0c033122c}
+      \strng{authorfullhash}{cbf44511d041dc6d1dd73cc0c033122c}
+      \field{sortinit}{I}
+      \field{sortinithash}{8d291c51ee89b6cd86bf5379f0b151d8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{IBM Newsroom}
+      \field{urlday}{7}
+      \field{urlmonth}{4}
+      \field{urlyear}{2022}
+      \field{year}{2015}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://newsroom.ibm.com/
+      \endverb
+      \verb{url}
+      \verb https://newsroom.ibm.com/
+      \endverb
+    \endentry
+    \entry{materialdidaticomecquantica}{inbook}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=e9e244f980a03ee07984ea96068563c0}{%
+           family={Jorio},
+           familyi={J\bibinitperiod},
+           given={Ado},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Universidade Federal de Minas Gerais}%
+      }
+      \strng{namehash}{e9e244f980a03ee07984ea96068563c0}
+      \strng{fullhash}{e9e244f980a03ee07984ea96068563c0}
+      \strng{bibnamehash}{e9e244f980a03ee07984ea96068563c0}
+      \strng{authorbibnamehash}{e9e244f980a03ee07984ea96068563c0}
+      \strng{authornamehash}{e9e244f980a03ee07984ea96068563c0}
+      \strng{authorfullhash}{e9e244f980a03ee07984ea96068563c0}
+      \field{sortinit}{J}
+      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Mecânica Quântica}
+      \field{pagetotal}{302}
+      \field{title}{Informação Quântica}
+      \field{year}{2019}
+      \field{pages}{241\bibrangedash 272}
+      \range{pages}{32}
+      \verb{urlraw}
+      \verb http://lilith.fisica.ufmg.br/~adojorio/disciplinas/mecanica_quantica.html
+      \endverb
+      \verb{url}
+      \verb http://lilith.fisica.ufmg.br/~adojorio/disciplinas/mecanica_quantica.html
+      \endverb
+    \endentry
+    \entry{CiênciaTransiçãoSeculosa}{inbook}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=4a0f9a8efed974e48ec3d2d47b08a133}{%
+           family={Junior},
+           familyi={J\bibinitperiod},
+           given={Olival\bibnamedelima Freire},
+           giveni={O\bibinitperiod\bibinitdelim F\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c3bcfa2eaa5949b222a8930d309525b4}{%
+           family={Greca},
+           familyi={G\bibinitperiod},
+           given={Ileana\bibnamedelima Maria},
+           giveni={I\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=11fd82fd1013a3b27704640d130393a6}{%
+           family={El-Hani},
+           familyi={E\bibinithyphendelim H\bibinitperiod},
+           given={Charbel\bibnamedelima Niño},
+           giveni={C\bibinitperiod\bibinitdelim N\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {EDUFBA}%
+      }
+      \strng{namehash}{77f8bf03b7494d651bb841f3612503bd}
+      \strng{fullhash}{77f8bf03b7494d651bb841f3612503bd}
+      \strng{bibnamehash}{77f8bf03b7494d651bb841f3612503bd}
+      \strng{authorbibnamehash}{77f8bf03b7494d651bb841f3612503bd}
+      \strng{authornamehash}{77f8bf03b7494d651bb841f3612503bd}
+      \strng{authorfullhash}{77f8bf03b7494d651bb841f3612503bd}
+      \field{sortinit}{J}
+      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Ciências na transição dos séculos: conceitos, práticas e historicidade}
+      \field{isbn}{9788523212438}
+      \field{pagetotal}{332}
+      \field{title}{Ciências na transição dos séculos: conceitos, práticas e historicidade}
+      \field{year}{2014}
+      \field{pages}{07\bibrangedash 28}
+      \range{pages}{22}
+      \verb{urlraw}
+      \verb https://repositorio.ufba.br/bitstream/ri/22111/1/Ciencia%20na%20transicao%20dos%20seculos-RI.pdf
+      \endverb
+      \verb{url}
+      \verb https://repositorio.ufba.br/bitstream/ri/22111/1/Ciencia%20na%20transicao%20dos%20seculos-RI.pdf
+      \endverb
+    \endentry
+    \entry{mathematical}{book}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=8f23102278073cdbd43bfb626ba27994}{%
+           family={Khinchin},
+           familyi={K\bibinitperiod},
+           given={Aleksandr\bibnamedelima Yakovlevich},
+           giveni={A\bibinitperiod\bibinitdelim Y\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Dover Publications, New York}%
+      }
+      \strng{namehash}{8f23102278073cdbd43bfb626ba27994}
+      \strng{fullhash}{8f23102278073cdbd43bfb626ba27994}
+      \strng{bibnamehash}{8f23102278073cdbd43bfb626ba27994}
+      \strng{authorbibnamehash}{8f23102278073cdbd43bfb626ba27994}
+      \strng{authornamehash}{8f23102278073cdbd43bfb626ba27994}
+      \strng{authorfullhash}{8f23102278073cdbd43bfb626ba27994}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Mathematical foundations of information theory}
+      \field{year}{1957}
+    \endentry
+    \entry{moore}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=a255a2fb9a29fa4fcefff49cef9b78bd}{%
+           family={Moore},
+           familyi={M\bibinitperiod},
+           given={Gordon\bibnamedelima E.},
+           giveni={G\bibinitperiod\bibinitdelim E\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{a255a2fb9a29fa4fcefff49cef9b78bd}
+      \strng{fullhash}{a255a2fb9a29fa4fcefff49cef9b78bd}
+      \strng{bibnamehash}{a255a2fb9a29fa4fcefff49cef9b78bd}
+      \strng{authorbibnamehash}{a255a2fb9a29fa4fcefff49cef9b78bd}
+      \strng{authornamehash}{a255a2fb9a29fa4fcefff49cef9b78bd}
+      \strng{authorfullhash}{a255a2fb9a29fa4fcefff49cef9b78bd}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Electronics Magazine}
+      \field{month}{4}
+      \field{number}{8}
+      \field{title}{Cramming more components onto integrated circuits}
+      \field{volume}{38}
+      \field{year}{1965}
+      \verb{urlraw}
+      \verb https://newsroom.intel.com/wp-content/uploads/sites/11/2018/05/moores-law-electronics.pdf
+      \endverb
+      \verb{url}
+      \verb https://newsroom.intel.com/wp-content/uploads/sites/11/2018/05/moores-law-electronics.pdf
+      \endverb
+    \endentry
+    \entry{chuang}{book}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=afe17482fc813e497188aee3b3783879}{%
+           family={Nielsen},
+           familyi={N\bibinitperiod},
+           given={Michael\bibnamedelima A.},
+           giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=415ddff2f58b25977b1a2dedf18f4501}{%
+           family={Chuang},
+           familyi={C\bibinitperiod},
+           given={Isaac\bibnamedelima L.},
+           giveni={I\bibinitperiod\bibinitdelim L\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge University Press, New York}%
+      }
+      \strng{namehash}{456599bb4a61c2e997e2a7e1a21b25b4}
+      \strng{fullhash}{456599bb4a61c2e997e2a7e1a21b25b4}
+      \strng{bibnamehash}{456599bb4a61c2e997e2a7e1a21b25b4}
+      \strng{authorbibnamehash}{456599bb4a61c2e997e2a7e1a21b25b4}
+      \strng{authornamehash}{456599bb4a61c2e997e2a7e1a21b25b4}
+      \strng{authorfullhash}{456599bb4a61c2e997e2a7e1a21b25b4}
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Quantum Computation and Quantum Information}
+      \field{year}{2010}
+    \endentry
+    \entry{CompInfoQuantica}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=ef94806777113909fb337405e5f86f46}{%
+           family={Oliveira},
+           familyi={O\bibinitperiod},
+           given={Ivan\bibnamedelima S.},
+           giveni={I\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=34dba253202024b1cd66a69a299862da}{%
+           family={Sarthour},
+           familyi={S\bibinitperiod},
+           given={Roberto\bibnamedelima S.},
+           giveni={R\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{984b4459f46611c3340840371606b9c0}
+      \strng{fullhash}{984b4459f46611c3340840371606b9c0}
+      \strng{bibnamehash}{984b4459f46611c3340840371606b9c0}
+      \strng{authorbibnamehash}{984b4459f46611c3340840371606b9c0}
+      \strng{authornamehash}{984b4459f46611c3340840371606b9c0}
+      \strng{authorfullhash}{984b4459f46611c3340840371606b9c0}
+      \field{sortinit}{O}
+      \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{V Escola do CBPF}
+      \field{title}{Computação Quântica e Informação Quântica}
+      \field{year}{2004}
+      \verb{urlraw}
+      \verb http://www.cbpf.br/~qbitrmn/didaticos/cqiq.pdf
+      \endverb
+      \verb{url}
+      \verb http://www.cbpf.br/~qbitrmn/didaticos/cqiq.pdf
+      \endverb
+    \endentry
+    \entry{benschu}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=18afc3425672102a53186459134d89fc}{%
+           family={Schumacher},
+           familyi={S\bibinitperiod},
+           given={Benjamin},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{18afc3425672102a53186459134d89fc}
+      \strng{fullhash}{18afc3425672102a53186459134d89fc}
+      \strng{bibnamehash}{18afc3425672102a53186459134d89fc}
+      \strng{authorbibnamehash}{18afc3425672102a53186459134d89fc}
+      \strng{authornamehash}{18afc3425672102a53186459134d89fc}
+      \strng{authorfullhash}{18afc3425672102a53186459134d89fc}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Physics Review}
+      \field{title}{Quantum Coding}
+      \field{volume}{51}
+      \field{year}{1995}
+      \verb{urlraw}
+      \verb https://journals.aps.org/pra/abstract/10.1103/PhysRevA.51.2738
+      \endverb
+      \verb{url}
+      \verb https://journals.aps.org/pra/abstract/10.1103/PhysRevA.51.2738
+      \endverb
+    \endentry
+    \entry{transistor}{book}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=6274f02c652321416b74b77a1091a91f}{%
+           family={Sedra},
+           familyi={S\bibinitperiod},
+           given={Adel\bibnamedelima S.},
+           giveni={A\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f81b39065083ba18642fa0aef9f114af}{%
+           family={Smith},
+           familyi={S\bibinitperiod},
+           given={Kenneth\bibnamedelima C.},
+           giveni={K\bibinitperiod\bibinitdelim C\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Pearson Universidades}%
+      }
+      \strng{namehash}{4f054d7e6cf584e2fcd724eb800a4125}
+      \strng{fullhash}{4f054d7e6cf584e2fcd724eb800a4125}
+      \strng{bibnamehash}{4f054d7e6cf584e2fcd724eb800a4125}
+      \strng{authorbibnamehash}{4f054d7e6cf584e2fcd724eb800a4125}
+      \strng{authornamehash}{4f054d7e6cf584e2fcd724eb800a4125}
+      \strng{authorfullhash}{4f054d7e6cf584e2fcd724eb800a4125}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Microeletrônica}
+      \field{year}{2007}
+    \endentry
+    \entry{MTC}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=e930d560748b00dab7e3d19806c848ba}{%
+           family={Shannon},
+           familyi={S\bibinitperiod},
+           given={Claude\bibnamedelima Elwood},
+           giveni={C\bibinitperiod\bibinitdelim E\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{e930d560748b00dab7e3d19806c848ba}
+      \strng{fullhash}{e930d560748b00dab7e3d19806c848ba}
+      \strng{bibnamehash}{e930d560748b00dab7e3d19806c848ba}
+      \strng{authorbibnamehash}{e930d560748b00dab7e3d19806c848ba}
+      \strng{authornamehash}{e930d560748b00dab7e3d19806c848ba}
+      \strng{authorfullhash}{e930d560748b00dab7e3d19806c848ba}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{The Bell System Technical Journal}
+      \field{month}{7}
+      \field{title}{A Mathematical Theory of Communication}
+      \field{volume}{27}
+      \field{year}{1948}
+      \field{pages}{379\bibrangedash 423}
+      \range{pages}{45}
+      \verb{urlraw}
+      \verb https://people.math.harvard.edu/~ctm/home/text/others/shannon/entropy/entropy.pdf
+      \endverb
+      \verb{url}
+      \verb https://people.math.harvard.edu/~ctm/home/text/others/shannon/entropy/entropy.pdf
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

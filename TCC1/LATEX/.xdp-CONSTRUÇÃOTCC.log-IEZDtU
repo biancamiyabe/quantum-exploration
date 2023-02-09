@@ -1,0 +1,3114 @@
+This is LuaHBTeX, Version 1.13.0 (TeX Live 2021 - Flatpak)  (format=lualatex 2021.10.11)  25 JAN 2023 16:06
+ restricted system commands enabled.
+**CONSTRUÇÃOTCC.tex
+(./CONSTRUÇÃOTCC.tex
+LaTeX2e <2020-10-01> patch level 4
+Lua module: luaotfload 2021-01-08 3.17 Lua based OpenType font support
+Lua module: lualibs 2020-12-30 2.73 ConTeXt Lua standard libraries.
+Lua module: lualibs-extended 2020-12-30 2.73 ConTeXt Lua libraries -- extended c
+ollection.
+luaotfload | conf : Root cache directory is "/home/biancamiyabe/.var/app/net.xm1
+math.Texmaker/cache/luatex-cache/generic/names".
+luaotfload | init : Loading fontloader "fontloader-2021-01-07.lua" from kpse-res
+olved path "/app/texlive/texmf-dist/tex/luatex/luaotfload/fontloader-2021-01-07.
+lua".
+Lua-only attribute luaotfload@noligature = 1
+Lua-only attribute luaotfload@syllabe = 2
+luaotfload | init : Context OpenType loader version 0x1.8e76c8b439581p+1
+Inserting `luaotfload.node_processor' at position 1 in `pre_linebreak_filter'.
+Inserting `luaotfload.node_processor' at position 1 in `hpack_filter'.
+Inserting `luaotfload.glyph_stream' at position 1 in `glyph_stream_provider'.
+Inserting `luaotfload.define_font' at position 1 in `define_font'.
+Lua-only attribute luaotfload_color_attribute = 3
+luaotfload | conf : Root cache directory is "/home/biancamiyabe/.var/app/net.xm1
+math.Texmaker/cache/luatex-cache/generic/names".
+Inserting `luaotfload.harf.strip_prefix' at position 1 in `find_opentype_file'.
+Inserting `luaotfload.harf.strip_prefix' at position 1 in `find_truetype_file'.
+Inserting `luaotfload.harf.finalize_vlist' at position 1 in `post_linebreak_filt
+er'.
+Inserting `luaotfload.harf.finalize_hlist' at position 2 in `hpack_filter'.
+Inserting `luaotfload.cleanup_files' at position 1 in `wrapup_run'.
+Inserting `luaotfload.harf.finalize_unicode' at position 1 in `finish_pdffile'.
+Inserting `luaotfload.glyphinfo' at position 1 in `glyph_info'.
+Inserting `luaotfload.aux.set_sscale_dimens' at position 1 in `luaotfload.patch_
+font'.
+Inserting `luaotfload.aux.set_font_index' at position 2 in `luaotfload.patch_fon
+t'.
+Inserting `luaotfload.aux.patch_cambria_domh' at position 3 in `luaotfload.patch
+_font'.
+Inserting `luaotfload.aux.fixup_fontdata' at position 1 in `luaotfload.patch_fon
+t_unsafe'.
+Inserting `luaotfload.aux.set_capheight' at position 4 in `luaotfload.patch_font
+'.
+Inserting `luaotfload.aux.set_xheight' at position 5 in `luaotfload.patch_font'.
+Inserting `luaotfload.rewrite_fontname' at position 6 in `luaotfload.patch_font'
+. L3 programming layer <2021-02-18>
+(/app/texlive/texmf-dist/tex/latex/abntex2/abntex2.cls
+Document Class: abntex2 2018/11/24 v-1.9.7 abnTeX2
+(/app/texlive/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)
+(/app/texlive/texmf-dist/tex/latex/memoir/memoir.cls
+Document Class: memoir 2021/03/23 v3.7o configurable book, report, article docu
+ment class
+\onelineskip=\skip47
+\lxvchars=\skip48
+\xlvchars=\skip49
+\@memcnta=\count175
+\c@@memmarkcntra=\count176
+(/app/texlive/texmf-dist/tex/generic/iftex/iftex.sty
+Package: iftex 2020/03/06 v1.0d TeX engine tests
+)
+\stockheight=\skip50
+\stockwidth=\skip51
+\trimtop=\skip52
+\trimedge=\skip53
+
+(/app/texlive/texmf-dist/tex/latex/memoir/mem11.clo
+File: mem11.clo 2008/01/30 v0.3 memoir class 11pt size option
+luaotfload | db : Font names database loaded from /home/biancamiyabe/.var/app/ne
+t.xm1math.Texmaker/cache/luatex-cache/generic/names/luaotfload-names.luc)
+\binding=\skip54
+\spinemargin=\skip55
+\foremargin=\skip56
+\uppermargin=\skip57
+\lowermargin=\skip58
+\headdrop=\skip59
+\normalrulethickness=\skip60
+\mem@maxheadheight=\skip61
+\mem@maxfootheight=\skip62
+\headwidth=\skip63
+\c@storedpagenumber=\count177
+\memPD=\dimen138
+\m@mabparskip=\skip64
+\thanksmarkwidth=\skip65
+\thanksmarksep=\skip66
+\droptitle=\skip67
+\c@book=\count178
+\c@part=\count179
+\c@chapter=\count180
+\c@section=\count181
+\c@subsection=\count182
+\c@subsubsection=\count183
+\c@paragraph=\count184
+\c@subparagraph=\count185
+\beforechapskip=\skip68
+\midchapskip=\skip69
+\afterchapskip=\skip70
+\chapindent=\skip71
+\bottomsectionskip=\skip72
+\secindent=\skip73
+\beforesecskip=\skip74
+\aftersecskip=\skip75
+\subsecindent=\skip76
+\beforesubsecskip=\skip77
+\aftersubsecskip=\skip78
+\subsubsecindent=\skip79
+\beforesubsubsecskip=\skip80
+\aftersubsubsecskip=\skip81
+\paraindent=\skip82
+\beforeparaskip=\skip83
+\afterparaskip=\skip84
+\subparaindent=\skip85
+\beforesubparaskip=\skip86
+\aftersubparaskip=\skip87
+\pfbreakskip=\skip88
+\c@@ppsavesec=\count186
+\c@@ppsaveapp=\count187
+\ragrparindent=\dimen139
+\everylistparindent=\dimen140
+\parsepi=\skip89
+\topsepi=\skip90
+\itemsepi=\skip91
+\parsepii=\skip92
+\topsepii=\skip93
+\topsepiii=\skip94
+\itemsepii=\skip95
+\itemsepiii=\skip96
+\partopsepii=\skip97
+\partopsepiii=\skip98
+\m@msavetopsep=\skip99
+\m@msavepartopsep=\skip100
+\@enLab=\toks15
+\abstitleskip=\skip101
+\absleftindent=\skip102
+\abs@leftindent=\dimen141
+\absrightindent=\skip103
+\absparindent=\skip104
+\absparsep=\skip105
+\c@vslineno=\count188
+\c@poemline=\count189
+\c@modulo@vs=\count190
+\c@memfvsline=\count191
+\vleftskip=\skip106
+\vrightskip=\skip107
+\stanzaskip=\skip108
+\versewidth=\skip109
+\vgap=\skip110
+\vindent=\skip111
+\vleftmargin=\dimen142
+\c@verse=\count192
+\c@chrsinstr=\count193
+\beforepoemtitleskip=\skip112
+\afterpoemtitleskip=\skip113
+\c@poem=\count194
+\beforePoemTitleskip=\skip114
+\midPoemTitleskip=\skip115
+\afterPoemTitleskip=\skip116
+
+(/app/texlive/texmf-dist/tex/latex/tools/array.sty
+Package: array 2020/10/01 v2.5c Tabular extension package (FMi)
+\col@sep=\dimen143
+\ar@mcellbox=\box47
+\extrarowheight=\dimen144
+\NC@list=\toks16
+\extratabsurround=\skip117
+\backup@length=\skip118
+\ar@cellbox=\box48
+)
+(/app/texlive/texmf-dist/tex/latex/tools/dcolumn.sty
+Package: dcolumn 2014/10/28 v1.06 decimal alignment package (DPC)
+)
+(/app/texlive/texmf-dist/tex/latex/tools/delarray.sty
+Package: delarray 2014/10/28 v1.01 array delimiter package (DPC)
+)
+(/app/texlive/texmf-dist/tex/latex/tools/tabularx.sty
+Package: tabularx 2020/01/15 v2.11c `tabularx' package (DPC)
+\TX@col@width=\dimen145
+\TX@old@table=\dimen146
+\TX@old@col=\dimen147
+\TX@target=\dimen148
+\TX@delta=\dimen149
+\TX@cols=\count195
+\TX@ftn=\toks17
+)
+\heavyrulewidth=\dimen150
+\lightrulewidth=\dimen151
+\cmidrulewidth=\dimen152
+\belowrulesep=\dimen153
+\belowbottomsep=\dimen154
+\aboverulesep=\dimen155
+\abovetopsep=\dimen156
+\cmidrulesep=\dimen157
+\cmidrulekern=\dimen158
+\defaultaddspace=\dimen159
+\@cmidla=\count196
+\@cmidlb=\count197
+\@aboverulesep=\dimen160
+\@belowrulesep=\dimen161
+\@thisruleclass=\count198
+\@lastruleclass=\count199
+\@thisrulewidth=\dimen162
+\ctableftskip=\skip119
+\ctabrightskip=\skip120
+\abovecolumnspenalty=\count266
+\@linestogo=\count267
+\@cellstogo=\count268
+\@cellsincolumn=\count269
+\crtok=\toks18
+\@mincolumnwidth=\dimen163
+\c@newflo@tctr=\count270
+\mem@margin@floatbox=\box49
+\@contcwidth=\skip121
+\@contindw=\skip122
+\abovecaptionskip=\skip123
+\belowcaptionskip=\skip124
+\subfloattopskip=\skip125
+\subfloatcapskip=\skip126
+\subfloatcaptopadj=\skip127
+\subfloatbottomskip=\skip128
+\subfloatlabelskip=\skip129
+\subfloatcapmargin=\dimen164
+\c@@contsubnum=\count271
+\m@mscap@capbox=\box50
+\m@mscap@fbox=\box51
+\sidecapsep=\dimen165
+\sidecapwidth=\dimen166
+\m@m@tempdima=\dimen167
+\m@mscapraise=\dimen168
+\sidecapraise=\dimen169
+\m@mscapmainwidth=\dimen170
+\m@mscaplkern=\dimen171
+\beforeepigraphskip=\skip130
+\afterepigraphskip=\skip131
+\epigraphwidth=\skip132
+\epigraphrule=\skip133
+LaTeX Info: Redefining \em on input line 7650.
+LaTeX Info: Redefining \emph on input line 7658.
+\tocentryskip=\skip134
+\tocbaseline=\skip135
+\cftparskip=\skip136
+\cftbeforebookskip=\skip137
+\cftbookindent=\dimen172
+\cftbooknumwidth=\dimen173
+\cftbeforepartskip=\skip138
+\cftpartindent=\skip139
+\cftpartnumwidth=\skip140
+\cftbeforechapterskip=\skip141
+\cftchapterindent=\skip142
+\cftchapternumwidth=\skip143
+\cftbeforesectionskip=\skip144
+\cftsectionindent=\skip145
+\cftsectionnumwidth=\skip146
+\cftbeforesubsectionskip=\skip147
+\cftsubsectionindent=\skip148
+\cftsubsectionnumwidth=\skip149
+\cftbeforesubsubsectionskip=\skip150
+\cftsubsubsectionindent=\skip151
+\cftsubsubsectionnumwidth=\skip152
+\cftbeforeparagraphskip=\skip153
+\cftparagraphindent=\skip154
+\cftparagraphnumwidth=\skip155
+\cftbeforesubparagraphskip=\skip156
+\cftsubparagraphindent=\skip157
+\cftsubparagraphnumwidth=\skip158
+\prechapterprecisshift=\dimen174
+\c@maxsecnumdepth=\count272
+\bibindent=\dimen175
+\bibitemsep=\skip159
+\indexcolsep=\skip160
+\indexrule=\skip161
+\indexmarkstyle=\toks19
+\@indexbox=\insert252
+\glossarycolsep=\dimen176
+\glossaryrule=\dimen177
+\sideparvshift=\skip162
+\sideins=\insert251
+\sidebartopsep=\skip163
+\sidebarhsep=\skip164
+\sidebarvsep=\skip165
+\sidebarwidth=\skip166
+\footmarkwidth=\skip167
+\footmarksep=\skip168
+\footparindent=\skip169
+\footinsdim=\skip170
+\footinsv@r=\insert250
+\@mpfootinsv@r=\insert249
+\m@m@k=\count273
+\m@m@h=\dimen178
+\m@mipn@skip=\skip171
+\sidefootins=\insert248
+\sidefootadjust=\skip172
+\sidefootheight=\skip173
+\sidefoothsep=\skip174
+\sidefootvsep=\skip175
+\sidefootwidth=\skip176
+\m@mdownsf=\skip177
+\c@sidefootnote=\count274
+\sidefootmarkwidth=\skip178
+\sidefootmarksep=\skip179
+\sidefootparindent=\skip180
+\c@pagenote=\count275
+\c@pagenoteshadow=\count276
+\mem@pn@lastkern=\skip181
+\every@verbatim=\toks20
+\afterevery@verbatim=\toks21
+\verbatim@line=\toks22
+\tab@position=\count277
+\verbatim@in@stream=\read2
+\verbatimindent=\skip182
+\verbatim@out=\write3
+\bvboxsep=\skip183
+\c@memfbvline=\count278
+\c@bvlinectr=\count279
+\bvnumlength=\skip184
+\fb@frw=\dimen179
+\fb@frh=\dimen180
+\FrameRule=\dimen181
+\FrameSep=\dimen182
+\c@cp@cntr=\count280
+\c@ism@mctr=\count281
+\c@xsm@mctr=\count282
+\c@csm@mctr=\count283
+\c@ksm@mctr=\count284
+\c@xksm@mctr=\count285
+\c@cksm@mctr=\count286
+\c@msm@mctr=\count287
+\c@xmsm@mctr=\count288
+\c@cmsm@mctr=\count289
+\c@bsm@mctr=\count290
+\c@workm@mctr=\count291
+\c@sheetsequence=\count292
+\c@lastsheet=\count293
+\c@lastpage=\count294
+
+(/app/texlive/texmf-dist/tex/latex/textcase/textcase.sty
+Package: textcase 2019/09/14 v1.00 Text only upper/lower case changing (DPC)
+)
+\c@figure=\count295
+\c@lofdepth=\count296
+\cftbeforefigureskip=\skip185
+\cftfigureindent=\skip186
+\cftfigurenumwidth=\skip187
+\c@table=\count297
+\c@lotdepth=\count298
+\cftbeforetableskip=\skip188
+\cfttableindent=\skip189
+\cfttablenumwidth=\skip190
+Package abstract [2008/07/23] emulated by memoir.
+Package appendix [2008/07/23] emulated by memoir.
+Package booktabs [2016/05/16] emulated by memoir.
+Package ccaption [2008/07/23] emulated by memoir.
+Package changepage [2008/07/23] emulated by memoir.
+Package chngcntr [2008/07/23] emulated by memoir.
+Package chngpage [2008/07/23] emulated by memoir.
+Package crop emulated by memoir.
+Package enumerate [2008/07/23] emulated by memoir.
+Package epigraph [2008/07/23] emulated by memoir.
+Package ifmtarg [2008/07/23] emulated by memoir.
+Package index [2008/07/23] emulated by memoir.
+Package makeidx [2008/07/23] emulated by memoir.
+Package moreverb [2008/07/23] emulated by memoir.
+Package needspace [2008/07/23] emulated by memoir.
+Package newfile [2008/07/23] emulated by memoir.
+Package nextpage [2008/07/23] emulated by memoir.
+Package pagenote [2008/07/23] emulated by memoir.
+Package parskip [2008/07/23] emulated by memoir.
+Package patchcmd [2008/07/23] emulated by memoir.
+Package setspace [2008/07/23] emulated by memoir.
+Package shortvrb [2008/07/23] emulated by memoir.
+Package showidx [2008/07/23] emulated by memoir.
+Package titleref [2008/07/23] emulated by memoir.
+Package titling [2008/07/23] emulated by memoir.
+Package tocbibind [2008/07/23] emulated by memoir.
+Package tocloft [2008/07/23] emulated by memoir.
+Package tocvsec2 [2008/07/23] emulated by memoir.
+Package verbatim [2008/07/23] emulated by memoir.
+Package verse [2008/07/23] emulated by memoir.
+)
+(/app/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2021-02-27 v7.00k Hypertext links for LaTeX
+
+(/app/texlive/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
+)
+(/app/texlive/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(/app/texlive/texmf-dist/tex/generic/infwarerr/infwarerr.sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+\pdftexcmds@toks=\toks23
+)
+(/app/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks24
+)
+(/app/texlive/texmf-dist/tex/generic/kvsetkeys/kvsetkeys.sty
+Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
+)
+(/app/texlive/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+)
+(/app/texlive/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+)
+(/app/texlive/texmf-dist/tex/latex/hycolor/hycolor.sty
+Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
+)
+(/app/texlive/texmf-dist/tex/latex/letltxmacro/letltxmacro.sty
+Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
+)
+(/app/texlive/texmf-dist/tex/latex/auxhook/auxhook.sty
+Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
+)
+(/app/texlive/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+Package: kvoptions 2020-10-07 v3.14 Key value format for package options (HO)
+)
+\@linkdim=\dimen183
+\Hy@linkcounter=\count299
+\Hy@pagecounter=\count300
+
+(/app/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2021-02-27 v7.00k Hyperref: PDFDocEncoding definition (HO)
+)
+(/app/texlive/texmf-dist/tex/latex/hyperref/hyperref-langpatches.def
+File: hyperref-langpatches.def 2021-02-27 v7.00k Hyperref: patches for babel la
+nguages
+)
+(/app/texlive/texmf-dist/tex/generic/intcalc/intcalc.sty
+Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
+)
+(/app/texlive/texmf-dist/tex/generic/etexcmds/etexcmds.sty
+Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
+)
+\Hy@SavedSpaceFactor=\count301
+
+(/app/texlive/texmf-dist/tex/latex/hyperref/puenc.def
+File: puenc.def 2021-02-27 v7.00k Hyperref: PDF Unicode definition (HO)
+)
+Package hyperref Info: Hyper figures OFF on input line 4192.
+Package hyperref Info: Link nesting OFF on input line 4197.
+Package hyperref Info: Hyper index ON on input line 4200.
+Package hyperref Info: Plain pages OFF on input line 4207.
+Package hyperref Info: Backreferencing OFF on input line 4212.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4445.
+\c@Hy@tempcnt=\count302
+
+(/app/texlive/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip16
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 4804.
+\XeTeXLinkMargin=\dimen184
+
+(/app/texlive/texmf-dist/tex/generic/bitset/bitset.sty
+Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
+
+(/app/texlive/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
+)
+))
+\Fld@menulength=\count303
+\Field@Width=\dimen185
+\Fld@charsize=\dimen186
+Package hyperref Info: Hyper figures OFF on input line 6075.
+Package hyperref Info: Link nesting OFF on input line 6080.
+Package hyperref Info: Hyper index ON on input line 6083.
+Package hyperref Info: backreferencing OFF on input line 6090.
+Package hyperref Info: Link coloring OFF on input line 6095.
+Package hyperref Info: Link coloring with OCG OFF on input line 6100.
+Package hyperref Info: PDF/A mode OFF on input line 6105.
+LaTeX Info: Redefining \ref on input line 6145.
+LaTeX Info: Redefining \pageref on input line 6149.
+
+(/app/texlive/texmf-dist/tex/latex/base/atbegshi-ltx.sty
+Package: atbegshi-ltx 2020/08/17 v1.0a Emulation of the original atbegshi packa
+ge
+with kernel methods
+)
+\Hy@abspage=\count304
+\c@Item=\count305
+\c@Hfootnote=\count306
+)
+(/app/texlive/texmf-dist/tex/latex/memoir/memhfixc.sty
+Package: memhfixc 2019/10/24 v1.18 nameref/hyperref package fixes for memoir cl
+ass
+\c@memhycontfloat=\count307
+\c@Hpagenote=\count308
+)
+Package hyperref Info: Driver (autodetected): hluatex.
+
+(/app/texlive/texmf-dist/tex/latex/hyperref/hluatex.def
+File: hluatex.def 2021-02-27 v7.00k Hyperref driver for luaTeX
+
+(/app/texlive/texmf-dist/tex/generic/stringenc/stringenc.sty
+Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
+)
+)
+(/app/texlive/texmf-dist/tex/latex/base/atveryend-ltx.sty
+Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atvery packag
+e
+with kernel methods
+)
+\Fld@listcount=\count309
+\c@bookmark@seq@number=\count310
+
+(/app/texlive/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+Package: rerunfilecheck 2019/12/05 v1.9 Rerun checks for auxiliary files (HO)
+
+(/app/texlive/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
+)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+86.
+)
+\Hy@SectionHShift=\skip191
+)
+(/app/texlive/texmf-dist/tex/latex/bookmark/bookmark.sty
+Package: bookmark 2020-11-06 v1.29 PDF bookmarks (HO)
+
+(/app/texlive/texmf-dist/tex/latex/bookmark/bkm-pdftex.def
+File: bkm-pdftex.def 2020-11-06 v1.29 bookmark driver for pdfTeX (HO)
+\BKM@id=\count311
+))
+(/app/texlive/texmf-dist/tex/generic/babel/babel.sty
+Package: babel 2021/03/24 3.56 The Babel package
+
+(/app/texlive/texmf-dist/tex/generic/babel/babel.def
+File: babel.def 2021/03/24 3.56 Babel common definitions
+
+(/app/texlive/texmf-dist/tex/generic/babel/luababel.def
+\bbl@readstream=\read3
+\l@dumylang=\language2
+Package babel Info: Non-standard hyphenation setup on input line 117.
+\l@nohyphenation=\language3
+\l@german-x-2021-02-26=\language4
+\l@ngerman-x-2021-02-26=\language5
+\l@afrikaans=\language6
+\l@ancientgreek=\language7
+\l@ibycus=\language8
+\l@arabic=\language9
+\l@armenian=\language10
+\l@basque=\language11
+\l@belarusian=\language12
+\l@bulgarian=\language13
+\l@catalan=\language14
+\l@pinyin=\language15
+\l@churchslavonic=\language16
+\l@coptic=\language17
+\l@croatian=\language18
+\l@czech=\language19
+\l@danish=\language20
+\l@dutch=\language21
+\l@ukenglish=\language22
+\l@usenglishmax=\language23
+\l@esperanto=\language24
+\l@estonian=\language25
+\l@ethiopic=\language26
+\l@farsi=\language27
+\l@finnish=\language28
+\l@schoolfinnish=\language29
+\l@french=\language30
+\l@friulan=\language31
+\l@galician=\language32
+\l@georgian=\language33
+\l@german=\language34
+\l@ngerman=\language35
+\l@swissgerman=\language36
+\l@greek=\language37
+\l@monogreek=\language38
+\l@hungarian=\language39
+\l@icelandic=\language40
+\l@assamese=\language41
+\l@bengali=\language42
+\l@gujarati=\language43
+\l@hindi=\language44
+\l@kannada=\language45
+\l@malayalam=\language46
+\l@marathi=\language47
+\l@oriya=\language48
+\l@pali=\language49
+\l@panjabi=\language50
+\l@tamil=\language51
+\l@telugu=\language52
+\l@indonesian=\language53
+\l@interlingua=\language54
+\l@irish=\language55
+\l@italian=\language56
+\l@kurmanji=\language57
+\l@classiclatin=\language58
+\l@latin=\language59
+\l@liturgicallatin=\language60
+\l@latvian=\language61
+\l@lithuanian=\language62
+\l@macedonian=\language63
+\l@mongolian=\language64
+\l@mongolianlmc=\language65
+\l@bokmal=\language66
+\l@nynorsk=\language67
+\l@occitan=\language68
+\l@piedmontese=\language69
+\l@polish=\language70
+\l@portuguese=\language71
+\l@romanian=\language72
+\l@romansh=\language73
+\l@russian=\language74
+\l@sanskrit=\language75
+\l@serbian=\language76
+\l@serbianc=\language77
+\l@slovak=\language78
+\l@slovenian=\language79
+\l@spanish=\language80
+\l@swedish=\language81
+\l@thai=\language82
+\l@turkish=\language83
+\l@turkmen=\language84
+\l@ukrainian=\language85
+\l@uppersorbian=\language86
+\l@welsh=\language87
+\babelcatcodetablenum=\catcodetable12
+\bbl@pattcodes=\catcodetable13
+)
+\babel@savecnt=\count312
+\U@D=\dimen187
+\l@babelnohyphens=\language88
+
+(/app/texlive/texmf-dist/tex/generic/babel/luababel.def
+\bbl@attr@locale=\attribute4
+))
+(/app/texlive/texmf-dist/tex/generic/babel-portuges/brazil.ldf
+Language: portuges 2021/02/04 v1.2s Portuguese support from the babel system
+Package babel Info: \l@brazil = using hyphenrules for portuguese
+(babel)             (\language71) on input line 111.
+Package babel Info: Making " an active character on input line 143.
+
+(/app/texlive/texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-pt.tex
+UTF-8 Portuguese hyphenation patterns
+(/app/texlive/texmf-dist/tex/generic/hyph-utf8/patterns/tex/hyph-pt.tex))))
+(/app/texlive/texmf-dist/tex/latex/enumitem/enumitem.sty
+Package: enumitem 2019/06/20 v3.9 Customized lists
+\labelindent=\skip192
+\enit@outerparindent=\dimen188
+\enit@toks=\toks25
+\enit@inbox=\box52
+\enit@count@id=\count313
+\enitdp@description=\count314
+)
+(/app/texlive/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count315
+\calc@Bcount=\count316
+\calc@Adimen=\dimen189
+\calc@Bdimen=\dimen190
+\calc@Askip=\skip193
+\calc@Bskip=\skip194
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count317
+\calc@Cskip=\skip195
+)
+
+******************************************************
+Stock height and width: 845.04684pt by 597.50787pt
+Top and edge trims: 0pt and 0pt
+Page height and width: 845.04684pt by 597.50787pt
+Text height and width: 704.60031pt by 455pt
+Spine and edge margins: 85.35826pt and 56.9055pt
+Upper and lower margins: 85.35826pt and 55.08827pt
+Headheight and headsep: 13.6pt and 19.8738pt
+Footskip: 27.46295pt
+Columnsep and columnseprule: 10pt and 0pt
+Marginparsep and marginparwidth: 7pt and 42.9055pt
+Sidecapsep and sidecapwidth: 7pt and 49pt
+Sidebarhsep and sidebarwidth: 7pt and 49pt
+Sidebarvsep and sidebartopsep: 13.6pt and 0pt
+Sidebarheight: 594.32022pt
+Sidefoothsep and sidefootwidth: 7pt and 49pt
+Sidefootvsep and sidefootheight: 13.6pt and 594.32022pt
+******************************************************
+
+\c@abntex@bookmarkcounter=\count318
+\cftlastnumwidth=\skip196
+\chapternamenumlength=\skip197
+\ABNTEXcitacaorecuo=\skip198
+\c@alineasi=\count319
+\c@alineasii=\count320
+\enitdp@alineas=\count321
+\c@subalineasi=\count322
+\enitdp@subalineas=\count323
+\c@incisosi=\count324
+\enitdp@incisos=\count325
+\ABNTEXsignwidth=\skip199
+\ABNTEXsignthickness=\skip256
+\ABNTEXsignskip=\skip257
+) (/app/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2020/09/23 v2.17i AMS math features
+\@mathmargin=\skip258
+
+For additional information on amsmath, use the `?' option.
+(/app/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01 AMS text
+
+(/app/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks26
+\ex@=\dimen191
+))
+(/app/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen192
+)
+(/app/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count326
+LaTeX Info: Redefining \frac on input line 236.
+\uproot@=\count327
+\leftroot@=\count328
+LaTeX Info: Redefining \overline on input line 399.
+\classnum@=\count329
+\DOTSCASE@=\count330
+LaTeX Info: Redefining \ldots on input line 496.
+LaTeX Info: Redefining \dots on input line 499.
+LaTeX Info: Redefining \cdots on input line 620.
+\Mathstrutbox@=\box53
+\strutbox@=\box54
+\big@size=\dimen193
+LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
+\macc@depth=\count331
+\c@MaxMatrixCols=\count332
+\dotsspace@=\muskip17
+\c@parentequation=\count333
+\dspbrk@lvl=\count334
+\tag@help=\toks27
+\row@=\count335
+\column@=\count336
+\maxfields@=\count337
+\andhelp@=\toks28
+\eqnshift@=\dimen194
+\alignsep@=\dimen195
+\tagshift@=\dimen196
+\tagwidth@=\dimen197
+\totwidth@=\dimen198
+\lineht@=\dimen199
+\@envbody=\toks29
+\multlinegap=\skip259
+\multlinetaggap=\skip260
+\mathdisplay@stack=\toks30
+LaTeX Info: Redefining \[ on input line 2923.
+LaTeX Info: Redefining \] on input line 2924.
+)
+(/app/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+(/app/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
+(/app/texlive/texmf-dist/tex/latex/mathtools/mathtools.sty
+Package: mathtools 2021/03/18 v1.25 mathematical typesetting tools
+
+(/app/texlive/texmf-dist/tex/latex/mathtools/mhsetup.sty
+Package: mhsetup 2021/03/18 v1.4 programming setup (MH)
+)
+LaTeX Info: Thecontrolsequence`\('isalreadyrobust on input line 130.
+LaTeX Info: Thecontrolsequence`\)'isalreadyrobust on input line 130.
+LaTeX Info: Thecontrolsequence`\['isalreadyrobust on input line 130.
+LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 130.
+\g_MT_multlinerow_int=\count338
+\l_MT_multwidth_dim=\dimen256
+\origjot=\skip261
+\l_MT_shortvdotswithinadjustabove_dim=\dimen257
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen258
+\l_MT_above_intertext_sep=\dimen259
+\l_MT_below_intertext_sep=\dimen260
+\l_MT_above_shortintertext_sep=\dimen261
+\l_MT_below_shortintertext_sep=\dimen262
+\xmathstrut@box=\box55
+\xmathstrut@dim=\dimen263
+)
+(/app/texlive/texmf-dist/tex/latex/tools/indentfirst.sty
+Package: indentfirst 1995/11/23 v1.03 Indent first paragraph (DPC)
+)
+(/app/texlive/texmf-dist/tex/latex/fontspec/fontspec.sty
+(/app/texlive/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+(/app/texlive/texmf-dist/tex/latex/l3kernel/expl3.sty
+Package: expl3 2021-02-18 L3 programming layer (loader) 
+
+(/app/texlive/texmf-dist/tex/latex/l3backend/l3backend-luatex.def
+File: l3backend-luatex.def 2021-03-18 L3 backend support: PDF output (LuaTeX)
+\l__color_backend_stack_int=\count339
+\l__pdf_internal_box=\box56
+))
+(/app/texlive/texmf-dist/tex/latex/l3packages/xparse/xparse-2020-10-01.sty
+(/app/texlive/texmf-dist/tex/latex/l3packages/xparse/xparse-generic.tex)))
+Package: fontspec 2020/02/21 v2.7i Font selection for XeLaTeX and LuaLaTeX
+Lua module: fontspec 2020/02/21 2.7i Font selection for XeLaTeX and LuaLaTeX
+(/app/texlive/texmf-dist/tex/latex/fontspec/fontspec-luatex.sty
+Package: fontspec-luatex 2020/02/21 v2.7i Font selection for XeLaTeX and LuaLaT
+eX
+\l__fontspec_script_int=\count340
+\l__fontspec_language_int=\count341
+\l__fontspec_strnum_int=\count342
+\l__fontspec_tmp_int=\count343
+\l__fontspec_tmpa_int=\count344
+\l__fontspec_tmpb_int=\count345
+\l__fontspec_tmpc_int=\count346
+\l__fontspec_em_int=\count347
+\l__fontspec_emdef_int=\count348
+\l__fontspec_strong_int=\count349
+\l__fontspec_strongdef_int=\count350
+\l__fontspec_tmpa_dim=\dimen264
+\l__fontspec_tmpb_dim=\dimen265
+\l__fontspec_tmpc_dim=\dimen266
+
+(/app/texlive/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2020/08/10 v2.0s Standard LaTeX package
+)
+(/app/texlive/texmf-dist/tex/latex/fontspec/fontspec.cfg)))
+luaotfload | db : Reload initiated (formats: otf,ttf,ttc); reason: File not foun
+d: "./fonts/CrimsonPro-Regular.ttf".
+
+! Package fontspec Error: The font "CrimsonPro-Regular" cannot be found.
+
+For immediate help type H <return>.
+ ...                                              
+                                                  
+l.15 ]
+    
+
+A font might not be found for many reasons.
+ Check the spelling, where the font is installed etc. etc.
+
+ When in doubt, ask someone for help!
+
+
+luaotfload | aux : no font with id 0
+luaotfload | aux : no font with id 0
+
+! Package fontspec Error: The font "CrimsonPro-Regular" cannot be found.
+
+For immediate help type H <return>.
+ ...                                              
+                                                  
+l.15 ]
+    
+
+A font might not be found for many reasons.
+ Check the spelling, where the font is installed etc. etc.
+
+ When in doubt, ask someone for help!
+
+
+
+! Package fontspec Error: The font "CrimsonPro-Regular" cannot be found.
+
+For immediate help type H <return>.
+ ...                                              
+                                                  
+l.15 ]
+    
+
+A font might not be found for many reasons.
+ Check the spelling, where the font is installed etc. etc.
+
+ When in doubt, ask someone for help!
+
+
+
+! Package fontspec Error: The font "AlegreyaSC-Regular" cannot be found.
+
+For immediate help type H <return>.
+ ...                                              
+                                                  
+l.15 ]
+    
+
+A font might not be found for many reasons.
+ Check the spelling, where the font is installed etc. etc.
+
+ When in doubt, ask someone for help!
+
+
+
+! Package fontspec Error: The font "CrimsonPro-Bold" cannot be found.
+
+For immediate help type H <return>.
+ ...                                              
+                                                  
+l.15 ]
+    
+
+A font might not be found for many reasons.
+ Check the spelling, where the font is installed etc. etc.
+
+ When in doubt, ask someone for help!
+
+
+
+! Package fontspec Error: The font "CrimsonPro-Bold" cannot be found.
+
+For immediate help type H <return>.
+ ...                                              
+                                                  
+l.15 ]
+    
+
+A font might not be found for many reasons.
+ Check the spelling, where the font is installed etc. etc.
+
+ When in doubt, ask someone for help!
+
+
+
+! Package fontspec Error: The font "AlegreyaSC-Regular" cannot be found.
+
+For immediate help type H <return>.
+ ...                                              
+                                                  
+l.15 ]
+    
+
+A font might not be found for many reasons.
+ Check the spelling, where the font is installed etc. etc.
+
+ When in doubt, ask someone for help!
+
+
+
+! Package fontspec Error: The font "CrimsonPro-Italic" cannot be found.
+
+For immediate help type H <return>.
+ ...                                              
+                                                  
+l.15 ]
+    
+
+A font might not be found for many reasons.
+ Check the spelling, where the font is installed etc. etc.
+
+ When in doubt, ask someone for help!
+
+
+
+! Package fontspec Error: The font "CrimsonPro-Italic" cannot be found.
+
+For immediate help type H <return>.
+ ...                                              
+                                                  
+l.15 ]
+    
+
+A font might not be found for many reasons.
+ Check the spelling, where the font is installed etc. etc.
+
+ When in doubt, ask someone for help!
+
+
+
+! Package fontspec Error: The font "AlegreyaSC-Regular" cannot be found.
+
+For immediate help type H <return>.
+ ...                                              
+                                                  
+l.15 ]
+    
+
+A font might not be found for many reasons.
+ Check the spelling, where the font is installed etc. etc.
+
+ When in doubt, ask someone for help!
+
+
+
+! Package fontspec Error: The font "CrimsonPro-BoldItalic" cannot be found.
+
+For immediate help type H <return>.
+ ...                                              
+                                                  
+l.15 ]
+    
+
+A font might not be found for many reasons.
+ Check the spelling, where the font is installed etc. etc.
+
+ When in doubt, ask someone for help!
+
+
+
+! Package fontspec Error: The font "CrimsonPro-BoldItalic" cannot be found.
+
+For immediate help type H <return>.
+ ...                                              
+                                                  
+l.15 ]
+    
+
+A font might not be found for many reasons.
+ Check the spelling, where the font is installed etc. etc.
+
+ When in doubt, ask someone for help!
+
+
+
+! Package fontspec Error: The font "AlegreyaSC-Regular" cannot be found.
+
+For immediate help type H <return>.
+ ...                                              
+                                                  
+l.15 ]
+    
+
+A font might not be found for many reasons.
+ Check the spelling, where the font is installed etc. etc.
+
+ When in doubt, ask someone for help!
+
+
+
+Package fontspec Info: Font family 'CrimsonPro(0)' created for font
+(fontspec)             'CrimsonPro' with options [Ligatures=TeX,Path =
+(fontspec)             ./fonts/,Extension = .ttf,UprightFont =
+(fontspec)             *-Regular,BoldFont = *-Bold,ItalicFont =
+(fontspec)             *-Italic,BoldItalicFont = *-BoldItalic,SmallCapsFont =
+(fontspec)             AlegreyaSC-Regular].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"[./fonts/CrimsonPro-Regular.ttf]:mode=node;language=
+dflt;+tlig;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.:
+(fontspec)             <->"[./fonts/AlegreyaSC-Regular.ttf]:mode=node;language=
+dflt;+tlig;"
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->"[./fonts/CrimsonPro-Bold.ttf]:mode=node;language=dfl
+t;+tlig;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.:
+(fontspec)             <->"[./fonts/AlegreyaSC-Regular.ttf]:mode=node;language=
+dflt;+tlig;"
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->"[./fonts/CrimsonPro-Italic.ttf]:mode=node;language=d
+flt;+tlig;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.:
+(fontspec)             <->"[./fonts/AlegreyaSC-Regular.ttf]:mode=node;language=
+dflt;+tlig;"
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.:
+(fontspec)             <->"[./fonts/CrimsonPro-BoldItalic.ttf]:mode=node;langua
+ge=dflt;+tlig;"
+(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.:
+(fontspec)             <->"[./fonts/AlegreyaSC-Regular.ttf]:mode=node;language=
+dflt;+tlig;"
+
+! Font \TU/CrimsonPro(0)/m/n/10.95=[./fonts/CrimsonPro-Regular.ttf]:mode=node;la
+nguage=dflt;+tlig; at 10.95pt not loadable: metric data not found or bad.
+<to be read again> 
+relax 
+l.15 ]
+    
+I wasn't able to read the size data for this font,
+so I will ignore the font specification.
+[Wizards can fix TFM files using TFtoPL/PLtoTF.]
+You might try inserting a different font spec;
+e.g., type `I\font<same font id>=<substitute font name>'.
+
+
+! Package fontspec Error: The font "NotoSans-Regular" cannot be found.
+
+For immediate help type H <return>.
+ ...                                              
+                                                  
+l.23 ]
+    
+
+A font might not be found for many reasons.
+ Check the spelling, where the font is installed etc. etc.
+
+ When in doubt, ask someone for help!
+
+
+luaotfload | aux : no font with id 0
+luaotfload | aux : no font with id 0
+
+! Package fontspec Error: The font "NotoSans-Regular" cannot be found.
+
+For immediate help type H <return>.
+ ...                                              
+                                                  
+l.23 ]
+    
+
+A font might not be found for many reasons.
+ Check the spelling, where the font is installed etc. etc.
+
+ When in doubt, ask someone for help!
+
+
+
+! Package fontspec Error: The font "NotoSans-Regular" cannot be found.
+
+For immediate help type H <return>.
+ ...                                              
+                                                  
+l.23 ]
+    
+
+A font might not be found for many reasons.
+ Check the spelling, where the font is installed etc. etc.
+
+ When in doubt, ask someone for help!
+
+
+
+! Package fontspec Error: The font "NotoSans-Bold" cannot be found.
+
+For immediate help type H <return>.
+ ...                                              
+                                                  
+l.23 ]
+    
+
+A font might not be found for many reasons.
+ Check the spelling, where the font is installed etc. etc.
+
+ When in doubt, ask someone for help!
+
+
+
+! Package fontspec Error: The font "NotoSans-Bold" cannot be found.
+
+For immediate help type H <return>.
+ ...                                              
+                                                  
+l.23 ]
+    
+
+A font might not be found for many reasons.
+ Check the spelling, where the font is installed etc. etc.
+
+ When in doubt, ask someone for help!
+
+
+
+! Package fontspec Error: The font "NotoSans-Italic" cannot be found.
+
+For immediate help type H <return>.
+ ...                                              
+                                                  
+l.23 ]
+    
+
+A font might not be found for many reasons.
+ Check the spelling, where the font is installed etc. etc.
+
+ When in doubt, ask someone for help!
+
+
+
+! Package fontspec Error: The font "NotoSans-Italic" cannot be found.
+
+For immediate help type H <return>.
+ ...                                              
+                                                  
+l.23 ]
+    
+
+A font might not be found for many reasons.
+ Check the spelling, where the font is installed etc. etc.
+
+ When in doubt, ask someone for help!
+
+
+
+! Package fontspec Error: The font "NotoSans-BoldItalic" cannot be found.
+
+For immediate help type H <return>.
+ ...                                              
+                                                  
+l.23 ]
+    
+
+A font might not be found for many reasons.
+ Check the spelling, where the font is installed etc. etc.
+
+ When in doubt, ask someone for help!
+
+
+
+! Package fontspec Error: The font "NotoSans-BoldItalic" cannot be found.
+
+For immediate help type H <return>.
+ ...                                              
+                                                  
+l.23 ]
+    
+
+A font might not be found for many reasons.
+ Check the spelling, where the font is installed etc. etc.
+
+ When in doubt, ask someone for help!
+
+
+
+Package fontspec Info: Font family 'NotoSans(0)' created for font 'NotoSans'
+(fontspec)             with options [Ligatures=TeX,Path = ./fonts/,Extension =
+(fontspec)             .ttf,UprightFont = *-Regular,BoldFont =
+(fontspec)             *-Bold,ItalicFont = *-Italic,BoldItalicFont =
+(fontspec)             *-BoldItalic].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"[./fonts/NotoSans-Regular.ttf]:mode=node;language=df
+lt;+tlig;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->"[./fonts/NotoSans-Bold.ttf]:mode=node;language=dflt;
++tlig;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->"[./fonts/NotoSans-Italic.ttf]:mode=node;language=dfl
+t;+tlig;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: 
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.:
+(fontspec)             <->"[./fonts/NotoSans-BoldItalic.ttf]:mode=node;language
+=dflt;+tlig;"
+(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.: 
+
+
+! Package fontspec Error: The font "DejaVuSansMono" cannot be found.
+
+For immediate help type H <return>.
+ ...                                              
+                                                  
+l.32 ]
+    
+
+A font might not be found for many reasons.
+ Check the spelling, where the font is installed etc. etc.
+
+ When in doubt, ask someone for help!
+
+
+luaotfload | aux : no font with id 0
+luaotfload | aux : no font with id 0
+! Undefined control sequence.
+<argument> \LaTeX3 error: 
+                Invalid operation (0)/(0)
+l.32 ]
+    
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> \LaTeX3 error: 
+                Invalid operation fp_to_decimal(nan)
+l.32 ]
+    
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Package fontspec Info: DejaVuSansMono scale = 0.
+
+
+! Package fontspec Error: The font "DejaVuSansMono" cannot be found.
+
+For immediate help type H <return>.
+ ...                                              
+                                                  
+l.32 ]
+    
+
+A font might not be found for many reasons.
+ Check the spelling, where the font is installed etc. etc.
+
+ When in doubt, ask someone for help!
+
+
+
+! Package fontspec Error: The font "DejaVuSansMono" cannot be found.
+
+For immediate help type H <return>.
+ ...                                              
+                                                  
+l.32 ]
+    
+
+A font might not be found for many reasons.
+ Check the spelling, where the font is installed etc. etc.
+
+ When in doubt, ask someone for help!
+
+
+! Undefined control sequence.
+<argument> \LaTeX3 error: 
+                Invalid operation (0)/(0)
+l.32 ]
+    
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> \LaTeX3 error: 
+                Invalid operation fp_to_decimal(nan)
+l.32 ]
+    
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Package fontspec Info: DejaVuSansMono scale = 0.
+
+
+! Package fontspec Error: The font "DejaVuSansMono-Bold" cannot be found.
+
+For immediate help type H <return>.
+ ...                                              
+                                                  
+l.32 ]
+    
+
+A font might not be found for many reasons.
+ Check the spelling, where the font is installed etc. etc.
+
+ When in doubt, ask someone for help!
+
+
+
+! Package fontspec Error: The font "DejaVuSansMono-Bold" cannot be found.
+
+For immediate help type H <return>.
+ ...                                              
+                                                  
+l.32 ]
+    
+
+A font might not be found for many reasons.
+ Check the spelling, where the font is installed etc. etc.
+
+ When in doubt, ask someone for help!
+
+
+! Undefined control sequence.
+<argument> \LaTeX3 error: 
+                Invalid operation (0)/(0)
+l.32 ]
+    
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> \LaTeX3 error: 
+                Invalid operation fp_to_decimal(nan)
+l.32 ]
+    
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Package fontspec Info: DejaVuSansMono-Bold scale = 0.
+
+
+! Package fontspec Error: The font "DejaVuSansMono-Oblique" cannot be found.
+
+For immediate help type H <return>.
+ ...                                              
+                                                  
+l.32 ]
+    
+
+A font might not be found for many reasons.
+ Check the spelling, where the font is installed etc. etc.
+
+ When in doubt, ask someone for help!
+
+
+
+! Package fontspec Error: The font "DejaVuSansMono-Oblique" cannot be found.
+
+For immediate help type H <return>.
+ ...                                              
+                                                  
+l.32 ]
+    
+
+A font might not be found for many reasons.
+ Check the spelling, where the font is installed etc. etc.
+
+ When in doubt, ask someone for help!
+
+
+! Undefined control sequence.
+<argument> \LaTeX3 error: 
+                Invalid operation (0)/(0)
+l.32 ]
+    
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> \LaTeX3 error: 
+                Invalid operation fp_to_decimal(nan)
+l.32 ]
+    
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Package fontspec Info: DejaVuSansMono-Oblique scale = 0.
+
+
+! Package fontspec Error: The font "DejaVuSansMono-BoldOblique" cannot be
+(fontspec)                found.
+
+For immediate help type H <return>.
+ ...                                              
+                                                  
+l.32 ]
+    
+
+A font might not be found for many reasons.
+ Check the spelling, where the font is installed etc. etc.
+
+ When in doubt, ask someone for help!
+
+
+
+! Package fontspec Error: The font "DejaVuSansMono-BoldOblique" cannot be
+(fontspec)                found.
+
+For immediate help type H <return>.
+ ...                                              
+                                                  
+l.32 ]
+    
+
+A font might not be found for many reasons.
+ Check the spelling, where the font is installed etc. etc.
+
+ When in doubt, ask someone for help!
+
+
+! Undefined control sequence.
+<argument> \LaTeX3 error: 
+                Invalid operation (0)/(0)
+l.32 ]
+    
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> \LaTeX3 error: 
+                Invalid operation fp_to_decimal(nan)
+l.32 ]
+    
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Package fontspec Info: DejaVuSansMono-BoldOblique scale = 0.
+
+
+Package fontspec Info: Font family 'DejaVuSansMono(0)' created for font
+(fontspec)             'DejaVuSansMono' with options
+(fontspec)             [WordSpace={1,0,0},HyphenChar=None,PunctuationSpace=Word
+Space,Path
+(fontspec)             = ./fonts/,Extension = .ttf,UprightFont = *,BoldFont =
+(fontspec)             *-Bold,ItalicFont = *-Oblique,BoldItalicFont =
+(fontspec)             *-BoldOblique,Scale = MatchLowercase].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->s*[0]"[./fonts/DejaVuSansMono.ttf]:mode=node;language
+=dflt;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             and font adjustment code:
+(fontspec)             \fontdimen 2\font =1\fontdimen 2\font \fontdimen 3\font
+(fontspec)             =0\fontdimen 3\font \fontdimen 4\font =0\fontdimen
+(fontspec)             4\font \fontdimen 7\font =0\fontdimen 2\font
+(fontspec)             \tex_hyphenchar:D \font =-1\scan_stop: 
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[0]"[./fonts/DejaVuSansMono-Bold.ttf]:mode=node;lan
+guage=dflt;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+(fontspec)             and font adjustment code:
+(fontspec)             \fontdimen 2\font =1\fontdimen 2\font \fontdimen 3\font
+(fontspec)             =0\fontdimen 3\font \fontdimen 4\font =0\fontdimen
+(fontspec)             4\font \fontdimen 7\font =0\fontdimen 2\font
+(fontspec)             \tex_hyphenchar:D \font =-1\scan_stop: 
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->s*[0]"[./fonts/DejaVuSansMono-Oblique.ttf]:mode=node;
+language=dflt;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: 
+(fontspec)             and font adjustment code:
+(fontspec)             \fontdimen 2\font =1\fontdimen 2\font \fontdimen 3\font
+(fontspec)             =0\fontdimen 3\font \fontdimen 4\font =0\fontdimen
+(fontspec)             4\font \fontdimen 7\font =0\fontdimen 2\font
+(fontspec)             \tex_hyphenchar:D \font =-1\scan_stop: 
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.:
+(fontspec)             <->s*[0]"[./fonts/DejaVuSansMono-BoldOblique.ttf]:mode=n
+ode;language=dflt;"
+(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.: 
+(fontspec)             and font adjustment code:
+(fontspec)             \fontdimen 2\font =1\fontdimen 2\font \fontdimen 3\font
+(fontspec)             =0\fontdimen 3\font \fontdimen 4\font =0\fontdimen
+(fontspec)             4\font \fontdimen 7\font =0\fontdimen 2\font
+(fontspec)             \tex_hyphenchar:D \font =-1\scan_stop: 
+
+(/app/texlive/texmf-dist/tex/latex/unicode-math/unicode-math.sty
+Package: unicode-math 2020/01/31 v0.8q Unicode maths in XeLaTeX and LuaLaTeX
+
+(/app/texlive/texmf-dist/tex/latex/unicode-math/unicode-math-luatex.sty
+Package: unicode-math-luatex 2020/01/31 v0.8q Unicode maths in XeLaTeX and LuaL
+aTeX
+
+(/app/texlive/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty
+Package: l3keys2e 2021-03-12 LaTeX2e option processing using LaTeX3 keys
+)
+(/app/texlive/texmf-dist/tex/latex/base/fix-cm.sty
+Package: fix-cm 2015/01/14 v1.1t fixes to LaTeX
+
+(/app/texlive/texmf-dist/tex/latex/base/ts1enc.def
+File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
+LaTeX Font Info:    Redeclaring font encoding TS1 on input line 47.
+))
+(/app/texlive/texmf-dist/tex/lualatex/lualatex-math/lualatex-math.sty
+Package: lualatex-math 2020/09/25 v1.9 Patches for mathematics typesetting with
+ LuaLaTeX
+
+(/app/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count351
+)
+Lua module: lualatex-math 2013/08/03 1.3 Patches for mathematics typesetting wit
+h LuaLaTeX
+
+Package lualatex-math Warning: I've expected \MT_cramped_internal:Nn to have
+(lualatex-math)                the meaning
+(lualatex-math)                macro:#1#2->\sbox \z@ {$\m@th
+(lualatex-math)                #1\nulldelimiterspace =\z@ \radical \z@
+(lualatex-math)                {#2}$}\ifx #1\displaystyle \dimen@ =\fontdimen
+(lualatex-math)                8\textfont 3\advance \dimen@ .25\fontdimen
+(lualatex-math)                5\textfont 2\else \dimen@ =1.25\fontdimen 8\ifx
+(lualatex-math)                #1\textstyle \textfont \else \ifx
+(lualatex-math)                #1\scriptstyle \scriptfont \else
+(lualatex-math)                \scriptscriptfont \fi \fi 3\fi \advance \dimen@
+(lualatex-math)                -\ht \z@ \ht \z@ =-\dimen@ \box \z@ ,
+(lualatex-math)                but it has the meaning
+(lualatex-math)                macro:#1#2->\setbox \z@ \hbox {$\m@th #1\kern
+(lualatex-math)                -\nulldelimiterspace \radical \z@ {#2}$}\ifx
+(lualatex-math)                #1\displaystyle \dimen@ =\fontdimen 8\textfont
+(lualatex-math)                3\advance \dimen@ .25\fontdimen 5\textfont
+(lualatex-math)                2\else \dimen@ =1.25\fontdimen 8\ifx
+(lualatex-math)                #1\textstyle \textfont \else \ifx
+(lualatex-math)                #1\scriptstyle \scriptfont \else
+(lualatex-math)                \scriptscriptfont \fi \fi 3\fi \advance \dimen@
+(lualatex-math)                -\ht \z@ \ht \z@ =-\dimen@ \ifvmode \leavevmode
+(lualatex-math)                \fi {}\box \z@ .
+
+)
+\g__um_fam_int=\count352
+\g__um_fonts_used_int=\count353
+\l__um_primecount_int=\count354
+\g__um_primekern_muskip=\muskip18
+ (/app/texlive/texmf-dist/tex/latex/unicode-math/unicode-math-table.tex)))
+
+Package fontspec Info: Asana-Math scale = 0.
+
+
+Package fontspec Info: Asana-Math scale = 0.
+
+
+Package fontspec Info: Font family 'Asana-Math.otf(0)' created for font
+(fontspec)             'Asana-Math.otf' with options
+(fontspec)             [Renderer=Basic,BoldItalicFont={},ItalicFont={},SmallCap
+sFont={},Script=Math,FontAdjustment={\__um_luatex_copy_fontdimens:
+(fontspec)             },Scale={MatchLowercase}].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->s*[0]"[Asana-Math.otf]:mode=base;script=math;language
+=dflt;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             and font adjustment code:
+(fontspec)             \__um_luatex_copy_fontdimens: 
+
+LaTeX Font Info:    Font shape `TU/Asana-Math.otf(0)/m/n' will be
+(Font)              scaled to size 0.0pt on input line 35.
+
+! Improper `at' size (0.0pt), replaced by 10pt.
+<to be read again> 
+relax 
+l.35 ...thfont{Asana-Math.otf}[Scale=MatchLowercase]
+                                                  
+I can only handle fonts at positive sizes that are
+less than 2048pt, so I've changed what you said to 10pt.
+
+
+Package fontspec Info: Asana-Math scale = 0.
+
+
+Package fontspec Info: Asana-Math scale = 0.
+
+
+Package fontspec Info: Asana-Math scale = 0.
+
+
+Package fontspec Info: Asana-Math scale = 0.
+
+
+Package fontspec Info: Font family 'Asana-Math.otf(1)' created for font
+(fontspec)             'Asana-Math.otf' with options
+(fontspec)             [Renderer=Basic,BoldItalicFont={},ItalicFont={},SmallCap
+sFont={},Script=Math,SizeFeatures={{Size=9.47175-},{Size=7.28175-9.47175,Font=A
+sana-Math.otf,Style=MathScript},{Size=-7.28175,Font=Asana-Math.otf,Style=MathSc
+riptScript}},FontAdjustment={\__um_luatex_copy_fontdimens:
+(fontspec)             },Scale={MatchLowercase}].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <9.47175->s*[0]"[Asana-Math.otf]:mode=base;script=math;l
+anguage=dflt;"<7.28175-9.47175>s*[0]"[Asana-Math.otf]:mode=base;script=math;lan
+guage=dflt;+ssty=0;"<-7.28175>s*[0]"[Asana-Math.otf]:mode=base;script=math;lang
+uage=dflt;+ssty=1;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             and font adjustment code:
+(fontspec)             \__um_luatex_copy_fontdimens: 
+
+LaTeX Font Info:    Font shape `TU/Asana-Math.otf(1)/m/n' will be
+(Font)              scaled to size 0.0pt on input line 35.
+! Improper `at' size (0.0pt), replaced by 10pt.
+<to be read again> 
+relax 
+l.35 ...thfont{Asana-Math.otf}[Scale=MatchLowercase]
+                                                  
+I can only handle fonts at positive sizes that are
+less than 2048pt, so I've changed what you said to 10pt.
+
+LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
+(Font)              `operators' in the math version `normal' on input line 35.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/cmr/m/n --> TU/Asana-Math.otf(1)/m/n on input line 
+35.
+LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
+(Font)              `operators' in the math version `bold' on input line 35.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/cmr/bx/n --> TU/Asana-Math.otf(1)/b/n on input line
+ 35.
+
+Package fontspec Info: Asana-Math scale = 0.
+
+
+Package fontspec Info: Asana-Math scale = 0.
+
+
+Package fontspec Info: Asana-Math scale = 0.
+
+
+Package fontspec Info: Asana-Math scale = 0.
+
+
+Package fontspec Info: Asana-Math scale = 0.
+
+
+Package fontspec Info: Asana-Math scale = 0.
+
+
+Package fontspec Info: Asana-Math scale = 0.
+
+
+Package fontspec Info: Asana-Math scale = 0.
+
+
+Package fontspec Info: Font family 'Asana-Math.otf(2)' created for font
+(fontspec)             'Asana-Math.otf' with options
+(fontspec)             [Renderer=Basic,BoldItalicFont={},ItalicFont={},SmallCap
+sFont={},Script=Math,SizeFeatures={{Size=9.47175-},{Size=7.28175-9.47175,Font=A
+sana-Math.otf,Style=MathScript},{Size=-7.28175,Font=Asana-Math.otf,Style=MathSc
+riptScript}},FontAdjustment={\__um_luatex_copy_fontdimens:
+(fontspec)             },Scale={MatchLowercase},ScaleAgain=1.0001,FontAdjustmen
+t={\fontdimen
+(fontspec)             8\font =7.25pt\relax \fontdimen 9\font =6.0pt\relax
+(fontspec)             \fontdimen 10\font =0.5pt\relax \fontdimen 11\font
+(fontspec)             =7.09999pt\relax \fontdimen 12\font =5.0pt\relax
+(fontspec)             \fontdimen 13\font =3.60999pt\relax \fontdimen 14\font
+(fontspec)             =3.60999pt\relax \fontdimen 15\font =2.95999pt\relax
+(fontspec)             \fontdimen 16\font =2.09999pt\relax \fontdimen 17\font
+(fontspec)             =2.09999pt\relax \fontdimen 18\font =2.29999pt\relax
+(fontspec)             \fontdimen 19\font =2.21999pt\relax \fontdimen 22\font
+(fontspec)             =2.70999pt\relax \fontdimen 20\font =0pt\relax
+(fontspec)             \fontdimen 21\font =0pt\relax }].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <9.47175->s*[0]"[Asana-Math.otf]:mode=base;script=math;l
+anguage=dflt;"<7.28175-9.47175>s*[0]"[Asana-Math.otf]:mode=base;script=math;lan
+guage=dflt;+ssty=0;"<-7.28175>s*[0]"[Asana-Math.otf]:mode=base;script=math;lang
+uage=dflt;+ssty=1;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             and font adjustment code:
+(fontspec)             \__um_luatex_copy_fontdimens: \fontdimen 8\font
+(fontspec)             =7.25pt\relax \fontdimen 9\font =6.0pt\relax \fontdimen
+(fontspec)             10\font =0.5pt\relax \fontdimen 11\font
+(fontspec)             =7.09999pt\relax \fontdimen 12\font =5.0pt\relax
+(fontspec)             \fontdimen 13\font =3.60999pt\relax \fontdimen 14\font
+(fontspec)             =3.60999pt\relax \fontdimen 15\font =2.95999pt\relax
+(fontspec)             \fontdimen 16\font =2.09999pt\relax \fontdimen 17\font
+(fontspec)             =2.09999pt\relax \fontdimen 18\font =2.29999pt\relax
+(fontspec)             \fontdimen 19\font =2.21999pt\relax \fontdimen 22\font
+(fontspec)             =2.70999pt\relax \fontdimen 20\font =0pt\relax
+(fontspec)             \fontdimen 21\font =0pt\relax 
+
+LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
+(Font)              `symbols' in the math version `normal' on input line 35.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
+(Font)                  OMS/cmsy/m/n --> TU/Asana-Math.otf(2)/m/n on input line
+ 35.
+LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
+(Font)              `symbols' in the math version `bold' on input line 35.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
+(Font)                  OMS/cmsy/b/n --> TU/Asana-Math.otf(2)/b/n on input line
+ 35.
+
+Package fontspec Info: Asana-Math scale = 0.
+
+
+Package fontspec Info: Asana-Math scale = 0.
+
+
+Package fontspec Info: Asana-Math scale = 0.
+
+
+Package fontspec Info: Asana-Math scale = 0.
+
+
+Package fontspec Info: Asana-Math scale = 0.
+
+
+Package fontspec Info: Asana-Math scale = 0.
+
+
+Package fontspec Info: Asana-Math scale = 0.
+
+
+Package fontspec Info: Asana-Math scale = 0.
+
+
+Package fontspec Info: Font family 'Asana-Math.otf(3)' created for font
+(fontspec)             'Asana-Math.otf' with options
+(fontspec)             [Renderer=Basic,BoldItalicFont={},ItalicFont={},SmallCap
+sFont={},Script=Math,SizeFeatures={{Size=9.47175-},{Size=7.28175-9.47175,Font=A
+sana-Math.otf,Style=MathScript},{Size=-7.28175,Font=Asana-Math.otf,Style=MathSc
+riptScript}},FontAdjustment={\__um_luatex_copy_fontdimens:
+(fontspec)             },Scale={MatchLowercase},ScaleAgain=0.9999,FontAdjustmen
+t={\fontdimen
+(fontspec)             8\font =0.59pt\relax \fontdimen 9\font =1.10999pt\relax
+(fontspec)             \fontdimen 10\font =1.67pt\relax \fontdimen 11\font
+(fontspec)             =2.0pt\relax \fontdimen 12\font =6.0pt\relax \fontdimen
+(fontspec)             13\font =0pt\relax }].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <9.47175->s*[0]"[Asana-Math.otf]:mode=base;script=math;l
+anguage=dflt;"<7.28175-9.47175>s*[0]"[Asana-Math.otf]:mode=base;script=math;lan
+guage=dflt;+ssty=0;"<-7.28175>s*[0]"[Asana-Math.otf]:mode=base;script=math;lang
+uage=dflt;+ssty=1;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             and font adjustment code:
+(fontspec)             \__um_luatex_copy_fontdimens: \fontdimen 8\font
+(fontspec)             =0.59pt\relax \fontdimen 9\font =1.10999pt\relax
+(fontspec)             \fontdimen 10\font =1.67pt\relax \fontdimen 11\font
+(fontspec)             =2.0pt\relax \fontdimen 12\font =6.0pt\relax \fontdimen
+(fontspec)             13\font =0pt\relax 
+
+LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
+(Font)              `largesymbols' in the math version `normal' on input line 3
+5.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
+(Font)                  OMX/cmex/m/n --> TU/Asana-Math.otf(3)/m/n on input line
+ 35.
+LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
+(Font)              `largesymbols' in the math version `bold' on input line 35.
+
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
+(Font)                  OMX/cmex/m/n --> TU/Asana-Math.otf(3)/b/n on input line
+ 35.
+LaTeX Font Info:    Font shape `TU/Asana-Math.otf(1)/m/n' will be
+(Font)              scaled to size 0.0pt on input line 35.
+! Improper `at' size (0.0pt), replaced by 10pt.
+<to be read again> 
+relax 
+l.35 ...thfont{Asana-Math.otf}[Scale=MatchLowercase]
+                                                  
+I can only handle fonts at positive sizes that are
+less than 2048pt, so I've changed what you said to 10pt.
+
+LaTeX Font Info:    Font shape `TU/Asana-Math.otf(1)/m/n' will be
+(Font)              scaled to size 0.0pt on input line 35.
+! Improper `at' size (0.0pt), replaced by 10pt.
+<to be read again> 
+relax 
+l.35 ...thfont{Asana-Math.otf}[Scale=MatchLowercase]
+                                                  
+I can only handle fonts at positive sizes that are
+less than 2048pt, so I've changed what you said to 10pt.
+
+LaTeX Font Info:    Font shape `TU/Asana-Math.otf(2)/m/n' will be
+(Font)              scaled to size 0.0pt on input line 35.
+! Improper `at' size (0.0pt), replaced by 10pt.
+<to be read again> 
+relax 
+l.35 ...thfont{Asana-Math.otf}[Scale=MatchLowercase]
+                                                  
+I can only handle fonts at positive sizes that are
+less than 2048pt, so I've changed what you said to 10pt.
+
+LaTeX Font Info:    Font shape `TU/Asana-Math.otf(2)/m/n' will be
+(Font)              scaled to size 0.0pt on input line 35.
+! Improper `at' size (0.0pt), replaced by 10pt.
+<to be read again> 
+relax 
+l.35 ...thfont{Asana-Math.otf}[Scale=MatchLowercase]
+                                                  
+I can only handle fonts at positive sizes that are
+less than 2048pt, so I've changed what you said to 10pt.
+
+LaTeX Font Info:    Font shape `TU/Asana-Math.otf(2)/m/n' will be
+(Font)              scaled to size 0.0pt on input line 35.
+! Improper `at' size (0.0pt), replaced by 10pt.
+<to be read again> 
+relax 
+l.35 ...thfont{Asana-Math.otf}[Scale=MatchLowercase]
+                                                  
+I can only handle fonts at positive sizes that are
+less than 2048pt, so I've changed what you said to 10pt.
+
+LaTeX Font Info:    Font shape `TU/Asana-Math.otf(3)/m/n' will be
+(Font)              scaled to size 0.0pt on input line 35.
+! Improper `at' size (0.0pt), replaced by 10pt.
+<to be read again> 
+relax 
+l.35 ...thfont{Asana-Math.otf}[Scale=MatchLowercase]
+                                                  
+I can only handle fonts at positive sizes that are
+less than 2048pt, so I've changed what you said to 10pt.
+
+LaTeX Font Info:    Font shape `TU/Asana-Math.otf(3)/m/n' will be
+(Font)              scaled to size 0.0pt on input line 35.
+! Improper `at' size (0.0pt), replaced by 10pt.
+<to be read again> 
+relax 
+l.35 ...thfont{Asana-Math.otf}[Scale=MatchLowercase]
+                                                  
+I can only handle fonts at positive sizes that are
+less than 2048pt, so I've changed what you said to 10pt.
+
+LaTeX Font Info:    Font shape `TU/Asana-Math.otf(3)/m/n' will be
+(Font)              scaled to size 0.0pt on input line 35.
+! Improper `at' size (0.0pt), replaced by 10pt.
+<to be read again> 
+relax 
+l.35 ...thfont{Asana-Math.otf}[Scale=MatchLowercase]
+                                                  
+I can only handle fonts at positive sizes that are
+less than 2048pt, so I've changed what you said to 10pt.
+
+LaTeX Font Info:    Trying to load font information for U+msa on input line 35.
+
+(/app/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 35.
+
+
+(/app/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+(/app/texlive/texmf-dist/tex/latex/polyglossia/polyglossia.sty
+Package: polyglossia 2021/03/16 v1.52 Modern multilingual typesetting with XeLa
+TeX and LuaLaTeX
+
+(/app/texlive/texmf-dist/tex/latex/makecmds/makecmds.sty
+Package: makecmds 2009/09/03 v1.0a extra command making commands
+)
+(/app/texlive/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+Package: xkeyval 2020/11/20 v2.8 package option processing (HA)
+
+(/app/texlive/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(/app/texlive/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+\XKV@toks=\toks31
+\XKV@tempa@toks=\toks32
+)
+\XKV@depth=\count355
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+))
+(/app/texlive/texmf-dist/tex/luatex/luatexbase/luatexbase.sty
+Package: luatexbase 2015/10/04 v1.3 luatexbase interface to LuaTeX 
+
+(/app/texlive/texmf-dist/tex/luatex/ctablestack/ctablestack.sty
+Package: ctablestack 2015/10/01 v1.0 Catcode table stable support
+\@catcodetablestackcnt=\count356
+)
+\CatcodeTableOther=\catcodetable14
+\CatcodeTableExpl=\catcodetable15
+)
+Lua module: polyglossia 2013/05/11 1.3 Polyglossia
+(/app/texlive/texmf-dist/tex/latex/polyglossia/gloss-latex.ldf
+File: gloss-latex.ldf polyglossia: module for default language
+The property list \polyglossia@langsetup contains the pairs (without outer
+braces):
+>  {latex/script}  =>  {latin}
+>  {latex/lcscript}  =>  {latin}
+>  {latex/scripttag}  =>  {}
+>  {latex/language}  =>  {Latex}
+>  {latex/langtag}  =>  {ENG}
+>  {latex/bcp47}  =>  {}
+>  {latex/hyphennames}  =>  {english}
+>  {latex/direction}  =>  {LR}
+>  {latex/hyphenmins}  =>  {2,3}
+>  {latex/frenchspacing}  =>  {false}
+>  {latex/indentfirst}  =>  {false}
+>  {latex/fontsetup}  =>  {true}
+>  {latex/envname}  =>  {latex}
+>  {latex/babelname}  =>  {latex}
+>  {latex/localnumeral}  =>  {polyglossia@C@localnumeral}
+>  {latex/Localnumeral}  =>  {polyglossia@C@localnumeral}.
+)
+Package polyglossia Info: Default language is latex.
+Package polyglossia Info: Setting LuaTeX font renderer to Harfbuzz.
+)
+(/app/texlive/texmf-dist/tex/latex/polyglossia/gloss-portuges.ldf
+File: gloss-portuges.ldf polyglossia: module for portuguese
+
+(/app/texlive/texmf-dist/tex/latex/polyglossia/gloss-portuguese.ldf
+File: gloss-portuguese.ldf polyglossia: module for portuguese
+The property list \polyglossia@langsetup contains the pairs (without outer
+braces):
+>  {latex/script}  =>  {latin}
+>  {latex/lcscript}  =>  {latin}
+>  {latex/scripttag}  =>  {}
+>  {latex/language}  =>  {Latex}
+>  {latex/langtag}  =>  {ENG}
+>  {latex/bcp47}  =>  {}
+>  {latex/hyphennames}  =>  {english}
+>  {latex/direction}  =>  {LR}
+>  {latex/hyphenmins}  =>  {2,3}
+>  {latex/frenchspacing}  =>  {false}
+>  {latex/indentfirst}  =>  {false}
+>  {latex/fontsetup}  =>  {true}
+>  {latex/envname}  =>  {latex}
+>  {latex/babelname}  =>  {latex}
+>  {latex/localnumeral}  =>  {polyglossia@C@localnumeral}
+>  {latex/Localnumeral}  =>  {polyglossia@C@localnumeral}
+>  {portuguese/script}  =>  {latin}
+>  {portuguese/lcscript}  =>  {latin}
+>  {portuguese/scripttag}  =>  {}
+>  {portuguese/language}  =>  {Portuguese}
+>  {portuguese/langtag}  =>  {PTG}
+>  {portuguese/bcp47}  =>  {pt-PT}
+>  {portuguese/hyphennames}  =>  {portuges,portuguese}
+>  {portuguese/direction}  =>  {LR}
+>  {portuguese/hyphenmins}  =>  {2,3}
+>  {portuguese/frenchspacing}  =>  {false}
+>  {portuguese/indentfirst}  =>  {false}
+>  {portuguese/fontsetup}  =>  {true}
+>  {portuguese/envname}  =>  {portuguese}
+>  {portuguese/babelname}  =>  {portuges}
+>  {portuguese/localnumeral}  =>  {polyglossia@C@localnumeral}
+>  {portuguese/Localnumeral}  =>  {polyglossia@C@localnumeral}.
+Package polyglossia Info: Option: portuguese, variant=portuguese.
+))
+(/app/texlive/texmf-dist/tex/latex/polyglossia/gloss-portuguese.ldf
+File: gloss-portuguese.ldf polyglossia: module for portuguese
+The property list \polyglossia@langsetup contains the pairs (without outer
+braces):
+>  {latex/script}  =>  {latin}
+>  {latex/lcscript}  =>  {latin}
+>  {latex/scripttag}  =>  {}
+>  {latex/language}  =>  {Latex}
+>  {latex/langtag}  =>  {ENG}
+>  {latex/bcp47}  =>  {}
+>  {latex/hyphennames}  =>  {english}
+>  {latex/direction}  =>  {LR}
+>  {latex/hyphenmins}  =>  {2,3}
+>  {latex/frenchspacing}  =>  {false}
+>  {latex/indentfirst}  =>  {false}
+>  {latex/fontsetup}  =>  {true}
+>  {latex/envname}  =>  {latex}
+>  {latex/babelname}  =>  {latex}
+>  {latex/localnumeral}  =>  {polyglossia@C@localnumeral}
+>  {latex/Localnumeral}  =>  {polyglossia@C@localnumeral}
+>  {portuguese/script}  =>  {latin}
+>  {portuguese/lcscript}  =>  {latin}
+>  {portuguese/scripttag}  =>  {}
+>  {portuguese/language}  =>  {Portuguese}
+>  {portuguese/langtag}  =>  {PTG}
+>  {portuguese/bcp47}  =>  {pt-PT}
+>  {portuguese/hyphennames}  =>  {portuges,portuguese}
+>  {portuguese/direction}  =>  {LR}
+>  {portuguese/hyphenmins}  =>  {2,3}
+>  {portuguese/frenchspacing}  =>  {false}
+>  {portuguese/indentfirst}  =>  {false}
+>  {portuguese/fontsetup}  =>  {true}
+>  {portuguese/envname}  =>  {portuguese}
+>  {portuguese/babelname}  =>  {portuges}
+>  {portuguese/localnumeral}  =>  {polyglossia@C@localnumeral}
+>  {portuguese/Localnumeral}  =>  {polyglossia@C@localnumeral}.
+Package polyglossia Info: Option: portuguese, variant=portuguese.
+)
+Package polyglossia Info: Option: portuguese, variant=portuguese.
+Package polyglossia Info: Option: portuguese, variant=portuguese.
+Package polyglossia Info: Default language is portuguese.
+Package polyglossia Info: Option: portuguese, variant=portuguese.
+
+(/app/texlive/texmf-dist/tex/latex/polyglossia/gloss-english.ldf
+File: gloss-english.ldf polyglossia: module for english
+The property list \polyglossia@langsetup contains the pairs (without outer
+braces):
+>  {latex/script}  =>  {latin}
+>  {latex/lcscript}  =>  {latin}
+>  {latex/scripttag}  =>  {}
+>  {latex/language}  =>  {Latex}
+>  {latex/langtag}  =>  {ENG}
+>  {latex/bcp47}  =>  {}
+>  {latex/hyphennames}  =>  {english}
+>  {latex/direction}  =>  {LR}
+>  {latex/hyphenmins}  =>  {2,3}
+>  {latex/frenchspacing}  =>  {false}
+>  {latex/indentfirst}  =>  {false}
+>  {latex/fontsetup}  =>  {true}
+>  {latex/envname}  =>  {latex}
+>  {latex/babelname}  =>  {latex}
+>  {latex/localnumeral}  =>  {polyglossia@C@localnumeral}
+>  {latex/Localnumeral}  =>  {polyglossia@C@localnumeral}
+>  {portuguese/script}  =>  {latin}
+>  {portuguese/lcscript}  =>  {latin}
+>  {portuguese/scripttag}  =>  {}
+>  {portuguese/language}  =>  {Portuguese}
+>  {portuguese/langtag}  =>  {PTG}
+>  {portuguese/bcp47}  =>  {pt-PT}
+>  {portuguese/hyphennames}  =>  {portuges,portuguese}
+>  {portuguese/direction}  =>  {LR}
+>  {portuguese/hyphenmins}  =>  {2,3}
+>  {portuguese/frenchspacing}  =>  {false}
+>  {portuguese/indentfirst}  =>  {false}
+>  {portuguese/fontsetup}  =>  {true}
+>  {portuguese/envname}  =>  {portuguese}
+>  {portuguese/babelname}  =>  {portuges}
+>  {portuguese/localnumeral}  =>  {polyglossia@C@localnumeral}
+>  {portuguese/Localnumeral}  =>  {polyglossia@C@localnumeral}
+>  {english/script}  =>  {latin}
+>  {english/lcscript}  =>  {latin}
+>  {english/scripttag}  =>  {}
+>  {english/language}  =>  {English}
+>  {english/langtag}  =>  {ENG}
+>  {english/bcp47}  =>  {en-US}
+>  {english/hyphennames}  =>  {english,american,usenglish,USenglish}
+>  {english/direction}  =>  {LR}
+>  {english/hyphenmins}  =>  {2,3}
+>  {english/frenchspacing}  =>  {false}
+>  {english/indentfirst}  =>  {false}
+>  {english/fontsetup}  =>  {true}
+>  {english/envname}  =>  {english}
+>  {english/babelname}  =>  {english}
+>  {english/localnumeral}  =>  {polyglossia@C@localnumeral}
+>  {english/Localnumeral}  =>  {polyglossia@C@localnumeral}.
+Package polyglossia Info: Option: English, variant=american.
+)
+(/app/texlive/texmf-dist/tex/latex/csquotes/csquotes.sty
+Package: csquotes 2021-02-22 v5.2l context-sensitive quotations (JAW)
+\csq@reset=\count357
+\csq@gtype=\count358
+\csq@glevel=\count359
+\csq@qlevel=\count360
+\csq@maxlvl=\count361
+\csq@tshold=\count362
+\csq@ltx@everypar=\toks33
+
+(/app/texlive/texmf-dist/tex/latex/csquotes/csquotes.def
+File: csquotes.def 2021-02-22 v5.2l csquotes generic definitions (JAW)
+)
+Package csquotes Info: Trying to load configuration file 'csquotes.cfg'...
+Package csquotes Info: ... configuration file loaded successfully.
+
+(/app/texlive/texmf-dist/tex/latex/csquotes/csquotes.cfg
+File: csquotes.cfg 
+))
+(/app/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2020/09/09 v1.2b Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/app/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2020/08/30 v1.4c Standard LaTeX Graphics (DPC,SPQR)
+
+(/app/texlive/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+(/app/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: luatex.def on input line 105.
+
+(/app/texlive/texmf-dist/tex/latex/graphics-def/luatex.def
+File: luatex.def 2020/10/05 v1.2a Graphics/color driver for luatex
+))
+\Gin@req@height=\dimen267
+\Gin@req@width=\dimen268
+)
+(/app/texlive/texmf-dist/tex/latex/graphics/color.sty
+Package: color 2020/02/24 v1.2b Standard LaTeX Color (DPC)
+
+(/app/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package color Info: Driver file: luatex.def on input line 147.
+)
+(/app/texlive/texmf-dist/tex/latex/pgfgantt/pgfgantt.sty
+Package: pgfgantt 2018/01/10 v5.0 Draw Gantt diagrams with TikZ
+
+(/app/texlive/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
+(/app/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
+(/app/texlive/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
+(/app/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
+\pgfutil@everybye=\toks34
+\pgfutil@tempdima=\dimen269
+\pgfutil@tempdimb=\dimen270
+
+(/app/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-common-lists.tex))
+(/app/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
+\pgfutil@abb=\box57
+)
+(/app/texlive/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex
+(/app/texlive/texmf-dist/tex/generic/pgf/pgf.revision.tex)
+Package: pgfrcs 2020/12/27 v3.1.8b (3.1.8b)
+))
+Package: pgf 2020/12/27 v3.1.8b (3.1.8b)
+
+(/app/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty
+(/app/texlive/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty
+(/app/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
+Package: pgfsys 2020/12/27 v3.1.8b (3.1.8b)
+
+(/app/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+\pgfkeys@pathtoks=\toks35
+\pgfkeys@temptoks=\toks36
+
+(/app/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeysfiltered.code.tex
+\pgfkeys@tmptoks=\toks37
+))
+\pgf@x=\dimen271
+\pgf@y=\dimen272
+\pgf@xa=\dimen273
+\pgf@ya=\dimen274
+\pgf@xb=\dimen275
+\pgf@yb=\dimen276
+\pgf@xc=\dimen277
+\pgf@yc=\dimen278
+\pgf@xd=\dimen279
+\pgf@yd=\dimen280
+\w@pgf@writea=\write4
+\r@pgf@reada=\read4
+\c@pgf@counta=\count363
+\c@pgf@countb=\count364
+\c@pgf@countc=\count365
+\c@pgf@countd=\count366
+\t@pgf@toka=\toks38
+\t@pgf@tokb=\toks39
+\t@pgf@tokc=\toks40
+\pgf@sys@id@count=\count367
+
+(/app/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
+File: pgf.cfg 2020/12/27 v3.1.8b (3.1.8b)
+)
+Driver file for pgf: pgfsys-luatex.def
+
+(/app/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-luatex.def
+File: pgfsys-luatex.def 2020/12/27 v3.1.8b (3.1.8b)
+
+(/app/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.def
+File: pgfsys-common-pdf.def 2020/12/27 v3.1.8b (3.1.8b)
+)))
+(/app/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
+File: pgfsyssoftpath.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+\pgfsyssoftpath@smallbuffer@items=\count368
+\pgfsyssoftpath@bigbuffer@items=\count369
+)
+(/app/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
+File: pgfsysprotocol.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+))
+(/app/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
+
+(/app/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: luatex.def on input line 225.
+LaTeX Info: Redefining \color on input line 709.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
+Package xcolor Info: Model `RGB' extended on input line 1364.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
+)
+(/app/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
+Package: pgfcore 2020/12/27 v3.1.8b (3.1.8b)
+
+(/app/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex
+(/app/texlive/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex
+(/app/texlive/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex)
+(/app/texlive/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
+\pgfmath@dimen=\dimen281
+\pgfmath@count=\count370
+\pgfmath@box=\box58
+\pgfmath@toks=\toks41
+\pgfmath@stack@operand=\toks42
+\pgfmath@stack@operation=\toks43
+)
+(/app/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex
+(/app/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code.tex)
+(/app/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonometric.co
+de.tex)
+(/app/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.code.tex)
+(/app/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison.code.
+tex)
+(/app/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.tex)
+(/app/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code.tex)
+(/app/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex)
+(/app/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerarithmeti
+cs.code.tex)))
+(/app/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
+\c@pgfmathroundto@lastzeros=\count371
+))
+(/app/texlive/texmf-dist/tex/generic/pgf/math/pgfint.code.tex)
+(/app/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
+File: pgfcorepoints.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+\pgf@picminx=\dimen282
+\pgf@picmaxx=\dimen283
+\pgf@picminy=\dimen284
+\pgf@picmaxy=\dimen285
+\pgf@pathminx=\dimen286
+\pgf@pathmaxx=\dimen287
+\pgf@pathminy=\dimen288
+\pgf@pathmaxy=\dimen289
+\pgf@xx=\dimen290
+\pgf@xy=\dimen291
+\pgf@yx=\dimen292
+\pgf@yy=\dimen293
+\pgf@zx=\dimen294
+\pgf@zy=\dimen295
+)
+(/app/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.code.t
+ex
+File: pgfcorepathconstruct.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+\pgf@path@lastx=\dimen296
+\pgf@path@lasty=\dimen297
+)
+(/app/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code.tex
+File: pgfcorepathusage.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+\pgf@shorten@end@additional=\dimen298
+\pgf@shorten@start@additional=\dimen299
+)
+(/app/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.tex
+File: pgfcorescopes.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+\pgfpic=\box59
+\pgf@hbox=\box60
+\pgf@layerbox@main=\box61
+\pgf@picture@serial@count=\count372
+)
+(/app/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.te
+x
+File: pgfcoregraphicstate.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+\pgflinewidth=\dimen300
+)
+(/app/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformations.code
+.tex
+File: pgfcoretransformations.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+\pgf@pt@x=\dimen301
+\pgf@pt@y=\dimen302
+\pgf@pt@temp=\dimen303
+) (/app/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex
+File: pgfcorequick.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+) (/app/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.code.tex
+File: pgfcoreobjects.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+)
+(/app/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathprocessing.code.
+tex
+File: pgfcorepathprocessing.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+) (/app/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.tex
+File: pgfcorearrows.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+\pgfarrowsep=\dimen304
+) (/app/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
+File: pgfcoreshade.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+\pgf@max=\dimen305
+\pgf@sys@shading@range@num=\count373
+\pgf@shadingcount=\count374
+)
+(/app/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
+File: pgfcoreimage.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+
+(/app/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.tex
+File: pgfcoreexternal.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+\pgfexternal@startupbox=\box62
+))
+(/app/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.tex
+File: pgfcorelayers.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+)
+(/app/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransparency.code.te
+x
+File: pgfcoretransparency.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+) (/app/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.code.tex
+File: pgfcorepatterns.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+) (/app/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorerdf.code.tex
+File: pgfcorerdf.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+)))
+(/app/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex
+File: pgfmoduleshapes.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+\pgfnodeparttextbox=\box63
+)
+(/app/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.tex
+File: pgfmoduleplot.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+)
+(/app/texlive/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65.sty
+Package: pgfcomp-version-0-65 2020/12/27 v3.1.8b (3.1.8b)
+\pgf@nodesepstart=\dimen306
+\pgf@nodesepend=\dimen307
+)
+(/app/texlive/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18.sty
+Package: pgfcomp-version-1-18 2020/12/27 v3.1.8b (3.1.8b)
+)) (/app/texlive/texmf-dist/tex/latex/pgf/utilities/pgffor.sty
+(/app/texlive/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty
+(/app/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex))
+(/app/texlive/texmf-dist/tex/latex/pgf/math/pgfmath.sty
+(/app/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex))
+(/app/texlive/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
+Package: pgffor 2020/12/27 v3.1.8b (3.1.8b)
+
+(/app/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)
+\pgffor@iter=\dimen308
+\pgffor@skip=\dimen309
+\pgffor@stack=\toks44
+\pgffor@toks=\toks45
+))
+(/app/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
+Package: tikz 2020/12/27 v3.1.8b (3.1.8b)
+
+(/app/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers.code.
+tex
+File: pgflibraryplothandlers.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+\pgf@plot@mark@count=\count375
+\pgfplotmarksize=\dimen310
+)
+\tikz@lastx=\dimen311
+\tikz@lasty=\dimen312
+\tikz@lastxsaved=\dimen313
+\tikz@lastysaved=\dimen314
+\tikz@lastmovetox=\dimen315
+\tikz@lastmovetoy=\dimen316
+\tikzleveldistance=\dimen317
+\tikzsiblingdistance=\dimen318
+\tikz@figbox=\box64
+\tikz@figbox@bg=\box65
+\tikz@tempbox=\box66
+\tikz@tempbox@bg=\box67
+\tikztreelevel=\count376
+\tikznumberofchildren=\count377
+\tikznumberofcurrentchild=\count378
+\tikz@fig@count=\count379
+ (/app/texlive/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
+File: pgfmodulematrix.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+\pgfmatrixcurrentrow=\count380
+\pgfmatrixcurrentcolumn=\count381
+\pgf@matrix@numberofcolumns=\count382
+)
+\tikz@expandcount=\count383
+
+(/app/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibra
+rytopaths.code.tex
+File: tikzlibrarytopaths.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+)))
+(/app/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibra
+ryarrows.code.tex
+File: tikzlibraryarrows.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+
+(/app/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.code.tex
+File: pgflibraryarrows.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+\arrowsize=\dimen319
+))
+(/app/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibra
+rybackgrounds.code.tex
+File: tikzlibrarybackgrounds.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+\pgf@layerbox@background=\box68
+\pgf@layerboxsaved@background=\box69
+)
+(/app/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibra
+rycalc.code.tex
+File: tikzlibrarycalc.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+)
+(/app/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibra
+rypatterns.code.tex
+File: tikzlibrarypatterns.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+
+(/app/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibrarypatterns.code.tex
+File: pgflibrarypatterns.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+))
+(/app/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibra
+rypositioning.code.tex
+File: tikzlibrarypositioning.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+)
+(/app/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibra
+ryshapes.geometric.code.tex
+File: tikzlibraryshapes.geometric.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+
+(/app/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.geom
+etric.code.tex
+File: pgflibraryshapes.geometric.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+))
+(/app/texlive/texmf-dist/tex/latex/pgf/utilities/pgfcalendar.sty
+(/app/texlive/texmf-dist/tex/generic/pgf/utilities/pgfcalendar.code.tex
+File: pgfcalendar.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+
+(/app/texlive/texmf-dist/tex/generic/pgf/math/pgfint.code.tex)
+\pgfcalendarcurrentjulian=\count384
+\pgf@cal@easter@Y=\count385
+\pgf@cal@easter@G=\count386
+\pgf@cal@easter@C=\count387
+\pgf@cal@easter@X=\count388
+\pgf@cal@easter@Z=\count389
+\pgf@cal@easter@D=\count390
+\pgf@cal@easter@E=\count391
+\pgf@cal@easter@N=\count392
+\pgf@cal@easter@M=\count393
+\pgf@cal@easter@julianday=\count394
+))
+\gtt@currentline=\count395
+\gtt@lasttitleline=\count396
+\gtt@currgrid=\count397
+\gtt@chartwidth=\count398
+\gtt@lasttitleslot=\count399
+\gtt@elementid=\count400
+\gtt@today@slot=\count401
+\gtt@startjulian=\count402
+\gtt@endjulian=\count403
+\gtt@chartid=\count404
+\gtt@vrule@slot=\count405
+\gtt@calendar@slots=\count406
+\gtt@calendar@weeknumber=\count407
+\gtt@calendar@startofweek=\count408
+\gtt@left@slot=\count409
+\gtt@right@slot=\count410
+)
+(/app/texlive/texmf-dist/tex/latex/tools/multicol.sty
+Package: multicol 2019/12/09 v1.8y multicolumn formatting (FMi)
+\c@tracingmulticols=\count411
+\mult@box=\box70
+\multicol@leftmargin=\dimen320
+\c@unbalance=\count412
+\c@collectmore=\count413
+\doublecol@number=\count414
+\multicoltolerance=\count415
+\multicolpretolerance=\count416
+\full@width=\dimen321
+\page@free=\dimen322
+\premulticols=\dimen323
+\postmulticols=\dimen324
+\multicolsep=\skip262
+\multicolbaselineskip=\skip263
+\partial@page=\box71
+\last@line=\box72
+\maxbalancingoverflow=\dimen325
+\mult@rightbox=\box73
+\mult@grightbox=\box74
+\mult@gfirstbox=\box75
+\mult@firstbox=\box76
+\@tempa=\box77
+\@tempa=\box78
+\@tempa=\box79
+\@tempa=\box80
+\@tempa=\box81
+\@tempa=\box82
+\@tempa=\box83
+\@tempa=\box84
+\@tempa=\box85
+\@tempa=\box86
+\@tempa=\box87
+\@tempa=\box88
+\@tempa=\box89
+\@tempa=\box90
+\@tempa=\box91
+\@tempa=\box92
+\@tempa=\box93
+\@tempa=\box94
+\@tempa=\box95
+\@tempa=\box96
+\@tempa=\box97
+\@tempa=\box98
+\@tempa=\box99
+\@tempa=\box100
+\@tempa=\box101
+\@tempa=\box102
+\@tempa=\box103
+\@tempa=\box104
+\@tempa=\box105
+\@tempa=\box106
+\@tempa=\box107
+\@tempa=\box108
+\@tempa=\box109
+\@tempa=\box110
+\@tempa=\box111
+\@tempa=\box112
+\@tempa=\box113
+\c@minrows=\count417
+\c@columnbadness=\count418
+\c@finalcolumnbadness=\count419
+\last@try=\dimen326
+\multicolovershoot=\dimen327
+\multicolundershoot=\dimen328
+\mult@nat@firstbox=\box114
+\colbreak@box=\box115
+\mc@col@check@num=\count420
+)
+(/app/texlive/texmf-dist/tex/latex/microtype/microtype.sty
+Package: microtype 2021/03/14 v2.8c Micro-typographical refinements (RS)
+\MT@toks=\toks46
+\MT@count=\count421
+LaTeX Info: Redefining \textls on input line 790.
+\MT@outer@kern=\dimen329
+LaTeX Info: Redefining \textmicrotypecontext on input line 1374.
+\MT@listname@count=\count422
+
+(/app/texlive/texmf-dist/tex/latex/microtype/microtype-luatex.def
+File: microtype-luatex.def 2021/03/14 v2.8c Definitions specific to luatex (RS)
+
+Module microtype Info: overwriting function `keepligature' on input line 62
+LaTeX Info: Redefining \lsstyle on input line 710.
+LaTeX Info: Redefining \lslig on input line 710.
+\MT@outer@space=\skip264
+)
+Package microtype Info: Loading configuration file microtype.cfg.
+
+(/app/texlive/texmf-dist/tex/latex/microtype/microtype.cfg
+File: microtype.cfg 2021/03/14 v2.8c microtype main configuration file (RS)
+))
+(/app/texlive/texmf-dist/tex/latex/siunitx/siunitx.sty
+Package: siunitx 2020/02/25 v2.8b A comprehensive (SI) units package
+\l__siunitx_tmp_box=\box116
+\l__siunitx_tmp_dim=\dimen330
+\l__siunitx_tmp_int=\count423
+\l__siunitx_number_mantissa_length_int=\count424
+\l__siunitx_number_uncert_length_int=\count425
+\l__siunitx_round_int=\count426
+\l__siunitx_process_decimal_int=\count427
+\l__siunitx_process_uncertainty_int=\count428
+\l__siunitx_process_fixed_int=\count429
+\l__siunitx_process_integer_min_int=\count430
+\l__siunitx_process_precision_int=\count431
+\l__siunitx_group_min_int=\count432
+\l__siunitx_angle_marker_box=\box117
+\l__siunitx_angle_unit_box=\box118
+\l__siunitx_angle_marker_dim=\dimen331
+\l__siunitx_angle_unit_dim=\dimen332
+\l__siunitx_unit_int=\count433
+\l__siunitx_unit_denominator_int=\count434
+\l__siunitx_unit_numerator_int=\count435
+\l__siunitx_unit_prefix_int=\count436
+\l__siunitx_unit_prefix_base_int=\count437
+\l__siunitx_unit_prefix_gram_int=\count438
+\l__siunitx_number_product_int=\count439
+\c__siunitx_one_fill_skip=\skip265
+\l__siunitx_table_unit_align_skip=\skip266
+\l__siunitx_table_exponent_dim=\dimen333
+\l__siunitx_table_integer_dim=\dimen334
+\l__siunitx_table_mantissa_dim=\dimen335
+\l__siunitx_table_marker_dim=\dimen336
+\l__siunitx_table_result_dim=\dimen337
+\l__siunitx_table_uncert_dim=\dimen338
+\l__siunitx_table_fill_pre_dim=\dimen339
+\l__siunitx_table_fill_post_dim=\dimen340
+\l__siunitx_table_fill_mid_dim=\dimen341
+\l__siunitx_table_pre_box=\box119
+\l__siunitx_table_post_box=\box120
+\l__siunitx_table_mantissa_box=\box121
+\l__siunitx_table_result_box=\box122
+\l__siunitx_table_number_align_skip=\skip267
+\l__siunitx_table_text_align_skip=\skip268
+
+(/app/texlive/texmf-dist/tex/latex/translator/translator.sty
+Package: translator 2020-08-03 v1.12c Easy translation of strings in LaTeX
+LaTeX Info: Redefining \translate on input line 184.
+))
+(/app/texlive/texmf-dist/tex/latex/braket/braket.sty)
+(/app/texlive/texmf-dist/tex/latex/makecell/makecell.sty
+Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
+\rotheadsize=\dimen342
+\c@nlinenum=\count440
+\TeXr@lab=\toks47
+)
+(/app/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibra
+ryangles.code.tex
+File: tikzlibraryangles.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+)
+(/app/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibra
+rymatrix.code.tex
+File: tikzlibrarymatrix.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+)
+(/app/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.meta.code.t
+ex
+File: pgflibraryarrows.meta.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+\pgfarrowinset=\dimen343
+\pgfarrowlength=\dimen344
+\pgfarrowwidth=\dimen345
+\pgfarrowlinewidth=\dimen346
+)
+(/app/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibra
+ryintersections.code.tex
+(/app/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryintersections.code
+.tex (/app/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryfpu.code.tex)
+\pgf@intersect@solutions=\count441
+))
+(/app/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibra
+ryshadows.code.tex
+File: tikzlibraryshadows.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+
+(/app/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibra
+ryfadings.code.tex
+File: tikzlibraryfadings.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+
+(/app/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryfadings.code.tex
+File: pgflibraryfadings.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+)))
+(/app/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibra
+ryquotes.code.tex
+File: tikzlibraryquotes.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+) (/app/texlive/texmf-dist/tex/latex/tcolorbox/tcolorbox.sty
+Package: tcolorbox 2020/10/09 version 4.42 text color boxes
+
+(/app/texlive/texmf-dist/tex/latex/environ/environ.sty
+Package: environ 2014/05/04 v0.3 A new way to define environments
+
+(/app/texlive/texmf-dist/tex/latex/trimspaces/trimspaces.sty
+Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
+))
+\tcb@titlebox=\box123
+\tcb@upperbox=\box124
+\tcb@lowerbox=\box125
+\tcb@phantombox=\box126
+\c@tcbbreakpart=\count442
+\c@tcblayer=\count443
+\c@tcolorbox@number=\count444
+\tcb@temp=\box127
+\tcb@temp=\box128
+\tcb@temp=\box129
+\tcb@temp=\box130
+\tcb@out=\write5
+\tcb@record@out=\write6
+)
+(/app/texlive/texmf-dist/tex/latex/tcolorbox/tcbraster.code.tex
+Library (tcolorbox): 'tcbraster.code.tex' version '4.42'
+\c@tcbrastercolumn=\count445
+\c@tcbrasterrow=\count446
+\c@tcbraster=\count447
+) (/app/texlive/texmf-dist/tex/latex/tcolorbox/tcbskins.code.tex
+Library (tcolorbox): 'tcbskins.code.tex' version '4.42'
+\tcb@waterbox=\box131
+(/app/texlive/texmf-dist/tex/latex/tcolorbox/tcbskinsjigsaw.code.tex
+Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '4.42'
+)) (/app/texlive/texmf-dist/tex/latex/tcolorbox/tcbbreakable.code.tex
+Library (tcolorbox): 'tcbbreakable.code.tex' version '4.42'
+(/app/texlive/texmf-dist/tex/generic/oberdiek/pdfcol.sty
+Package: pdfcol 2019/12/29 v1.6 Handle new color stacks for pdfTeX (HO)
+)
+Package pdfcol Info: New color stack `tcb@breakable' = 1 on input line 23.
+\tcb@testbox=\box132
+\tcb@totalupperbox=\box133
+\tcb@totallowerbox=\box134
+
+(/app/texlive/texmf-dist/tex/generic/iftex/ifluatex.sty
+Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
+))
+(/app/texlive/texmf-dist/tex/latex/tcolorbox/tcbhooks.code.tex
+Library (tcolorbox): 'tcbhooks.code.tex' version '4.42'
+) (/app/texlive/texmf-dist/tex/latex/tcolorbox/tcbtheorems.code.tex
+Library (tcolorbox): 'tcbtheorems.code.tex' version '4.42'
+) (/app/texlive/texmf-dist/tex/latex/tcolorbox/tcbfitting.code.tex
+Library (tcolorbox): 'tcbfitting.code.tex' version '4.42'
+\tcbfitdim=\dimen347
+\tcb@lowerfitdim=\dimen348
+\tcb@upperfitdim=\dimen349
+\tcb@cur@hbadness=\count448
+) (/app/texlive/texmf-dist/tex/latex/tcolorbox/tcbxparse.code.tex
+Library (tcolorbox): 'tcbxparse.code.tex' version '4.42'
+)
+\c@tcb@cnt@theo=\count449
+Package hyperref Info: Option `colorlinks' set `true' on input line 130.
+ (/app/texlive/texmf-dist/tex/latex/biblatex/biblatex.sty
+Package: biblatex 2020/12/31 v3.16 programmable bibliographies (PK/MW)
+
+(/app/texlive/texmf-dist/tex/latex/logreq/logreq.sty
+Package: logreq 2010/08/04 v1.0 xml request logger
+\lrq@indent=\count450
+
+(/app/texlive/texmf-dist/tex/latex/logreq/logreq.def
+File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
+))
+\c@tabx@nest=\count451
+\c@listtotal=\count452
+\c@listcount=\count453
+\c@liststart=\count454
+\c@liststop=\count455
+\c@citecount=\count456
+\c@citetotal=\count457
+\c@multicitecount=\count458
+\c@multicitetotal=\count459
+\c@instcount=\count460
+\c@maxnames=\count461
+\c@minnames=\count462
+\c@maxitems=\count463
+\c@minitems=\count464
+\c@citecounter=\count465
+\c@maxcitecounter=\count466
+\c@savedcitecounter=\count467
+\c@uniquelist=\count468
+\c@uniquename=\count469
+\c@refsection=\count470
+\c@refsegment=\count471
+\c@maxextratitle=\count472
+\c@maxextratitleyear=\count473
+\c@maxextraname=\count474
+\c@maxextradate=\count475
+\c@maxextraalpha=\count476
+\c@abbrvpenalty=\count477
+\c@highnamepenalty=\count478
+\c@lownamepenalty=\count479
+\c@maxparens=\count480
+\c@parenlevel=\count481
+\blx@tempcnta=\count482
+\blx@tempcntb=\count483
+\blx@tempcntc=\count484
+\blx@maxsection=\count485
+\blx@maxsegment@0=\count486
+\blx@notetype=\count487
+\blx@parenlevel@text=\count488
+\blx@parenlevel@foot=\count489
+\blx@sectionciteorder@0=\count490
+\blx@entrysetcounter=\count491
+\blx@biblioinstance=\count492
+\labelnumberwidth=\skip269
+\labelalphawidth=\skip270
+\biblabelsep=\skip271
+\bibnamesep=\skip272
+\bibinitsep=\skip273
+\bibparsep=\skip274
+\bibhang=\skip275
+\blx@bcfin=\read5
+\blx@bcfout=\write7
+\blx@langwohyphens=\language89
+\c@mincomprange=\count493
+\c@maxcomprange=\count494
+\c@mincompwidth=\count495
+Package biblatex Info: Trying to load biblatex default data model...
+Package biblatex Info: ... file 'blx-dm.def' found.
+
+(/app/texlive/texmf-dist/tex/latex/biblatex/blx-dm.def
+File: blx-dm.def 2020/12/31 v3.16 biblatex localization (PK/MW)
+)
+Package biblatex Info: Trying to load biblatex style data model...
+Package biblatex Info: ... file 'abnt.dbx' not found.
+Package biblatex Info: Trying to load biblatex custom data model...
+Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
+\c@afterword=\count496
+\c@savedafterword=\count497
+\c@annotator=\count498
+\c@savedannotator=\count499
+\c@author=\count500
+\c@savedauthor=\count501
+\c@bookauthor=\count502
+\c@savedbookauthor=\count503
+\c@commentator=\count504
+\c@savedcommentator=\count505
+\c@editor=\count506
+\c@savededitor=\count507
+\c@editora=\count508
+\c@savededitora=\count509
+\c@editorb=\count510
+\c@savededitorb=\count511
+\c@editorc=\count512
+\c@savededitorc=\count513
+\c@foreword=\count514
+\c@savedforeword=\count515
+\c@holder=\count516
+\c@savedholder=\count517
+\c@introduction=\count518
+\c@savedintroduction=\count519
+\c@namea=\count520
+\c@savednamea=\count521
+\c@nameb=\count522
+\c@savednameb=\count523
+\c@namec=\count524
+\c@savednamec=\count525
+\c@translator=\count526
+\c@savedtranslator=\count527
+\c@shortauthor=\count528
+\c@savedshortauthor=\count529
+\c@shorteditor=\count530
+\c@savedshorteditor=\count531
+\c@labelname=\count532
+\c@savedlabelname=\count533
+\c@institution=\count534
+\c@savedinstitution=\count535
+\c@lista=\count536
+\c@savedlista=\count537
+\c@listb=\count538
+\c@savedlistb=\count539
+\c@listc=\count540
+\c@savedlistc=\count541
+\c@listd=\count542
+\c@savedlistd=\count543
+\c@liste=\count544
+\c@savedliste=\count545
+\c@listf=\count546
+\c@savedlistf=\count547
+\c@location=\count548
+\c@savedlocation=\count549
+\c@organization=\count550
+\c@savedorganization=\count551
+\c@origlocation=\count552
+\c@savedoriglocation=\count553
+\c@origpublisher=\count554
+\c@savedorigpublisher=\count555
+\c@publisher=\count556
+\c@savedpublisher=\count557
+\c@language=\count558
+\c@savedlanguage=\count559
+\c@origlanguage=\count560
+\c@savedoriglanguage=\count561
+\c@pageref=\count562
+\c@savedpageref=\count563
+\shorthandwidth=\skip276
+\shortjournalwidth=\skip277
+\shortserieswidth=\skip278
+\shorttitlewidth=\skip279
+\shortauthorwidth=\skip280
+\shorteditorwidth=\skip281
+\locallabelnumberwidth=\skip282
+\locallabelalphawidth=\skip283
+\localshorthandwidth=\skip284
+\localshortjournalwidth=\skip285
+\localshortserieswidth=\skip286
+\localshorttitlewidth=\skip287
+\localshortauthorwidth=\skip288
+\localshorteditorwidth=\skip289
+Package biblatex Info: Trying to load enhanced support for Unicode engines...
+Package biblatex Info: ... file 'blx-unicode.def' found.
+
+(/app/texlive/texmf-dist/tex/latex/biblatex/blx-unicode.def)
+Package biblatex Info: Trying to load compatibility code...
+Package biblatex Info: ... file 'blx-compat.def' found.
+
+(/app/texlive/texmf-dist/tex/latex/biblatex/blx-compat.def
+File: blx-compat.def 2020/12/31 v3.16 biblatex compatibility (PK/MW)
+)
+Package biblatex Info: Trying to load generic definitions...
+Package biblatex Info: ... file 'biblatex.def' found.
+
+(/app/texlive/texmf-dist/tex/latex/biblatex/biblatex.def
+File: biblatex.def 2020/12/31 v3.16 biblatex compatibility (PK/MW)
+\c@textcitecount=\count564
+\c@textcitetotal=\count565
+\c@textcitemaxnames=\count566
+\c@biburlbigbreakpenalty=\count567
+\c@biburlbreakpenalty=\count568
+\c@biburlnumpenalty=\count569
+\c@biburlucpenalty=\count570
+\c@biburllcpenalty=\count571
+\biburlbigskip=\muskip19
+\biburlnumskip=\muskip20
+\biburlucskip=\muskip21
+\biburllcskip=\muskip22
+\c@smartand=\count572
+)
+Package biblatex Info: Trying to load bibliography style 'abnt'...
+Package biblatex Info: ... file 'abnt.bbx' found.
+
+(/app/texlive/texmf-dist/tex/latex/biblatex-abnt/abnt.bbx
+File: abnt.bbx 2018-11-17 v3.4 ABNT BibLaTeX citation style
+
+(/app/texlive/texmf-dist/tex/latex/xpatch/xpatch.sty
+Package: xpatch 2020/03/25 v0.3a Extending etoolbox patching commands
+)
+Package biblatex Info: Trying to load bibliography style 'standard'...
+Package biblatex Info: ... file 'standard.bbx' found.
+
+(/app/texlive/texmf-dist/tex/latex/biblatex/bbx/standard.bbx
+File: standard.bbx 2020/12/31 v3.16 biblatex bibliography style (PK/MW)
+\c@bbx:relatedcount=\count573
+\c@bbx:relatedtotal=\count574
+))
+Package biblatex Info: Trying to load citation style 'abnt'...
+Package biblatex Info: ... file 'abnt.cbx' found.
+
+(/app/texlive/texmf-dist/tex/latex/biblatex-abnt/abnt.cbx
+File: abnt.cbx 2018-11-17 v3.4 ABNT BibLaTeX citation style
+Package biblatex Info: Trying to load citation style 'authoryear-comp'...
+Package biblatex Info: ... file 'authoryear-comp.cbx' found.
+
+(/app/texlive/texmf-dist/tex/latex/biblatex/cbx/authoryear-comp.cbx
+File: authoryear-comp.cbx 2020/12/31 v3.16 biblatex citation style (PK/MW)
+Package biblatex Info: Redefining '\cite'.
+Package biblatex Info: Redefining '\parencite'.
+Package biblatex Info: Redefining '\footcite'.
+Package biblatex Info: Redefining '\footcitetext'.
+Package biblatex Info: Redefining '\smartcite'.
+Package biblatex Info: Redefining '\textcite'.
+Package biblatex Info: Redefining '\textcites'.
+Package biblatex Info: Redefining '\cites'.
+Package biblatex Info: Redefining '\parencites'.
+Package biblatex Info: Redefining '\footcites'.
+Package biblatex Info: Redefining '\footcitetexts'.
+Package biblatex Info: Redefining '\smartcites'.
+)
+Package biblatex Info: Redefining '\cite'.
+Package biblatex Info: Redefining '\cites'.
+Package biblatex Info: Redefining '\footcite'.
+Package biblatex Info: Redefining '\footcites'.
+Package biblatex Info: Redefining '\citetitle'.
+Package biblatex Info: Redefining '\smartcite'.
+Package biblatex Info: Redefining '\citeauthor'.
+Package biblatex Info: Redefining '\citeyear'.
+)
+Package biblatex Info: Trying to load configuration file...
+Package biblatex Info: ... file 'biblatex.cfg' found.
+
+(/app/texlive/texmf-dist/tex/latex/biblatex/biblatex.cfg
+File: biblatex.cfg 
+))
+Package csquotes Info: Checking for multilingual support...
+Package csquotes Info: ... found 'polyglossia' package.
+Package csquotes Info: Adjusting default style.
+Package csquotes Info: Redefining alias 'default' -> 'portuges'.
+
+(./CONSTRUÇÃOTCC.aux)
+\openout1 = CONSTRUÇÃOTCC.aux
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 187.
+LaTeX Font Info:    ... okay on input line 187.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 187.
+LaTeX Font Info:    ... okay on input line 187.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 187.
+LaTeX Font Info:    ... okay on input line 187.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 187.
+LaTeX Font Info:    ... okay on input line 187.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 187.
+LaTeX Font Info:    ... okay on input line 187.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 187.
+LaTeX Font Info:    ... okay on input line 187.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 187.
+LaTeX Font Info:    ... okay on input line 187.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 187.
+LaTeX Font Info:    ... okay on input line 187.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 187.
+LaTeX Font Info:    ... okay on input line 187.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 187.
+LaTeX Font Info:    ... okay on input line 187.
+Package hyperref Info: Link coloring ON on input line 187.
+ (/app/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
+(/app/texlive/texmf-dist/tex/latex/refcount/refcount.sty
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+)
+(/app/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+)
+\c@section@level=\count575
+)
+Redoing nameref's sectioning
+Redoing nameref's label
+LaTeX Info: Redefining \nameref on input line 187.
+LaTeX Info: Redefining \ref on input line 187.
+LaTeX Info: Redefining \pageref on input line 187.
+LaTeX Info: Redefining \nameref on input line 187.
+LaTeX Info: Redefining \rmfamily on input line 187.
+LaTeX Info: Redefining \sffamily on input line 187.
+LaTeX Info: Redefining \ttfamily on input line 187.
+\myptabbox=\box135
+\myptabboxwidth=\skip290
+LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
+(Font)                  TU/Asana-Math.otf(1)/m/n --> TU/CrimsonPro(0)/m/n on in
+put line 187.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/cmr/m/it --> TU/CrimsonPro(0)/m/it on input line 18
+7.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/cmr/bx/n --> TU/CrimsonPro(0)/b/n on input line 187
+.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
+(Font)                  OT1/cmss/m/n --> TU/NotoSans(0)/m/n on input line 187.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/cmss/bx/n --> TU/NotoSans(0)/b/n on input line 187.
+
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  OT1/cmtt/m/n --> TU/DejaVuSansMono(0)/m/n on input line
+ 187.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/cmtt/m/n --> TU/DejaVuSansMono(0)/b/n on input line
+ 187.
+
+Package unicode-math Warning: Using \overbracket and \underbracket from
+(unicode-math)                `mathtools' package.
+(unicode-math)                 
+(unicode-math)                 Use \Uoverbracket and \Uunderbracket for
+(unicode-math)                original `unicode-math' definition.
+
+
+Package unicode-math Warning: I'm going to overwrite the following commands
+(unicode-math)                from the `mathtools' package: 
+(unicode-math)                 
+(unicode-math)                     \dblcolon, \coloneqq, \Coloneqq, \eqqcolon.
+(unicode-math)                
+(unicode-math)                 
+(unicode-math)                 Note that since I won't overwrite the other
+(unicode-math)                colon-like commands, using them will lead to
+(unicode-math)                inconsistencies.
+
+(/app/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count576
+\scratchdimen=\dimen350
+\scratchbox=\box136
+\nofMPsegments=\count577
+\nofMParguments=\count578
+\everyMPshowfont=\toks48
+\MPscratchCnt=\count579
+\MPscratchDim=\dimen351
+\MPnumerator=\count580
+\makeMPintoPDFobject=\count581
+\everyMPtoPDFconversion=\toks49
+) (/app/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+
+(/app/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+LaTeX Info: Redefining \microtypecontext on input line 187.
+Package microtype Info: Generating PDF output.
+Package microtype Info: Character protrusion enabled (level 2).
+Package microtype Info: Using default protrusion set `alltext'.
+Package microtype Info: Automatic font expansion enabled (level 2),
+(microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
+Package microtype Info: Using default expansion set `alltext-nott'.
+LaTeX Info: Redefining \showhyphens on input line 187.
+Package microtype Info: No adjustment of tracking.
+Package microtype Info: No adjustment of spacing.
+Package microtype Info: No adjustment of kerning.
+
+! error:  (pdf backend): invalid font identifier when asking 'fontsize'
+!  ==> Fatal error occurred, no output PDF file produced!
