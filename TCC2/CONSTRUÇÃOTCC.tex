@@ -61,10 +61,12 @@
 \usepackage{siunitx}   % Pacote para unidades físicas (recomendo muito!)
 \sisetup{output-decimal-marker={,}}
 \sisetup{mode=text}
+\usepackage{blochsphere}
 \usepackage{braket}
 \usepackage{makecell}
+\usepackage{enumitem}
 \usepackage{tikz}
-\usetikzlibrary{angles,matrix,arrows.meta,calc,positioning,intersections,shadows,quotes}
+\usetikzlibrary{angles,matrix,arrows.meta,calc,positioning,intersections,shadows,plotmarks,3d,quotes}
 
 %%%
 %%% CORES MANEIRÍSSIMAS
@@ -87,6 +89,7 @@
 \usepackage{tcolorbox}
 \tcbuselibrary{many}
 \tcbuselibrary{theorems}
+\usepackage[backgroundcolor=orange!45]{todonotes}
 
 \tikzset{%
   eixos/.style={draw=black!80,text=black!80,arrows=-{Latex[width=4pt,length=6pt]}},
@@ -96,6 +99,7 @@
   linhaforte/.style={draw=#1,ultra thick,cap=round},
   linhamedia/.style={draw=#1,thick,cap=round},
   ponto/.style={fill=#1!40,draw=#1,semithick,inner sep=2pt,circle},
+  pontinho/.style={fill=#1,draw=#1,semithick,inner sep=1pt,circle},
   projecao/.style={draw=#1,densely dotted,thick},
   projecao 2/.style={draw=#1,densely dash dot,thin},
   etiqueta/.style n args={3}{text=#1,draw=#2,fill=#3,solid,font=\scriptsize,inner sep=2pt,minimum height=13pt,drop shadow={opacity=0.8,shadow xshift=.3ex,shadow yshift=-.3ex}},
@@ -107,7 +111,7 @@
   labelst/.style={label distance=-6pt,font=\scriptsize\scshape,align=center,black!80,inner sep=2pt}
 }
 
-\newtcbtheorem[number within=section]{theo}{Teorema}{
+\newtcbtheorem[number within=chapter]{theo}{Teorema}{
   enhanced,
   %skin=bicolor,
   arc=0mm,
@@ -168,7 +172,8 @@
 
 %%% Função seno em PT-BR
 \DeclareMathOperator{\sen}{sen}
-\DeclareMathOperator{\CNOT}{\mathbf{CNOT}}
+\DeclareMathOperator{\CNOT}{\textsc{cnot}}
+\DeclareMathOperator{\HAD}{\textsc{h}}
 
 %%%
 %%% Configurações do documento para ABNTeX2
