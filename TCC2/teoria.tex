@@ -158,25 +158,29 @@ Figura~\ref{boch}.
 \section{Protocolo de Teletransporte Quântico}
 
 A realização de um Protocolo de Teletransporte Quântico consiste, essencialmente, em uma série de operações que possuem por objetivo principal fazer com que uma mensagem, ou na linguagem quântica, um estado quântico, se teletransporte entre dois pontos distintos fisicamente.
-Como em qualquer outra operação computacional é necessária a existencia de um circuito lógico, nesse caso, quântico que media as operações. Esse circuito consistirá nas combinações das portas lógicas \(\CNOT\), Haddamard, portas de medição e as portas \(X\) e \(Z\) conforme a Figura~\ref{protocoloteletransporte}
+Como em qualquer outra operação computacional é necessária a existencia de um circuito lógico, nesse caso, quântico que media as operações. Esse circuito consistirá nas combinações das portas lógicas \(\CNOT\), Haddamard, portas de medição e as portas \(\XXX\) e \(\ZZZ\) conforme a Figura~\ref{protocoloteletransporte}
 
 \begin{figure}[ht!]
 \centering
 \includegraphics[width=10cm]{PROTOCOLOTELETRANSPORTE.png}
-\caption{Protocolo de Teletransporte Quântico mediado pelo circuito com as portas \(\CNOT\), Hadamard, Medição aplicadas no Local \(A\) e as portas \(X\) e \(Z\) aplicadas no Local \(B\).}\label{protocoloteletransporte}
+\caption{Protocolo de Teletransporte Quântico mediado pelo circuito com as portas \(\CNOT\), Hadamard, Medição aplicadas no Local \(A\) e as portas \(\XXX\) e \(\ZZZ\) aplicadas no Local \(B\).}\label{protocoloteletransporte}
 \fonte{Adaptado de }
 \end{figure}
 
-No inicio do Protocolo é necessário, que tenhamos um par de qubits emaranhados nas bases de Bell, no estado $\ket{\beta_{00}}$, que podemos representar pela expressão
+\todo[inline]{Dúvida: devemos usar maiúsculas em ``Protocolo'', ``Mecânica Quântica'', ``Local'', etc? Se sim, precisamos padronizar.}
+
+No inicio do Protocolo é necessário que tenhamos um par de qubits emaranhados nas bases de Bell, no estado $\ket{\beta_{00}}$, que podemos representar pela expressão
 \begin{equation}\label{bell00}
  \ket{\beta_{00}} = \frac{\ket{00} + \ket{11}}{\sqrt{2}}.
 \end{equation}
 
-Um dos qubits do par emaranhado em~\eqref{bell00} é mantido em \(A\) e o outro necessáriamente precisa estar em \(B\) para que exista um canal de comunicação entre essas partes. Além do par emaranhado, em \(A\) teremos o estado quântico a ser enviado, ou seja sua mensagem dada por $\ket{\psi}$, segundo a Equação~\eqref{psi}.
+Um dos qubits do par emaranhado em~\eqref{bell00} é mantido em \(A\) e o outro necessariamente precisa estar em \(B\) para que exista um canal de comunicação entre essas partes. Além do par emaranhado, em \(A\) teremos o estado quântico a ser enviado, ou seja sua mensagem dada por $\ket{\psi}$, segundo a Equação~\eqref{psi}.
 % \begin{equation}\label{psi}
 %  \ket{\psi} = \alpha \ket{0} + \beta \ket{1}.
 % \end{equation}
 De posse do par emaranhado e da mensagem, o protocolo é iniciado com a aplicação da porta \(\CNOT\) entre $\ket{\psi}\ket{\beta_{00}}$, que chamaremos de $\ket{\psi_0}$. A porta \(\CNOT\) possui como tabela verdade a seguinte proposição:
+
+\todo[inline]{Da forma como estão escritas, as portas não se configuram como teoremas\ldots Precisamos discutir.}
 
 \begin{theo}{Operação \(\CNOT\)}{cnottheo}
   A operação \(\CNOT\) deve:
@@ -192,8 +196,7 @@ Dessa maneira, aplicando o Teorema~\ref{th:cnottheo} no estado dado por $\ket{\p
                      &= \CNOT \frac{1}{\sqrt{2}} \Bigl[ \alpha \ket{0} \bigl( \ket{00} + \ket{11} \bigr) + \beta \ket{1} \bigl( \ket{00} + \ket{11} \bigr)\Bigr] \nonumber \\
                      &= \frac{1}{\sqrt{2}} \Bigl[\alpha \ket{0} \bigl( \ket{00} + \ket{11} \bigr) + \beta \ket{1} \bigl( \ket{10} + \ket{01} \bigr) \Bigr].
 \end{align}
-
-A operação descrita em~\eqref{cnotpsi0} resulta no estado que chamaremos de $\ket{\psi_1}$ e neste, segundo o circuito da Figura~\ref{protocoloteletransporte}, deve-se aplicar a porta Hadamard:
+A operação descrita pela Equação~\eqref{cnotpsi0} resulta no estado que chamaremos de $\ket{\psi_1}$ e neste, segundo o circuito da Figura~\ref{protocoloteletransporte}, deve-se aplicar a porta Hadamard:
 \begin{theo}{Operação Hadamard}{hadamardtheo}
   A operação Hadamard deve:
   \begin{enumerate}[label=\roman*.]
@@ -207,12 +210,12 @@ Aplicando portanto o Teorema~\ref{th:hadamardtheo} em $\ket{\psi_1}$, teremos
  \HAD \ket{\psi_1} = \Biggl( \frac{1}{\sqrt{2}}\Biggr)^{\!\!2} \Bigl[ \alpha \bigl( \ket{0} + \ket{1} \bigr)\bigl( \ket{00} +\ket{11} \bigr)+ \beta \bigl( \ket{0} - \ket{1} \bigr) \bigl( \ket{10} + \ket{01} \bigr) \Bigr].
 \end{equation}
 
-O estado obtido em \eqref{hadamartpsi2} pode ser identificado como $\ket{\psi_2}$ e evidenciando os estados emaranhados deste organizando-o da seguinte maneira
+O estado obtido em \eqref{hadamartpsi2} pode ser identificado como $\ket{\psi_2}$ e evidenciando os estados emaranhados deste ao organizá-lo da seguinte maneira
 \begin{equation}\label{psi2}
  \ket{\psi_2} = \frac{1}{2} \Bigl[ \ket{00} \bigl( \alpha \ket{0} + \beta \ket{1} \bigr) + \ket{01} \bigl( \alpha \ket{1} + \beta \ket{0} \bigr) + \ket{10} \bigl( \alpha \ket{0} - \beta \ket{1} \bigr) + \ket{11} \bigl( \alpha \ket{1} - \beta \ket{0} \bigr) \Bigr].
 \end{equation}
 
-O próximo passo do protocolo consiste em realizar medidas em ambos os qubits presentes em \(A\). Essas medidas, farão com que os estados quânticos sejam colapsados e deixem de coexistir, passando a ser considerados clássicos. As medidas possíveis de serem obtidas em \(A\) são apresentadas na Tabela~\ref{medidas}.
+O próximo passo do protocolo consiste em realizar medidas em ambos os qubits presentes em \(A\). Essas medidas farão com que os estados quânticos sejam colapsados e deixem de coexistir, passando a ser considerados clássicos. As medidas possíveis de serem obtidas em \(A\) são apresentadas na Tabela~\ref{medidas}.
 
 \begin{table}[ht!]
   \centering
@@ -230,28 +233,34 @@ O próximo passo do protocolo consiste em realizar medidas em ambos os qubits pr
   \fonte{Elaborada pelo autor.}
 \end{table}
 
-Os valores dos estados medidos em A, são enviados via canal clássico até B que, devido ao emaranhamento com o qubit operado em A, terá seu colapso consequentemente em seu estado quântico associado, segundo tabela \ref{medidas}.
+Os valores dos estados medidos em \(A\), são enviados via canal clássico até \(B\) que, devido ao emaranhamento com o qubit operado em \(A\), terá seu colapso consequentemente em seu estado quântico associado, segundo a Tabela~\ref{medidas}.
 
-A última etapa do protocolo, ocorre em B, na tentativa de reconstruir a mensagem original, nesse momento já inexistente, que estava em A. Nessa última etapa, serão utilizadas (ou não) as portas lógicas X e Z cujas operações são definidas por:
+A última etapa do protocolo, ocorre em \(B\), na tentativa de reconstruir a mensagem original, nesse momento já inexistente, que estava em \(A\). Nessa última etapa, serão utilizadas (ou não) as portas lógicas \(\XXX\) e \(\ZZZ\), cujas operações estão definidas a seguir.
 
-\begin{theo}{Operação X}{X}
-A porta lógica quântica X deve trocar os estados quânticos, ou seja, torná-lo 1 quando este for 0 e torná-lo 0, quando este for 1.
+\begin{theo}{Operação \(\XXX\)}{X}
+A porta lógica quântica \(\XXX\) deve trocar os estados quânticos, ou seja, torná-lo 1 quando este for 0 e torná-lo 0, quando este for 1.
 \end{theo}
 
-\begin{theo}{Operação Z}{Z}
-A porta lógica quântica Z deve inverter a fase do estado quântico, ou seja, torná-la negativa quando esta for positiva e torná-la positiva quando esta for negativa.
+\begin{theo}{Operação \(\ZZZ\)}{Z}
+A porta lógica quântica \(\ZZZ\) deve inverter a fase do estado quântico, ou seja, torná-la negativa quando esta for positiva e torná-la positiva quando esta for negativa.
 \end{theo}
 
-A aplicação das portas, dependerá do resultado da medida enviado por A de maneira que:
+A aplicação das portas dependerá do resultado da medida enviado por \(A\), seguindo o estipulado na Tabela~\ref{tab:acao-das-portas}. Com isso, o protocolo se encerra e a mensagem é teletransportada do ponto \(A\) para o ponto \(B\), sem que nenhum teorema da física quântica seja violado.
 
-\begin{itemize}
-\item Se a medida for $\ket{00}$: Nenhuma porta deve ser aplicada e o estado colapsado em B é exatamente o mesmo da mensagem enviada em $\ket{psi}$.
-\item Se a medida for $\ket{10}$: Apenas a porta Z deve ser aplicada.
-\item Se a medida for $\ket{01}$: Apenas a porta X deve ser aplicada.
-\item Se a medida for $\ket{11}$: Tanto a porta X quanto a porta Z devem ser aplicadas.
-\end{itemize}
-
-Com isso, o protocolo se encerra e a mensagem é teletransportada do ponto A para o ponto B, sem que nenhum teorema da física quântica seja violado.
+\begin{table}[ht!]
+  \centering
+  \caption{Aplicação das portas lógicas quânticas, de acordo com a medida da informação enviada por \(A\).}\label{tab:acao-das-portas}
+  \begin{tabular}{cp{0.6\linewidth}}
+    \toprule
+    \textbf{Resultado medido} & \textbf{Ação} \\
+    \midrule
+    $\ket{00}$ & Nenhuma porta deve ser aplicada e o estado colapsado em \(B\) é exatamente o mesmo da mensagem enviada em $\ket{\psi}$ \\
+    $\ket{10}$ & Apenas a porta \(\ZZZ\) deve ser aplicada \\
+    $\ket{01}$ & Apenas a porta \(\XXX\) deve ser aplicada \\
+    $\ket{11}$ & Tanto a porta \(\XXX\) quanto a porta \(\ZZZ\) devem ser aplicadas \\
+    \bottomrule
+  \end{tabular}
+\end{table}
 
 
 \section{Algoritmo do protocolo de Teletransporte}

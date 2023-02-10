@@ -8,11 +8,11 @@
 %%% Licenciatura em Física - UFSCar, Sorocaba
 %%%
 
-\chapter{Representação Matricial dos protocolos e Emaranhamento e Teletransporte}
+\chapter{Representação Matricial dos protocolos de Emaranhamento e Teletransporte}
 
-As representações matriciais dos protocolos de Emaranhamento e Teletransporte nos permitem observer com maior clareza a natureza binária dos qubits numa representação de como seria seu comportamento em uma situação real. Para todos os efeitos não é considerada a origem do qubit mas sim sua natureza, ou seja, uma entidade quântica. A notação de \textit{bracket} permite com que as operações sejam realizadas considerando os estados quânticos possíveis armazenados dentro do qubit como versores num espaço complexo.
+As representações matriciais dos protocolos de Emaranhamento e Teletransporte nos permitem observar com maior clareza a natureza binária dos qubits numa representação de como seria seu comportamento em uma situação real. Para todos os efeitos não é considerada a origem do qubit mas sim sua natureza, ou seja, uma entidade quântica. A notação de \textit{bracket} permite que as operações sejam realizadas considerando os estados quânticos possíveis armazenados dentro do qubit como versores num espaço complexo.
 
-Para iniciar o protocolo, consideraremos as seguintes representações binárias dos estados quânticos:
+Para iniciar o protocolo, consideraremos as seguintes representações binárias dos estados quânticos
 \begin{equation} \label{01}
 \ket{0} = \begin{pmatrix}
 0 \\
@@ -21,7 +21,7 @@ Para iniciar o protocolo, consideraremos as seguintes representações binárias
 \ket{1} = \begin{pmatrix}
 1 \\
 0
-\end{pmatrix}
+\end{pmatrix}.
 \end{equation}
 
 Consideraremos também que estados quânticos que dependem de mais de um qubit (emaranhados ou não), são representados pelo produto tensorial dos seus estados internos, como segue o exemplo:
@@ -44,7 +44,7 @@ A representação gráfica do circuito quântico que realiza o protocolo de emar
 
 \begin{figure}[ht!]
   \centering
-  \caption{INSERIR FIGURA CIRCUITO EMARANHAMENTO!}
+  \caption{INSERIR FIGURA CIRCUITO EMARANHAMENTO!}\label{circuitoemr}
 \end{figure}
 
 Para que o emaranhamento seja possível, ambos os qubits representados por $\ket{q_x}$ e $\ket{q_y}$ devem existir no mesmo espaço de Hilbert e portanto a operação de produto tensorial entre eles deve ser possível de modo que, considerando o estado quântico $\ket{0}$:
@@ -63,9 +63,9 @@ Para que o emaranhamento seja possível, ambos os qubits representados por $\ket
 \end{pmatrix}
 \end{equation}
 
-Seguindo a figura, aplicamos a porta Hadamard \(H\) na Eq., multiplicando a mesma pela matriz identidade \(I\), obtendo:
+Seguindo a figura, aplicamos a porta Hadamard, \(\HAD\), multiplicando-a pela matriz identidade \(I\), obtendo
 \begin{equation}
-H \otimes I = \frac{1}{\sqrt{2}} \begin{pmatrix*}[r]
+\HAD \otimes I = \frac{1}{\sqrt{2}} \begin{pmatrix*}[r]
 1 & 1 \\
 1 & -1
 \end{pmatrix*} \otimes \begin{pmatrix}
@@ -78,9 +78,9 @@ H \otimes I = \frac{1}{\sqrt{2}} \begin{pmatrix*}[r]
 0 & 1 & 0 & -1
 \end{pmatrix*}
 \end{equation}
-e, aplicando o resultado acima em~\eqref{00}:
+e, aplicando o resultado acima em~\eqref{00}
 \begin{equation}
-H \ket{00} = \frac{1}{\sqrt{2}} \begin{pmatrix*}[r]
+\HAD \ket{00} = \frac{1}{\sqrt{2}} \begin{pmatrix*}[r]
 1 & 0 & 1 & 0 \\
 0 & 1 & 0 & 1 \\
 1 & 0 & -1 & 0 \\
@@ -95,11 +95,12 @@ H \ket{00} = \frac{1}{\sqrt{2}} \begin{pmatrix*}[r]
 0 \\
 1 \\
 0
-\end{pmatrix}
+\end{pmatrix}.
 \end{equation}
 
-Em seguida, aplicamos a porta CNOT:
+Em seguida, aplicamos a porta \(\CNOT\)
 \begin{equation}
+  \CNOT \bigl( \HAD \ket{00} \bigr) =
 \begin{pmatrix}
 1 & 0 & 0 & 0 \\
 0 & 1 & 0 & 0 \\
