@@ -64,11 +64,11 @@ O termo \(e^{i\gamma}\) não possui efeitos observáveis na representação geom
 \ket{\psi}=\Biggl(\cos \frac{\theta}{2}\ket{0}+e^{i \varphi} \sen \frac{\theta}{2}\ket{1}\Biggr),
 \end{equation}
 com $\theta$ e $\varphi$ sendo números reais correspondentes aos ângulos entre os eixos $z, y$ e $y, x$ respectivamente, conforme a
-Figura~\ref{boch}.
+Figura~\ref{bloch}.
 
 \begin{figure}[ht!]
 \centering
-\caption{Representação gŕáfica de um qubit como um ponto sob a superfície da Esfera de Boch.}\label{boch}
+\caption{Representação gráfica de um qubit como um ponto sob a superfície da Esfera de Bloch.}\label{bloch}
 % Adaptado de https://tex.stackexchange.com/questions/345420/how-to-draw-a-bloch-sphere
 \begin{blochsphere}[radius=3cm,rotation=-110,opacity=0]
   \drawLongitudeCircle[]{-110};
@@ -162,8 +162,12 @@ Como em qualquer outra operação computacional é necessária a existencia de u
 
 \begin{figure}[ht!]
 \centering
-\includegraphics[width=10cm]{PROTOCOLOTELETRANSPORTE.png}
 \caption{Protocolo de Teletransporte Quântico mediado pelo circuito com as portas \(\CNOT\), Hadamard, Medição aplicadas no Local \(A\) e as portas \(\XXX\) e \(\ZZZ\) aplicadas no Local \(B\).}\label{protocoloteletransporte}
+\begin{quantikz}
+\lstick{$\ket{\psi}$} & \qw & \qw & \qw & \ctrl{1} & \gate{H} & \meter{} & \cw  & \cw & \cwbend{2}\\
+\lstick{$\ket{0}$} & \gate{H}\gategroup[2,steps=2,style={dashed,rounded corners,fill=blue!20, inner xsep=2pt}, background,label style={label position=below,anchor=north,yshift=-0.2cm}]{{Emaranhamento}} & \ctrl{1} & \midstick[2]{$\ket{\beta_{00}}$} \qw & \targ{} & \qw & \meter{} & \cwbend{1} \\
+\lstick{$\ket{0}$} & \qw & \targ{} \arrow{r} &  & \qw & \qw & \qw & \gate{X} & \qw & \gate{Z} &  \qw\rstick{$\ket{\psi}$}
+\end{quantikz}
 \fonte{Adaptado de }
 \end{figure}
 
