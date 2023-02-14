@@ -74,7 +74,7 @@ Seguindo a Figura~\ref{protocoloteletransporte}, aplicamos a porta Hadamard, \(\
 0 & 1 & 0 & -1
 \end{pmatrix*}
 \end{equation}
-e, aplicando o resultado acima em~\eqref{00}
+e, aplicando o resultado acima em~\eqref{00}:
 \begin{equation}
 \HAD \ket{00} = \frac{1}{\sqrt{2}} \begin{pmatrix*}[r]
 1 & 0 & 1 & 0 \\
@@ -94,7 +94,7 @@ e, aplicando o resultado acima em~\eqref{00}
 \end{pmatrix}.
 \end{equation}
 
-Em seguida, aplicamos a porta \(\CNOT\)
+Em seguida, aplicamos a porta \(\CNOT\):
 \begin{equation}
   \CNOT \bigl( \HAD \ket{00} \bigr) =
 \begin{pmatrix}
@@ -116,7 +116,7 @@ Em seguida, aplicamos a porta \(\CNOT\)
 \end{pmatrix}
 \end{equation}
 
-A equação também é conhecida por ser uma das Bases de Bell. A comparação da Base de Bell no estado $\ket{00}$ em notação de Dirac e em notação matricial é feita considerando as \eqref{00} e ~\eqref{01} de modo que, seja \(\ket{\beta_{00}}\) a Base de Bell em notação de Dirac dada por \(\frac{1}{\sqrt{2}} \bigl(\ket{00} + \ket{11}\bigr)\), reescrevendo teremos:
+A equação também é conhecida como uma das Bases de Bell. A comparação da Base de Bell no estado $\ket{00}$ em notação de Dirac e em notação matricial é feita considerando as \eqref{00} e ~\eqref{01} de modo que, seja \(\ket{\beta_{00}}\) a Base de Bell em notação de Dirac dada por \(\frac{1}{\sqrt{2}} \bigl(\ket{00} + \ket{11}\bigr)\), reescrevendo teremos:
 
 \begin{equation}\label{comparacaobeta}
 \ket{\beta_{00}} = \frac{1}{\sqrt{2}} \left[ \begin{pmatrix}
@@ -219,7 +219,7 @@ A porta \(\CNOT\) será aplicada apenas no qubit alvo que acompanha o qubit de c
 0 \\
 1
 \end{pmatrix}\right] \right\} \nonumber \\ 
-&=\frac{1}{\sqrt{2}}\left[\alpha \begin{pmatrix}
+&=\frac{1}{\sqrt{2}}\left\{\left[\alpha \begin{pmatrix}
 1 \\
 0 
 \end{pmatrix}  \begin{pmatrix}
@@ -227,7 +227,7 @@ A porta \(\CNOT\) será aplicada apenas no qubit alvo que acompanha o qubit de c
 0 \\
 0 \\
 1
-\end{pmatrix} + \beta \begin{pmatrix} 
+\end{pmatrix}\right] + \left[\beta \begin{pmatrix} 
 0 \\
 1
 \end{pmatrix} \begin{pmatrix}
@@ -235,6 +235,270 @@ A porta \(\CNOT\) será aplicada apenas no qubit alvo que acompanha o qubit de c
 1 \\
 1 \\
 0
-\end{pmatrix}\right]
+\end{pmatrix}\right]\right\}
 \end{align}
+
+Está portanto definido o estado $\ket{\psi_1}$. A próxima etapa, consiste na aplicação da porta \(\HAD\) no qubit $\ket{\psi}$, de modo que:
+
+\begin{align}\label{halfabeta}
+\HAD \ket{\psi_1} &= \frac{1}{\sqrt{2}} \begin{pmatrix}
+1 & 1 \\
+1 & -1
+\end{pmatrix} \left(\alpha \begin{pmatrix}
+1 \\
+0 
+\end{pmatrix} + \beta \begin{pmatrix}
+0 \\
+1
+\end{pmatrix} \right) \nonumber \\
+&\HAD \alpha \begin{pmatrix}
+1 \\
+0 
+\end{pmatrix} = \frac{1}{2} \alpha \begin{pmatrix}
+1 \\
+1 
+\end{pmatrix} \nonumber \\ 
+&\HAD \beta \begin{pmatrix}
+0 \\
+1
+\end{pmatrix} =  \frac{1}{2} \beta \begin{pmatrix}
+1 \\
+-1
+\end{pmatrix} 
+\end{align}
+
+Os resultados de~\eqref{halfa} e~\eqref{hbeta} podem ser reescritos como:
+
+\begin{align} \label{alfabetasoma}
+&\frac{1}{2} \alpha \begin{pmatrix}
+1 \\
+1 
+\end{pmatrix} = \frac{1}{2} \alpha \begin{pmatrix}
+1 \\
+0 
+\end{pmatrix} + \begin{pmatrix}
+0 \\
+1 
+\end{pmatrix} \nonumber \\
+&\frac{1}{2} \beta \begin{pmatrix}
+1 \\
+-1
+\end{pmatrix} = \frac{1}{2} \beta \begin{pmatrix}
+1 \\
+0
+\end{pmatrix} - \begin{pmatrix}
+o \\
+1
+\end{pmatrix} 
+\end{align}
+
+Portanto, o estado $\ket{\psi_2}$ é descrito por:
+
+\begin{align}\label{psi2}
+\ket{\psi_2} = \frac{1}{2} \left\{\left[ \alpha \begin{pmatrix}
+1 \\
+1 
+\end{pmatrix} \begin{pmatrix}
+1 \\
+0 \\
+0 \\
+1
+\end{pmatrix}\right] + \left[\beta \begin{pmatrix}
+1 \\
+-1
+\end{pmatrix} \begin{pmatrix}
+0 \\
+1 \\
+1 \\
+0
+\end{pmatrix}\right]\right\}
+\end{align}
+
+Reescrevendo~\eqref{psi2}:
+
+\begin{equation}\label{psi2aberto}
+\ket{\psi_2} = \frac{1}{2} \left\{\left[ \alpha \begin{pmatrix}
+1 \\
+1 
+\end{pmatrix} \begin{pmatrix}
+1 \\
+0 \\
+0 \\
+0
+\end{pmatrix} +\begin{pmatrix}
+0 \\
+0 \\
+0 \\
+1
+\end{pmatrix} \right] + \left[\beta \begin{pmatrix}
+1 \\
+-1
+\end{pmatrix} \begin{pmatrix}
+0 \\
+1 \\
+0 \\
+0
+\end{pmatrix} + \begin{pmatrix}
+0 \\
+0 \\
+1 \\
+0
+\end{pmatrix}\right]\right\}
+\end{equation}
+
+No resultado~\eqref{psi2aberto}, podemos evidenciar as seguintes relações:
+
+\begin{align}\label{prodtens1}
+\begin{pmatrix}
+1 \\
+0 \\
+0 \\
+0
+\end{pmatrix} &= \begin{pmatrix}
+1 \\
+0
+\end{pmatrix} \otimes \begin{pmatrix}
+1 \\
+0
+\end{pmatrix} \nonumber \\ 
+\begin{pmatrix}
+0 \\
+0 \\
+0 \\
+1
+\end{pmatrix} &= \begin{pmatrix}
+0 \\
+1
+\end{pmatrix} \otimes \begin{pmatrix}
+0 \\
+1
+\end{pmatrix} \nonumber \\ 
+\begin{pmatrix}
+0 \\
+1 \\
+0 \\
+0
+\end{pmatrix} &= \begin{pmatrix}
+1 \\
+0
+\end{pmatrix} \otimes \begin{pmatrix}
+0 \\
+1
+\end{pmatrix} \nonumber \\ 
+\begin{pmatrix}
+0 \\
+0 \\
+1 \\
+0
+\end{pmatrix} &= \begin{pmatrix}
+0 \\
+1
+\end{pmatrix} \otimes \begin{pmatrix}
+1 \\
+0
+\end{pmatrix} 
+\end{align}
+
+Substituindo as relações de~\eqref{prodtens1} e~\eqref{alfabetasoma} em~\eqref{psi2aberto}:
+
+
+\begin{align}\label{help}
+\ket{\psi_2} &= \frac{1}{2}\left\{\left[\alpha\begin{pmatrix}
+1 \\
+0
+\end{pmatrix}+\alpha\begin{pmatrix}
+0 \\
+1
+\end{pmatrix}\right]\left[\left(\begin{pmatrix}
+1 \\
+0
+\end{pmatrix} \otimes \begin{pmatrix}
+1 \\
+0
+\end{pmatrix}\right) + \left(\begin{pmatrix}
+0 \\
+1
+\end{pmatrix} \otimes \begin{pmatrix}
+0 \\
+1
+\end{pmatrix}\right)\right]\right\} \nonumber \\
+&\frac{1}{2}\left\{\left[\beta\begin{pmatrix}
+1 \\
+0
+\end{pmatrix}-\beta\begin{pmatrix}
+0 \\
+1
+\end{pmatrix}\right]\left[\left(\begin{pmatrix}
+1 \\
+0
+\end{pmatrix} \otimes \begin{pmatrix}
+0 \\
+1
+\end{pmatrix}\right) + \left(\begin{pmatrix}
+0 \\
+1
+\end{pmatrix} \otimes \begin{pmatrix}
+1 \\
+0
+\end{pmatrix}\right)\right]\right\}
+\end{align}
+
+Podemos reorganizar~\eqref{help} evidenciando os termos correspondentes às possíveis medidas realizadas no Local A e no resultado correspondente do par emaranhado no Local B:
+
+\begin{align}
+\ket{\psi_2} &=\frac{1}{2} \left\{ \left[\begin{pmatrix}
+1 \\
+0
+\end{pmatrix} \otimes \begin{pmatrix}
+1 \\
+0
+\end{pmatrix}\right] \left[\alpha \begin{pmatrix}
+1 \\
+0
+\end{pmatrix} + \beta \begin{pmatrix}
+0 \\
+1
+\end{pmatrix}\right]\right\} \nonumber \\
+&+\frac{1}{2} \left\{ \left[\begin{pmatrix}
+0 \\
+1
+\end{pmatrix} \otimes \begin{pmatrix}
+0 \\
+1
+\end{pmatrix}\right] \left[\alpha \begin{pmatrix}
+0 \\
+1
+\end{pmatrix} - \beta \begin{pmatrix}
+1 \\
+0
+\end{pmatrix}\right]\right\} \nonumber \\
+&+\frac{1}{2} \left\{\left[ \begin{pmatrix}
+1 \\
+0
+\end{pmatrix} \otimes \begin{pmatrix}
+0 \\
+1
+\end{pmatrix}\right] \left[\alpha \begin{pmatrix}
+0 \\
+1
+\end{pmatrix} + \beta \begin{pmatrix}
+1 \\
+0
+\end{pmatrix}\right]\right\} \nonumber \\
+&+\frac{1}{2} \left\{ \left[ \begin{pmatrix}
+0 \\
+1
+\end{pmatrix} \otimes \begin{pmatrix}
+1 \\
+0
+\end{pmatrix}\right] \left[\alpha \begin{pmatrix}
+1 \\
+0
+\end{pmatrix} - \beta \begin{pmatrix}
+0 \\
+1
+\end{pmatrix}\right] \right\}
+\end{align}
+
+O resultado acima é exatamente mesmo obtido na Tabela~\ref{medidas}.
 
