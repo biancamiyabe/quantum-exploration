@@ -58,7 +58,8 @@ Para que o emaranhamento seja possível, ambos os qubits representados por $\ket
 \end{pmatrix}
 \end{equation}
 
-Seguindo a figura, aplicamos a porta Hadamard, \(\HAD\), multiplicando-a pela matriz identidade \(I\), obtendo
+Seguindo a Figura~\ref{protocoloteletransporte}, aplicamos a porta Hadamard, \(\HAD\), multiplicando-a pela matriz identidade \(I\), obtendo:
+
 \begin{equation}
 \HAD \otimes I = \frac{1}{\sqrt{2}} \begin{pmatrix*}[r]
 1 & 1 \\
@@ -115,9 +116,125 @@ Em seguida, aplicamos a porta \(\CNOT\)
 \end{pmatrix}
 \end{equation}
 
-A equação também é conhecida por ser uma das Bases de Bell. A comparação da Base de Bell no estado $\ket{00}$ em notação de Dirac e em notação matricial é dada por:
+A equação também é conhecida por ser uma das Bases de Bell. A comparação da Base de Bell no estado $\ket{00}$ em notação de Dirac e em notação matricial é feita considerando as \eqref{00} e ~\eqref{01} de modo que, seja \(\ket{\beta_{00}}\) a Base de Bell em notação de Dirac dada por \(\frac{1}{\sqrt{2}} \bigl(\ket{00} + \ket{11}\bigr)\), reescrevendo teremos:
 
-Seja \(\ket{\beta_{00}}\) a Base de Bell em notação de Dirac dada por \(\frac{1}{\sqrt{2}} \bigl(\ket{00} + \ket{11}\bigr)\), reescrevendo teremos:
+\begin{equation}\label{comparacaobeta}
+\ket{\beta_{00}} = \frac{1}{\sqrt{2}} \left[ \begin{pmatrix}
+0 \\
+1
+\end{pmatrix} \otimes \begin{pmatrix}
+0 \\
+1
+\end{pmatrix} + \begin{pmatrix}
+1 \\
+0
+\end{pmatrix} \otimes \begin{pmatrix}
+1 \\
+0
+\end{pmatrix}\right] = \frac{1}{\sqrt{2}} \left[ \begin{pmatrix}
+1 \\
+0 \\
+0 \\
+0 
+\end{pmatrix} + \begin{pmatrix}
+0 \\
+0 \\
+0 \\
+1 
+\end{pmatrix}\right] = \frac{1}{\sqrt{2}} \begin{pmatrix}
+1 \\
+0 \\
+0 \\
+1 
+\end{pmatrix}
+\end{equation}
 
-% FALTA TERMINAAAAAAAR!
-%
+O resultado obtido em~\eqref{comparacaobeta} é exatamente o mesmo obtido na~\eqref{bell00}.
+A próxima etapa do protocolo de teletransporte, consiste na aplicação da porta lógica quântica \(\CNOT\). Portanto, seja o estado $\ket{\psi_0}$ descrito por:
+
+\begin{equation}\label{psi0}
+\ket{\psi_0}=\ket{\psi}\ket{\beta_{00}}=\left[\alpha \begin{pmatrix}
+1 \\
+0 
+\end{pmatrix} + \beta \begin{pmatrix}
+0 \\
+1
+\end{pmatrix}\right] \left[\frac{1}{\sqrt{2}} \begin{pmatrix}
+1 \\
+0 \\
+0 \\
+1
+\end{pmatrix}\right]
+\end{equation}
+
+Conforme Figura~\ref{protocoloteletransporte}, a porta \(\CNOT\) possui como controle o qubit descrito pelo estado $\ket{\psi}$ e como alvo o par emaranhado presente no Local A $\ket{\beta_{00}}$. Sua atuação apenas ocorrerá quando o qubit de controle estiver no estado $\ket{1}$. Desse modo, reescrevendo~\eqref{psi0}:
+
+\begin{equation}
+\ket{\psi_0} = \frac{1}{\sqrt{2}}\left\{\left[\alpha \begin{pmatrix}
+1 \\
+0 
+\end{pmatrix}  \begin{pmatrix}
+1 \\
+0 \\
+0 \\
+1
+\end{pmatrix}\right] + \left[\beta \begin{pmatrix}
+0 \\
+1
+\end{pmatrix}  \begin{pmatrix}
+1 \\
+0 \\
+0 \\
+1
+\end{pmatrix}\right] \right\}
+\end{equation}
+
+A porta \(\CNOT\) será aplicada apenas no qubit alvo que acompanha o qubit de controle $\beta \begin{pmatrix}
+1 \\
+0 
+\end{pmatrix}$:
+
+
+\begin{align}
+\CNOT \ket{\psi_0} &= \frac{1}{\sqrt{2}}\left\{\left[\alpha \begin{pmatrix}
+1 \\
+0 
+\end{pmatrix}  \begin{pmatrix}
+1 \\
+0 \\
+0 \\
+1
+\end{pmatrix}\right] + \left[\beta \begin{pmatrix}
+0 \\
+1
+\end{pmatrix} \begin{pmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 1 \\
+0 & 1 & 1 & 0
+\end{pmatrix} 
+\begin{pmatrix}
+1 \\
+0 \\
+0 \\
+1
+\end{pmatrix}\right] \right\} \nonumber \\ 
+&=\frac{1}{\sqrt{2}}\left[\alpha \begin{pmatrix}
+1 \\
+0 
+\end{pmatrix}  \begin{pmatrix}
+1 \\
+0 \\
+0 \\
+1
+\end{pmatrix} + \beta \begin{pmatrix} 
+0 \\
+1
+\end{pmatrix} \begin{pmatrix}
+0 \\
+1 \\
+1 \\
+0
+\end{pmatrix}\right]
+\end{align}
+
