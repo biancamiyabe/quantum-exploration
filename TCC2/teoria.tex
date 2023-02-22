@@ -13,7 +13,67 @@
 Conforme descrito no Capítulo de Introdução, para o estudo da Computação Quântica e da Informação Quântica, são necessários alguns recursos provenientes da Mecânica Quântica bem como a construção de análogos quânticos para o processamento dessa informação. As seções a seguir apresentarão a fundamentação teórica e os recursos matemáticos necessários para o desenvolvimento da simulação proposta na Metodologia.
 
 \section{Conceitos básicos de Álgebra Linear}
+A Álgebra Linear é o estudo dos vetores que descrevem o espaço e consequentemente das operações nesses espaços vetoriais. Para o desenvolvimento desse trabalho, serão necessários reconhecer as notações descritas na Tabela~\ref{Tab:notação}.
 
+\begin{table}[ht!]
+  \centering
+  \caption{Notações utilizadas nas operações de Mecânica Quântica e sua respectiva descrição. O estilo das notações é conhecido como Notação de Dirac para Álgebra Linear.}\label{Tab:notação}
+  \begin{tabular}{cc}
+    \toprule
+    {\textbf{Notação}} & {\textbf{Descrição}}\\
+    \midrule
+    $\ket{\psi}$   & Vetor conhecido como \textit{ket} \\
+    $\bra{\psi}$   & Vetor dual de um \textit{ket} conhecido como \textit{bra} \\
+    $\braket{\psi|\varphi}$   & Produto interno entre os vetores $\ket{\psi}$ e $\ket{\varphi}$ \\
+    $\ket{\psi} \otimes \ket{\varphi}$   & Produto tensorial entre os vetores $\ket{\psi}$ e $\ket{\varphi}$ \\
+    $\ket{\psi}\ket{\varphi}$     & Abreviação do produto tensorial entre $\ket{\psi}$ e $\ket{\varphi}$ \\
+    $A^*$     &  Conjugado complexo da Matriz A \\
+    \bottomrule
+  \end{tabular}
+  \fonte{Elaborada pelo autor.}
+\end{table}
+
+A descrição da Mecânica Quântica é feita sob o espaço vetorial chamado \textit{Espaço de Hilbert} $\mathcal{H}$, sendo este um espaço complexo, vetorial e linear. Um \textit{ket} é um vetor arbitrário de $\mathcal{H}$, sua representação é descrita por:
+
+\begin{equation}
+\ket{\psi} = [\psi_1,...,\psi_n]^T
+\end{equation}
+
+Todo \textit{ket} possui um vetor dual, ou conjugado complexo que também pertence à $\mathcal{H}$, chamado de \textit{bra}, de modo que:
+\begin{equation}
+\bra{\psi} = [\psi_1^*,...,\psi_n^*]
+\end{equation}
+
+O produto tensorial entre dois \textit{kets} é definido por:
+
+\begin{equation}
+\ket{\psi} \otimes \ket{\varphi} = \ket{\psi}\ket{\varphi} =\ket{\psi \varphi} =\left[\begin{array}{c}\psi_1 \varphi_1 \\ \psi_1 \varphi_2 \\ \vdots \\ \psi_1 \varphi_n \\ \psi_2 \varphi_1 \\ \psi_2 \varphi_2 \\ \vdots \\ \psi_2 \varphi_n \\ \vdots \\ \psi_m \varphi_2 \\ \psi_m \varphi_2 \\ \vdots \\ \psi_m \varphi_n\end{array}\right]
+\end{equation}
+
+Podemos também realizar o produto tensorial de suas matrizes, de modo que:
+
+\begin{equation}
+A \otimes B=\left[\begin{array}{cccc}
+A_{11} B & A_{12} B & \cdots & A_{1 n} B \\
+A_{21} B & A_{22} B & \cdots & A_{2 n} B \\
+\vdots & \vdots & \ddots & \vdots \\
+A_{m 1} B & A_{m 2} B & \cdots & A_{m n} B
+\end{array}\right]_{m p \times n q}
+\end{equation}
+
+O conjugado complexo de uma Matrix é definido pela Matriz transposta dos seus elementos, de modo que:
+
+\begin{equation}
+A^T = \left[\begin{matrix}
+a & b \\
+c & d
+\end{matrix}\right]^T = \left[\begin{matrix}
+a & c \\
+b & d
+\end{matrix}\right]
+\end{equation}
+
+Os recursos apresentados acima, serão utilizados durante o trabalho e principalmente na descrição da seção~\ref{Mecanicaquantica}.
 
 \section{Mecânica Quântica}\label{Mecanicaquantica}
 
@@ -33,7 +93,7 @@ Podemos definir seus postulados como:
 \end{enumerate}
 
 Para os estudos que seguem nesse trabalho, iremos enfatizar os postulados 3 e 5.
-
+ 
 
 \section{Qubits}
 
@@ -226,7 +286,7 @@ O próximo passo do protocolo consiste em realizar medidas em ambos os qubits pr
   \caption{Possíveis resultados das medidas realizadas nos qubits presentes em \(A\) no estado quântico $\ket{\psi_2}$.}\label{medidas}
   \begin{tabular}{cc}
     \toprule
-    {Medida realizada} & {Estado quântico associado}\\
+    {\textbf{Medida realizada}} & {\textbf{Estado quântico associado}}\\
     \midrule
     $\ket{00}$   & $\bigl( \alpha \ket{0} + \beta \ket{1} \bigr)$\\
     $\ket{01}$   & $\bigl( \alpha \ket{1} + \beta \ket{0} \bigr)$\\
