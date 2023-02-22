@@ -17,7 +17,7 @@ A Álgebra Linear é o estudo dos vetores que descrevem o espaço e consequentem
 
 \begin{table}[ht!]
   \centering
-  \caption{Notações utilizadas nas operações de Mecânica Quântica e sua respectiva descrição. O estilo das notações é conhecido como Notação de Dirac para Álgebra Linear.}\label{Tab:notação}
+  \caption{Notações utilizadas nas operações de Mecânica Quântica e sua respectiva descrição. O estilo das notações é conhecido como Notação de Dirac para Álgebra Linear.}\label{tab:notação}
   \begin{tabular}{cc}
     \toprule
     {\textbf{Notação}} & {\textbf{Descrição}}\\
@@ -35,24 +35,24 @@ A Álgebra Linear é o estudo dos vetores que descrevem o espaço e consequentem
 
 A descrição da Mecânica Quântica é feita sob o espaço vetorial chamado \textit{Espaço de Hilbert} $\mathcal{H}$, sendo este um espaço complexo, vetorial e linear. Um \textit{ket} é um vetor arbitrário de $\mathcal{H}$, sua representação é descrita por:
 
-\begin{equation}
+\begin{equation}\label{eq:ketpsi}
 \ket{\psi} = [\psi_1,...,\psi_n]^T
 \end{equation}
 
 Todo \textit{ket} possui um vetor dual, ou conjugado complexo que também pertence à $\mathcal{H}$, chamado de \textit{bra}, de modo que:
-\begin{equation}
+\begin{equation}\label{eq:brapsi}
 \bra{\psi} = [\psi_1^*,...,\psi_n^*]
 \end{equation}
 
 O produto tensorial entre dois \textit{kets} é definido por:
 
-\begin{equation}
+\begin{equation}\label{eq:tensorket}
 \ket{\psi} \otimes \ket{\varphi} = \ket{\psi}\ket{\varphi} =\ket{\psi \varphi} =\left[\begin{array}{c}\psi_1 \varphi_1 \\ \psi_1 \varphi_2 \\ \vdots \\ \psi_1 \varphi_n \\ \psi_2 \varphi_1 \\ \psi_2 \varphi_2 \\ \vdots \\ \psi_2 \varphi_n \\ \vdots \\ \psi_m \varphi_2 \\ \psi_m \varphi_2 \\ \vdots \\ \psi_m \varphi_n\end{array}\right]
 \end{equation}
 
-Podemos também realizar o produto tensorial de suas matrizes, de modo que:
+Podemos também realizar o produto tensorial de duas matrizes, de modo que:
 
-\begin{equation}
+\begin{equation}\label{eq:tensormatrix}
 A \otimes B=\left[\begin{array}{cccc}
 A_{11} B & A_{12} B & \cdots & A_{1 n} B \\
 A_{21} B & A_{22} B & \cdots & A_{2 n} B \\
@@ -63,7 +63,7 @@ A_{m 1} B & A_{m 2} B & \cdots & A_{m n} B
 
 O conjugado complexo de uma Matrix é definido pela Matriz transposta dos seus elementos, de modo que:
 
-\begin{equation}
+\begin{equation}\label{eq:conjugadomatrix}
 A^T = \left[\begin{matrix}
 a & b \\
 c & d
@@ -77,41 +77,21 @@ Os recursos apresentados acima, serão utilizados durante o trabalho e principal
 
 \section{Mecânica Quântica}\label{Mecanicaquantica}
 
-Esta teoria foi criada no início do século XX para explicar o comportamento dos átomos e estudar os efeitos relativos ao tamanho microscópico das partículas. A mecânica quântica explica como as partículas subatômicas se comportam, como interagem com a luz e como são afetadas por forças externas. Ela é essencial para a compreensão de muitos fenômenos físicos, como a estrutura de átomos e moléculas e as propriedades de materiais, da radiação eletromagnética e da matéria escura.
 
-Podemos definir seus postulados como:
-\begin{enumerate}
-\item Princípio da incerteza de Heisenberg: é impossível, ao mesmo tempo, medir com precisão a localização e a velocidade de uma partícula subatômica.
-
-\item Princípio da dualidade onda-partícula: uma partícula subatômica pode se comportar tanto como onda quanto como partícula.
-
-\item Princípio da superposição: qualquer sistema quântico pode encontrar-se simultaneamente em vários estados.
-
-\item Princípio da exclusão de Pauli: dois fótons ou partículas idênticas não podem ocupar o mesmo estado quântico.
-
-\item Princípio da ação à distância: o efeito de uma interação quântica entre partículas pode se propagar instantaneamente, independentemente da distância.
-\end{enumerate}
-
-Para os estudos que seguem nesse trabalho, iremos enfatizar os postulados 3 e 5.
- s
 
 \section{Qubits}
 
 As definições de qubits descritas nesse tópico baseiam-se principalmente nas ideias apresentadas por \textcite{chuang} e \textcite{CompInfoQuantica}.
 
-Qubits são elementos fundamentais da computação quântica. Eles são usados para representar informações binárias (zeros e uns) e são capazes de armazenar e processar muito mais informações que os bits convencionais usados na computação clássica. Isso é possível graças ao fato de que, enquanto os bits tradicionais podem estar em dois estados (ligado ou desligado), os qubits podem estar em um estado de superposição, o que permite que eles representem simultaneamente vários estados ou informações diferentes. Isso significa que os qubits podem armazenar muito mais informação em um espaço muito menor, tornando a computação quântica muito mais \textcolor{red}{poderosa e eficiente}.
-
-\todo[inline]{Comentar sobre os termos ``poderosa'' e ``eficiente'' num sentido computacional.}
+Qubits são elementos fundamentais da computação quântica. Eles são usados para representar informações binárias (zeros e uns) e são capazes de armazenar e processar muito mais informações que os bits convencionais usados na computação clássica. Isso é possível graças ao fato de que, enquanto os bits tradicionais podem estar em dois estados (ligado ou desligado), os qubits podem estar em um estado de superposição, o que permite que eles representem simultaneamente vários estados ou informações diferentes. Isso significa que os qubits podem armazenar muito mais informação em um espaço muito menor conforme salientado na~\ref{tabelabit}.
 
 Podemos começar a descrição de um qubit como uma superposição dos estados quânticos $\ket{0}$ e $\ket{1}$, de modo a representá-los pela combinação linear dada por
-\begin{equation}\label{psi}
+\begin{equation}\label{eq:psi}
 \ket{\psi} = \alpha \ket{0} + \beta \ket{1},
 \end{equation}
 com $\alpha$ e $\beta$ parametrizados por \(\alpha^{2} + \beta^{2} = 1\).
 
-Os números $\alpha$ e $\beta$ são complexos e determinam as amplitudes probabilísticas da obtenção dos estados quânticos. O estado descrito por $\ket{\psi}$ é uma superposição dos estados quânticos $\ket{0}$ e $\ket{1}$, ou seja, seguindo os postulados da mecânica quântica, o qubit pode existir num estado contínuo entre $\ket{0}$ e $\ket{1}$ porém, ao ser medido, colapsando o sistema, \textcolor{red}{retornará apenas os valores de $\ket{0}$ e $\ket{1}$ com as probabilidades $\alpha$ e $\beta$ associadas}.
-
-\todo[inline]{``$\ket{0}$ \textbf{e} $\ket{1}$'' ou ``$\ket{0}$ \textbf{ou} $\ket{1}$''}
+Os números $\alpha$ e $\beta$ são complexos e determinam as amplitudes probabilísticas da obtenção dos estados quânticos. O estado descrito por $\ket{\psi}$ é uma superposição dos estados quânticos $\ket{0}$ e $\ket{1}$, ou seja, seguindo os postulados da mecânica quântica, o qubit pode existir num estado contínuo entre $\ket{0}$ e $\ket{1}$ porém, ao ser medido, colapsando o sistema, retornará apenas os valores de $\ket{0}$ ou $\ket{1}$ com as probabilidades $\alpha$ e $\beta$ associadas.
 
 Um recurso para visualizar o comportamento de qubits é sua representação geométrica chamada de Esfera de Boch. Como entidades quânticas não são observáveis diretamente e frequentemente são expressas por recursos matemáticos, a visualização da superposição dos estados de um qubit utilizando a Esfera de Boch facilita, ainda que ligeiramente, sua compreensão.
 
@@ -120,15 +100,15 @@ Em primeiro lugar, vale lembrar que o qubit, descrito por $\ket{\psi}$, está pa
 \ket{\psi}=e^{i \gamma}\Biggl(\cos \frac{\theta}{2}\ket{0}+e^{i \varphi} \sen \frac{\theta}{2}\ket{1}\Biggr).
 \end{equation}
 O termo \(e^{i\gamma}\) não possui efeitos observáveis na representação geométrica e portanto, podemos simplificar a equação acima, obtendo
-\begin{equation}
+\begin{equation}\label{eq:coordpolarpsi}
 \ket{\psi}=\Biggl(\cos \frac{\theta}{2}\ket{0}+e^{i \varphi} \sen \frac{\theta}{2}\ket{1}\Biggr),
 \end{equation}
 com $\theta$ e $\varphi$ sendo números reais correspondentes aos ângulos entre os eixos $z, y$ e $y, x$ respectivamente, conforme a
-Figura~\ref{bloch}.
+Figura~\ref{fig:bloch}.
 
 \begin{figure}[ht!]
 \centering
-\caption{Representação gráfica de um qubit como um ponto sob a superfície da Esfera de Bloch.}\label{bloch}
+\caption{Representação gráfica de um qubit como um ponto sob a superfície da Esfera de Bloch.}\label{fig:bloch}
 % Adaptado de https://tex.stackexchange.com/questions/345420/how-to-draw-a-bloch-sphere
 \begin{blochsphere}[radius=3cm,rotation=-110,opacity=0]
   \drawLongitudeCircle[]{-110};
@@ -217,12 +197,12 @@ Figura~\ref{bloch}.
 
 \section{Protocolo de Teletransporte Quântico}
 
-A realização de um Protocolo de Teletransporte Quântico consiste, essencialmente, em uma série de operações que possuem por objetivo principal fazer com que uma mensagem, ou na linguagem quântica, um estado quântico, se teletransporte entre dois pontos distintos fisicamente.
+A realização de um protocolo de Teletransporte Quântico consiste, essencialmente, em uma série de operações que possuem por objetivo principal fazer com que uma mensagem, ou na linguagem quântica, um estado quântico, se teletransporte entre dois pontos distintos fisicamente.
 Como em qualquer outra operação computacional é necessária a existencia de um circuito lógico, nesse caso, quântico que media as operações. Esse circuito consistirá nas combinações das portas lógicas \(\CNOT\), Haddamard, portas de medição e as portas \(\XXX\) e \(\ZZZ\) conforme a Figura~\ref{protocoloteletransporte}
 
 \begin{figure}[ht!]
 \centering
-\caption{Protocolo de Teletransporte Quântico mediado pelo circuito com as portas \(\CNOT\), Hadamard, Medição aplicadas no Local \(A\) e as portas \(\XXX\) e \(\ZZZ\) aplicadas no Local \(B\).}\label{protocoloteletransporte}
+\caption{Protocolo de Teletransporte Quântico mediado pelo circuito com as portas \(\CNOT\), Hadamard, Medição aplicadas no Local \(A\) e as portas \(\XXX\) e \(\ZZZ\) aplicadas no Local \(B\).}\label{fig:protocoloteletransporte}
 \begin{quantikz}[slice style=blue]
 \lstick{$\ket{\psi}$} & \qw & \qw & \qw \slice{$\ket{\psi_0}$} & \ctrl{1} \slice{$\ket{\psi_1}$} & \gate{H} \slice{$\ket{\psi_2}$} & \meter{$M_1$} & \cw  & \cw & \cwbend{2}\\
 \lstick{$\ket{q_x}$} & \gate{H}\gategroup[2,steps=2,style={dashed,rounded corners,fill=blue!20, inner xsep=2pt}, background,label style={label position=below,anchor=north,yshift=-0.2cm}]{{Emaranhamento}} & \ctrl{1} & \midstick[2]{$\ket{\beta_{00}}$} \qw & \targ{} & \qw & \meter{$M_2$} & \cwbend{1} \\
@@ -231,37 +211,35 @@ Como em qualquer outra operação computacional é necessária a existencia de u
 \fonte{Adaptado de }
 \end{figure}
 
-\todo[inline]{Dúvida: devemos usar maiúsculas em ``Protocolo'', ``Mecânica Quântica'', ``Local'', etc? Se sim, precisamos padronizar.}
-
-No inicio do Protocolo é necessário que tenhamos um par de qubits emaranhados nas bases de Bell, no estado $\ket{\beta_{00}}$, que podemos representar pela expressão
-\begin{equation}\label{bell00}
+No inicio do protocolo é necessário que tenhamos um par de qubits emaranhados nas bases de Bell, no estado $\ket{\beta_{00}}$, que podemos representar pela expressão
+\begin{equation}\label{eq:bell00}
  \ket{\beta_{00}} = \frac{\ket{00} + \ket{11}}{\sqrt{2}}.
 \end{equation}
 
-Um dos qubits do par emaranhado em~\eqref{bell00} é mantido em \(A\) e o outro necessariamente precisa estar em \(B\) para que exista um canal de comunicação entre essas partes. Além do par emaranhado, em \(A\) teremos o estado quântico a ser enviado, ou seja sua mensagem dada por $\ket{\psi}$, segundo a Equação~\eqref{psi}.
+Um dos qubits do par emaranhado em~\eqref{eq:bell00} é mantido em \(A\) e o outro necessariamente precisa estar em \(B\) para que exista um canal de comunicação entre essas partes. Além do par emaranhado, em \(A\) teremos o estado quântico a ser enviado, ou seja sua mensagem dada por $\ket{\psi}$, segundo a Equação~\eqref{eq:psi}.
 % \begin{equation}\label{psi}
 %  \ket{\psi} = \alpha \ket{0} + \beta \ket{1}.
 % \end{equation}
-De posse do par emaranhado e da mensagem, o protocolo é iniciado com a aplicação da porta \(\CNOT\) entre $\ket{\psi}\ket{\beta_{00}}$, que chamaremos de $\ket{\psi_0}$. A porta \(\CNOT\) possui como tabela verdade a seguinte proposição:
+De posse do par emaranhado e da mensagem, o protocolo é iniciado com a aplicação da porta \(\CNOT\) entre $\ket{\psi}\ket{\beta_{00}}$, que chamaremos de $\ket{\psi_0}$. A porta \(\CNOT\) possui como alvo o qubit $\ket{q_y}$ e como qubit de controle $\ket{q_x}$. Isso indica que a porta \(\CNOT\) irá modificar $\ket{q_y}$ de acordo com o estado de $\ket{q_x}$ de modo que:
 
-\todo[inline]{Da forma como estão escritas, as portas não se configuram como teoremas\ldots Precisamos discutir.}
 
-\begin{theo}{Operação \(\CNOT\)}{cnottheo}
-  A operação \(\CNOT\) deve:
+\begin{theo}{Operação \(\CNOT\)}{cnot}
+  A operação \(\CNOT\):
   \begin{enumerate}[label=\roman*.,left=0pt]
-    \item Inverter o segundo qubit, caso o primeiro esteja no estado $\ket{1}$;
-    \item Não realizar nenhuma operação no segundo qubit, caso o primeiro esteja no estado $\ket{0}$.
+    \item Inverte o qubit alvo, caso o qubit de controle esteja no estado $\ket{1}$;
+    \item Não realizar nenhuma operação no qubit alvo, caso o controle esteja no estado $\ket{0}$.
   \end{enumerate}
 \end{theo}
 
-Dessa maneira, aplicando o Teorema~\ref{th:cnottheo} no estado dado por $\ket{\psi_0}$
-\begin{align}\label{cnotpsi0}
+Dessa maneira, aplicando a definição~\ref{cnot} no estado dado por $\ket{\psi_0}$
+\begin{align}\label{eq:cnotpsi0}
   \CNOT \ket{\psi_0} &= \CNOT \ket{\psi} \ket{\beta_{00}} \nonumber \\
                      &= \CNOT \frac{1}{\sqrt{2}} \Bigl[ \alpha \ket{0} \bigl( \ket{00} + \ket{11} \bigr) + \beta \ket{1} \bigl( \ket{00} + \ket{11} \bigr)\Bigr] \nonumber \\
                      &= \frac{1}{\sqrt{2}} \Bigl[\alpha \ket{0} \bigl( \ket{00} + \ket{11} \bigr) + \beta \ket{1} \bigl( \ket{10} + \ket{01} \bigr) \Bigr].
 \end{align}
-A operação descrita pela Equação~\eqref{cnotpsi0} resulta no estado que chamaremos de $\ket{\psi_1}$ e neste, segundo o circuito da Figura~\ref{protocoloteletransporte}, deve-se aplicar a porta Hadamard:
-\begin{theo}{Operação Hadamard}{hadamardtheo}
+
+A operação descrita pela Equação~\eqref{eq:cnotpsi0} resulta no estado que chamaremos de $\ket{\psi_1}$ e neste, segundo o circuito da Figura~\ref{fig:protocoloteletransporte}, deve-se aplicar a porta Hadamard:
+\begin{theo}{Operação Hadamard}{hadamard}
   A operação Hadamard deve:
   \begin{enumerate}[label=\roman*.]
     \item Aplicar no estado 0 a operação $\frac{1}{\sqrt{2}} \bigl(\ket{0}+\ket{1}\bigr)$;
@@ -269,21 +247,21 @@ A operação descrita pela Equação~\eqref{cnotpsi0} resulta no estado que cham
   \end{enumerate}
 \end{theo}
 
-Aplicando portanto o Teorema~\ref{th:hadamardtheo} em $\ket{\psi_1}$, teremos
-\begin{equation}\label{hadamartpsi2}
+Aplicando portanto a definição~\ref{hadamard} em $\ket{\psi_1}$, teremos:
+\begin{equation}\label{eq:hadamartpsi2}
  \HAD \ket{\psi_1} = \Biggl( \frac{1}{\sqrt{2}}\Biggr)^{\!\!2} \Bigl[ \alpha \bigl( \ket{0} + \ket{1} \bigr)\bigl( \ket{00} +\ket{11} \bigr)+ \beta \bigl( \ket{0} - \ket{1} \bigr) \bigl( \ket{10} + \ket{01} \bigr) \Bigr].
 \end{equation}
 
-O estado obtido em \eqref{hadamartpsi2} pode ser identificado como $\ket{\psi_2}$ e evidenciando os estados emaranhados deste ao organizá-lo da seguinte maneira
-\begin{equation}\label{psi2}
+O estado obtido em \eqref{eq:hadamartpsi2} pode ser identificado como $\ket{\psi_2}$ e evidenciando os estados emaranhados deste ao organizá-lo da seguinte maneira:
+\begin{equation}\label{eq:psi2}
  \ket{\psi_2} = \frac{1}{2} \Bigl[ \ket{00} \bigl( \alpha \ket{0} + \beta \ket{1} \bigr) + \ket{01} \bigl( \alpha \ket{1} + \beta \ket{0} \bigr) + \ket{10} \bigl( \alpha \ket{0} - \beta \ket{1} \bigr) + \ket{11} \bigl( \alpha \ket{1} - \beta \ket{0} \bigr) \Bigr].
 \end{equation}
 
-O próximo passo do protocolo consiste em realizar medidas em ambos os qubits presentes em \(A\). Essas medidas farão com que os estados quânticos sejam colapsados e deixem de coexistir, passando a ser considerados clássicos. As medidas possíveis de serem obtidas em \(A\) são apresentadas na Tabela~\ref{medidas}.
+O próximo passo do protocolo consiste em realizar medidas em ambos os qubits presentes em \(A\). Essas medidas farão com que os estados quânticos sejam colapsados e deixem de coexistir, passando a ser considerados clássicos. As medidas possíveis de serem obtidas em \(A\) são apresentadas na Tabela~\ref{tab:medidas}.
 
 \begin{table}[ht!]
   \centering
-  \caption{Possíveis resultados das medidas realizadas nos qubits presentes em \(A\) no estado quântico $\ket{\psi_2}$.}\label{medidas}
+  \caption{Possíveis resultados das medidas realizadas nos qubits presentes em \(A\) no estado quântico $\ket{\psi_2}$.}\label{tab:medidas}
   \begin{tabular}{cc}
     \toprule
     {\textbf{Medida realizada}} & {\textbf{Estado quântico associado}}\\
@@ -297,15 +275,15 @@ O próximo passo do protocolo consiste em realizar medidas em ambos os qubits pr
   \fonte{Elaborada pelo autor.}
 \end{table}
 
-Os valores dos estados medidos em \(A\), são enviados via canal clássico até \(B\) que, devido ao emaranhamento com o qubit operado em \(A\), terá seu colapso consequentemente em seu estado quântico associado, segundo a Tabela~\ref{medidas}.
+Os valores dos estados medidos em \(A\), são enviados via canal clássico até \(B\) que, devido ao emaranhamento com o qubit operado em \(A\), terá seu colapso consequentemente em seu estado quântico associado, segundo a Tabela~\ref{tab:medidas}.
 
 A última etapa do protocolo, ocorre em \(B\), na tentativa de reconstruir a mensagem original, nesse momento já inexistente, que estava em \(A\). Nessa última etapa, serão utilizadas (ou não) as portas lógicas \(\XXX\) e \(\ZZZ\), cujas operações estão definidas a seguir.
 
-\begin{theo}{Operação \(\XXX\)}{X}
+\begin{theo}{Operação \(\XXX\)}{def:X}
 A porta lógica quântica \(\XXX\) deve trocar os estados quânticos, ou seja, torná-lo 1 quando este for 0 e torná-lo 0, quando este for 1.
 \end{theo}
 
-\begin{theo}{Operação \(\ZZZ\)}{Z}
+\begin{theo}{Operação \(\ZZZ\)}{def:Z}
 A porta lógica quântica \(\ZZZ\) deve inverter a fase do estado quântico, ou seja, torná-la negativa quando esta for positiva e torná-la positiva quando esta for negativa.
 \end{theo}
 
