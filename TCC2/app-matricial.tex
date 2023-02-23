@@ -15,23 +15,23 @@ As representações matriciais dos protocolos de Emaranhamento e Teletransporte 
 Para iniciar o protocolo, consideraremos as seguintes representações binárias dos estados quânticos
 \begin{equation} \label{eq:01}
 \ket{0} = \begin{pmatrix}
-0 \\
-1
-\end{pmatrix} \quad \text{e} \quad
-\ket{1} = \begin{pmatrix}
 1 \\
 0
+\end{pmatrix} \quad \text{e} \quad
+\ket{1} = \begin{pmatrix}
+0 \\
+1
 \end{pmatrix}.
 \end{equation}
 
 Consideraremos também que estados quânticos que dependem de mais de um qubit (emaranhados ou não), são representados pelo produto tensorial dos seus estados internos, como segue o exemplo:
 \begin{equation}\label{eq:00}
 \ket{00} = \begin{pmatrix}
-0 \\
-1
+1 \\
+0
 \end{pmatrix} \otimes \begin{pmatrix}
-0 \\
-1
+1 \\
+0
 \end{pmatrix} = \begin{pmatrix}
 1 \\
 0 \\
@@ -45,11 +45,11 @@ A representação gráfica do circuito quântico que realiza o protocolo de emar
 Para que o emaranhamento seja possível, ambos os qubits representados por $\ket{q_x}$ e $\ket{q_y}$ devem existir no mesmo espaço de Hilbert e portanto a operação de produto tensorial entre eles deve ser possível de modo que, considerando o estado quântico $\ket{0}$:
 \begin{equation}
 \ket{q_x} \otimes \ket{q_y} = \ket{0} \otimes \ket{0} = \ket{00} = \begin{pmatrix}
-0 \\
-1
+1 \\
+0
 \end{pmatrix} \otimes \begin{pmatrix}
-0 \\
-1
+1 \\
+0
 \end{pmatrix} = \begin{pmatrix}
 1 \\
 0 \\
@@ -120,17 +120,17 @@ A equação também é conhecida como uma das Bases de Bell. A comparação da B
 
 \begin{equation}\label{eq:comparacaobeta}
 \ket{\beta_{00}} = \frac{1}{\sqrt{2}} \left[ \begin{pmatrix}
-0 \\
-1
+1 \\
+0
 \end{pmatrix} \otimes \begin{pmatrix}
-0 \\
-1
+1 \\
+0
 \end{pmatrix} + \begin{pmatrix}
-1 \\
-0
+0 \\
+1
 \end{pmatrix} \otimes \begin{pmatrix}
-1 \\
-0
+0 \\
+1
 \end{pmatrix}\right] = \frac{1}{\sqrt{2}} \left[ \begin{pmatrix}
 1 \\
 0 \\
@@ -193,6 +193,7 @@ A porta \(\CNOT\) será aplicada apenas no qubit alvo que acompanha o qubit de c
 1 \\
 0 
 \end{pmatrix}$:
+\todo[inline]{REVISAR A APRESENTAÇÃO DA APLICAÇÃO DA PORTA CNOT. DESSA MANEIRA NÃO OBTEMOS O RESULTADO ESPERADO}:
 
 
 \begin{align}
@@ -287,7 +288,7 @@ Os resultados de~\eqref{eq:halfabeta} podem ser reescritos como:
 1 \\
 0
 \end{pmatrix} - \begin{pmatrix}
-o \\
+0 \\
 1
 \end{pmatrix} 
 \end{align}

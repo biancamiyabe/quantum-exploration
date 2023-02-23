@@ -13,7 +13,7 @@
 Conforme descrito no Capítulo de Introdução, para o estudo da Computação Quântica e da Informação Quântica, são necessários alguns recursos provenientes da Mecânica Quântica bem como a construção de análogos quânticos para o processamento dessa informação. As seções a seguir apresentarão a fundamentação teórica e os recursos matemáticos necessários para o desenvolvimento da simulação proposta na Metodologia.
 
 \section{Conceitos básicos de Álgebra Linear}
-A Álgebra Linear é o estudo dos vetores que descrevem o espaço e consequentemente das operações nesses espaços vetoriais. Para o desenvolvimento desse trabalho, serão necessários reconhecer as notações descritas na Tabela~\ref{Tab:notação}.
+A Álgebra Linear é o estudo dos vetores que descrevem o espaço e consequentemente das operações nesses espaços vetoriais. Para o desenvolvimento desse trabalho, serão necessários reconhecer as notações descritas na Tabela~\ref{tab:notação}.
 
 \begin{table}[ht!]
   \centering
@@ -30,16 +30,17 @@ A Álgebra Linear é o estudo dos vetores que descrevem o espaço e consequentem
     $A^*$     &  Conjugado complexo da Matriz A \\
     \bottomrule
   \end{tabular}
-  \fonte{Elaborada pelo autor.}
+  \fonte{Adaptada de \textcite{chuang}.}
 \end{table}
 
-A descrição da Mecânica Quântica é feita sob o espaço vetorial chamado \textit{Espaço de Hilbert} $\mathcal{H}$, sendo este um espaço complexo, vetorial e linear. Um \textit{ket} é um vetor arbitrário de $\mathcal{H}$, sua representação é descrita por:
+A descrição da Mecânica Quântica é feita considerando como base o espaço vetorial chamado \textit{Espaço de Hilbert} $\mathcal{H}$, sendo este um espaço complexo, vetorial e linear. Um \textit{ket} é um vetor arbitrário de $\mathcal{H}$, sua representação é descrita por:
 
 \begin{equation}\label{eq:ketpsi}
 \ket{\psi} = [\psi_1,...,\psi_n]^T
 \end{equation}
 
 Todo \textit{ket} possui um vetor dual, ou conjugado complexo que também pertence à $\mathcal{H}$, chamado de \textit{bra}, de modo que:
+
 \begin{equation}\label{eq:brapsi}
 \bra{\psi} = [\psi_1^*,...,\psi_n^*]
 \end{equation}
@@ -95,7 +96,7 @@ Os números $\alpha$ e $\beta$ são complexos e determinam as amplitudes probabi
 
 Um recurso para visualizar o comportamento de qubits é sua representação geométrica chamada de Esfera de Boch. Como entidades quânticas não são observáveis diretamente e frequentemente são expressas por recursos matemáticos, a visualização da superposição dos estados de um qubit utilizando a Esfera de Boch facilita, ainda que ligeiramente, sua compreensão.
 
-Em primeiro lugar, vale lembrar que o qubit, descrito por $\ket{\psi}$, está parametrizado e podemos reescrever~\eqref{psi} em coordenadas polares
+Em primeiro lugar, vale lembrar que o qubit, descrito por $\ket{\psi}$, está parametrizado e podemos reescrever~\eqref{eq:psi} em coordenadas polares
 \begin{equation}
 \ket{\psi}=e^{i \gamma}\Biggl(\cos \frac{\theta}{2}\ket{0}+e^{i \varphi} \sen \frac{\theta}{2}\ket{1}\Biggr).
 \end{equation}
@@ -144,24 +145,55 @@ Figura~\ref{fig:bloch}.
 
 %EXPLICAR COMO FUNCIONA O ARMAZENAMENTO DE INFORMAÇÃO NO QUBIT E COMO FUNCIONA A MEDIDA DE UM ESTADO
 
-\section{Portas Lógicas Quânticas}
+\section{Operadores Quânticos}
 
-%As portas lógicas quânticas são operadores quânticos usados para construir circuitos quânticos. Elas são usadas para manipular e controlar a informação codificada em qubits. As portas lógicas quânticas são fundamentais para a computação quântica, pois são usadas para realizar operações lógicas e computacionais. Existem diversos tipos de portas lógicas quânticas, incluindo portas NOT, portas XOR, portas AND, portas OR, portas CNOT, portas SWAP e outras. Cada porta quântica tem sua própria função e é usada para realizar operações lógicas e computacionais.
-%
-%Porta Lógica CNOT Quântica
-%
-%A Porta Lógica CNOT Quântica é usada para implementar operações condicionais e permutações entre qubits. Ela é usada para criar circuitos lógicos quânticos mais complexos. Esta porta é uma versão geral da porta CNOT clássica, pois ela pode ser aplicada a todos os qubits, não apenas dois. Na porta CNOT quântica, o qubit de controle é usado para controlar o estado de outro qubit (alvo). Se o qubit de controle estiver em 1, o estado do qubit alvo será invertido, mas se o qubit de controle estiver em 0, o estado do qubit alvo não será alterado. A porta CNOT quântica também pode ser usada para realizar permutações, ou seja, trocar o estado de dois qubits.
-%
-%
-%Porta Lógica Hadamard Quântica
-%
-%
-%A Porta Lógica Hadamard Quântica (HQ) é uma porta lógica quântica que transforma o estado de um qubit (quântico bit) em seu estado oposto com 50\% de probabilidade. Ela pode ser usada para realizar operações de entrelaçamento entre qubits, o que permite a implementação de algoritmos quânticos complexos. A porta HQ foi desenvolvida com o objetivo de permitir o controle preciso de qubits em circuitos quânticos. Ela é representada por um matrix unitário de 2x2, que é definido como:
-%
-%[1/√2, 1/√2]
-%[1/√2, -1/√2]
-%
-%Onde √2 é a raiz quadrada de dois. A funcionalidade da porta HQ é a de transformar o estado de um qubit de 0 para 1 ou de 1 para 0. A porta HQ pode ser usada para criar entrelaçamentos entre qubits, o que permite a implementação de algoritmos quânticos complexos. A porta HQ pode ser usada para implementar muitos algoritmos quânticos, como o algoritmo de Grover, o algoritmo de Shor e o algoritmo de Adiabat. Além disso, a porta HQ pode ser usada para implementar circuitos quânticos, como o circuito de computação quântica.
+Na Mecânica Quântica, um Operador Quântico é um objeto matemático que representa uma propriedade física observável de um sistema quântico sendo fundamentais para a teoria quântica porque fornecem uma maneira de descrever e prever os resultados de medidas em sistemas quânticos. Eles são representados por matrizes ou operadores lineares em um espaço de Hilbert, que é o espaço de estados possíveis do sistema sendo utilizados principalmente em operações lógicas realizadas em um sistema de qubits. As portas quânticas, que são equivalentes às portas lógicas na computação clássica, são implementadas como operadores quânticos que atuam em um ou mais qubits. As próximas subseções serão utilizadas para explicar os principais operadores/portas lógicas quânticas e como eles atuam em um qubit \cite{jorcuvich}.
+
+\subsection{Matrizes de Pauli}\label{sec:pauli}
+
+Segundo \textcite{chuang}, matrizes de Pauli são um conjunto de três matrizes hermitianas e unitárias amplamente utilizadas na computação quântica. As matrizes são denotadas por $\sigma_x$, $\sigma_y$ e $\sigma_z$, e são definidas por:
+
+\begin{equation}
+\sigma_x=\left(\begin{array}{cc}
+0 & 1 \\
+1 & 0
+\end{array}\right), \quad \sigma_y=\left(\begin{array}{cc}
+0 & -i \\
+i & 0
+\end{array}\right), \quad \sigma_z=\left(\begin{array}{cc}
+1 & 0 \\
+0 & -1
+\end{array}\right)
+\end{equation}
+
+A matriz $\sigma_x$ é também conhecida como a matriz de Pauli X, enquanto $\sigma_y$ é a matriz de Pauli Y, e $\sigma_z$ é a matriz de Pauli Z. As matrizes de Pauli são importantes porque elas formam a base do espaço de Hilbert de um único qubit, e podem ser usadas para construir operadores mais complexos que atuam em vários qubits.
+
+\subsection{Porta Lógica Controlled-NOT Quântica}\label{sec:cnot}
+As matrizes de Pauli são frequentemente usadas na construção de portas lógicas quânticas. Por exemplo, a porta NOT quântica, que é usada para inverter o estado de um qubit, é construída a partir da matriz de Pauli X. A porta Controlled-NOT Quântica, ou \(\CNOT\), que é usada para realizar operações lógicas em dois qubits, também é construída a partir de matrizes de Pauli \cite{CompInfoQuantica}. 
+A porta \(\CNOT\) opera de tal forma que o estado de um qubit de controle determina a operação realizada em outro qubit alvo. A matriz que representa a porta \(\CNOT\) é dada por:
+
+\begin{equation}
+\CNOT = \begin{pmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 1 \\
+0 & 1 & 1 & 0
+\end{pmatrix} 
+\end{equation}
+
+A Porta Lógica \(\CNOT\) é usada para implementar operações condicionais e permutações entre qubits. Ela é usada para criar circuitos lógicos quânticos mais complexos sendo é uma versão geral da porta CNOT clássica, pois ela pode ser aplicada a todos os qubits, não apenas dois. Na porta \(\CNOT\), o qubit de controle é usado para controlar o estado de outro qubit (alvo). Se o qubit de controle estiver em 1, o estado do qubit alvo será invertido, mas se o qubit de controle estiver em 0, o estado do qubit alvo não será alterado. A porta \(\CNOT\) também pode ser usada para realizar permutações, ou seja, trocar o estado de dois qubits.
+Note que a matriz da porta \(\CNOT\) é uma matriz $4 \times 4$ que pode ser escrita como uma combinação linear das matrizes de Pauli X, Y e Z, bem como da matriz de identidade. Esta é uma propriedade geral das portas lógicas quânticas: elas podem ser construídas a partir de matrizes que são combinações lineares das matrizes de Pauli e da matriz de identidade \cite{chuang}.
+
+\subsection{Porta Lógica Hadamard Quântica}\label{sec:had}
+
+A Porta Lógica Hadamard Quântica \(\HAD\) é uma porta lógica quântica que transforma o estado de um qubit em seu estado oposto com 50\% de probabilidade. Ela pode ser usada para realizar operações de entrelaçamento entre qubits, o que permite a implementação de algoritmos quânticos complexos. A porta \(\HAD\) foi desenvolvida com o objetivo de permitir o controle preciso de qubits em circuitos quânticos \cite{jorcuvich}. Ela é representada por um matrix unitário de 2x2, que é definido como:
+
+\begin{equation}
+\HAD= \frac{1}{\sqrt{2}} \begin{pmatrix*}[r]
+1 & 1 \\
+1 & -1
+\end{pmatrix*}
+\end{equation}
 
 
 \section{Emaranhamento Quântico}
@@ -197,8 +229,8 @@ Figura~\ref{fig:bloch}.
 
 \section{Protocolo de Teletransporte Quântico}
 
-A realização de um protocolo de Teletransporte Quântico consiste, essencialmente, em uma série de operações que possuem por objetivo principal fazer com que uma mensagem, ou na linguagem quântica, um estado quântico, se teletransporte entre dois pontos distintos fisicamente.
-Como em qualquer outra operação computacional é necessária a existencia de um circuito lógico, nesse caso, quântico que media as operações. Esse circuito consistirá nas combinações das portas lógicas \(\CNOT\), Haddamard, portas de medição e as portas \(\XXX\) e \(\ZZZ\) conforme a Figura~\ref{protocoloteletransporte}
+A descrição deste protocolo foi baseada em \textcite{chuang, jorcuvich, CompInfoQuantica, benschu}. A realização de um protocolo de Teletransporte Quântico consiste, essencialmente, em uma série de operações que possuem por objetivo principal fazer com que uma mensagem, ou na linguagem quântica, um estado quântico, se teletransporte entre dois pontos distintos fisicamente.
+Como em qualquer outra operação computacional é necessária a existencia de um circuito lógico, nesse caso, quântico que media as operações. Esse circuito consistirá nas combinações das portas lógicas \(\CNOT\), Haddamard, portas de medição e as portas \(\XXX\) e \(\ZZZ\) conforme a Figura~\ref{fig:protocoloteletransporte}
 
 \begin{figure}[ht!]
 \centering
@@ -231,7 +263,7 @@ De posse do par emaranhado e da mensagem, o protocolo é iniciado com a aplicaç
   \end{enumerate}
 \end{theo}
 
-Dessa maneira, aplicando a definição~\ref{cnot} no estado dado por $\ket{\psi_0}$
+Dessa maneira, aplicando a definição~\ref{def:cnot} no estado dado por $\ket{\psi_0}$
 \begin{align}\label{eq:cnotpsi0}
   \CNOT \ket{\psi_0} &= \CNOT \ket{\psi} \ket{\beta_{00}} \nonumber \\
                      &= \CNOT \frac{1}{\sqrt{2}} \Bigl[ \alpha \ket{0} \bigl( \ket{00} + \ket{11} \bigr) + \beta \ket{1} \bigl( \ket{00} + \ket{11} \bigr)\Bigr] \nonumber \\
@@ -239,6 +271,7 @@ Dessa maneira, aplicando a definição~\ref{cnot} no estado dado por $\ket{\psi_
 \end{align}
 
 A operação descrita pela Equação~\eqref{eq:cnotpsi0} resulta no estado que chamaremos de $\ket{\psi_1}$ e neste, segundo o circuito da Figura~\ref{fig:protocoloteletransporte}, deve-se aplicar a porta Hadamard:
+
 \begin{theo}{Operação Hadamard}{hadamard}
   A operação Hadamard deve:
   \begin{enumerate}[label=\roman*.]
@@ -247,7 +280,7 @@ A operação descrita pela Equação~\eqref{eq:cnotpsi0} resulta no estado que c
   \end{enumerate}
 \end{theo}
 
-Aplicando portanto a definição~\ref{hadamard} em $\ket{\psi_1}$, teremos:
+Aplicando portanto a definição~\ref{def:hadamard} em $\ket{\psi_1}$, teremos:
 \begin{equation}\label{eq:hadamartpsi2}
  \HAD \ket{\psi_1} = \Biggl( \frac{1}{\sqrt{2}}\Biggr)^{\!\!2} \Bigl[ \alpha \bigl( \ket{0} + \ket{1} \bigr)\bigl( \ket{00} +\ket{11} \bigr)+ \beta \bigl( \ket{0} - \ket{1} \bigr) \bigl( \ket{10} + \ket{01} \bigr) \Bigr].
 \end{equation}
