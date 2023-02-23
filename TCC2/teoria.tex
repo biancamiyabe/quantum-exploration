@@ -147,7 +147,7 @@ Figura~\ref{fig:bloch}.
 
 \section{Operadores Quânticos}
 
-Na Mecânica Quântica, um Operador Quântico é um objeto matemático que representa uma propriedade física observável de um sistema quântico sendo fundamentais para a teoria quântica porque fornecem uma maneira de descrever e prever os resultados de medidas em sistemas quânticos. Eles são representados por matrizes ou operadores lineares em um espaço de Hilbert, que é o espaço de estados possíveis do sistema sendo utilizados principalmente em operações lógicas realizadas em um sistema de qubits. As portas quânticas, que são equivalentes às portas lógicas na computação clássica, são implementadas como operadores quânticos que atuam em um ou mais qubits. As próximas subseções serão utilizadas para explicar os principais operadores/portas lógicas quânticas e como eles atuam em um qubit \cite{jorcuvich}.
+Na Mecânica Quântica, um Operador Quântico é um objeto matemático que representa uma propriedade física observável de um sistema quântico sendo fundamentais para a teoria quântica pois fornecem uma maneira de descrever e prever os resultados de medidas em sistemas quânticos. Eles são representados por matrizes ou operadores lineares que pertencem a um espaço de Hilbert \mathcal{H} e  são equivalentes às portas lógicas na computação clássica, ou seja, são implementadas como operadores quânticos que atuam em um ou mais qubits. As próximas subseções serão utilizadas para explicar os principais operadores/portas lógicas quânticas e como eles atuam em um qubit \cite{jorcuvich}.
 
 \subsection{Matrizes de Pauli}\label{sec:pauli}
 
@@ -166,13 +166,13 @@ i & 0
 \end{array}\right)
 \end{equation}
 
-A matriz $\sigma_x$ é também conhecida como a matriz de Pauli X, enquanto $\sigma_y$ é a matriz de Pauli Y, e $\sigma_z$ é a matriz de Pauli Z. As matrizes de Pauli são importantes porque elas formam a base do espaço de Hilbert de um único qubit, e podem ser usadas para construir operadores mais complexos que atuam em vários qubits.
+A matriz $\sigma_x$ é também conhecida como a matriz de Pauli X, enquanto $\sigma_y$ é a matriz de Pauli Y, e $\sigma_z$ é a matriz de Pauli Z. As matrizes de Pauli formam a base do espaço de Hilbert de um único qubit, e podem ser usadas para construir operadores mais complexos que atuam em multiplos qubits.
 
 \subsection{Porta Lógica Controlled-NOT Quântica}\label{sec:cnot}
-As matrizes de Pauli são frequentemente usadas na construção de portas lógicas quânticas. Por exemplo, a porta NOT quântica, que é usada para inverter o estado de um qubit, é construída a partir da matriz de Pauli X. A porta Controlled-NOT Quântica, ou \(\CNOT\), que é usada para realizar operações lógicas em dois qubits, também é construída a partir de matrizes de Pauli \cite{CompInfoQuantica}. 
+As matrizes de Pauli são frequentemente usadas na construção de portas lógicas quânticas, por exemplo, a porta NOT quântica, que é usada para inverter o estado de um qubit, é construída a partir da matriz de Pauli X. A porta Controlled-NOT Quântica, ou \(\CNOT\), que é usada para realizar operações lógicas em dois qubits, também é construída a partir de matrizes de Pauli \cite{CompInfoQuantica}. Note que a matriz da porta \(\CNOT\) em~\eqref{eq:cnot} é uma matriz $4 \times 4$ que pode ser escrita como uma combinação linear das matrizes de Pauli X, Y e Z, bem como da matriz de identidade. Esta é uma propriedade geral das portas lógicas quânticas: elas podem ser construídas a partir de matrizes que são combinações lineares das matrizes de Pauli e da matriz de identidade.
 A porta \(\CNOT\) opera de tal forma que o estado de um qubit de controle determina a operação realizada em outro qubit alvo. A matriz que representa a porta \(\CNOT\) é dada por:
 
-\begin{equation}
+\begin{equation}\label{eq:cnot}
 \CNOT = \begin{pmatrix}
 1 & 0 & 0 & 0 \\
 0 & 1 & 0 & 0 \\
@@ -181,12 +181,12 @@ A porta \(\CNOT\) opera de tal forma que o estado de um qubit de controle determ
 \end{pmatrix} 
 \end{equation}
 
-A Porta Lógica \(\CNOT\) é usada para implementar operações condicionais e permutações entre qubits. Ela é usada para criar circuitos lógicos quânticos mais complexos sendo é uma versão geral da porta CNOT clássica, pois ela pode ser aplicada a todos os qubits, não apenas dois. Na porta \(\CNOT\), o qubit de controle é usado para controlar o estado de outro qubit (alvo). Se o qubit de controle estiver em 1, o estado do qubit alvo será invertido, mas se o qubit de controle estiver em 0, o estado do qubit alvo não será alterado. A porta \(\CNOT\) também pode ser usada para realizar permutações, ou seja, trocar o estado de dois qubits.
-Note que a matriz da porta \(\CNOT\) é uma matriz $4 \times 4$ que pode ser escrita como uma combinação linear das matrizes de Pauli X, Y e Z, bem como da matriz de identidade. Esta é uma propriedade geral das portas lógicas quânticas: elas podem ser construídas a partir de matrizes que são combinações lineares das matrizes de Pauli e da matriz de identidade \cite{chuang}.
+A Porta Lógica \(\CNOT\) é usada para implementar operações condicionais e permutações entre qubits, sendo usada para criar circuitos lógicos quânticos mais complexos como uma versão geral da porta CNOT clássica, pois ela pode ser aplicada a todos os qubits e não apenas dois. Na porta \(\CNOT\), o qubit de controle é usado para controlar o estado do qubit alvo. Se o qubit de controle estiver em $\ket{1}$, o estado do qubit alvo será invertido, mas se o qubit de controle estiver em $\ket{0}$, o estado do qubit alvo não será alterado\cite{chuang}. 
+
 
 \subsection{Porta Lógica Hadamard Quântica}\label{sec:had}
 
-A Porta Lógica Hadamard Quântica \(\HAD\) é uma porta lógica quântica que transforma o estado de um qubit em seu estado oposto com 50\% de probabilidade. Ela pode ser usada para realizar operações de entrelaçamento entre qubits, o que permite a implementação de algoritmos quânticos complexos. A porta \(\HAD\) foi desenvolvida com o objetivo de permitir o controle preciso de qubits em circuitos quânticos \cite{jorcuvich}. Ela é representada por um matrix unitário de 2x2, que é definido como:
+A Porta Lógica Hadamard Quântica \(\HAD\) é uma porta lógica quântica que transforma o estado de um qubit em seu estado oposto com 50\% de probabilidade associada ao estado. Ela pode ser usada para realizar operações de entrelaçamento entre qubits, o que permite a implementação de algoritmos quânticos como o emaranhamento e o teletransporte quântico. Seu desenvolvimento teve como objetivo permitir o controle preciso de qubits em circuitos quânticos \cite{jorcuvich}. Ela é representada por uma matriz 2x2, definida como:
 
 \begin{equation}
 \HAD= \frac{1}{\sqrt{2}} \begin{pmatrix*}[r]
