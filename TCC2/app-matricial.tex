@@ -59,7 +59,6 @@ Para que o emaranhamento seja possível, ambos os qubits representados por $\ket
 \end{equation}
 
 Seguindo a Figura~\ref{fig:protocoloteletransporte}, aplicamos a porta Hadamard, \(\HAD\), multiplicando-a pela matriz identidade \(I\), obtendo:
-
 \begin{equation}
 \HAD \otimes I = \frac{1}{\sqrt{2}} \begin{pmatrix*}[r]
 1 & 1 \\
@@ -116,8 +115,7 @@ Em seguida, aplicamos a porta \(\CNOT\):
 \end{pmatrix}
 \end{equation}
 
-A equação também é conhecida como uma das Bases de Bell. A comparação da Base de Bell no estado $\ket{00}$ em notação de Dirac e em notação matricial é feita considerando as \eqref{eq:00} e ~\eqref{eq:01} de modo que, seja \(\ket{\beta_{00}}\) a Base de Bell em notação de Dirac dada por \(\frac{1}{\sqrt{2}} \bigl(\ket{00} + \ket{11}\bigr)\), reescrevendo teremos:
-
+A equação também é conhecida como uma das Bases de Bell. A comparação da Base de Bell no estado $\ket{00}$ em notação de Dirac e em notação matricial é feita considerando as Equações~\eqref{eq:00} e~\eqref{eq:01} de modo que, seja \(\ket{\beta_{00}}\) a Base de Bell em notação de Dirac dada por \(\frac{1}{\sqrt{2}} \bigl(\ket{00} + \ket{11}\bigr)\), reescrevendo teremos:
 \begin{equation}\label{eq:comparacaobeta}
 \ket{\beta_{00}} = \frac{1}{\sqrt{2}} \left[ \begin{pmatrix}
 1 \\
@@ -151,7 +149,6 @@ A equação também é conhecida como uma das Bases de Bell. A comparação da B
 
 O resultado obtido em~\eqref{eq:comparacaobeta} é exatamente o mesmo obtido na~\eqref{eq:bell00}.
 A próxima etapa do protocolo de teletransporte, consiste na aplicação da porta lógica quântica \(\CNOT\). Portanto, seja o estado $\ket{\psi_0}$ descrito por:
-
 \begin{equation}\label{eq:psi0}
 \ket{\psi_0}=\ket{\psi}\ket{\beta_{00}}=\left[\alpha \begin{pmatrix}
 1 \\
@@ -168,7 +165,6 @@ A próxima etapa do protocolo de teletransporte, consiste na aplicação da port
 \end{equation}
 
 Conforme Figura~\ref{fig:protocoloteletransporte}, a porta \(\CNOT\) possui como controle o qubit descrito pelo estado $\ket{\psi}$ e como alvo o par emaranhado presente no Local A $\ket{\beta_{00}}$. Sua atuação apenas ocorrerá quando o qubit de controle estiver no estado $\ket{1}$. Desse modo, reescrevendo~\eqref{eq:psi0}
-
 \begin{equation}
 \ket{\psi_0} = \frac{1}{\sqrt{2}}\left\{\left[\alpha \begin{pmatrix}
 1 \\
@@ -193,10 +189,10 @@ A porta \(\CNOT\) será aplicada apenas no qubit alvo que acompanha o qubit de c
 1 \\
 0 
 \end{pmatrix}$:
-\todo[inline]{REVISAR A APRESENTAÇÃO DA APLICAÇÃO DA PORTA CNOT. DESSA MANEIRA NÃO OBTEMOS O RESULTADO ESPERADO}:
+\todo[inline]{REVISAR A APRESENTAÇÃO DA APLICAÇÃO DA PORTA CNOT. DESSA MANEIRA NÃO OBTEMOS O RESULTADO ESPERADO}
 
-
-\begin{align}
+\begin{equation}
+  \begin{split}
 \CNOT \ket{\psi_0} &= \frac{1}{\sqrt{2}}\left\{\left[\alpha \begin{pmatrix}
 1 \\
 0 
@@ -219,7 +215,7 @@ A porta \(\CNOT\) será aplicada apenas no qubit alvo que acompanha o qubit de c
 0 \\
 0 \\
 1
-\end{pmatrix}\right] \right\} \nonumber \\ 
+\end{pmatrix}\right] \right\} \\
 &=\frac{1}{\sqrt{2}}\left\{\left[\alpha \begin{pmatrix}
 1 \\
 0 
@@ -237,64 +233,66 @@ A porta \(\CNOT\) será aplicada apenas no qubit alvo que acompanha o qubit de c
 1 \\
 0
 \end{pmatrix}\right]\right\}
-\end{align}
+  \end{split}
+\end{equation}
 
-Está portanto definido o estado $\ket{\psi_1}$. A próxima etapa, consiste na aplicação da porta \(\HAD\) no qubit $\ket{\psi}$, de modo que:
-
-\begin{align}\label{eq:halfabeta}
-\HAD \ket{\psi_1} &= \frac{1}{\sqrt{2}} \begin{pmatrix}
+Está portanto definido o estado $\ket{\psi_1}$. A próxima etapa, consiste na aplicação da porta \(\HAD\) no qubit $\ket{\psi_{1}}$, de modo que:
+\begin{equation}\label{eq:halfabeta}
+  \begin{split}
+\HAD \ket{\psi_1} &= \frac{1}{\sqrt{2}} \begin{pmatrix*}[r]
 1 & 1 \\
 1 & -1
-\end{pmatrix} \left(\alpha \begin{pmatrix}
+\end{pmatrix*} \left(\alpha \begin{pmatrix}
 1 \\
 0 
 \end{pmatrix} + \beta \begin{pmatrix}
 0 \\
 1
-\end{pmatrix} \right) \nonumber \\
+\end{pmatrix} \right) \\
 &\HAD \alpha \begin{pmatrix}
 1 \\
 0 
 \end{pmatrix} = \frac{1}{2} \alpha \begin{pmatrix}
 1 \\
 1 
-\end{pmatrix} \nonumber \\ 
+\end{pmatrix} \\
 &\HAD \beta \begin{pmatrix}
 0 \\
 1
-\end{pmatrix} =  \frac{1}{2} \beta \begin{pmatrix}
+\end{pmatrix} =  \frac{1}{2} \beta \begin{pmatrix*}[r]
 1 \\
 -1
-\end{pmatrix} 
-\end{align}
+\end{pmatrix*}
+  \end{split}
+\end{equation}
 
 Os resultados de~\eqref{eq:halfabeta} podem ser reescritos como:
-
-\begin{align} \label{eq:alfabetasoma}
-&\frac{1}{2} \alpha \begin{pmatrix}
+\begin{equation} \label{eq:alfabetasoma}
+  \begin{split}
+\frac{1}{2} \alpha \begin{pmatrix}
 1 \\
 1 
-\end{pmatrix} = \frac{1}{2} \alpha \begin{pmatrix}
+\end{pmatrix} &= \frac{1}{2} \alpha \begin{pmatrix}
 1 \\
 0 
 \end{pmatrix} + \begin{pmatrix}
 0 \\
 1 
-\end{pmatrix} \nonumber \\
-&\frac{1}{2} \beta \begin{pmatrix}
+\end{pmatrix} \\
+\frac{1}{2} \beta \begin{pmatrix*}[r]
 1 \\
 -1
-\end{pmatrix} = \frac{1}{2} \beta \begin{pmatrix}
+\end{pmatrix*} &= \frac{1}{2} \beta \begin{pmatrix}
 1 \\
 0
 \end{pmatrix} - \begin{pmatrix}
 0 \\
 1
 \end{pmatrix} 
-\end{align}
+  \end{split}
+\end{equation}
 
 Portanto, o estado $\ket{\psi_2}$ é descrito por:
-
 \begin{align}\label{eq:psi2matrix}
 \ket{\psi_2} = \frac{1}{2} \left\{\left[ \alpha \begin{pmatrix}
 1 \\
@@ -304,10 +302,10 @@ Portanto, o estado $\ket{\psi_2}$ é descrito por:
 0 \\
 0 \\
 1
-\end{pmatrix}\right] + \left[\beta \begin{pmatrix}
+\end{pmatrix}\right] + \left[\beta \begin{pmatrix*}[r]
 1 \\
 -1
-\end{pmatrix} \begin{pmatrix}
+\end{pmatrix*} \begin{pmatrix}
 0 \\
 1 \\
 1 \\
@@ -316,7 +314,6 @@ Portanto, o estado $\ket{\psi_2}$ é descrito por:
 \end{align}
 
 Reescrevendo~\eqref{eq:psi2matrix}
-
 \begin{equation}\label{eq:psi2aberto}
 \ket{\psi_2} = \frac{1}{2} \left\{\left[ \alpha \begin{pmatrix}
 1 \\
@@ -331,10 +328,10 @@ Reescrevendo~\eqref{eq:psi2matrix}
 0 \\
 0 \\
 1
-\end{pmatrix} \right] + \left[\beta \begin{pmatrix}
+\end{pmatrix} \right] + \left[\beta \begin{pmatrix*}[r]
 1 \\
 -1
-\end{pmatrix} \begin{pmatrix}
+\end{pmatrix*} \begin{pmatrix}
 0 \\
 1 \\
 0 \\
@@ -347,63 +344,63 @@ Reescrevendo~\eqref{eq:psi2matrix}
 \end{pmatrix}\right]\right\}
 \end{equation}
 
-No resultado~\eqref{eq:psi2aberto}, podemos evidenciar as seguintes relações:
+\todo[inline]{Talvez duas a duas\ldots}
 
-\begin{align}\label{eq:prodtens1}
+No resultado~\eqref{eq:psi2aberto}, podemos evidenciar as seguintes relações:
+\begin{equation}\label{eq:prodtens1}
 \begin{pmatrix}
 1 \\
 0 \\
 0 \\
 0
-\end{pmatrix} &= \begin{pmatrix}
+\end{pmatrix} = \begin{pmatrix}
 1 \\
 0
 \end{pmatrix} \otimes \begin{pmatrix}
 1 \\
 0
-\end{pmatrix} \nonumber \\ 
+\end{pmatrix},
 \begin{pmatrix}
 0 \\
 0 \\
 0 \\
 1
-\end{pmatrix} &= \begin{pmatrix}
+\end{pmatrix} = \begin{pmatrix}
 0 \\
 1
 \end{pmatrix} \otimes \begin{pmatrix}
 0 \\
 1
-\end{pmatrix} \nonumber \\ 
+\end{pmatrix},
 \begin{pmatrix}
 0 \\
 1 \\
 0 \\
 0
-\end{pmatrix} &= \begin{pmatrix}
+\end{pmatrix} = \begin{pmatrix}
 1 \\
 0
 \end{pmatrix} \otimes \begin{pmatrix}
 0 \\
 1
-\end{pmatrix} \nonumber \\ 
+\end{pmatrix},
 \begin{pmatrix}
 0 \\
 0 \\
 1 \\
 0
-\end{pmatrix} &= \begin{pmatrix}
+\end{pmatrix} = \begin{pmatrix}
 0 \\
 1
 \end{pmatrix} \otimes \begin{pmatrix}
 1 \\
 0
 \end{pmatrix} 
-\end{align}
+\end{equation}
 
 Substituindo as relações de~\eqref{eq:prodtens1} e~\eqref{eq:alfabetasoma} em~\eqref{eq:psi2aberto}
-
-
-\begin{align}\label{eq:help}
+\begin{equation}\label{eq:help}
+  \begin{split}
 \ket{\psi_2} &= \frac{1}{2}\left\{\left[\alpha\begin{pmatrix}
 1 \\
 0
@@ -423,7 +420,7 @@ Substituindo as relações de~\eqref{eq:prodtens1} e~\eqref{eq:alfabetasoma} em~
 0 \\
 1
 \end{pmatrix}\right)\right]\right\} \nonumber \\
-&\frac{1}{2}\left\{\left[\beta\begin{pmatrix}
+&= \frac{1}{2}\left\{\left[\beta\begin{pmatrix}
 1 \\
 0
 \end{pmatrix}-\beta\begin{pmatrix}
@@ -442,11 +439,11 @@ Substituindo as relações de~\eqref{eq:prodtens1} e~\eqref{eq:alfabetasoma} em~
 1 \\
 0
 \end{pmatrix}\right)\right]\right\}
-\end{align}
-
+  \end{split}
+\end{equation}
 Podemos reorganizar~\eqref{eq:help} evidenciando os termos correspondentes às possíveis medidas realizadas no Local A e no resultado correspondente do par emaranhado no Local B:
-
-\begin{align}
+\begin{equation}
+  \begin{split}
 \ket{\psi_2} &=\frac{1}{2} \left\{ \left[\begin{pmatrix}
 1 \\
 0
@@ -499,7 +496,8 @@ Podemos reorganizar~\eqref{eq:help} evidenciando os termos correspondentes às p
 0 \\
 1
 \end{pmatrix}\right] \right\}
-\end{align}
+  \end{split}
+\end{equation}
 
 O resultado acima é exatamente mesmo obtido na Tabela~\ref{tab:medidas}.
 

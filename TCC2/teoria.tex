@@ -10,81 +10,84 @@
 
 \chapter{Fundamentação Teórica}
 
-Conforme descrito no Capítulo de Introdução, para o estudo da Computação Quântica e da Informação Quântica, são necessários alguns recursos provenientes da Mecânica Quântica bem como a construção de análogos quânticos para o processamento dessa informação. As seções a seguir apresentarão a fundamentação teórica e os recursos matemáticos necessários para o desenvolvimento da simulação proposta na Metodologia.
+Conforme descrito no Capítulo de Introdução, para o estudo da Computação Quântica e da Informação Quântica são necessários alguns recursos provenientes da Mecânica Quântica, bem como a construção de análogos quânticos para o processamento dessa informação. As seções a seguir apresentarão a fundamentação teórica e os recursos matemáticos necessários para o desenvolvimento da simulação proposta na Metodologia.
 
 \section{Conceitos básicos de Álgebra Linear}
-A Álgebra Linear é o estudo dos vetores que descrevem o espaço e consequentemente das operações nesses espaços vetoriais. Para o desenvolvimento desse trabalho, serão necessários reconhecer as notações descritas na Tabela~\ref{tab:notação}.
+A Álgebra Linear é o estudo dos vetores que descrevem um espaço e consequentemente das operações nesses espaços vetoriais. Para o desenvolvimento desse trabalho, serão necessários reconhecer as notações descritas na Tabela~\ref{tab:notação}.
 
 \begin{table}[ht!]
   \centering
   \caption{Notações utilizadas nas operações de Mecânica Quântica e sua respectiva descrição. O estilo das notações é conhecido como Notação de Dirac para Álgebra Linear.}\label{tab:notação}
-  \begin{tabular}{cc}
+  \begin{tabular}{cl}
     \toprule
-    {\textbf{Notação}} & {\textbf{Descrição}}\\
+    {\textbf{Notação}}                 & {\textbf{Descrição}}                                                 \\
     \midrule
-    $\ket{\psi}$   & Vetor conhecido como \textit{ket} \\
-    $\bra{\psi}$   & Vetor dual de um \textit{ket} conhecido como \textit{bra} \\
-    $\braket{\psi|\varphi}$   & Produto interno entre os vetores $\ket{\psi}$ e $\ket{\varphi}$ \\
-    $\ket{\psi} \otimes \ket{\varphi}$   & Produto tensorial entre os vetores $\ket{\psi}$ e $\ket{\varphi}$ \\
-    $\ket{\psi}\ket{\varphi}$     & Abreviação do produto tensorial entre $\ket{\psi}$ e $\ket{\varphi}$ \\
-    $A^*$     &  Conjugado complexo da Matriz A \\
+    $\ket{\psi}$                       & Vetor conhecido como \textit{ket}                                    \\
+    $\bra{\psi}$                       & Vetor dual de um \textit{ket} conhecido como \textit{bra}            \\
+    $\braket{\psi\vert\varphi}$        & Produto interno entre os vetores $\ket{\psi}$ e $\ket{\varphi}$      \\
+    $\ket{\psi} \otimes \ket{\varphi}$ & Produto tensorial entre os vetores $\ket{\psi}$ e $\ket{\varphi}$    \\
+    $\ket{\psi}\ket{\varphi}$          & Abreviação do produto tensorial entre $\ket{\psi}$ e $\ket{\varphi}$ \\
+    $A^*$                              & Conjugado complexo da matriz \(A\)                                   \\
     \bottomrule
   \end{tabular}
   \fonte{Adaptada de \textcite{chuang}.}
 \end{table}
 
-A descrição da Mecânica Quântica é feita considerando como base o espaço vetorial chamado \textit{Espaço de Hilbert} $\mathcal{H}$, sendo este um espaço complexo, vetorial e linear. Um \textit{ket} é um vetor arbitrário de $\mathcal{H}$, sua representação é descrita por:
-
+A descrição da Mecânica Quântica é feita tomando como base um espaço vetorial chamado \textit{Espaço de Hilbert} $\mathcal{H}$, sendo este um espaço complexo, vetorial e linear. Um \textit{ket} é um vetor arbitrário de $\mathcal{H}$, com representação descrita por:
 \begin{equation}\label{eq:ketpsi}
-\ket{\psi} = [\psi_1,...,\psi_n]^T
+  \ket{\psi} = [\psi_1,...,\psi_n]^T \in \mathcal{H}.
 \end{equation}
 
 Todo \textit{ket} possui um vetor dual, ou conjugado complexo que também pertence à $\mathcal{H}$, chamado de \textit{bra}, de modo que:
-
 \begin{equation}\label{eq:brapsi}
-\bra{\psi} = [\psi_1^*,...,\psi_n^*]
+  \bra{\psi} = [\psi_1^*,...,\psi_n^*] \in \mathcal{H}.
 \end{equation}
 
-O produto tensorial entre dois \textit{kets} é definido por:
+O produto tensorial entre dois \textit{kets} \(\ket{\psi}\) de dimensão \(m\) e \(\ket{\varphi}\) de dimensão \(n\) é definido por:
+\begin{equation}\label{eq:tensorket}
+\ket{\psi} \otimes \ket{\varphi} = \ket{\psi}\ket{\varphi} =\ket{\psi \varphi} =\begin{pmatrix}\psi_1 \varphi_1 \\ \psi_1 \varphi_2 \\ \vdots \\ \psi_1 \varphi_n \\ \psi_2 \varphi_1 \\ \psi_2 \varphi_2 \\ \vdots \\ \psi_2 \varphi_n \\ \vdots \\ \psi_m \varphi_2 \\ \psi_m \varphi_2 \\ \vdots \\ \psi_m \varphi_n\end{pmatrix}.
+\end{equation}
+
+\todo[inline]{Que tal assim?}
 
 \begin{equation}\label{eq:tensorket}
-\ket{\psi} \otimes \ket{\varphi} = \ket{\psi}\ket{\varphi} =\ket{\psi \varphi} =\left[\begin{array}{c}\psi_1 \varphi_1 \\ \psi_1 \varphi_2 \\ \vdots \\ \psi_1 \varphi_n \\ \psi_2 \varphi_1 \\ \psi_2 \varphi_2 \\ \vdots \\ \psi_2 \varphi_n \\ \vdots \\ \psi_m \varphi_2 \\ \psi_m \varphi_2 \\ \vdots \\ \psi_m \varphi_n\end{array}\right]
+  \begin{split}
+    \ket{\psi} \otimes \ket{\varphi} &= \ket{\psi}\ket{\varphi} =\ket{\psi \varphi} = \\
+    &=\scalebox{0.9}{\(\begin{pmatrix}\psi_1 \varphi_1 & \psi_1 \varphi_2 & \cdots & \psi_1 \varphi_n & \psi_2 \varphi_1 & \psi_2 \varphi_2 & \cdots & \psi_2 \varphi_n & \cdots & \psi_m \varphi_2 & \psi_m \varphi_2 & \cdots & \psi_m \varphi_n\end{pmatrix}^{T}\)}.
+  \end{split}
 \end{equation}
-
-Podemos também realizar o produto tensorial de duas matrizes, de modo que:
-
+Podemos também realizar o produto tensorial de duas matrizes \(A\in\mathbb{C}^{m{\times}n}\) e \(B\in\mathbb{C}^{p{\times}q}\), de modo que:
 \begin{equation}\label{eq:tensormatrix}
-A \otimes B=\left[\begin{array}{cccc}
-A_{11} B & A_{12} B & \cdots & A_{1 n} B \\
-A_{21} B & A_{22} B & \cdots & A_{2 n} B \\
-\vdots & \vdots & \ddots & \vdots \\
-A_{m 1} B & A_{m 2} B & \cdots & A_{m n} B
-\end{array}\right]_{m p \times n q}
-\end{equation}
+  A \otimes B = \begin{pmatrix}
+                  A_{11} B  & A_{12} B  & \cdots & A_{1 n} B \\
+                  A_{21} B  & A_{22} B  & \cdots & A_{2 n} B \\
+                  \vdots    & \vdots    & \ddots & \vdots    \\
+                  A_{m 1} B & A_{m 2} B & \cdots & A_{m n} B
+                \end{pmatrix}_{m p \times n q}.
+              \end{equation}
 
-O conjugado complexo de uma Matrix é definido pela Matriz transposta dos seus elementos, de modo que:
-
+O conjugado complexo de uma matriz é definido como a matriz transposta dos seus elementos conjugados, de modo que:
 \begin{equation}\label{eq:conjugadomatrix}
-A^T = \left[\begin{matrix}
-a & b \\
-c & d
-\end{matrix}\right]^T = \left[\begin{matrix}
-a & c \\
-b & d
-\end{matrix}\right]
-\end{equation}
+  A^{\!*} = \begin{pmatrix}
+                a & b \\
+                c & d
+          \end{pmatrix}^{\!\!\!*} =
+          \begin{pmatrix}
+            a^{*} & c^{*} \\
+            b^{*} & d^{*}
+          \end{pmatrix}.
+      \end{equation}
 
-Os recursos apresentados acima, serão utilizados durante o trabalho e principalmente na descrição da seção~\ref{Mecanicaquantica}.
+Os recursos apresentados acima, serão utilizados ao longo do trabalho e principalmente na descrição da Seção~\ref{Mecanicaquantica}.
+
 
 \section{Mecânica Quântica}\label{Mecanicaquantica}
-
-
 
 \section{Qubits}
 
 As definições de qubits descritas nesse tópico baseiam-se principalmente nas ideias apresentadas por \textcite{chuang} e \textcite{CompInfoQuantica}.
 
-Qubits são elementos fundamentais da computação quântica. Eles são usados para representar informações binárias (zeros e uns) e são capazes de armazenar e processar muito mais informações que os bits convencionais usados na computação clássica. Isso é possível graças ao fato de que, enquanto os bits tradicionais podem estar em dois estados (ligado ou desligado), os qubits podem estar em um estado de superposição, o que permite que eles representem simultaneamente vários estados ou informações diferentes. Isso significa que os qubits podem armazenar muito mais informação em um espaço muito menor conforme salientado na~\ref{tabelabit}.
+Qubits são elementos fundamentais da computação quântica. Eles são usados para representar informações binárias (zeros e uns) e são capazes de armazenar e processar muito mais informações que os bits convencionais usados na computação clássica. Isso é possível graças ao fato de que, enquanto os bits tradicionais podem estar em dois estados (ligado ou desligado), os qubits podem estar em um estado de superposição, o que permite que eles representem simultaneamente vários estados ou informações diferentes. Isso significa que os qubits podem armazenar muito mais informação em um espaço muito menor conforme salientado na Tabela~\ref{tabelabit}.
 
 Podemos começar a descrição de um qubit como uma superposição dos estados quânticos $\ket{0}$ e $\ket{1}$, de modo a representá-los pela combinação linear dada por
 \begin{equation}\label{eq:psi}
@@ -109,7 +112,7 @@ Figura~\ref{fig:bloch}.
 
 \begin{figure}[ht!]
 \centering
-\caption{Representação gráfica de um qubit como um ponto sob a superfície da Esfera de Bloch.}\label{fig:bloch}
+\caption{Representação gráfica de um qubit como um ponto sob a superfície da Esfera de Boch.}\label{fig:bloch}
 % Adaptado de https://tex.stackexchange.com/questions/345420/how-to-draw-a-bloch-sphere
 \begin{blochsphere}[radius=3cm,rotation=-110,opacity=0]
   \drawLongitudeCircle[]{-110};
@@ -147,31 +150,30 @@ Figura~\ref{fig:bloch}.
 
 \section{Operadores Quânticos}
 
-Na Mecânica Quântica, um Operador Quântico é um objeto matemático que representa uma propriedade física observável de um sistema quântico sendo fundamentais para a teoria quântica pois fornecem uma maneira de descrever e prever os resultados de medidas em sistemas quânticos. Eles são representados por matrizes ou operadores lineares que pertencem a um espaço de Hilbert \mathcal{H} e  são equivalentes às portas lógicas na computação clássica, ou seja, são implementadas como operadores quânticos que atuam em um ou mais qubits. As próximas subseções serão utilizadas para explicar os principais operadores/portas lógicas quânticas e como eles atuam em um qubit \cite{jorcuvich}.
+Na Mecânica Quântica, um \textit{Operador Quântico} é um objeto matemático que representa uma propriedade física observável de um sistema quântico. Eles são fundamentais para a teoria quântica pois fornecem uma maneira de descrever e prever os resultados de medidas em sistemas quânticos. Eles são representados por matrizes ou operadores lineares que pertencem a um espaço de Hilbert \(\mathcal{H}\) e são equivalentes às portas lógicas na computação clássica, ou seja, são implementadas como operadores quânticos que atuam em um ou mais qubits. As próximas seções serão utilizadas para explicar os principais operadores/portas lógicas quânticas e como eles atuam em um qubit \cite{jorcuvich}.
 
 \subsection{Matrizes de Pauli}\label{sec:pauli}
 
-Segundo \textcite{chuang}, matrizes de Pauli são um conjunto de três matrizes hermitianas e unitárias amplamente utilizadas na computação quântica. As matrizes são denotadas por $\sigma_x$, $\sigma_y$ e $\sigma_z$, e são definidas por:
-
+Segundo \textcite{chuang}, matrizes de Pauli são um conjunto de três matrizes hermitianas e unitárias, amplamente utilizadas na computação quântica. As matrizes são denotadas por $\sigma_x$, $\sigma_y$ e $\sigma_z$, e são definidas por:
 \begin{equation}
-\sigma_x=\left(\begin{array}{cc}
+\sigma_x=\begin{pmatrix}
 0 & 1 \\
 1 & 0
-\end{array}\right), \quad \sigma_y=\left(\begin{array}{cc}
+\end{pmatrix}, \quad \sigma_y=\begin{pmatrix*}[r]
 0 & -i \\
 i & 0
-\end{array}\right), \quad \sigma_z=\left(\begin{array}{cc}
+\end{pmatrix*}, \quad \sigma_z=\begin{pmatrix*}[r]
 1 & 0 \\
 0 & -1
-\end{array}\right)
+\end{pmatrix*}.
 \end{equation}
-
-A matriz $\sigma_x$ é também conhecida como a matriz de Pauli X, enquanto $\sigma_y$ é a matriz de Pauli Y, e $\sigma_z$ é a matriz de Pauli Z. As matrizes de Pauli formam a base do espaço de Hilbert de um único qubit, e podem ser usadas para construir operadores mais complexos que atuam em multiplos qubits.
+As matrizes $\sigma_x$, \(\sigma_{y}\) e \(\sigma_{z}\) são também conhecidas como a matrizes de Pauli X, Pauli Y e Pauli Z, respectivamente. As matrizes de Pauli formam a base do espaço de Hilbert de um único qubit, e podem ser usadas para construir operadores mais complexos que atuam em múltiplos qubits.
 
 \subsection{Porta Lógica Controlled-NOT Quântica}\label{sec:cnot}
-As matrizes de Pauli são frequentemente usadas na construção de portas lógicas quânticas, por exemplo, a porta NOT quântica, que é usada para inverter o estado de um qubit, é construída a partir da matriz de Pauli X. A porta Controlled-NOT Quântica, ou \(\CNOT\), que é usada para realizar operações lógicas em dois qubits, também é construída a partir de matrizes de Pauli \cite{CompInfoQuantica}. Note que a matriz da porta \(\CNOT\) em~\eqref{eq:cnot} é uma matriz $4 \times 4$ que pode ser escrita como uma combinação linear das matrizes de Pauli X, Y e Z, bem como da matriz de identidade. Esta é uma propriedade geral das portas lógicas quânticas: elas podem ser construídas a partir de matrizes que são combinações lineares das matrizes de Pauli e da matriz de identidade.
-A porta \(\CNOT\) opera de tal forma que o estado de um qubit de controle determina a operação realizada em outro qubit alvo. A matriz que representa a porta \(\CNOT\) é dada por:
 
+As matrizes de Pauli são frequentemente usadas na construção de portas lógicas quânticas. A porta NOT quântica, por exemplo, é usada para inverter o estado de um qubit e é construída a partir da matriz de Pauli X. A porta Controlled-NOT Quântica, ou \(\CNOT\), que é usada para realizar operações lógicas em dois qubits, também é construída a partir de uma combinação das matrizes de Pauli X, Y e Z, além da identidade \cite{CompInfoQuantica}. Esta é uma propriedade geral das portas lógicas quânticas: elas podem ser construídas a partir de matrizes que são combinações das matrizes de Pauli e da matriz de identidade.
+
+A matriz que representa a porta \(\CNOT\) é dada por:
 \begin{equation}\label{eq:cnot}
 \CNOT = \begin{pmatrix}
 1 & 0 & 0 & 0 \\
@@ -181,7 +183,7 @@ A porta \(\CNOT\) opera de tal forma que o estado de um qubit de controle determ
 \end{pmatrix} 
 \end{equation}
 
-A Porta Lógica \(\CNOT\) é usada para implementar operações condicionais e permutações entre qubits, sendo usada para criar circuitos lógicos quânticos mais complexos como uma versão geral da porta CNOT clássica, pois ela pode ser aplicada a todos os qubits e não apenas dois. Na porta \(\CNOT\), o qubit de controle é usado para controlar o estado do qubit alvo. Se o qubit de controle estiver em $\ket{1}$, o estado do qubit alvo será invertido, mas se o qubit de controle estiver em $\ket{0}$, o estado do qubit alvo não será alterado\cite{chuang}. 
+A porta lógica \(\CNOT\) é usada para implementar operações condicionais e permutações entre qubits, sendo usada para criar circuitos lógicos quânticos mais complexos como uma versão geral da porta NOT clássica, pois ela pode ser aplicada a todos os qubits e não apenas a dois. Na porta \(\CNOT\), o qubit de controle é usado para controlar o estado do qubit alvo. Se o qubit de controle estiver em $\ket{1}$, o estado do qubit alvo será invertido, mas se o qubit de controle estiver em $\ket{0}$, o estado do qubit alvo não será alterado \cite{chuang}.
 
 
 \subsection{Porta Lógica Hadamard Quântica}\label{sec:had}
@@ -230,11 +232,11 @@ A Porta Lógica Hadamard Quântica \(\HAD\) é uma porta lógica quântica que t
 \section{Protocolo de Teletransporte Quântico}
 
 A descrição deste protocolo foi baseada em \textcite{chuang, jorcuvich, CompInfoQuantica, benschu}. A realização de um protocolo de Teletransporte Quântico consiste, essencialmente, em uma série de operações que possuem por objetivo principal fazer com que uma mensagem, ou na linguagem quântica, um estado quântico, se teletransporte entre dois pontos distintos fisicamente.
-Como em qualquer outra operação computacional é necessária a existencia de um circuito lógico, nesse caso, quântico que media as operações. Esse circuito consistirá nas combinações das portas lógicas \(\CNOT\), Haddamard, portas de medição e as portas \(\XXX\) e \(\ZZZ\) conforme a Figura~\ref{fig:protocoloteletransporte}
+Como em qualquer outra operação computacional é necessária a existencia de um circuito lógico, nesse caso quântico, que media as operações. Esse circuito consistirá nas combinações das portas lógicas \(\CNOT\), Haddamard, portas de medição e as portas \(\XXX\) e \(\ZZZ\) conforme a Figura~\ref{fig:protocoloteletransporte}.
 
 \begin{figure}[ht!]
 \centering
-\caption{Protocolo de Teletransporte Quântico mediado pelo circuito com as portas \(\CNOT\), Hadamard, Medição aplicadas no Local \(A\) e as portas \(\XXX\) e \(\ZZZ\) aplicadas no Local \(B\).}\label{fig:protocoloteletransporte}
+\caption{Protocolo de Teletransporte Quântico mediado pelo circuito com as portas \(\CNOT\), Hadamard, bedição aplicadas no Local \(A\) e as portas \(\XXX\) e \(\ZZZ\) aplicadas no Local \(B\).}\label{fig:protocoloteletransporte}
 \begin{quantikz}[slice style=blue]
 \lstick{$\ket{\psi}$} & \qw & \qw & \qw \slice{$\ket{\psi_0}$} & \ctrl{1} \slice{$\ket{\psi_1}$} & \gate{H} \slice{$\ket{\psi_2}$} & \meter{$M_1$} & \cw  & \cw & \cwbend{2}\\
 \lstick{$\ket{q_x}$} & \gate{H}\gategroup[2,steps=2,style={dashed,rounded corners,fill=blue!20, inner xsep=2pt}, background,label style={label position=below,anchor=north,yshift=-0.2cm}]{{Emaranhamento}} & \ctrl{1} & \midstick[2]{$\ket{\beta_{00}}$} \qw & \targ{} & \qw & \meter{$M_2$} & \cwbend{1} \\
@@ -254,23 +256,25 @@ Um dos qubits do par emaranhado em~\eqref{eq:bell00} é mantido em \(A\) e o out
 % \end{equation}
 De posse do par emaranhado e da mensagem, o protocolo é iniciado com a aplicação da porta \(\CNOT\) entre $\ket{\psi}\ket{\beta_{00}}$, que chamaremos de $\ket{\psi_0}$. A porta \(\CNOT\) possui como alvo o qubit $\ket{q_y}$ e como qubit de controle $\ket{q_x}$. Isso indica que a porta \(\CNOT\) irá modificar $\ket{q_y}$ de acordo com o estado de $\ket{q_x}$ de modo que:
 
+\todo[inline]{De modo que\ldots}
+
 
 \begin{theo}{Operação \(\CNOT\)}{cnot}
   A operação \(\CNOT\):
   \begin{enumerate}[label=\roman*.,left=0pt]
     \item Inverte o qubit alvo, caso o qubit de controle esteja no estado $\ket{1}$;
-    \item Não realizar nenhuma operação no qubit alvo, caso o controle esteja no estado $\ket{0}$.
+    \item Não realiza operação alguma no qubit alvo, caso o controle esteja no estado $\ket{0}$.
   \end{enumerate}
 \end{theo}
 
-Dessa maneira, aplicando a definição~\ref{def:cnot} no estado dado por $\ket{\psi_0}$
+Dessa maneira, aplicando a Definição~\ref{def:cnot} no estado dado por $\ket{\psi_0}$
 \begin{align}\label{eq:cnotpsi0}
   \CNOT \ket{\psi_0} &= \CNOT \ket{\psi} \ket{\beta_{00}} \nonumber \\
                      &= \CNOT \frac{1}{\sqrt{2}} \Bigl[ \alpha \ket{0} \bigl( \ket{00} + \ket{11} \bigr) + \beta \ket{1} \bigl( \ket{00} + \ket{11} \bigr)\Bigr] \nonumber \\
                      &= \frac{1}{\sqrt{2}} \Bigl[\alpha \ket{0} \bigl( \ket{00} + \ket{11} \bigr) + \beta \ket{1} \bigl( \ket{10} + \ket{01} \bigr) \Bigr].
 \end{align}
 
-A operação descrita pela Equação~\eqref{eq:cnotpsi0} resulta no estado que chamaremos de $\ket{\psi_1}$ e neste, segundo o circuito da Figura~\ref{fig:protocoloteletransporte}, deve-se aplicar a porta Hadamard:
+A operação descrita pela Equação~\eqref{eq:cnotpsi0} resulta no estado que chamaremos de $\ket{\psi_1}$ e neste, segundo o circuito da Figura~\ref{fig:protocoloteletransporte}, deve-se aplicar a porta Hadamard, descrita na Definição~\ref{def:hadamard}.
 
 \begin{theo}{Operação Hadamard}{hadamard}
   A operação Hadamard deve:
@@ -280,12 +284,12 @@ A operação descrita pela Equação~\eqref{eq:cnotpsi0} resulta no estado que c
   \end{enumerate}
 \end{theo}
 
-Aplicando portanto a definição~\ref{def:hadamard} em $\ket{\psi_1}$, teremos:
+Aplicando portanto a Definição~\ref{def:hadamard} em $\ket{\psi_1}$, teremos:
 \begin{equation}\label{eq:hadamartpsi2}
  \HAD \ket{\psi_1} = \Biggl( \frac{1}{\sqrt{2}}\Biggr)^{\!\!2} \Bigl[ \alpha \bigl( \ket{0} + \ket{1} \bigr)\bigl( \ket{00} +\ket{11} \bigr)+ \beta \bigl( \ket{0} - \ket{1} \bigr) \bigl( \ket{10} + \ket{01} \bigr) \Bigr].
 \end{equation}
 
-O estado obtido em \eqref{eq:hadamartpsi2} pode ser identificado como $\ket{\psi_2}$ e evidenciando os estados emaranhados deste ao organizá-lo da seguinte maneira:
+O estado obtido em \eqref{eq:hadamartpsi2} pode ser identificado como $\ket{\psi_2}$, evidenciando-se os estados emaranhados deste ao organizá-lo da seguinte maneira:
 \begin{equation}\label{eq:psi2}
  \ket{\psi_2} = \frac{1}{2} \Bigl[ \ket{00} \bigl( \alpha \ket{0} + \beta \ket{1} \bigr) + \ket{01} \bigl( \alpha \ket{1} + \beta \ket{0} \bigr) + \ket{10} \bigl( \alpha \ket{0} - \beta \ket{1} \bigr) + \ket{11} \bigl( \alpha \ket{1} - \beta \ket{0} \bigr) \Bigr].
 \end{equation}
@@ -310,13 +314,13 @@ O próximo passo do protocolo consiste em realizar medidas em ambos os qubits pr
 
 Os valores dos estados medidos em \(A\), são enviados via canal clássico até \(B\) que, devido ao emaranhamento com o qubit operado em \(A\), terá seu colapso consequentemente em seu estado quântico associado, segundo a Tabela~\ref{tab:medidas}.
 
-A última etapa do protocolo, ocorre em \(B\), na tentativa de reconstruir a mensagem original, nesse momento já inexistente, que estava em \(A\). Nessa última etapa, serão utilizadas (ou não) as portas lógicas \(\XXX\) e \(\ZZZ\), cujas operações estão definidas a seguir.
+A última etapa do protocolo, ocorre em \(B\), na tentativa de reconstruir a mensagem original, nesse momento já inexistente, que estava em \(A\). Nessa última etapa, serão utilizadas (ou não) as portas lógicas \(\XXX\) e \(\ZZZ\), cujas operações fazem parte das Definições~\ref{def:X} e~\ref{def:Z}
 
-\begin{theo}{Operação \(\XXX\)}{def:X}
+\begin{theo}{Operação \(\XXX\)}{X}
 A porta lógica quântica \(\XXX\) deve trocar os estados quânticos, ou seja, torná-lo 1 quando este for 0 e torná-lo 0, quando este for 1.
 \end{theo}
 
-\begin{theo}{Operação \(\ZZZ\)}{def:Z}
+\begin{theo}{Operação \(\ZZZ\)}{Z}
 A porta lógica quântica \(\ZZZ\) deve inverter a fase do estado quântico, ou seja, torná-la negativa quando esta for positiva e torná-la positiva quando esta for negativa.
 \end{theo}
 
@@ -343,41 +347,41 @@ A aplicação das portas dependerá do resultado da medida enviado por \(A\), se
 Descrição das etapas para o protocolo de teletransporte
 
 \begin{enumerate}
-\item Determinar as funções que descrevem os qbits a serem emaranhados
+\item Determinar as funções que descrevem os qubits a serem emaranhados
 	\begin{itemize}
-	\item qbit x
-	\item qbit y
+	\item qubit \(x\)
+	\item qubit \(y\)
 	\end{itemize}
 \item Determinas as matrizes que descrevem as portas utilizadas no emaranhamento
 	\begin{itemize}
 	\item Porta Hadamard
-	\item Porta CNOT
+	\item Porta \(\CNOT\)
 	\item Matriz Identidade
 	\end{itemize}
-\item Determinar as operações entre os qbits e as portas e a ordem de realização para o emaranhamento
+\item Determinar as operações entre os qubits e as portas e a ordem de realização para o emaranhamento
 	\begin{itemize}
-	\item Produto tensorial entre qbit x e qbit y $\rightarrow$ qbit xy
-	\item Produto tensonial entre Porta Haddamard e Matriz Identidade $\rightarrow$ H $\otimes$ I
-	\item Multiplicação entre qbit xy e H $\otimes$ I $\rightarrow$ Hxy
-	\item Multiplicação entre Hxy e a Porta CNOT $\rightarrow$ $\beta _00$
+	\item Produto tensorial entre qubit \(x\) e qubit \(y\) $\rightarrow$ qubit \(xy\)
+	\item Produto tensonial entre Porta Haddamard e Matriz Identidade $\rightarrow {\HAD} \otimes$ I
+	\item Multiplicação entre qubit \(xy\) e ${\HAD} \otimes I \rightarrow {\HAD} xy$
+	\item Multiplicação entre \({\HAD} xy\) e a Porta \(\CNOT \rightarrow\beta _{00}\)
 	\end{itemize}
-\item Determinar o qbit a ser enviado
+\item Determinar o qubit a ser enviado
 	\begin{itemize}
 	\item Definir a entrada de dados feita pelo usuário
 	\item Verificar a possibilidade de acordo com a normalização $\alpha + \beta =1$
 	\end{itemize}
 \item Aplicar a porta CNOT
 	\begin{itemize}
-	\item Verificar a condição lógica de aplicação da porta CNOT
-	\item Aplicar CNOT em $\beta _00$ $\rightarrow$ $\ket{\psi _1}$
+	\item Verificar a condição lógica de aplicação da porta \(\CNOT\)
+	\item Aplicar \(\CNOT\) em $\beta_{00} \rightarrow \ket{\psi_1}$
 	\end{itemize}
-\item Aplicar a porta Hadamard em $\ket{\psi _1}$ $\rightarrow$ $\ket{\psi _2}$
+\item Aplicar a porta Hadamard em $\ket{\psi _1} \rightarrow \ket{\psi_2}$
 \item Reorganizar e apresentar os estados antes da medição
 \item Realizar a medição
 	\begin{itemize}
 	\item Determinar de modo aleatório qual dos estados serão medidos
 	\end{itemize}
-\item Apresentar a medição - Transmissão clássica da informação
+\item Apresentar a medição -- transmissão clássica da informação
 \item Determinar as operações a serem realizadas de acordo com a medição realizada
 \item Apresentar a mensagem original recuperada
 \end{enumerate}
