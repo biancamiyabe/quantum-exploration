@@ -165,7 +165,8 @@ A próxima etapa do protocolo de teletransporte, consiste na aplicação da port
 \end{equation}
 
 Conforme Figura~\ref{fig:protocoloteletransporte}, a porta \(\CNOT\) possui como controle o qubit descrito pelo estado $\ket{\psi}$ e como alvo o par emaranhado presente no Local A $\ket{\beta_{00}}$. Sua atuação apenas ocorrerá quando o qubit de controle estiver no estado $\ket{1}$. Desse modo, reescrevendo~\eqref{eq:psi0}
-\begin{equation}
+
+\begin{equation}\label{eq:psi0cnot}
 \ket{\psi_0} = \frac{1}{\sqrt{2}}\left\{\left[\alpha \begin{pmatrix}
 1 \\
 0 
@@ -185,37 +186,126 @@ Conforme Figura~\ref{fig:protocoloteletransporte}, a porta \(\CNOT\) possui como
 \end{pmatrix}\right] \right\}
 \end{equation}
 
-A porta \(\CNOT\) será aplicada apenas no qubit alvo que acompanha o qubit de controle $\beta \begin{pmatrix}
+evidenciando os produtos tensoriais de~\eqref{eq:psi0cnot}
+\begin{equation}
+	\begin{split}
+\ket{\psi_0} &= \frac{1}{\sqrt{2}}\left\{\alpha \begin{pmatrix}
 1 \\
 0 
-\end{pmatrix}$:
-\todo[inline]{REVISAR A APRESENTAÇÃO DA APLICAÇÃO DA PORTA CNOT. DESSA MANEIRA NÃO OBTEMOS O RESULTADO ESPERADO}
+\end{pmatrix} \left[ \begin{pmatrix}
+1 \\
+0 
+\end{pmatrix} \otimes \begin{pmatrix}
+1 \\
+0
+\end{pmatrix} + \begin{pmatrix}
+0 \\
+1
+\end{pmatrix} \otimes \begin{pmatrix}
+0 \\
+1
+\end{pmatrix}\right]\right\} \\
+&+ \frac{1}{\sqrt{2}}\left\{\beta \begin{pmatrix}
+0 \\
+1
+\end{pmatrix} \left[ \begin{pmatrix}
+1 \\
+0 
+\end{pmatrix} \otimes \begin{pmatrix}
+1 \\
+0
+\end{pmatrix} + \begin{pmatrix}
+0 \\
+1
+\end{pmatrix} \otimes \begin{pmatrix}
+0 \\
+1
+\end{pmatrix}\right]\right\}
+	\end{split}
+\end{equation}
+
+Reagrupando temos portanto, quatro possíveis estados formados por 3-qubits sendo eles:
+
+\begin{equation}\label{eq:3qubit}
+	\begin{split}
+\ket{000} &= \left[ \begin{pmatrix}
+1 \\
+0
+\end{pmatrix} \otimes \begin{pmatrix}
+1 \\
+0
+\end{pmatrix} \otimes \begin{pmatrix}
+1 \\
+0
+\end{pmatrix}\right] \\
+\ket{011} &= \left[ \begin{pmatrix}
+1 \\
+0
+\end{pmatrix} \otimes \begin{pmatrix}
+0 \\
+1
+\end{pmatrix} \otimes \begin{pmatrix}
+0 \\
+1
+\end{pmatrix}\right] \\
+\ket{100} &= \left[ \begin{pmatrix}
+0 \\
+1
+\end{pmatrix} \otimes \begin{pmatrix}
+1 \\
+0
+\end{pmatrix} \otimes \begin{pmatrix}
+1 \\
+0
+\end{pmatrix}\right] \\
+\ket{111} &=\left[ \begin{pmatrix}
+0 \\
+1
+\end{pmatrix} \otimes \begin{pmatrix}
+0 \\
+1
+\end{pmatrix} \otimes \begin{pmatrix}
+0 \\
+1
+\end{pmatrix}\right]
+	\end{split}
+\end{equation}
+
+Em~\eqref{eq:3qubit}, o primeiro da tríade representa o qubit de controle e os dois demais, os qubits alvos. Seguindo as definições de ~\ref{def:cnot} teremos a inversão do segundo qubit de $\ket{100} \rightarrow \ket{110}$ e de $\ket{111} \rightarrow \ket{101}$. Portanto, teremos o estado $\ket{\psi_1}$ descrito por:
 
 \begin{equation}
-  \begin{split}
-\CNOT \ket{\psi_0} &= \frac{1}{\sqrt{2}}\left\{\left[\alpha \begin{pmatrix}
+	\begin{split}
+\ket{\psi_1} &= \frac{1}{\sqrt{2}}\left\{\left[\alpha \begin{pmatrix}
 1 \\
 0 
-\end{pmatrix}  \begin{pmatrix}
+\end{pmatrix}  \left(\begin{pmatrix}
 1 \\
-0 \\
-0 \\
-1
-\end{pmatrix}\right] + \left[\beta \begin{pmatrix}
-0 \\
-1
-\end{pmatrix} \begin{pmatrix}
-1 & 0 & 0 & 0 \\
-0 & 1 & 0 & 0 \\
-0 & 0 & 0 & 1 \\
-0 & 1 & 1 & 0
-\end{pmatrix} 
-\begin{pmatrix}
+0 
+\end{pmatrix} \otimes \begin{pmatrix}
 1 \\
-0 \\
+0
+\end{pmatrix} + \begin{pmatrix}
 0 \\
 1
-\end{pmatrix}\right] \right\} \\
+\end{pmatrix} \otimes \begin{pmatrix}
+0 \\
+1
+\end{pmatrix}\right)\right] + \left[\beta \begin{pmatrix}
+0 \\
+1
+\end{pmatrix}  \left(\begin{pmatrix}
+0 \\
+1 
+\end{pmatrix} \otimes \begin{pmatrix}
+1 \\
+0
+\end{pmatrix} + \begin{pmatrix}
+1 \\
+0
+\end{pmatrix} \otimes \begin{pmatrix}
+0 \\
+1
+\end{pmatrix}\right)\right] \right\} \\
 &=\frac{1}{\sqrt{2}}\left\{\left[\alpha \begin{pmatrix}
 1 \\
 0 
@@ -235,6 +325,7 @@ A porta \(\CNOT\) será aplicada apenas no qubit alvo que acompanha o qubit de c
 \end{pmatrix}\right]\right\}
   \end{split}
 \end{equation}
+
 
 Está portanto definido o estado $\ket{\psi_1}$. A próxima etapa, consiste na aplicação da porta \(\HAD\) no qubit $\ket{\psi_{1}}$, de modo que:
 \begin{equation}\label{eq:halfabeta}
@@ -344,11 +435,10 @@ Reescrevendo~\eqref{eq:psi2matrix}
 \end{pmatrix}\right]\right\}
 \end{equation}
 
-\todo[inline]{Talvez duas a duas\ldots}
-
 No resultado~\eqref{eq:psi2aberto}, podemos evidenciar as seguintes relações:
 \begin{equation}\label{eq:prodtens1}
-\begin{pmatrix}
+	\begin{split}
+&\begin{pmatrix}
 1 \\
 0 \\
 0 \\
@@ -371,8 +461,8 @@ No resultado~\eqref{eq:psi2aberto}, podemos evidenciar as seguintes relações:
 \end{pmatrix} \otimes \begin{pmatrix}
 0 \\
 1
-\end{pmatrix},
-\begin{pmatrix}
+\end{pmatrix}, \\
+&\begin{pmatrix}
 0 \\
 1 \\
 0 \\
@@ -396,6 +486,7 @@ No resultado~\eqref{eq:psi2aberto}, podemos evidenciar as seguintes relações:
 1 \\
 0
 \end{pmatrix} 
+	\end{split}
 \end{equation}
 
 Substituindo as relações de~\eqref{eq:prodtens1} e~\eqref{eq:alfabetasoma} em~\eqref{eq:psi2aberto}

@@ -44,11 +44,6 @@ Todo \textit{ket} possui um vetor dual, ou conjugado complexo que também perten
 \end{equation}
 
 O produto tensorial entre dois \textit{kets} \(\ket{\psi}\) de dimensão \(m\) e \(\ket{\varphi}\) de dimensão \(n\) é definido por:
-\begin{equation}\label{eq:tensorket}
-\ket{\psi} \otimes \ket{\varphi} = \ket{\psi}\ket{\varphi} =\ket{\psi \varphi} =\begin{pmatrix}\psi_1 \varphi_1 \\ \psi_1 \varphi_2 \\ \vdots \\ \psi_1 \varphi_n \\ \psi_2 \varphi_1 \\ \psi_2 \varphi_2 \\ \vdots \\ \psi_2 \varphi_n \\ \vdots \\ \psi_m \varphi_2 \\ \psi_m \varphi_2 \\ \vdots \\ \psi_m \varphi_n\end{pmatrix}.
-\end{equation}
-
-\todo[inline]{Que tal assim?}
 
 \begin{equation}\label{eq:tensorket}
   \begin{split}
@@ -82,6 +77,67 @@ Os recursos apresentados acima, serão utilizados ao longo do trabalho e princip
 
 
 \section{Mecânica Quântica}\label{Mecanicaquantica}
+
+A teoria da Física intitulada Mecânica Quântica (MQ), surgiu no século XX após uma série de experimentos constatarem que as leis físicas conhecidas até então, não se aplicavam em sistemas da ordem de 1 \AA, ou seja, $10^{-10}m$. Com o avanço dos estudos e experimentos na MQ, foi possível tornar 'visível' uma série de comportamentos da Natureza que antes eram observados apenas em escala macroscópica. Esse aumento na capacidade da descrição da Natureza só foi possível devido a uma série de ferramentas matemáticas e axiomas que constituem a teoria da MQ. 
+
+A compreensão dessa teoria física, não foi aceita pela comunidade científica assim que foi sugerida, por volta de 1925, com os trabalhos de vários cientistas, como Max Planck, Albert Einstein, Niels Bohr, Werner Heisenberg, Erwin Schrödinger, entre outros\footnote{Um descrição detalhada dos experimentos e evoluções conceituais que culminaram na estrutura da MQ que conhecemos na atualidade pode ser encontrada no artigo de \textcite{chibeni}.}, principalmente pelo fato de que, naquela época, os recursos tecnológicos para o desenvolvimento de experimentos que confirmassem a teoria proposta era ainda escassa.\cite{chibeni}. Até mesmo Albert Einstein duvidava de alguns aspectos da teoria, como exemplo, conforme veremos nos próximos capítulos, o fenômeno de Emaranhamento Quântico causava em Einstein certa estranheza, em suas próprias palavras "Uma ação fantasmagórica à distância", era a melhor descrição para o fenômeno. O fato da MQ não ser observada diretamente ainda causa estranheza, porém, isso não a torna menos correta que qualquer outra teoria, pelo contrário, atualmente a MQ é considerada uma das teorias mais completas utilizadas para a descrição da Natureza \cite{chuang}. Nas próximas seções, alguns conceitos da MQ serão apresentados para a compreensão do desenvolvimento do trabalho.
+
+\subsection{Postulados da MQ}
+
+Essa seção dedica-se a apresentar os postulados que definem a MQ, foi construída baseada principalmente nas ideias apresentadas por \textcite{chuang,jorcuvich,CompInfoQuantica,grif}.
+
+\begin{post}{Espaço de estados}{p1}
+Considerando todo e qualquer sistema físico que esteja isolado, os estados do sistema estão associados à um espaço de Hilbert $\mathcal{H}$ e podem ser descritos por um vetor de estado unitário $\ket{\psi} \in \mathcal{H}$.
+\end{post}
+
+\begin{post}{Evolução}{p2}
+Ainda considerando um sistema físico isolado, sua evolução, ou seja, sua mudança é descrita por uma transformação unitária, ou seja, para que um sistema mude do estado $\ket{\psi}$ para $\ket{\psi'}$, é necessário que atue sobre ele um operador unitário (que pode ser representado por uma matriz) \textit{U}, de modo que $\ket{\psi'}=\textit{U}\ket{\psi}$. Uma consequência é que a aplicação de um operador unitário, mantém a norma unitária do estado como definido pelo Postulado 1. Outra consequência é que todo operador unitário é inversível, o que implica que as operações quânticas são reversíveis.
+\end{post}
+
+\begin{post}{Medição}{p3}
+Quando um sistema quântico é medido, o resultado da medição é um dos possíveis valores permitidos pelo sistema e a probabilidade de obter cada valor depende do estado do sistema antes da medição. Em outras palavras, quando um sistema quântico é medido, ele colapsa em um dos estados possíveis fazendo com que a medição altere o estado do sistema. 
+\end{post}
+
+\begin{post}{Composição dos estados}{p4}
+Um espaço de estado de um sistema quântico composto é descrito pelo produto tensorial dos dos espaços de estado que o compõem. Por exemplo, seja o estado quântico $\ket{\Psi}$ composto pelos espaços de estado $\ket{\psi_1}, \ket{\psi_2} e \ket{\psi_3}$, podemos descrevê-lo como 
+\begin{equation}
+\ket{\Psi}=\ket{\psi_1} \otimes \ket{\psi_2} \otimes \ket{\psi_3} = \ket{\psi_1}\ket{\psi_2}\ket{\psi_3}
+\end{equation}
+\end{post}
+
+
+\subsection{Superposição de Estados}
+\subsection{Emaranhamento Quântico}
+
+%O emaranhamento quântico é o fenômeno pelo qual partículas elementares, como fótons, elétrons e outras, ligam-se entre si de tal maneira que um objeto passa a ter quase que uma única identidade. Neste estado, um objeto passa a ter propriedades que estão além dos limites da mecânica quântica. Em outras palavras, o emaranhamento quântico é um estado no qual duas partículas interagem de forma tal que elas compartilham o mesmo estado e não podem ser descritas independentemente. Por exemplo, dois fótons entrelaçados podem ser entendidos como uma única partícula, mesmo que eles estejam distantes um do outro. O emaranhamento quântico pode ser usado para criar ligações entre partículas e objetos distantes, o que abre portas para o desenvolvimento de novas tecnologias, como a computação quântica.
+%
+%Etapas do Emaranhamento Quântico de Qubits
+%
+%\begin{itemize}
+%\item 1. Preparação:  O primeiro passo é preparar os qubits individuais. Isso pode ser feito carregando os qubits em computadores quânticos ou usando dispositivos quânticos especializados, como lasers.
+%
+%\item 2. Entrelaçamento: Em seguida, os qubits são entrelaçados, o que significa que eles são interconectados de modo que as informações entre eles sejam compartilhadas. Isso pode ser feito usando técnicas como a interferência quântica.
+%
+%\item 3. Operações: Uma vez que os qubits estão entrelaçados, as operações quânticas podem ser realizadas neles. As operações podem incluir a realização de computações quânticas complexas, o armazenamento de informações quânticas ou o envio de informações entre qubits.
+%
+%\item 4.Saída: Por fim, os qubits podem ser desentrelaçados para obter a saída desejada. Isso pode ser feito usando técnicas como a interferência quântica inversa. A saída pode incluir informações codificadas nos qubits, como um resultado de uma computação quântica.
+%
+%\end{itemize}
+
+\subsection{Teorema da Não Clonagem}
+
+\subsubsection{Paradoxo EPR}
+
+\subsection{Teletransporte Quântico}
+%O  Teletransporte Quântico
+%
+%O Teletransporte Quântico é um processo de transferência de informação quântica entre dois pontos, usando mecanismos quânticos. Essa transferência pode ocorrer quase instantaneamente, independentemente da distância entre os dois pontos.
+%O Teletransporte Quântico é baseado em princípios da mecânica quântica, que descrevem como os estados quânticos podem ser compartilhados entre partículas e aplicados aos sistemas de informação. O Teletransporte Quântico foi descoberto pela primeira vez pela física austríaca Anton Zeilinger, em 1998. Ela escobriu que, usando um fenômeno conhecido como entrelaçamento quântico, é possível transferir informação instantaneamente entre dois pontos. O princípio básico do teletransporte quântico é que dois partículas, como elétrons, átomos ou fótons, podem ser entrelaçados, ou ligados entre si. Quando isso acontece, qualquer mudança na configuração de uma partícula será imediatamente refletida na outra, mesmo que elas estejam separadas por uma distância enorme. Isso significa que informação pode ser enviada instantaneamente entre dois pontos distantes.
+%
+%Embora o teletransporte quântico ainda esteja em fase experimental, já foi usado para transferir informações básicas como posição, polarização e estado de spin entre dois pontos separados. A tecnologia ainda precisa desenvolver muito antes de poder ser usada para transferir informações mais complexas, como imagens ou dados.
+%
+%Na prática, o Teletransporte Quântico permite que um estado quântico seja transferido de um lugar para outro, sem que nenhuma informação seja transferida entre os locais. Isso significa que um estado quântico pode ser transmitido de uma parte do universo para outra sem que nenhuma informação seja trocada entre eles.
+%O Teletransporte Quântico é usado em diversas áreas científicas, como criptografia, computação quântica, comunicação segura e muito mais. Também pode ser usado para transferir informações confidenciais de um lugar para outro, impedindo que terceiros interceptem a informação.
 
 \section{Qubits}
 
@@ -142,11 +198,10 @@ Figura~\ref{fig:bloch}.
     \pic[current plane,draw,fill=orange!20,fill opacity=.5,text opacity=1,pic text=$\theta$,angle eccentricity=1.5]{angle=psi--origin--ket0};
   }
 \end{blochsphere}
-% \includegraphics[width=0.5\linewidth]{boch.png}
 \fonte{Adaptado de \textcite{chuang}.}
 \end{figure}
 
-%EXPLICAR COMO FUNCIONA O ARMAZENAMENTO DE INFORMAÇÃO NO QUBIT E COMO FUNCIONA A MEDIDA DE UM ESTADO
+\todo[inline]{EXPLICAR COMO FUNCIONA O ARMAZENAMENTO DE INFORMAÇÃO NO QUBIT E COMO FUNCIONA A MEDIDA DE UM ESTADO}
 
 \section{Operadores Quânticos}
 
@@ -197,37 +252,7 @@ A Porta Lógica Hadamard Quântica \(\HAD\) é uma porta lógica quântica que t
 \end{pmatrix*}
 \end{equation}
 
-
-\section{Emaranhamento Quântico}
-
-%O emaranhamento quântico é o fenômeno pelo qual partículas elementares, como fótons, elétrons e outras, ligam-se entre si de tal maneira que um objeto passa a ter quase que uma única identidade. Neste estado, um objeto passa a ter propriedades que estão além dos limites da mecânica quântica. Em outras palavras, o emaranhamento quântico é um estado no qual duas partículas interagem de forma tal que elas compartilham o mesmo estado e não podem ser descritas independentemente. Por exemplo, dois fótons entrelaçados podem ser entendidos como uma única partícula, mesmo que eles estejam distantes um do outro. O emaranhamento quântico pode ser usado para criar ligações entre partículas e objetos distantes, o que abre portas para o desenvolvimento de novas tecnologias, como a computação quântica.
-%
-%Etapas do Emaranhamento Quântico de Qubits
-%
-%\begin{itemize}
-%\item 1. Preparação:  O primeiro passo é preparar os qubits individuais. Isso pode ser feito carregando os qubits em computadores quânticos ou usando dispositivos quânticos especializados, como lasers.
-%
-%\item 2. Entrelaçamento: Em seguida, os qubits são entrelaçados, o que significa que eles são interconectados de modo que as informações entre eles sejam compartilhadas. Isso pode ser feito usando técnicas como a interferência quântica.
-%
-%\item 3. Operações: Uma vez que os qubits estão entrelaçados, as operações quânticas podem ser realizadas neles. As operações podem incluir a realização de computações quânticas complexas, o armazenamento de informações quânticas ou o envio de informações entre qubits.
-%
-%\item 4.Saída: Por fim, os qubits podem ser desentrelaçados para obter a saída desejada. Isso pode ser feito usando técnicas como a interferência quântica inversa. A saída pode incluir informações codificadas nos qubits, como um resultado de uma computação quântica.
-%
-%\end{itemize}
-
-
-
-\section{Teletransporte Quântico}
-%O  Teletransporte Quântico
-%
-%O Teletransporte Quântico é um processo de transferência de informação quântica entre dois pontos, usando mecanismos quânticos. Essa transferência pode ocorrer quase instantaneamente, independentemente da distância entre os dois pontos.
-%O Teletransporte Quântico é baseado em princípios da mecânica quântica, que descrevem como os estados quânticos podem ser compartilhados entre partículas e aplicados aos sistemas de informação. O Teletransporte Quântico foi descoberto pela primeira vez pela física austríaca Anton Zeilinger, em 1998. Ela escobriu que, usando um fenômeno conhecido como entrelaçamento quântico, é possível transferir informação instantaneamente entre dois pontos. O princípio básico do teletransporte quântico é que dois partículas, como elétrons, átomos ou fótons, podem ser entrelaçados, ou ligados entre si. Quando isso acontece, qualquer mudança na configuração de uma partícula será imediatamente refletida na outra, mesmo que elas estejam separadas por uma distância enorme. Isso significa que informação pode ser enviada instantaneamente entre dois pontos distantes.
-%
-%Embora o teletransporte quântico ainda esteja em fase experimental, já foi usado para transferir informações básicas como posição, polarização e estado de spin entre dois pontos separados. A tecnologia ainda precisa desenvolver muito antes de poder ser usada para transferir informações mais complexas, como imagens ou dados.
-%
-%Na prática, o Teletransporte Quântico permite que um estado quântico seja transferido de um lugar para outro, sem que nenhuma informação seja transferida entre os locais. Isso significa que um estado quântico pode ser transmitido de uma parte do universo para outra sem que nenhuma informação seja trocada entre eles.
-%O Teletransporte Quântico é usado em diversas áreas científicas, como criptografia, computação quântica, comunicação segura e muito mais. Também pode ser usado para transferir informações confidenciais de um lugar para outro, impedindo que terceiros interceptem a informação.
-
+\subsection{Bases de Bell}\label{sec:bell}
 
 \section{Protocolo de Teletransporte Quântico}
 
@@ -418,3 +443,4 @@ Descrição das etapas para o protocolo de teletransporte
 %Além disso, existem também ruídos de medição, que são aqueles que surgem durante as medições quânticas, e ruídos de decoerência, que são aqueles que se produzem durante a decoerência do estado quântico.
 %
 %Para minimizar os efeitos dos ruídos no teletransporte de informação quântica, é importante realizar a otimização dos protocolos de teletransporte, otimizar o processo de codificação e decodificação e utilizar técnicas de processamento de sinal quântico.
+~

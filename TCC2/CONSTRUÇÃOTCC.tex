@@ -112,6 +112,32 @@
   conecta/.style={draw=black!50,text=black!80,cap=round,arrows=-{Triangle[width=5pt,length=7pt]},thick},
   labelst/.style={label distance=-6pt,font=\scriptsize\scshape,align=center,black!80,inner sep=2pt}
 }
+\newtcbtheorem[number within=chapter]{post}{Postulado}{
+  enhanced,
+  %skin=bicolor,
+  arc=0mm,
+  colback=black!3,
+  colframe=black!50,
+  colbacktitle=white,
+  colbacklower=white,
+  coltitle=black,
+  fonttitle=\small,
+  toptitle=3pt,
+  bottomtitle=3pt,
+  top=5pt,
+  bottom=5pt,
+  left=10pt,
+  right=10pt,
+  boxrule=0pt,
+  titlerule=0pt}{post}
+
+\newtcolorbox{destaque}{
+  breakable,
+  notitle,
+  boxrule=0pt,
+  colback=yellow,
+  colframe=yellow
+}
 
 \newtcbtheorem[number within=chapter]{theo}{Definição}{
   enhanced,
@@ -132,13 +158,7 @@
   boxrule=0pt,
   titlerule=0pt}{def}
 
-\newtcolorbox{destaque}{
-  breakable,
-  notitle,
-  boxrule=0pt,
-  colback=yellow,
-  colframe=yellow
-}
+	
 
 %%%
 %%% Informações do PDF
