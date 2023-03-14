@@ -112,6 +112,15 @@
   conecta/.style={draw=black!50,text=black!80,cap=round,arrows=-{Triangle[width=5pt,length=7pt]},thick},
   labelst/.style={label distance=-6pt,font=\scriptsize\scshape,align=center,black!80,inner sep=2pt}
 }
+
+\newtcolorbox{destaque}{
+  breakable,
+  notitle,
+  boxrule=0pt,
+  colback=yellow,
+  colframe=yellow
+}
+
 \newtcbtheorem[number within=chapter]{post}{Postulado}{
   enhanced,
   %skin=bicolor,
@@ -131,15 +140,7 @@
   boxrule=0pt,
   titlerule=0pt}{post}
 
-\newtcolorbox{destaque}{
-  breakable,
-  notitle,
-  boxrule=0pt,
-  colback=yellow,
-  colframe=yellow
-}
-
-\newtcbtheorem[number within=chapter]{theo}{Definição}{
+\newtcbtheorem[number within=chapter]{definition}{Definição}{
   enhanced,
   %skin=bicolor,
   arc=0mm,
@@ -156,8 +157,26 @@
   left=10pt,
   right=10pt,
   boxrule=0pt,
-  titlerule=0pt}{def}
+  titlerule=0pt}{definition}
 
+\newtcbtheorem[number within=chapter]{theo}{Teorema}{
+  enhanced,
+  %skin=bicolor,
+  arc=0mm,
+  colback=black!3,
+  colframe=black!50,
+  colbacktitle=white,
+  colbacklower=white,
+  coltitle=black,
+  fonttitle=\small,
+  toptitle=3pt,
+  bottomtitle=3pt,
+  top=5pt,
+  bottom=5pt,
+  left=10pt,
+  right=10pt,
+  boxrule=0pt,
+  titlerule=0pt}{theo}
 	
 
 %%%
