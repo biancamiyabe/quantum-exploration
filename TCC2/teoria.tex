@@ -78,13 +78,14 @@ Os recursos apresentados acima, serão utilizados ao longo do trabalho e princip
 
 \section{Mecânica Quântica}\label{sec:Mecanicaquantica}
 
-A teoria da Física intitulada Mecânica Quântica (MQ), surgiu no século XX após uma série de experimentos constatarem que as leis físicas conhecidas até então, não se aplicavam em sistemas da ordem de 1 \AA, ou seja, $10^{-10}m$. Com o avanço dos estudos e experimentos na MQ, foi possível tornar 'visível' uma série de comportamentos da Natureza que antes eram observados apenas em escala macroscópica. Esse aumento na capacidade da descrição da Natureza só foi possível devido a uma série de ferramentas matemáticas e axiomas que constituem a teoria da MQ. 
+A teoria da Física intitulada Mecânica Quântica (MQ), surgiu no século XX após uma série de experimentos constatarem que as leis físicas conhecidas até então, não se aplicavam em sistemas da ordem de 1 \AA, ou seja, $10^{-10}m$. Com o avanço dos estudos e experimentos na MQ, foi possível tornar 'visível' uma série de comportamentos da Natureza que antes eram observados apenas em escala macroscópica. Esse aumento na capacidade da descrição da Natureza só foi possível devido a uma série de ferramentas matemáticas e axiomas que constituem a teoria da MQ \cite{jorcuvich}. 
 
-A compreensão dessa teoria física, não foi aceita pela comunidade científica assim que foi sugerida, por volta de 1925, com os trabalhos de vários cientistas, como Max Planck, Albert Einstein, Niels Bohr, Werner Heisenberg, Erwin Schrödinger, entre outros\footnote{Um descrição detalhada dos experimentos e evoluções conceituais que culminaram na estrutura da MQ que conhecemos na atualidade pode ser encontrada no artigo de \textcite{chibeni}.}, principalmente pelo fato de que, naquela época, os recursos tecnológicos para o desenvolvimento de experimentos que confirmassem a teoria proposta era ainda escassa.\cite{chibeni}. Até mesmo Albert Einstein duvidava de alguns aspectos da teoria, como exemplo, conforme veremos nos próximos capítulos, o fenômeno de Emaranhamento Quântico causava em Einstein certa estranheza, em suas próprias palavras "Uma ação fantasmagórica à distância", era a melhor descrição para o fenômeno. O fato da MQ não ser observada diretamente ainda causa estranheza, porém, isso não a torna menos correta que qualquer outra teoria, pelo contrário, atualmente a MQ é considerada uma das teorias mais completas utilizadas para a descrição da Natureza \cite{chuang}. Nas próximas seções, alguns conceitos da MQ serão apresentados para a compreensão do desenvolvimento do trabalho.
+A compreensão dessa teoria física, não foi aceita pela comunidade científica assim que foi sugerida, por volta de 1925, com os trabalhos de vários cientistas, como Max Planck, Albert Einstein, Niels Bohr, Werner Heisenberg, Erwin Schrödinger, entre outros\footnote{Um descrição detalhada dos experimentos e evoluções conceituais que culminaram na estrutura da MQ que conhecemos na atualidade pode ser encontrada no artigo de \textcite{chibeni}.}, principalmente pelo fato de que, naquela época, os recursos tecnológicos para o desenvolvimento de experimentos que confirmassem a teoria proposta era ainda escassa.\cite{chibeni}. Até mesmo Albert Einstein duvidava de alguns aspectos da teoria, como exemplo, conforme veremos nos próximos capítulos, o fenômeno de Emaranhamento Quântico causava em Einstein certa estranheza, em suas próprias palavras "Uma ação fantasmagórica à distância", era a melhor descrição para o fenômeno. O fato da MQ não ser observada diretamente ainda causa estranheza, porém, isso não a torna menos correta que qualquer outra teoria, pelo contrário, atualmente a MQ é considerada uma das teorias mais completas utilizadas para a descrição da Natureza \cite{chuang}. Nas próximas seções, alguns conceitos da MQ serão apresentados para a compreensão do desenvolvimento do trabalho, baseando-se principalmente nas ideias apresentadas por \textcite{chuang,jorcuvich,CompInfoQuantica,grif}.
+
 
 \subsection{Postulados da MQ}\label{sec:postulados}
 
-Essa seção dedica-se a apresentar os postulados que definem a MQ, foi construída baseada principalmente nas ideias apresentadas por \textcite{chuang,jorcuvich,CompInfoQuantica,grif}.
+Os postulados descritos abaixo norteiam a construção das próximas seções. Cada um deles descreve uma característica fundamental da MQ, que posteriormente será utilizada na construção do trabalho.
 
 \begin{post}{Espaço de estados}{p1}
 Considerando todo e qualquer sistema físico que esteja isolado, os estados do sistema estão associados à um espaço de Hilbert $\mathcal{H}$ e podem ser descritos por um vetor de estado unitário $\ket{\psi} \in \mathcal{H}$.
@@ -107,25 +108,23 @@ Um espaço de estado de um sistema quântico composto é descrito pelo produto t
 
 \subsection{Superposição de Estados}\label{sec:superposição}
 
-A superposição de estados quânticos é uma característica fundamental da mecânica quântica que descreve o comportamento de sistemas quânticos em termos de estados que são combinados linearmente. Em outras palavras, quando um sistema quântico está em um estado de superposição, ele está simultaneamente em vários estados possíveis, cada um com uma probabilidade associada.
+A superposição de estados quânticos é uma característica fundamental da MQ que descreve o comportamento de sistemas quânticos em termos de estados que são combinados linearmente. Em outras palavras, quando um sistema quântico está em um estado de superposição, ele está simultaneamente em vários estados possíveis, cada um com uma probabilidade associada.
 
-Essa característica é fundamental para a existência dos qubits conforme veremos na seção~\ref{sec:qubits}. Quando um sistema quântico é medido, ele colapsa em um estado único e observável, confome explicitado no Postulado~\ref{post:p3}. Isso é conhecido como o colapso da função de onda e a probabilidade de medir cada estado possível é determinada pelas amplitudes de probabilidade associadas aos estados na superposição.
+Essa característica é fundamental para a existência dos qubits conforme veremos na seção~\ref{sec:qubits}. Quando um sistema quântico é medido, ele colapsa em um estado único e observável, conforme explicitado no Postulado~\ref{post:p3}. Isso é conhecido como o colapso da função de onda e a probabilidade de medir cada estado possível é determinada pelas amplitudes de probabilidade associadas aos estados na superposição.
 
-A superposição de estados quânticos é uma das características mais estranhas e fascinantes da mecânica quântica e permite o acontecimento de fenômenos como como o emaranhamento quântico e o teletransporte quântico.
+A superposição de estados quânticos é uma das características mais estranhas e fascinantes da MQ e permite o acontecimento de fenômenos como como o emaranhamento quântico e o teletransporte quântico.
 
 
 \subsection{Emaranhamento Quântico}\label{sec:emaranhamento}
 
 O Emaranhamento quântico é uma propriedade da MQ que descreve a correlação entre dois ou mais sistemas quânticos, de tal forma que o estado quântico de um  não pode ser descrito independentemente do estado dos outros sistemas emaranhados.
 
-O emaranhamento quântico é uma das propriedades mais estranhas e intrigantes da mecânica quântica e tem implicações importantes, por exemplo, a comunicação quântica utiliza o emaranhamento quântico para transmitir informações de forma segura, pois qualquer tentativa de interceptar a comunicação alteraria o estado emaranhado e seria detectável.
+O emaranhamento quântico tem implicações importantes, como por exemplo, no caso da comunicação quântica que utiliza o emaranhamento quântico para transmitir informações de forma segura, pois qualquer tentativa de interceptar a comunicação alteraria o estado emaranhado e seria detectável.
 
 O emaranhamento quântico também é importante na computação quântica, onde os qubits emaranhados podem ser usados para executar operações de forma mais rápida e eficiente do que seria possível com qubits individuais. Além disso, o emaranhamento quântico tem aplicações em áreas como a criptografia quântica, a simulação quântica e a teletransporte quântico.
 
-\vspace{2cm}
-\textbf{
-Etapas do Emaranhamento Quântico de Qubits
-}
+\vspace{1.5cm}
+\textbf{Etapas do Emaranhamento Quântico de Qubits}
 
 \begin{itemize}
 \item 1. Preparação:  O primeiro passo é preparar os qubits individuais. Isso pode ser feito carregando os qubits em computadores quânticos ou usando dispositivos quânticos especializados, como lasers.
@@ -139,11 +138,11 @@ Etapas do Emaranhamento Quântico de Qubits
 
 \subsection{Teorema da Não-Clonagem}\label{sec:naoclonagem}
 
-O teorema da não clonagem de qubits é um resultado fundamental na teoria da informação quântica que afirma que é impossível fazer uma cópia exata do estado quântico de um qubit arbitrário. Em outras palavras, não é possível criar uma máquina de clonagem quântica que produza uma cópia idêntica de um qubit desconhecido. 
+O teorema da não-clonagem de qubits é um resultado fundamental na teoria da informação quântica que afirma que é impossível fazer uma cópia exata do estado quântico de um qubit arbitrário. Em outras palavras, não é possível criar uma máquina de clonagem quântica que produza uma cópia idêntica de um qubit desconhecido diferente da informação clássica que pode ser facilmente reproduzida, basta recordar que um livro pode ser impresso com a tiragem de exemplares desejada.
 
 Esse resultado tem implicações importantes para a criptografia quântica e a segurança da comunicação quântica, pois impede a interceptação e a cópia dos estados quânticos usados para transmitir informações. O teorema da não clonagem foi provado por Wooters e Zurek em 1982, e é um dos resultados fundamentais da teoria da informação quântica \cite{clone}.
 
-Uma das implicações interessantes do teorema da não clonagem é que a medição de um qubit não é apenas uma operação de leitura, mas também uma operação de destruição do estado quântico. Em outras palavras, ao medir um qubit, o estado quântico original é destruído e uma das possíveis informações clássicas é obtida. 
+Uma das implicações interessantes do teorema da não-clonagem é que a medição de um qubit não é apenas uma operação de leitura, mas também uma operação de destruição do estado quântico. Em outras palavras, ao medir um qubit, o estado quântico original é destruído e uma das possíveis informações clássicas é obtida. 
 
 Podemos formalizar o teorema da seguinte forma:
 
@@ -156,28 +155,31 @@ U:\mathcal{H} \otimes \mathcal{H} \rightarrow \mathcal{H} \otimes \mathcal{H}
 
 \subsection{Paradoxo EPR}\label{sec:epr}
 
-O Paradoxo EPR é um famoso argumento em favor da incompletude da mecânica quântica, proposto por Albert Einstein, Boris Podolsky e Nathan Rosen em 1935. O paradoxo começa com a observação de que a mecânica quântica prevê que duas partículas emaranhadas podem estar em um estado quântico compartilhado, mesmo que estejam distantes uma da outra.
+O Paradoxo EPR é um famoso argumento em favor da incompletude da MQ, proposto por Albert Einstein, Boris Podolsky e Nathan Rosen em 1935. O paradoxo começa com a observação de que a mecânica quântica prevê que duas partículas emaranhadas podem estar em um estado quântico compartilhado, mesmo que estejam distantes uma da outra.
 
-De acordo com a mecânica quântica, se duas partículas são emaranhadas, a medição do estado quântico de uma partícula instantaneamente afetará o estado quântico da outra partícula, independentemente da distância entre elas. Isso significa que as partículas emaranhadas parecem estar em comunicação instantânea, o que violaria a teoria da relatividade especial de Einstein, que proíbe a comunicação mais rápida do que a velocidade da luz.
+De acordo com a MQ, se duas partículas são emaranhadas, a medição do estado quântico de uma partícula instantaneamente afetará o estado quântico da outra partícula, independentemente da distância entre elas. Isso significa que as partículas emaranhadas parecem estar em comunicação instantânea, o que violaria a teoria da relatividade especial de Einstein, que proíbe a comunicação mais rápida do que a velocidade da luz.
 
 Einstein, Podolsky e Rosen propuseram um experimento mental para demonstrar essa aparente contradição. No experimento, duas partículas emaranhadas são criadas e separadas a uma grande distância uma da outra. Em seguida, uma propriedade quântica específica de uma das partículas é medida, o que instantaneamente afeta a propriedade quântica da outra partícula, mesmo que esteja a uma grande distância. Isso parece violar a teoria da relatividade especial de Einstein, que proíbe a comunicação mais rápida do que a velocidade da luz.
 
-A resolução do paradoxo EPR veio da teoria da mecânica quântica e sua interpretação correta. A mecânica quântica não viola a relatividade especial de Einstein, pois as partículas emaranhadas não estão realmente em comunicação instantânea. Em vez disso, o estado quântico das partículas emaranhadas é uma superposição de estados possíveis, e a medição do estado de uma das partículas colapsa a função de onda do sistema emaranhado como um todo, fazendo com que o estado da outra partícula pareça estar sendo afetado instantaneamente. A explicação correta é que a medição da primeira partícula, que afeta instantaneamente a segunda partícula, não é uma ação física, mas sim uma consequência da natureza probabilística da mecânica quântica.
+A resolução do paradoxo EPR veio da própria teoria da MQ e sua interpretação correta. A MQ não viola a relatividade especial de Einstein, pois as partículas emaranhadas não estão realmente em comunicação instantânea, em vez disso, o estado quântico das partículas emaranhadas é uma superposição de estados possíveis e a medição do estado de uma das partículas colapsa a função de onda do sistema emaranhado como um todo, fazendo com que o estado da outra partícula pareça estar sendo afetado instantaneamente. A explicação correta é que a medição da primeira partícula, que afeta instantaneamente a segunda partícula, não é uma ação física, mas sim uma consequência da natureza probabilística da MQ.
 
 
 \subsection{Teletransporte Quântico}\label{sec:teletransporteteoria}
 
-O teletransporte quântico de informação é um protocolo que permite transferir o estado quântico de um qubit de um local para outro sem que o próprio qubit seja enviado fisicamente. Esse protocolo é baseado na propriedade da entrelaçamento quântico, que permite que dois qubits estejam correlacionados de tal forma que a medição do estado de um afeta instantaneamente o estado do outro, mesmo que estejam fisicamente distantes.
+O Teletransporte Quântico consiste em uma série de operações realizadas por intermédio de um circuito de natureza quântica que pretende enviar uma mensagem de um ponto \(A\) até um ponto \(B\). Para a realização desse procedimento, dependemos essencialmente de ao menos três qubits. Para introduzir esse conceito, iremos nos apropriar de uma história hipotética a título de esclarecer a ideia principal do fenômeno. Imagine por um instante que se deseja enviar uma fotografia para alguém que não se vê há muito tempo. Existem essencialmente duas maneiras de realizar o envio: pode-se enviar a foto pelo correio e aguardar que o destinatário a receba, processo chamado de transporte de informação, ou ainda, você poderia criar um arquivo digital com informações sobre a fotografia, de maneira que aquele que recebe o arquivo, possa de alguma maneira recriar a foto; nesse segundo caso, a foto seria teletransportada \cite{materialdidaticomecquantica}.
 
-Ele é desenvolvido em três etapas: o remetente (Alice), o destinatário (Bob) e um canal clássico de comunicação. O remetente Alice possui um qubit que deseja teletransportar para Bob, que está fisicamente distante. Alice também possui outro qubit emaranhado com o qubit que deseja teletransportar.
+Trazendo a situação descrita para o universo quântico, o teletransporte de estados quânticos consiste em uma série de operações que possibilitam descrever no ponto \(B\) um estado existente no ponto \(A\). A princípio, devido ao Teorema da Não-Clonagem (~\ref{sec:naoclonagem}), seria impossível ``clonar'' um qubit, ou seja, teletransportar a informação de modo semelhante ao que ocorre com um canal clássico. Porém, segundo \textcite{bennet}, é possível contornar o problema utilizando um canal de informação clássico, semelhante ao apresentado por Shannon na TMC, porém utilizando como emissor-receptor um par de partículas emaranhadas quanticamente.
 
-O processo começa com Alice aplicando uma série de operações quânticas em ambos os qubits emaranhados, que os colocam em um estado de entrelaçamento particular. Em seguida, Alice faz uma medição conjunta do estado dos dois qubits emaranhados e envia o resultado da medição por meio do canal clássico de comunicação para Bob.
+Na literatura encontram-se as mais diversas explicações sobre como funciona o teletransporte quântico \cites{bennet}{experimentalqt}{zeilinger}{brassard1996teleportation}{materialdidaticomecquantica} e na maioria dos casos, os leitores são introduzidos a dois personagens: Alice e Bob.
 
-A partir do resultado da medição recebida, Bob aplica uma série de operações quânticas ao seu qubit e consegue recriar o estado original do qubit de Alice, que foi teletransportado para ele. Vale ressaltar que o próprio qubit de Alice não é enviado para Bob, apenas as informações quânticas necessárias para reconstruir o estado do qubit são transmitidas.
+Na história, os cientistas Alice e Bob estão localizados em dois laboratórios distintos, cada um deles possui um qubit, $q_{A}$ e $q_{B}$ e estes estão emaranhados, produzindo um estado quântico emaranhado denominado de $\ket{\psi_{AB}}$. Alice precisa enviar uma mensagem urgente para Bob utilizando um outro qubit, $q_{C}$. Portanto, no início do processo de teletransporte, Alice possui dois qubits, o que ela deseja enviar e o que possui o estado quântico emaranhado com o qubit de Bob.
 
-O teletransporte quântico de informação é um protocolo importante na área de comunicação quântica e pode ser usado para a transferência segura de informações quânticas entre duas partes distantes. Isso ocorre porque o estado do qubit teletransportado não é acessível a nenhum observador intermediário, devido à natureza probabilística da mecânica quântica.
+Alice realiza então uma série de operações entre seus qubits e para continuar o processo de teletransporte, faz uma medição em seus qubits, colapsando-os e envia, via um canal clássico, a informação dos qubits colapsados para Bob. Este por sua vez, por saber qual era o estado inicial de $q_{A}$ devido ao emaranhamento, conseque reconstruir a mensagem presente originalmente no qubit $q_{C}$ enviado por Alice. Portanto, a mensagem é reconstruida e não clonada, não violando o princípio da não-clonagem. A não-clonagem fica explicitada no momento em que a medida é realizada em $q_{A}$ e $q_{C}$, colapsando-os, de modo que existe apenas uma cópia do estado de $q_{C}$ dado por $\ket{\psi_{C}}$..
 
-\section{Qubits}\label{sec:qubits}
+\section{Computação Quântica}\label{sec:compquant}
+As definições apresentadas nessa seção, estabelecem a base para a compreensão do funcionamento de computadores quânticos quanto à sua lógica de funcionamento e a compreensão da informação como uma entidade representada pela MQ.
+
+\subsection{Qubits}\label{sec:qubits}
 
 As definições de qubits descritas nesse tópico baseiam-se principalmente nas ideias apresentadas por \textcite{chuang} e \textcite{CompInfoQuantica}.
 
@@ -241,11 +243,11 @@ Figura~\ref{fig:bloch}.
 
 \todo[inline]{EXPLICAR COMO FUNCIONA O ARMAZENAMENTO DE INFORMAÇÃO NO QUBIT E COMO FUNCIONA A MEDIDA DE UM ESTADO}
 
-\section{Operadores Quânticos}\label{sec:opquantico}
+\subsection{Operadores Quânticos}\label{sec:opquantico}
 
 Na Mecânica Quântica, um \textit{Operador Quântico} é um objeto matemático que representa uma propriedade física observável de um sistema quântico. Eles são fundamentais para a teoria quântica pois fornecem uma maneira de descrever e prever os resultados de medidas em sistemas quânticos. Eles são representados por matrizes ou operadores lineares que pertencem a um espaço de Hilbert \(\mathcal{H}\) e são equivalentes às portas lógicas na computação clássica, ou seja, são implementadas como operadores quânticos que atuam em um ou mais qubits. As próximas seções serão utilizadas para explicar os principais operadores/portas lógicas quânticas e como eles atuam em um qubit \cite{jorcuvich}.
 
-\subsection{Matrizes de Pauli}\label{sec:pauli}
+\subsubsection{Matrizes de Pauli}\label{sec:pauli}
 
 Segundo \textcite{chuang}, matrizes de Pauli são um conjunto de três matrizes hermitianas e unitárias, amplamente utilizadas na computação quântica. As matrizes são denotadas por $\sigma_x$, $\sigma_y$ e $\sigma_z$, e são definidas por:
 \begin{equation}
@@ -262,7 +264,7 @@ i & 0
 \end{equation}
 As matrizes $\sigma_x$, \(\sigma_{y}\) e \(\sigma_{z}\) são também conhecidas como a matrizes de Pauli X, Pauli Y e Pauli Z, respectivamente. As matrizes de Pauli formam a base do espaço de Hilbert de um único qubit, e podem ser usadas para construir operadores mais complexos que atuam em múltiplos qubits.
 
-\subsection{Porta Lógica Controlled-NOT Quântica}\label{sec:cnot}
+\subsubsection{Porta Lógica Controlled-NOT Quântica}\label{sec:cnot}
 
 As matrizes de Pauli são frequentemente usadas na construção de portas lógicas quânticas. A porta NOT quântica, por exemplo, é usada para inverter o estado de um qubit e é construída a partir da matriz de Pauli X. A porta Controlled-NOT Quântica, ou \(\CNOT\), que é usada para realizar operações lógicas em dois qubits, também é construída a partir de uma combinação das matrizes de Pauli X, Y e Z, além da identidade \cite{CompInfoQuantica}. Esta é uma propriedade geral das portas lógicas quânticas: elas podem ser construídas a partir de matrizes que são combinações das matrizes de Pauli e da matriz de identidade.
 
@@ -279,7 +281,7 @@ A matriz que representa a porta \(\CNOT\) é dada por:
 A porta lógica \(\CNOT\) é usada para implementar operações condicionais e permutações entre qubits, sendo usada para criar circuitos lógicos quânticos mais complexos como uma versão geral da porta NOT clássica, pois ela pode ser aplicada a todos os qubits e não apenas a dois. Na porta \(\CNOT\), o qubit de controle é usado para controlar o estado do qubit alvo. Se o qubit de controle estiver em $\ket{1}$, o estado do qubit alvo será invertido, mas se o qubit de controle estiver em $\ket{0}$, o estado do qubit alvo não será alterado \cite{chuang}.
 
 
-\subsection{Porta Lógica Hadamard Quântica}\label{sec:had}
+\subsubsection{Porta Lógica Hadamard Quântica}\label{sec:had}
 
 A Porta Lógica Hadamard Quântica \(\HAD\) é uma porta lógica quântica que transforma o estado de um qubit em seu estado oposto com 50\% de probabilidade associada ao estado. Ela pode ser usada para realizar operações de entrelaçamento entre qubits, o que permite a implementação de algoritmos quânticos como o emaranhamento e o teletransporte quântico. Seu desenvolvimento teve como objetivo permitir o controle preciso de qubits em circuitos quânticos \cite{jorcuvich}. Ela é representada por uma matriz 2x2, definida como:
 
@@ -306,10 +308,56 @@ Cada estado de Bell é formado por dois qubits, que estão emaranhados de tal fo
 
 Quando dois qubits estão emaranhados em um estado de Bell, a medição de um qubit pode ser usada para transmitir informações para outro qubit, sem que terceiros possam interceptar a informação transmitida.
 
-\section{Protocolo de Teletransporte Quântico}\label{sec:teletransporteprotocolo}
+\subsection{Circuitos lógicos Quânticos}\label{sec:circuitos}
+Para compreender a lógica de sistemas quânticos, é comum representá-los graficamente como circuitos. Essa forma de apresentação, estabelece de maneira clara, as operações realizadas, as entidades envolvidas e a informação de entrada e de saída do processo em questão. Para tal, cada parte envolvida no processo possui sua própria representação gráfica, de maneira que ao observar um circuito, possamos ser capazes de reproduzir a evolução do sistema de maneira lógico-matemática.
+Conforme abordado nas seções anteriores, o qubit é a unidade fundamental de expressão de informação dentro da computação quântica, portanto, o circuito se baseia nas interações que um, ou mais qubits terão ao longo do processo. A representação de um qubit é dada pela figura~\ref{fig:qubit} de modo que a linha contínua representa a evolução do estado quântico do qubit no tempo, que evolui da esquerda para a direita. Quando mais de um qubit é necessário no circuito, adicionamos linhas independentes, para que seja possível observar como cada um destes se desenvolve no processo.
+
+\begin{figure}[ht!]
+\centering
+\caption{Representação gráfica dos qubits $\ket{\psi}$ e $\ket{\phi}$ em um circuito lógico quântico}\label{fig:qubit}
+\begin{quantikz}
+\lstick{$\ket{\psi}$} & \qw & \qw & \qw & \qw & \qw \\
+\lstick{$\ket{\phi}$} & \qw & \qw & \qw & \qw & \qw
+\end{quantikz}
+\end{figure}
+
+Conforme visto na Seção~\ref{sec:opquantico}, a evolução do estado de um qubit depende de interações unitárias dos chamados operadores quânticos, ou portas lógicas quânticas. Sua representação pode ser encontrada na figura~\ref{fig:opquantico} e sua posição determina a linha temporal de qual qubit está sendo alterada. Por exemplo, a porta \(\XXX\) está atuando sob o qubit $\ket{\psi}$, enquanto a porta \(\ZZZ\) atua sob o qubit $\ket{\phi}$. Seguindo a evolução temporal, é possível ver que a porta lógica \(\ZZZ\) é aplicada antes que a porta \(\XXX\)
+
+\begin{figure}[ht!]
+\centering
+\caption{Representação gráfica da atuação das portas lógicas quânticas \(\XXX\) e \(\ZZZ\) nos qubits $\ket{\psi}$ e $\ket{\phi}$ respectivamente, em um circuito lógico quântico}\label{fig:opquantico}
+\begin{quantikz}
+\lstick{$\ket{\psi}$} & \qw & \qw & \qw & \qw & \qw & \gate{X} & \qw & \qw \\
+\lstick{$\ket{\phi}$} & \qw & \gate{Z} & \qw & \qw & \qw & \qw & \qw & \qw
+\end{quantikz}
+\end{figure}
+
+Algumas portas quânticas, como a CNOT, dependem de dois qubits para operarem, porém alteram apenas um deles. Chamamos esse tipo de porta de Controlada, e sua representação indica com um ponto o qubit de controle e com um X o qubit alvo, que será alterado. Sua representação pode ser encontrada na figura~\ref{fig:cnot} onde, num primeiro momento $\ket{phi}$ atua como controle e $\ket{\psi}$ é o alvo, e depois $\ket{\psi}$ se torna o controle e $\ket{phi}$ o alvo.
+
+\begin{figure}[ht!]
+\centering
+\caption{Representação gráfica da atuação da porta lógica quântica CNOT nos qubits $\ket{\psi}$ e $\ket{\phi}$ em um circuito lógico quântico}\label{fig:cnot}
+\begin{quantikz}
+\lstick{$\ket{\psi}$} & \qw & \targ{} & \qw & \qw & \qw & \ctrl{1} & \qw & \qw \\
+\lstick{$\ket{\phi}$} & \qw & \ctrl{-1} & \qw & \qw & \qw & \targ{} & \qw & \qw
+\end{quantikz}
+\end{figure}
+
+Existe ainda o operador Medição, que efetua o colapso do sistema quântico e retorna uma medida clássica como resposta. Sua representação ocorre conforme a figura~\ref{fig:medição} e após um operador medição, a linha se torna dupla, para indicar que a informação que está passando naquele trecho do circuito é clássica. Ou seja, linhas simples, indicam informação quântica e linhas duplas indicam informação clássica.
+
+\begin{figure}[ht!]
+\centering
+\caption{Representação gráfica da atuação de uma medição em $\ket{\psi}$ e $\ket{\phi}$ em um circuito lógico quântico}\label{fig:medição}
+\begin{quantikz}
+\lstick{$\ket{\psi}$} & \qw &  \qw & \qw & \meter{} & \cw & \cw \\
+\lstick{$\ket{\phi}$} & \qw &  \meter{} & \cw & \cw  & \cw & \cw
+\end{quantikz}
+\end{figure}
+
+\subsection{Protocolo de Teletransporte Quântico}\label{sec:teletransporteprotocolo}
 
 A descrição deste protocolo foi baseada em \textcite{chuang, jorcuvich, CompInfoQuantica, benschu}. A realização de um protocolo de Teletransporte Quântico consiste, essencialmente, em uma série de operações que possuem por objetivo principal fazer com que uma mensagem, ou na linguagem quântica, um estado quântico, se teletransporte entre dois pontos distintos fisicamente.
-Como em qualquer outra operação computacional é necessária a existencia de um circuito lógico, nesse caso quântico, que media as operações. Esse circuito consistirá nas combinações das portas lógicas \(\CNOT\), Haddamard, portas de medição e as portas \(\XXX\) e \(\ZZZ\) conforme a Figura~\ref{fig:protocoloteletransporte}.
+Como em qualquer outra operação computacional é necessária a existência de um circuito lógico, nesse caso quântico, que media as operações. Esse circuito consistirá nas combinações das portas lógicas \(\CNOT\), Haddamard, portas de medição e as portas \(\XXX\) e \(\ZZZ\) conforme a Figura~\ref{fig:protocoloteletransporte}.
 
 \begin{figure}[ht!]
 \centering
@@ -331,9 +379,7 @@ Um dos qubits do par emaranhado em~\eqref{eq:bell00} é mantido em \(A\) e o out
  \begin{equation}\label{psi}
   \ket{\psi} = \alpha \ket{0} + \beta \ket{1}.
  \end{equation}
-De posse do par emaranhado e da mensagem, o protocolo é iniciado com a aplicação da porta \(\CNOT\) entre $\ket{\psi}\ket{\beta_{00}}$, que chamaremos de $\ket{\psi_0}$. A porta \(\CNOT\) possui como alvo o qubit $\ket{q_y}$ e como qubit de controle $\ket{q_x}$. Isso indica que a porta \(\CNOT\) irá modificar $\ket{q_y}$ de acordo com o estado de $\ket{q_x}$ de modo que:
-
-\todo[inline]{De modo que\ldots}
+De posse do par emaranhado e da mensagem, o protocolo é iniciado com a aplicação da porta \(\CNOT\) entre $\ket{\psi}\ket{\beta_{00}}$, que chamaremos de $\ket{\psi_0}$. A porta \(\CNOT\) possui como alvo o qubit $\ket{q_y}$ e como qubit de controle $\ket{q_x}$. Isso indica que a porta \(\CNOT\) irá modificar $\ket{q_y}$ de acordo com o estado de $\ket{q_x}$ confome~\ref{definition:cnot}.
 
 
 \begin{definition}{Operação \(\CNOT\)}{cnot}
@@ -367,6 +413,7 @@ Aplicando portanto a Definição~\ref{definition:hadamard} em $\ket{\psi_1}$, te
 \end{equation}
 
 O estado obtido em \eqref{eq:hadamartpsi2} pode ser identificado como $\ket{\psi_2}$, evidenciando-se os estados emaranhados deste ao organizá-lo da seguinte maneira:
+
 \begin{equation}\label{eq:psi2}
  \ket{\psi_2} = \frac{1}{2} \Bigl[ \ket{00} \bigl( \alpha \ket{0} + \beta \ket{1} \bigr) + \ket{01} \bigl( \alpha \ket{1} + \beta \ket{0} \bigr) + \ket{10} \bigl( \alpha \ket{0} - \beta \ket{1} \bigr) + \ket{11} \bigl( \alpha \ket{1} - \beta \ket{0} \bigr) \Bigr].
 \end{equation}
@@ -419,7 +466,7 @@ A aplicação das portas dependerá do resultado da medida enviado por \(A\), se
 \end{table}
 
 
-\section{Algoritmo do protocolo de Teletransporte}\label{sec:algoritmo}
+\subsection{Algoritmo do protocolo de Teletransporte}\label{sec:algoritmo}
 
 Descrição das etapas para o protocolo de teletransporte
 
@@ -496,9 +543,4 @@ Descrição das etapas para o protocolo de teletransporte
 %
 %Para minimizar os efeitos dos ruídos no teletransporte de informação quântica, é importante realizar a otimização dos protocolos de teletransporte, otimizar o processo de codificação e decodificação e utilizar técnicas de processamento de sinal quântico.
 ~
-Para implementar um protocolo de teletransporte quântico usando sympy e numpy, é necessário primeiro entender os conceitos básicos da mecânica quântica e do teletransporte quântico.
-
-O teletransporte quântico é uma técnica que permite a transmissão de um estado quântico de um sistema para outro distante sem a necessidade de transporte físico. O protocolo de teletransporte quântico é baseado na propriedade de emaranhamento quântico, que permite a correlação instantânea entre duas partículas, independentemente da distância entre elas.
-
-O protocolo de teletransporte quântico envolve três qubits: o qubit a ser teletransportado, o qubit de emaranhamento e o qubit de medição. O qubit de emaranhamento é criado inicialmente em um estado de emaranhamento, e um dos qubits é enviado para o destinatário, enquanto o outro permanece com o remetente. O qubit a ser teletransportado é então combinado com o qubit remanescente do emaranhamento, e uma medida é realizada nos dois qubits resultantes. Com base no resultado da medição, é possível inferir o estado do qubit original e reconstruí-lo no qubit de destino.
 

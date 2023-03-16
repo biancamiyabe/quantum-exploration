@@ -9,3 +9,20 @@
 %%%
 
 \chapter{Metodologia}
+Esse é um código em Python que implementa o protocolo de teleportação quântica. O objetivo é enviar um qubit em um estado desconhecido de um local para outro sem que ele seja fisicamente transferido. O protocolo consiste em três qubits: um qubit que contém a informação a ser transmitida (qubit mensagem), um qubit no estado emaranhado (qubit emaranhado) e um qubit enviado pelo remetente (qubit do remetente) que é usado para transferir a informação do qubit mensagem para o qubit emaranhado.
+
+As bibliotecas importadas no início do código são: numpy, math, sympy, sys e random. A biblioteca numpy é usada para trabalhar com matrizes e operações numéricas. A biblioteca math é usada para funções matemáticas. A biblioteca sympy é usada para simbolizar variáveis e operações simbólicas. A biblioteca sys é usada para acessar algumas variáveis ​​do sistema e a biblioteca random é usada para gerar números aleatórios.
+
+Os dois primeiros qubits, qbit0 e qbit1, são inicializados usando a biblioteca numpy. A matriz H, que representa a porta Hadamard, e a matriz I, que representa a matriz de identidade, são inicializadas usando a biblioteca numpy. A matriz HI é a porta Hadamard tensorizada com a matriz de identidade e é usada para criar os estados de Bell mais tarde no código.
+
+Em seguida, os estados de Bell são criados por meio da aplicação da porta Hadamard no estado tensorizado de dois qubits. Esses estados são criados a partir da operação tensorial entre o qubit emaranhado e o qubit do remetente. Esses estados são salvos nas variáveis Bell00, Bell01, Bell10 e Bell11.
+
+Depois disso, o usuário é solicitado a fornecer o estado alfa e beta do qubit mensagem que ele deseja enviar. O código verifica se a soma de alfa e beta é igual a um (condição de normalização) e, em caso afirmativo, cria a mensagem a ser enviada a partir desses estados.
+
+O estado psi0 é calculado por meio da operação tensorial entre o qubit mensagem e o estado de Bell. Em seguida, a porta CNOT é aplicada ao estado psi0 e o resultado é salvo na variável psi1.
+
+A porta Hadamard é aplicada aos estados alfa e beta do qubit mensagem e o resultado é salvo nas variáveis HMessagealfa e HMessagebeta. Essas variáveis são usadas posteriormente para a reconstrução da mensagem.
+
+O código então gera um dos quatro possíveis estados emaranhados (estados00, estados11, estados01 e estados10) aleatoriamente. O estado resultante é salvo na variável Medição e é usado para reconstruir a mensagem original.
+
+O protocolo de teleportação quântica é concluído pela reconstrução da mensagem original a partir do estado Medição. Isso é feito usando as matrizes de Pauli para recuperar a mensagem original a partir da variável Messagetp e, em seguida, salvar o resultado na variável Messagefinal. Por fim, a mensagem original é impressa na tela.
