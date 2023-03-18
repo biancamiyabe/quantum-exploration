@@ -58,61 +58,56 @@ Para que o emaranhamento seja possível, ambos os qubits representados por $\ket
 \end{pmatrix}
 \end{equation}
 
-Seguindo a Figura~\ref{fig:protocoloteletransporte}, aplicamos a porta Hadamard, \(\HAD\), multiplicando-a pela matriz identidade \(I\), obtendo:
+Seguindo a Figura~\ref{fig:protocoloteletransporte}, aplicamos a porta Hadamard, \(\HAD\), no estado $\ket{q_x}$:
+
 \begin{equation}
-\HAD \otimes I = \frac{1}{\sqrt{2}} \begin{pmatrix*}[r]
+\HAD \ket{q_x}= \frac{1}{\sqrt{2}} \begin{pmatrix*}[r]
 1 & 1 \\
 1 & -1
-\end{pmatrix*} \otimes \begin{pmatrix}
-1 & 0 \\
-0 & 1
+\end{pmatrix*} \begin{pmatrix}
+1  \\
+0 
 \end{pmatrix} = \frac{1}{\sqrt{2}} \begin{pmatrix*}[r]
-1 & 0 & 1 & 0 \\
-0 & 1 & 0 & 1 \\
-1 & 0 & -1 & 0 \\
-0 & 1 & 0 & -1
+1 \\
+1
 \end{pmatrix*}
 \end{equation}
-e, aplicando o resultado acima em~\eqref{eq:00}
-\begin{equation}
-\HAD \ket{00} = \frac{1}{\sqrt{2}} \begin{pmatrix*}[r]
-1 & 0 & 1 & 0 \\
-0 & 1 & 0 & 1 \\
-1 & 0 & -1 & 0 \\
-0 & 1 & 0 & -1
-\end{pmatrix*} \begin{pmatrix}
-1 \\
-0 \\
-0 \\
-0
-\end{pmatrix} = \frac{1}{\sqrt{2}} \begin{pmatrix}
-1 \\
-0 \\
-1 \\
-0
-\end{pmatrix}.
-\end{equation}
 
-Em seguida, aplicamos a porta \(\CNOT\):
+
+Em seguida, aplicamos a porta \(\CNOT\) tendo como controle o qubit $\ket{q_x}$, após a aplicação de \(\HAD\) e o alvo o qubit $\ket{q_y}$:
 \begin{equation}
-  \CNOT \bigl( \HAD \ket{00} \bigr) =
-\begin{pmatrix}
-1 & 0 & 0 & 0 \\
-0 & 1 & 0 & 0 \\
-0 & 0 & 0 & 1 \\
-0 & 1 & 1 & 0
-\end{pmatrix}
-\frac{1}{\sqrt{2}}\begin{pmatrix}
-1 \\
-0 \\
-1 \\
-0
-\end{pmatrix} = \frac{1}{\sqrt{2}} \begin{pmatrix}
-1 \\
-0 \\
-0 \\
-1
-\end{pmatrix}
+	\begin{split}
+ 		\CNOT \bigl( \ket{q_x}\ket{q_y} \bigr) =& 
+		\begin{pmatrix}
+		1 & 0 & 0 & 0 \\
+		0 & 1 & 0 & 0 \\
+		0 & 0 & 0 & 1 \\
+		0 & 0 & 1 & 0
+		\end{pmatrix} 
+		\frac{1}{\sqrt{2}} \begin{pmatrix*}[r]
+		1 \\
+		1
+		\end{pmatrix*} \otimes  \begin{pmatrix*}[r]
+		1 \\
+		0
+		\end{pmatrix*} = \\
+		&= \begin{pmatrix}
+		1 & 0 & 0 & 0 \\
+		0 & 1 & 0 & 0 \\
+		0 & 0 & 0 & 1 \\
+		0 & 0 & 1 & 0
+		\end{pmatrix} \frac{1}{\sqrt{2}}\begin{pmatrix}
+		1 \\
+		0 \\
+		1 \\
+		0
+		\end{pmatrix} = \frac{1}{\sqrt{2}} \begin{pmatrix}
+		1 \\
+		0 \\
+		0 \\
+		1
+		\end{pmatrix}
+	\end{split}	
 \end{equation}
 
 A equação também é conhecida como uma das Bases de Bell. A comparação da Base de Bell no estado $\ket{00}$ em notação de Dirac e em notação matricial é feita considerando as Equações~\eqref{eq:00} e~\eqref{eq:01} de modo que, seja \(\ket{\beta_{00}}\) a Base de Bell em notação de Dirac dada por \(\frac{1}{\sqrt{2}} \bigl(\ket{00} + \ket{11}\bigr)\), reescrevendo teremos:
@@ -237,7 +232,9 @@ Reagrupando temos portanto, quatro possíveis estados formados por 3-qubits send
 \end{pmatrix} \otimes \begin{pmatrix}
 1 \\
 0
-\end{pmatrix}\right] \\
+\end{pmatrix}\right] = \begin{pmatrix}
+1 & 0 & 0 & 0 & 0 & 0 & 0 & 0
+\end{pmatrix}^T \\
 \ket{011} &= \left[ \begin{pmatrix}
 1 \\
 0
@@ -247,7 +244,9 @@ Reagrupando temos portanto, quatro possíveis estados formados por 3-qubits send
 \end{pmatrix} \otimes \begin{pmatrix}
 0 \\
 1
-\end{pmatrix}\right] \\
+\end{pmatrix}\right] = \begin{pmatrix}
+0 & 0 & 0 & 1 & 0 & 0 & 0 & 0
+\end{pmatrix}^T \\
 \ket{100} &= \left[ \begin{pmatrix}
 0 \\
 1
@@ -257,7 +256,9 @@ Reagrupando temos portanto, quatro possíveis estados formados por 3-qubits send
 \end{pmatrix} \otimes \begin{pmatrix}
 1 \\
 0
-\end{pmatrix}\right] \\
+\end{pmatrix}\right] = \begin{pmatrix}
+0 & 0 & 0 & 0 & 1 & 0 & 0 & 0
+\end{pmatrix}^T \\
 \ket{111} &=\left[ \begin{pmatrix}
 0 \\
 1
@@ -267,94 +268,177 @@ Reagrupando temos portanto, quatro possíveis estados formados por 3-qubits send
 \end{pmatrix} \otimes \begin{pmatrix}
 0 \\
 1
-\end{pmatrix}\right]
+\end{pmatrix}\right] = \begin{pmatrix}
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 1
+\end{pmatrix}^T
 	\end{split}
 \end{equation}
 
-Em~\eqref{eq:3qubit}, o primeiro da tríade representa o qubit de controle e os dois demais, os qubits alvos. Seguindo as definições de ~\ref{definition:cnot} teremos a inversão do segundo qubit de $\ket{100} \rightarrow \ket{110}$ e de $\ket{111} \rightarrow \ket{101}$. Portanto, teremos o estado $\ket{\psi_1}$ descrito por:
+Somando todos os estados possíveis temos:
+\begin{equation}\label{eq:3estados}
+\ket{000}+\ket{001}+\ket{100}+\ket{111}= \begin{pmatrix}
+1 & 0 & 0 & 1 & 1 & 0 & 0 & 1
+\end{pmatrix}^T
+\end{equation}
+
+Como a porta \(\CNOT\) está dimensionada para dois estados e, nesse caso, possuímos três, iremos aplicar a matriz identidade para dimensioná-la. Desse modo:
+
+\begin{equation}\label{eq:cnotI}
+\CNOT \otimes I = \begin{pmatrix}
+		1 & 0 & 0 & 0 \\
+		0 & 1 & 0 & 0 \\
+		0 & 0 & 0 & 1 \\
+		0 & 0 & 1 & 0
+		\end{pmatrix} \otimes \begin{pmatrix}
+		1 & 0 \\
+		0 & 1
+		\end{pmatrix} = \begin{pmatrix}
+		1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+		0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
+		0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\
+		0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\
+		0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 \\
+		0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 \\
+		0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\
+		0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 		
+		\end{pmatrix}
+\end{equation}
+
+Aplicando~\eqref{eq:cnotI} em~\eqref{eq:3estados}, teremos o estado:
+
+\begin{equation}\label{eq:cnot3estados}
+	\begin{split}
+		\CNOT (\ket{000}\ket{001}\ket{100}\ket{111}) &= \begin{pmatrix}
+		1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+		0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
+		0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\
+		0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\
+		0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 \\
+		0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 \\
+		0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\
+		0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 		
+		\end{pmatrix} \begin{pmatrix}
+		1 \\
+		0 \\
+		0 \\
+		1 \\
+		1 \\
+		0 \\
+		0 \\
+		1
+		\end{pmatrix} = \\
+		&=\begin{pmatrix}
+		1 & 0 &	0 & 1 &	0 &	1 &	1 &	0
+		\end{pmatrix}^T
+	\end{split}
+\end{equation}
+
+Usando a lógica de construção de~\eqref{eq:3estados}, podemos separar as tríades obtidas em~\eqref{eq:cnot3estados}, de modo que:
 
 \begin{equation}
 	\begin{split}
-\ket{\psi_1} &= \frac{1}{\sqrt{2}}\left\{\left[\alpha \begin{pmatrix}
-1 \\
-0 
-\end{pmatrix}  \left(\begin{pmatrix}
-1 \\
-0 
-\end{pmatrix} \otimes \begin{pmatrix}
-1 \\
-0
-\end{pmatrix} + \begin{pmatrix}
-0 \\
-1
-\end{pmatrix} \otimes \begin{pmatrix}
-0 \\
-1
-\end{pmatrix}\right)\right] + \left[\beta \begin{pmatrix}
-0 \\
-1
-\end{pmatrix}  \left(\begin{pmatrix}
-0 \\
-1 
-\end{pmatrix} \otimes \begin{pmatrix}
-1 \\
-0
-\end{pmatrix} + \begin{pmatrix}
-1 \\
-0
-\end{pmatrix} \otimes \begin{pmatrix}
-0 \\
-1
-\end{pmatrix}\right)\right] \right\} \\
-&=\frac{1}{\sqrt{2}}\left\{\left[\alpha \begin{pmatrix}
-1 \\
-0 
-\end{pmatrix}  \begin{pmatrix}
-1 \\
-0 \\
-0 \\
-1
-\end{pmatrix}\right] + \left[\beta \begin{pmatrix} 
-0 \\
-1
-\end{pmatrix} \begin{pmatrix}
-0 \\
-1 \\
-1 \\
-0
-\end{pmatrix}\right]\right\}
-  \end{split}
+	\begin{pmatrix}
+	1 \\
+	0 \\
+	0 \\
+	1 \\
+	0 \\
+	1 \\
+	1 \\
+	0
+	\end{pmatrix} = \begin{pmatrix}
+	1 \\
+	0 \\
+	0 \\
+	0 \\
+	0 \\
+	0 \\
+	0 \\
+	0
+	\end{pmatrix} + \begin{pmatrix}
+	0 \\
+	0 \\
+	0 \\
+	1 \\
+	0 \\
+	0 \\
+	0 \\
+	0
+	\end{pmatrix} + \begin{pmatrix}
+	0 \\
+	0 \\
+	0 \\
+	0 \\
+	0 \\
+	0 \\
+	1 \\
+	0
+	\end{pmatrix} + \begin{pmatrix}
+	0 \\
+	0 \\
+	0 \\
+	0 \\
+	0 \\
+	1 \\
+	0 \\
+	0
+	\end{pmatrix} = \ket{000}+\ket{011}+\ket{110}+\ket{101}
+	\end{split}
 \end{equation}
 
+ Portanto, reorganizando e agrupando os estados definidos em~\eqref{eq:cnot3estados}, o estado $\ket{\psi_1}$ pode ser descrito por:
+ 
+\begin{equation}\label{eq:psi1}
+\ket{\psi_1} = \frac{1}{\sqrt{2}} \left\{  \alpha \begin{pmatrix}
+1 \\
+0
+\end{pmatrix} \otimes \left[ \begin{pmatrix}
+1 \\
+0 \\
+0 \\
+0
+\end{pmatrix} + \begin{pmatrix}
+0 \\
+0 \\
+0 \\
+1
+\end{pmatrix}\right] + \beta \begin{pmatrix}
+0 \\
+1
+\end{pmatrix} \otimes \left[ \begin{pmatrix}
+0 \\
+0 \\
+1 \\
+0
+\end{pmatrix} + \begin{pmatrix}
+0 \\
+1 \\
+0 \\
+0
+\end{pmatrix}\right] \right\}
+\end{equation}
 
-Está portanto definido o estado $\ket{\psi_1}$. A próxima etapa, consiste na aplicação da porta \(\HAD\) no qubit $\ket{\psi_{1}}$, de modo que:
+A próxima etapa, consiste na aplicação da porta \(\HAD\) no qubit $\ket{\psi}$, de modo que:
+
 \begin{equation}\label{eq:halfabeta}
-  \begin{split}
-\HAD \ket{\psi_1} &= \frac{1}{\sqrt{2}} \begin{pmatrix*}[r]
-1 & 1 \\
-1 & -1
-\end{pmatrix*} \left(\alpha \begin{pmatrix}
-1 \\
-0 
-\end{pmatrix} + \beta \begin{pmatrix}
-0 \\
-1
-\end{pmatrix} \right) \\
-&\HAD \alpha \begin{pmatrix}
-1 \\
-0 
-\end{pmatrix} = \frac{1}{2} \alpha \begin{pmatrix}
-1 \\
-1 
-\end{pmatrix} \\
-&\HAD \beta \begin{pmatrix}
-0 \\
-1
-\end{pmatrix} =  \frac{1}{2} \beta \begin{pmatrix*}[r]
-1 \\
--1
-\end{pmatrix*}
-  \end{split}
+  	\begin{split}
+		\HAD \ket{\psi} &= \frac{1}{\sqrt{2}} \begin{pmatrix*}[r]
+		1 & 1 \\
+		1 & -1
+		\end{pmatrix*} \frac{1}{\sqrt{2}}\left(\alpha \begin{pmatrix}
+		1 \\
+		0 
+		\end{pmatrix} + \beta \begin{pmatrix}
+		0 \\
+		1
+		\end{pmatrix} \right) = \frac{1}{2} \left[\alpha \begin{pmatrix}
+		1 \\
+		1 
+		\end{pmatrix} + \beta \begin{pmatrix*}[r]
+		1 \\
+		-1
+		\end{pmatrix*} \right]
+  	\end{split}
 \end{equation}
 
 Os resultados de~\eqref{eq:halfabeta} podem ser reescritos como:
@@ -383,29 +467,9 @@ Os resultados de~\eqref{eq:halfabeta} podem ser reescritos como:
   \end{split}
 \end{equation}
 
-Portanto, o estado $\ket{\psi_2}$ é descrito por:
-\begin{align}\label{eq:psi2matrix}
-\ket{\psi_2} = \frac{1}{2} \left\{\left[ \alpha \begin{pmatrix}
-1 \\
-1 
-\end{pmatrix} \begin{pmatrix}
-1 \\
-0 \\
-0 \\
-1
-\end{pmatrix}\right] + \left[\beta \begin{pmatrix*}[r]
-1 \\
--1
-\end{pmatrix*} \begin{pmatrix}
-0 \\
-1 \\
-1 \\
-0
-\end{pmatrix}\right]\right\}
-\end{align}
+Portanto, reagrupando~\eqref{eq:psi1} e~\eqref{eq:halfabeta} teremos o estado $\ket{\psi_2}$ que é descrito por:
 
-Reescrevendo~\eqref{eq:psi2matrix}
-\begin{equation}\label{eq:psi2aberto}
+\begin{align}\label{eq:psi2matrix}
 \ket{\psi_2} = \frac{1}{2} \left\{\left[ \alpha \begin{pmatrix}
 1 \\
 1 
@@ -433,9 +497,11 @@ Reescrevendo~\eqref{eq:psi2matrix}
 1 \\
 0
 \end{pmatrix}\right]\right\}
-\end{equation}
+\end{align}
 
-No resultado~\eqref{eq:psi2aberto}, podemos evidenciar as seguintes relações:
+
+
+No resultado~\eqref{eq:psi2matrix}, podemos evidenciar as seguintes relações:
 \begin{equation}\label{eq:prodtens1}
 	\begin{split}
 &\begin{pmatrix}
@@ -489,7 +555,7 @@ No resultado~\eqref{eq:psi2aberto}, podemos evidenciar as seguintes relações:
 	\end{split}
 \end{equation}
 
-Substituindo as relações de~\eqref{eq:prodtens1} e~\eqref{eq:alfabetasoma} em~\eqref{eq:psi2aberto}
+Substituindo as relações de~\eqref{eq:prodtens1} e~\eqref{eq:alfabetasoma} em~\eqref{eq:psi2matrix}
 \begin{equation}\label{eq:help}
   \begin{split}
 \ket{\psi_2} &= \frac{1}{2}\left\{\left[\alpha\begin{pmatrix}
@@ -592,3 +658,130 @@ Podemos reorganizar~\eqref{eq:help} evidenciando os termos correspondentes às p
 
 O resultado acima é exatamente mesmo obtido na Tabela~\ref{tab:medidas}.
 
+\clearpage
+
+\chapter{Protocolo de teletransporte desenvolvido em Python}
+\begin{lstlisting}[language=Python, caption=Protocolo de Teletransporte]
+
+#Definição das bibliotecas utilizadas
+import numpy as np
+import math as mt
+import sympy as sp
+from sympy.physics.quantum import TensorProduct as TP
+from math import sqrt
+import sys
+import random
+
+#Qubits iniciais
+qbit0= np.matrix([1,0]).transpose()
+qbit1= np.matrix([0,1]).transpose()
+
+#Porta H
+H = np.matrix([[1,1], [1,-1]])
+
+#Porta I
+I = np.matrix ([[1,0], [0,1]])
+
+#Dimensionamento
+H_I = TP(H,I)*(1/sqrt(2))
+
+#Aplicação da porta Hadamard
+qbit00 = TP(qbit0,qbit0)
+qbit01 = TP(qbit0,qbit1)
+qbit10 = TP(qbit1,qbit0)
+qbit11 = TP(qbit1,qbit1)
+
+#Estados de Bell
+Bell00= H_I * qbit00
+Bell01 = H_I * qbit01
+Bell10 = H_I * qbit10
+Bell11 = H_I * qbit11
+
+#Determinação do qubit para o protocolo
+Message_alfa = float(input('Qual o estado alfa do Qubit que deseja enviar?'))
+Message_beta = float(input('Qual o estado beta do Qubit que deseja enviar?'))
+
+#Verifica se a soma é igual a 1 (condição de normalização)
+if not mt.isclose(Message_alfa +Message_beta, 1.0):
+print("Erro: A soma das entradas não é igual a 1.")
+sys.exit()
+
+#Determina a mensagem a ser enviada
+Message = (Message_alfa * qbit0) + (Message_beta * qbit1)
+print(Message)
+
+#Estado psi_0 (Message + Bell)
+psi_0 = TP(qbit0, qbit00) + TP(qbit0, qbit11) + TP(qbit1,qbit00) + TP(qbit1,qbit11)
+
+#Aplicação da porta CNOT
+CNOT = np.matrix([[1,0,0,0],[0,1,0,0],[0,0,0,1],[0,0,1,0]])
+CNOT_I = TP(CNOT,I)
+
+#Estado psi1
+psi_1 = CNOT_I * psi_0
+
+#Aplicação da porta Hadamard
+H_Message_alfa = H * (Message_alfa * qbit0)
+H_Message_beta = H * (Message_beta * qbit1)
+
+#Medida e Reconstrução da Mensagem
+
+estadoa0 = float(H_Message_alfa[0][0])
+estadoa1 = float(H_Message_alfa[1][0])
+estadob0 = float(H_Message_beta[0][0])
+estadob1 = float(H_Message_beta[1][0])
+
+#Determinação dos estados do qbitmensagem
+a0 = np.matrix([estadoa0,0]).transpose()
+a1 = np.matrix([0,estadoa1]).transpose()
+b0 = np.matrix([estadob0,0]).transpose()
+b1 = np.matrix([0,estadob1]).transpose()
+
+#Determinação dos possíveis estados da Mensagem
+
+#Medição
+estado_00 = qbit00
+estado_11 = qbit11
+estado_10 = qbit10
+estado_01 = qbit01
+
+group_estados = [estado_00,estado_11,estado_10,estado_01]
+chosen_estados = random.choice(group_estados)
+Medição = chosen_estados
+
+del estado_00, estado_11, estado_10, estado_01
+
+#Reconstrução da Mensagem
+
+# Define as matrizes de Pauli
+X = np.matrix([[0, 1], [1, 0]])
+Z = np.matrix([[1, 0], [0, -1]])
+
+# Define o qubit mensagem em função do estado medido
+if  np.all(Medição == qbit00):
+    Message_tp = a0-b1
+elif  np.all(Medição == qbit11):
+    Message_tp = a1-b0
+elif  np.all(Medição == qbit01):
+    Message_tp = a1+b0
+else:
+    Message_tp = a0+b1
+
+#Recupera a mensagem Original
+if np.all(Message_tp == a0-b1):
+    Message_final = Message_tp
+elif np.all(Message_tp == a1-b0):
+    Message_final = Z * X * Message_tp  
+elif np.all(Message_tp == a1+b0):
+    Message_final = X * Message_tp 
+elif np.all(Message_tp == a0+b1):
+    Message_final = Z * Message_tp 
+    
+if np.all(Message_final == Message):
+    print('Teletransporte concluído com sucesso')
+else:
+    print('Falha no Teletransporte')
+
+print(Message_final)  
+
+\end{lstlisting}
