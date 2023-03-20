@@ -8,7 +8,7 @@
 %%% Licenciatura em Física - UFSCar, Sorocaba
 %%%
 
-\chapter{Representação Matricial dos protocolos de Emaranhamento e Teletransporte}
+\chapter{Representação Matricial dos protocolos de Emaranhamento e Teletransporte}\label{app:matricial}
 
 As representações matriciais dos protocolos de Emaranhamento e Teletransporte nos permitem observar com maior clareza a natureza binária dos qubits numa representação de como seria seu comportamento em uma situação real. Para todos os efeitos não é considerada a origem do qubit mas sim sua natureza, ou seja, uma entidade quântica. A notação de \textit{bracket} permite que as operações sejam realizadas considerando os estados quânticos possíveis armazenados dentro do qubit como versores num espaço complexo.
 
@@ -60,7 +60,7 @@ Para que o emaranhamento seja possível, ambos os qubits representados por $\ket
 
 Seguindo a Figura~\ref{fig:protocoloteletransporte}, aplicamos a porta Hadamard, \(\HAD\), no estado $\ket{q_x}$:
 
-\begin{equation}
+\begin{equation}\label{eq:Hqbit0}
 \HAD \ket{q_x}= \frac{1}{\sqrt{2}} \begin{pmatrix*}[r]
 1 & 1 \\
 1 & -1
@@ -75,7 +75,7 @@ Seguindo a Figura~\ref{fig:protocoloteletransporte}, aplicamos a porta Hadamard,
 
 
 Em seguida, aplicamos a porta \(\CNOT\) tendo como controle o qubit $\ket{q_x}$, após a aplicação de \(\HAD\) e o alvo o qubit $\ket{q_y}$:
-\begin{equation}
+\begin{equation}\label{eq:matrizbell00}
 	\begin{split}
  		\CNOT \bigl( \ket{q_x}\ket{q_y} \bigr) =& 
 		\begin{pmatrix}
@@ -182,7 +182,7 @@ Conforme Figura~\ref{fig:protocoloteletransporte}, a porta \(\CNOT\) possui como
 \end{equation}
 
 evidenciando os produtos tensoriais de~\eqref{eq:psi0cnot}
-\begin{equation}
+\begin{equation}\label{eq:prodtenspsi0}
 	\begin{split}
 \ket{\psi_0} &= \frac{1}{\sqrt{2}}\left\{\alpha \begin{pmatrix}
 1 \\
@@ -599,7 +599,8 @@ Substituindo as relações de~\eqref{eq:prodtens1} e~\eqref{eq:alfabetasoma} em~
   \end{split}
 \end{equation}
 Podemos reorganizar~\eqref{eq:help} evidenciando os termos correspondentes às possíveis medidas realizadas no Local A e no resultado correspondente do par emaranhado no Local B:
-\begin{equation}
+
+\begin{equation}\label{eq:final}
   \begin{split}
 \ket{\psi_2} &=\frac{1}{2} \left\{ \left[\begin{pmatrix}
 1 \\
@@ -660,7 +661,7 @@ O resultado acima é exatamente mesmo obtido na Tabela~\ref{tab:medidas}.
 
 \clearpage
 
-\chapter{Protocolo de teletransporte desenvolvido em Python}
+\chapter{Protocolo de teletransporte desenvolvido em Python}\label{app:protocolo}
 \begin{lstlisting}[language=Python, caption=Protocolo de Teletransporte]
 
 #Definição das bibliotecas utilizadas

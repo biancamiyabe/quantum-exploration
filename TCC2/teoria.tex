@@ -75,12 +75,15 @@ O conjugado complexo de uma matriz é definido como a matriz transposta dos seus
 
 Os recursos apresentados acima, serão utilizados ao longo do trabalho e principalmente na descrição da Seção~\ref{sec:Mecanicaquantica}.
 
+\clearpage
 
 \section{Mecânica Quântica}\label{sec:Mecanicaquantica}
 
 A teoria da Física intitulada Mecânica Quântica (MQ), surgiu no século XX após uma série de experimentos constatarem que as leis físicas conhecidas até então, não se aplicavam em sistemas da ordem de 1 \AA, ou seja, $10^{-10}m$. Com o avanço dos estudos e experimentos na MQ, foi possível tornar 'visível' uma série de comportamentos da Natureza que antes eram observados apenas em escala macroscópica. Esse aumento na capacidade da descrição da Natureza só foi possível devido a uma série de ferramentas matemáticas e axiomas que constituem a teoria da MQ \cite{jorcuvich}. 
 
-A compreensão dessa teoria física, não foi aceita pela comunidade científica assim que foi sugerida, por volta de 1925, com os trabalhos de vários cientistas, como Max Planck, Albert Einstein, Niels Bohr, Werner Heisenberg, Erwin Schrödinger, entre outros\footnote{Um descrição detalhada dos experimentos e evoluções conceituais que culminaram na estrutura da MQ que conhecemos na atualidade pode ser encontrada no artigo de \textcite{chibeni}.}, principalmente pelo fato de que, naquela época, os recursos tecnológicos para o desenvolvimento de experimentos que confirmassem a teoria proposta era ainda escassa.\cite{chibeni}. Até mesmo Albert Einstein duvidava de alguns aspectos da teoria, como exemplo, conforme veremos nos próximos capítulos, o fenômeno de Emaranhamento Quântico causava em Einstein certa estranheza, em suas próprias palavras "Uma ação fantasmagórica à distância", era a melhor descrição para o fenômeno. O fato da MQ não ser observada diretamente ainda causa estranheza, porém, isso não a torna menos correta que qualquer outra teoria, pelo contrário, atualmente a MQ é considerada uma das teorias mais completas utilizadas para a descrição da Natureza \cite{chuang}. Nas próximas seções, alguns conceitos da MQ serão apresentados para a compreensão do desenvolvimento do trabalho, baseando-se principalmente nas ideias apresentadas por \textcite{chuang,jorcuvich,CompInfoQuantica,grif}.
+A compreensão dessa teoria física, não foi aceita pela comunidade científica assim que foi sugerida, por volta de 1925, com os trabalhos de vários cientistas, como Max Planck, Albert Einstein, Niels Bohr, Werner Heisenberg, Erwin Schrödinger, entre outros\footnote{Um descrição detalhada dos experimentos e evoluções conceituais que culminaram na estrutura da MQ que conhecemos na atualidade pode ser encontrada no artigo de \textcite{chibeni}.}, principalmente pelo fato de que, naquela época, os recursos tecnológicos para o desenvolvimento de experimentos que confirmassem a teoria proposta era ainda escassa.\cite{chibeni}. 
+
+Até mesmo Albert Einstein duvidava de alguns aspectos da teoria, como exemplo, conforme veremos nos próximos capítulos, o fenômeno de Emaranhamento Quântico causava em Einstein certa estranheza, em suas próprias palavras "Uma ação fantasmagórica à distância", era a melhor descrição para o fenômeno. O fato da MQ não ser observada diretamente ainda causa estranheza, porém, isso não a torna menos correta que qualquer outra teoria, pelo contrário, atualmente a MQ é considerada uma das teorias mais completas utilizadas para a descrição da Natureza \cite{chuang}. Nas próximas seções, alguns conceitos da MQ serão apresentados para a compreensão do desenvolvimento do trabalho, baseando-se principalmente nas ideias apresentadas por \textcite{chuang,jorcuvich,CompInfoQuantica,grif}.
 
 
 \subsection{Postulados da MQ}\label{sec:postulados}
@@ -123,10 +126,11 @@ O emaranhamento quântico tem implicações importantes, como por exemplo, no ca
 
 O emaranhamento quântico também é importante na computação quântica, onde os qubits emaranhados podem ser usados para executar operações de forma mais rápida e eficiente do que seria possível com qubits individuais. Além disso, o emaranhamento quântico tem aplicações em áreas como a criptografia quântica, a simulação quântica e a teletransporte quântico.
 
-\vspace{1.5cm}
+Para compreender melhor esse fenômeno, podemos pensar na situação onde temos um sistema de dois qubits $\ket{\psi}=\alpha\ket{0}+\beta\ket{1}$ e $\ket{\varphi}=\mu\ket{0}+\eta\ket{1}$. Se em nosso sistema, os dois qubits são independentes, significa que possuirão probabilidades associadas aos estados $\ket{0}$ e $\ket{1}$ distintas, ou seja, $\alpha \neq \beta \neq \mu \neq \eta$. Considerado agora que os qubits $\ket{\psi}$ e $\ket{\varphi}$ estejam emaranhados, os estados não poderão ser mais considerados de forma independente e portanto, as probabilidades são descritas associadas aos estados possívei. Teremos portanto, os estados emaranhados $\ket{00}, \ket{01}, \ket{10} e \ket{11}$ cujas probabilidades dependerão de ambos os qubits. Alterando os estados de um qubit, consequentemente o outro será alterado, fazendo com que passemos a pensar numa distribuição de probabilidade entre os estados. Um processo simplificado da utilização do emaranhamento em computação quântica pode ser encontrado em \ref{list:emaranhamento}.
+
 \textbf{Etapas do Emaranhamento Quântico de Qubits}
 
-\begin{itemize}
+\begin{itemize}\label{list:emaranhamento}
 \item 1. Preparação:  O primeiro passo é preparar os qubits individuais. Isso pode ser feito carregando os qubits em computadores quânticos ou usando dispositivos quânticos especializados, como lasers.
 
 \item 2. Entrelaçamento: Em seguida, os qubits são entrelaçados, o que significa que eles são interconectados de modo que as informações entre eles sejam compartilhadas. Isso pode ser feito usando técnicas como a interferência quântica.
@@ -138,7 +142,7 @@ O emaranhamento quântico também é importante na computação quântica, onde 
 
 \subsection{Teorema da Não-Clonagem}\label{sec:naoclonagem}
 
-O teorema da não-clonagem de qubits é um resultado fundamental na teoria da informação quântica que afirma que é impossível fazer uma cópia exata do estado quântico de um qubit arbitrário. Em outras palavras, não é possível criar uma máquina de clonagem quântica que produza uma cópia idêntica de um qubit desconhecido diferente da informação clássica que pode ser facilmente reproduzida, basta recordar que um livro pode ser impresso com a tiragem de exemplares desejada.
+O teorema da não-clonagem de qubits é um resultado fundamental na teoria da informação quântica que afirma que é impossível fazer uma cópia exata do estado quântico de um qubit arbitrário. Em outras palavras, não é possível criar uma máquina de clonagem quântica que produza uma cópia idêntica de um qubit desconhecido, diferente da informação clássica que pode ser facilmente reproduzida, basta recordar que um livro pode ser impresso com a tiragem de exemplares desejada.
 
 Esse resultado tem implicações importantes para a criptografia quântica e a segurança da comunicação quântica, pois impede a interceptação e a cópia dos estados quânticos usados para transmitir informações. O teorema da não clonagem foi provado por Wooters e Zurek em 1982, e é um dos resultados fundamentais da teoria da informação quântica \cite{clone}.
 
@@ -166,15 +170,15 @@ A resolução do paradoxo EPR veio da própria teoria da MQ e sua interpretaçã
 
 \subsection{Teletransporte Quântico}\label{sec:teletransporteteoria}
 
-O Teletransporte Quântico consiste em uma série de operações realizadas por intermédio de um circuito de natureza quântica que pretende enviar uma mensagem de um ponto \(A\) até um ponto \(B\). Para a realização desse procedimento, dependemos essencialmente de ao menos três qubits. Para introduzir esse conceito, iremos nos apropriar de uma história hipotética a título de esclarecer a ideia principal do fenômeno. Imagine por um instante que se deseja enviar uma fotografia para alguém que não se vê há muito tempo. Existem essencialmente duas maneiras de realizar o envio: pode-se enviar a foto pelo correio e aguardar que o destinatário a receba, processo chamado de transporte de informação, ou ainda, você poderia criar um arquivo digital com informações sobre a fotografia, de maneira que aquele que recebe o arquivo, possa de alguma maneira recriar a foto; nesse segundo caso, a foto seria teletransportada \cite{materialdidaticomecquantica}.
-
-Trazendo a situação descrita para o universo quântico, o teletransporte de estados quânticos consiste em uma série de operações que possibilitam descrever no ponto \(B\) um estado existente no ponto \(A\). A princípio, devido ao Teorema da Não-Clonagem (~\ref{sec:naoclonagem}), seria impossível ``clonar'' um qubit, ou seja, teletransportar a informação de modo semelhante ao que ocorre com um canal clássico. Porém, segundo \textcite{bennet}, é possível contornar o problema utilizando um canal de informação clássico, semelhante ao apresentado por Shannon na TMC, porém utilizando como emissor-receptor um par de partículas emaranhadas quanticamente.
+O Teletransporte Quântico consiste em uma série de operações realizadas por intermédio de um circuito de natureza quântica que pretende enviar uma mensagem de um ponto \(A\) até um ponto \(B\). Ele consiste em uma série de operações que possibilitam descrever no ponto \(B\) um estado existente no ponto \(A\). A princípio, devido ao Teorema da Não-Clonagem (~\ref{sec:naoclonagem}), seria impossível ``clonar'' um estado quântico, ou seja, teletransportar a informação de modo semelhante ao que ocorre com um canal clássico. Porém, segundo \textcite{bennet}, é possível contornar o problema utilizando um canal de informação clássico, semelhante ao apresentado por Shannon na TMC, porém utilizando como emissor-receptor um par de partículas emaranhadas quanticamente.
 
 Na literatura encontram-se as mais diversas explicações sobre como funciona o teletransporte quântico \cites{bennet}{experimentalqt}{zeilinger}{brassard1996teleportation}{materialdidaticomecquantica} e na maioria dos casos, os leitores são introduzidos a dois personagens: Alice e Bob.
 
-Na história, os cientistas Alice e Bob estão localizados em dois laboratórios distintos, cada um deles possui um qubit, $q_{A}$ e $q_{B}$ e estes estão emaranhados, produzindo um estado quântico emaranhado denominado de $\ket{\psi_{AB}}$. Alice precisa enviar uma mensagem urgente para Bob utilizando um outro qubit, $q_{C}$. Portanto, no início do processo de teletransporte, Alice possui dois qubits, o que ela deseja enviar e o que possui o estado quântico emaranhado com o qubit de Bob.
+Na história, os cientistas Alice e Bob estão localizados em dois laboratórios distintos, cada um deles possui uma partícula, ${A}$ e ${B}$ e estas estão emaranhadas, produzindo um estado quântico emaranhado denominado de $\ket{\psi_{AB}}$. Alice precisa enviar uma mensagem urgente para Bob utilizando um outro estado, ${C}$. Portanto, no início do processo de teletransporte, Alice possui dois estados, o que ela deseja enviar e o que está emaranhado com o Bob.
 
-Alice realiza então uma série de operações entre seus qubits e para continuar o processo de teletransporte, faz uma medição em seus qubits, colapsando-os e envia, via um canal clássico, a informação dos qubits colapsados para Bob. Este por sua vez, por saber qual era o estado inicial de $q_{A}$ devido ao emaranhamento, conseque reconstruir a mensagem presente originalmente no qubit $q_{C}$ enviado por Alice. Portanto, a mensagem é reconstruida e não clonada, não violando o princípio da não-clonagem. A não-clonagem fica explicitada no momento em que a medida é realizada em $q_{A}$ e $q_{C}$, colapsando-os, de modo que existe apenas uma cópia do estado de $q_{C}$ dado por $\ket{\psi_{C}}$..
+Alice realiza então uma série de operações entre suas partículas e para continuar o processo de teletransporte, faz uma medição, colapsando-as e envia, via um canal clássico, a informação dos estados colapsados para Bob. Este por sua vez, por saber qual era o estado inicial de ${A}$ devido ao emaranhamento, consegue reconstruir a mensagem presente originalmente em ${C}$ enviado por Alice. Portanto, a mensagem é reconstruída e não clonada, não violando o princípio da não-clonagem. A não-clonagem fica explicitada no momento em que a medida é realizada em ${A}$ e ${C}$, colapsando-os, de modo que existe apenas uma cópia do estado de ${C}$ dado por $\ket{\psi_{C}}$.
+
+\clearpage
 
 \section{Computação Quântica}\label{sec:compquant}
 As definições apresentadas nessa seção, estabelecem a base para a compreensão do funcionamento de computadores quânticos quanto à sua lógica de funcionamento e a compreensão da informação como uma entidade representada pela MQ.
@@ -241,7 +245,11 @@ Figura~\ref{fig:bloch}.
 \fonte{Adaptado de \textcite{chuang}.}
 \end{figure}
 
-\todo[inline]{EXPLICAR COMO FUNCIONA O ARMAZENAMENTO DE INFORMAÇÃO NO QUBIT E COMO FUNCIONA A MEDIDA DE UM ESTADO, qualidade vs. quantidade em qubits simultâneos}
+Como o qubit funciona sob um regime de superposição de estados, a seta que o representa na esfera de boch pode estar apontada para qualquer direção em sua superfície e essa direção é obtida como uma combinação linear dos estados $\ket{0}$ e $\ket{1}$. Quando medirmos um qubit, ele ainda irá colapsar em um dos estados descritos anteriormente, ou seja $\ket{0}$ ou $\ket{1}$, porém, com probabilidades distintas associadas a cada um destes.
+
+Para obter os estados de maneira a conseguir respostas, é preciso que esses qubits sejam manipulados de maneira a mudar as probabilidades envolvidas em sua superposição de estados para aquela que é necessária dependendo da manipulação da informação que está sendo realizada. Essa modificação das probabilidades associadas aos possíveis estados de colapso são realizadas utilizando algoritmos. Esses algoritmos realizam operações nos qubits, processando a informação da maneira necessária em cada situação, conforme veremos na seção~\ref{sec:opquantico}
+
+Vale ressaltar que, devido a possibilidade de qubits atuarem em regime de superposição, isso os torna poderosos armazenadores de informação, porém nem sempre quantidade significa qualidade nesse caso. Existe na atualidade uma busca pelo aumento da quantidade de qubits operando simultaneamente em razão da qualidade da informação que este armazena. Na prática, qubits por serem entidades quânticas podem ser representados como funções de onda e sua superposição é uma combinação de todas as funções dos estados envolvidos. Isso faz com que ruídos possam interferir em sua estrutura e a informação não consiga ser obtida com a qualidade esperada. Os estudos atuais se dedicam a aperfeiçoar a operação simultânea de qubits não apenas aumentando sua quantidade, mas desenvolvendo técnicas para manter todo o sistema coeso e com resultados confiáveis após as operações.
 
 \subsection{Operadores Quânticos}\label{sec:opquantico}
 
@@ -354,6 +362,23 @@ Existe ainda o operador Medição, que efetua o colapso do sistema quântico e r
 \end{quantikz}
 \end{figure}
 
+\subsection{Algoritmos quânticos}\label{sec:algoritmo}
+Conforme descrito na seção~\ref{sec:qubits}, qubits são manipulados através de operações (apresentadas na seção~\ref{sec:opquantico}) para obter o resultado esperado para o problema a ser resolvido, para tal, precisamos construir algoritmos quânticos. Existe uma infinidade de algoritmos quânticos já implementados, nesse trabalho desenvolveremos um destes, porém alguns outros algoritmos são interessantes e serão apresentados nessa seção.
+
+Historicamente o primeiro algoritmo quântico a ser implementado, ainda que de maneira teórica foi o algoritmo de Shor. Nesse algoritmo Peter Shor constrói uma estrutura que responde quais números multiplicados retornam o resultado apresentado. Ou seja, suponha que tenhamos a equação $ A = x * y, com x = 24568 e y=45877$, nesse caso, sem quaisquer problemas um computador clássico seria capaz de encontrar o valor de $A$ pois este conhece as variáveis $x$ e $y$. Agora suponha que o computador conhece $A$ porém desconhece os valores de $x$ e $y$ e os deseja encontrar, ou seja, qual (ou quais) multiplicações de $x$ e $y$ resultam no valor de $A=1127106136$? Esse processo chama-se fatoração e classicamente, não existe nenhum algoritmo eficiente(rápido) para solucionar esse problema. A Fatoração é utilizada para encriptação, ou seja, codificação de contas de banco, senhas de provedores de internet e afins, pois é extremamente difícil encontrar os fatores para o valor encriptado. Por esse motivo, quando Peter Shor apresenta em 1994 o algoritmo quântico capaz de facilmente operar a fatoração, a computação quântica passa a ser levada em consideração \cite{videoyoutube2}.
+
+Alguns outros algoritmos quânticos importantes são:
+\begin{itemize}
+\item Algoritmo de Deutsch-Jozsa: um algoritmo que determina se uma função é constante ou balanceada, com apenas uma única consulta à função.
+\item Algoritmo de Grover: um algoritmo de busca que encontra a solução para um problema em uma lista desordenada com uma complexidade quadrática em relação ao número de entradas, em contraste com a complexidade linear dos algoritmos clássicos.
+\item Algoritmo de simulação quântica: um algoritmo que simula a evolução de sistemas quânticos com maior eficiência do que os algoritmos clássicos correspondentes.
+\item Algoritmo de codificação de \textit{quantum error correction}: um algoritmo que protege informações quânticas contra erros causados pela interação com o ambiente.
+\end{itemize} 
+
+Vale ressaltar que algoritmos quânticos, alteram o estado de um conjunto de qubits sem que seja necessário modificar todos os qubits envolvidos devido ao fenômeno do emaranhamento. Isso nos leva a outra importante característica de algoritmos, eles não precisam necessariamente medir os qubits para alterar seu estado, fazendo com que seja possível um sistema quântico permanecer em superposição pois não existe necessariamente a ocorrência de uma medida que colapse todo o estado, o que garante que mais informação pode ser processada sem colapsar os estados quânticos do sistema, o que garante que sistemas quânticos sendo processados são também reversíveis.
+
+Neste trabalho, desenvolvemos um protocolo de teletransporte quântico que se enquadra na categoria de algoritmo de simulação quântica na tentativa de melhor descrever uma situação real.
+
 \subsection{Protocolo de Teletransporte Quântico}\label{sec:teletransporteprotocolo}
 
 A descrição deste protocolo foi baseada em \textcite{chuang, jorcuvich, CompInfoQuantica, benschu}. A realização de um protocolo de Teletransporte Quântico consiste, essencialmente, em uma série de operações que possuem por objetivo principal fazer com que uma mensagem, ou na linguagem quântica, um estado quântico, se teletransporte entre dois pontos distintos fisicamente.
@@ -379,7 +404,7 @@ Um dos qubits do par emaranhado em~\eqref{eq:bell00} é mantido em \(A\) e o out
  \begin{equation}\label{psi}
   \ket{\psi} = \alpha \ket{0} + \beta \ket{1}.
  \end{equation}
-De posse do par emaranhado e da mensagem, o protocolo é iniciado com a aplicação da porta \(\CNOT\) entre $\ket{\psi}\ket{\beta_{00}}$, que chamaremos de $\ket{\psi_0}$. A porta \(\CNOT\) possui como alvo o qubit $\ket{q_y}$ e como qubit de controle $\ket{q_x}$. Isso indica que a porta \(\CNOT\) irá modificar $\ket{q_y}$ de acordo com o estado de $\ket{q_x}$ confome~\ref{definition:cnot}.
+De posse do par emaranhado e da mensagem, o protocolo é iniciado com a aplicação da porta \(\CNOT\) entre $\ket{\psi}\ket{\beta_{00}}$, que chamaremos de $\ket{\psi_0}$. A porta \(\CNOT\) possui como alvo o qubit $\ket{\beta_00}$ presente em \(A\) e como qubit de controle $\ket{\psi}$. Isso indica que a porta \(\CNOT\) irá modificar $\ket{\beta_00}$ de acordo com o estado de $\ket{\psi}$ confome~\ref{definition:cnot}.
 
 
 \begin{definition}{Operação \(\CNOT\)}{cnot}
@@ -397,7 +422,7 @@ Dessa maneira, aplicando a Definição~\ref{definition:cnot} no estado dado por 
                      &= \frac{1}{\sqrt{2}} \Bigl[\alpha \ket{0} \bigl( \ket{00} + \ket{11} \bigr) + \beta \ket{1} \bigl( \ket{10} + \ket{01} \bigr) \Bigr].
 \end{align}
 
-A operação descrita pela Equação~\eqref{eq:cnotpsi0} resulta no estado que chamaremos de $\ket{\psi_1}$ e neste, segundo o circuito da Figura~\ref{fig:protocoloteletransporte}, deve-se aplicar a porta Hadamard, descrita na Definição~\ref{definition:hadamard}.
+A operação descrita pela Equação~\eqref{eq:cnotpsi0} resulta no estado que chamaremos de $\ket{\psi_1}$ e neste, segundo o circuito da Figura~\ref{fig:protocoloteletransporte}, deve-se aplicar a porta Hadamard em $\ket{\psi}$, conforme a Definição~\ref{definition:hadamard}.
 
 \begin{definition}{Operação Hadamard}{hadamard}
   A operação Hadamard deve:
