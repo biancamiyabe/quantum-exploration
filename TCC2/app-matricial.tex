@@ -159,7 +159,7 @@ A próxima etapa do protocolo de teletransporte, consiste na aplicação da port
 \end{pmatrix}\right]
 \end{equation}
 
-Conforme Figura~\ref{fig:protocoloteletransporte}, a porta \(\CNOT\) possui como controle o qubit descrito pelo estado $\ket{\psi}$ e como alvo o par emaranhado presente no Local A $\ket{\beta_{00}}$. Sua atuação apenas ocorrerá quando o qubit de controle estiver no estado $\ket{1}$. Desse modo, reescrevendo~\eqref{eq:psi0}
+Conforme Figura~\ref{fig:protocoloteletransporte}, a porta \(\CNOT\) possui como controle o qubit descrito pelo estado $\ket{\psi}$ e como alvo o par emaranhado presente no local A $\ket{\beta_{00}}$. Sua atuação apenas ocorrerá quando o qubit de controle estiver no estado $\ket{1}$. Desse modo, reescrevendo~\eqref{eq:psi0}
 
 \begin{equation}\label{eq:psi0cnot}
 \ket{\psi_0} = \frac{1}{\sqrt{2}}\left\{\left[\alpha \begin{pmatrix}
@@ -386,7 +386,7 @@ Usando a lógica de construção de~\eqref{eq:3estados}, podemos separar as trí
 	\end{split}
 \end{equation}
 
- Portanto, reorganizando e agrupando os estados definidos em~\eqref{eq:cnot3estados}, o estado $\ket{\psi_1}$ pode ser descrito por:
+Portanto, reorganizando e agrupando os estados definidos em~\eqref{eq:cnot3estados}, o estado $\ket{\psi_1}$ pode ser descrito por:
  
 \begin{equation}\label{eq:psi1}
 \ket{\psi_1} = \frac{1}{\sqrt{2}} \left\{  \alpha \begin{pmatrix}
@@ -598,7 +598,7 @@ Substituindo as relações de~\eqref{eq:prodtens1} e~\eqref{eq:alfabetasoma} em~
 \end{pmatrix}\right)\right]\right\}
   \end{split}
 \end{equation}
-Podemos reorganizar~\eqref{eq:help} evidenciando os termos correspondentes às possíveis medidas realizadas no Local A e no resultado correspondente do par emaranhado no Local B:
+Podemos reorganizar~\eqref{eq:help} evidenciando os termos correspondentes às possíveis medidas realizadas no local A e no resultado correspondente do par emaranhado no local B:
 
 \begin{equation}\label{eq:final}
   \begin{split}
@@ -678,111 +678,146 @@ qbit0= np.matrix([1,0]).transpose()
 qbit1= np.matrix([0,1]).transpose()
 
 #Porta H
-H = np.matrix([[1,1], [1,-1]])
+H = 1/sqrt(2)*(np.matrix([[1,1], [1,-1]]))
 
-#Porta I
-I = np.matrix ([[1,0], [0,1]])
+#Aplicação da porta Hadamard no qubit qx
+Hqbit0= H*qbit0
+#print(Hqbit0)
 
-#Dimensionamento
-H_I = TP(H,I)*(1/sqrt(2))
+#Aplicação da porta CNOT
+CNOT = np.matrix([[1,0,0,0],[0,1,0,0],[0,0,0,1],[0,0,1,0]])
 
-#Aplicação da porta Hadamard
-qbit00 = TP(qbit0,qbit0)
-qbit01 = TP(qbit0,qbit1)
-qbit10 = TP(qbit1,qbit0)
-qbit11 = TP(qbit1,qbit1)
-
-#Estados de Bell
-Bell00= H_I * qbit00
-Bell01 = H_I * qbit01
-Bell10 = H_I * qbit10
-Bell11 = H_I * qbit11
+#Base de Bell estado |00>
+#Definição Alvo e Controle
+AC= TP(Hqbit0,qbit0)
+#print(AC)
+Bell00 = CNOT * AC
+#print(Bell00)
 
 #Determinação do qubit para o protocolo
 Message_alfa = float(input('Qual o estado alfa do Qubit que deseja enviar?'))
 Message_beta = float(input('Qual o estado beta do Qubit que deseja enviar?'))
 
 #Verifica se a soma é igual a 1 (condição de normalização)
-if not mt.isclose(Message_alfa +Message_beta, 1.0):
-print("Erro: A soma das entradas não é igual a 1.")
-sys.exit()
-
+if not mt.isclose(Message_alfa  +Message_beta, 1.0):
+    print("Erro: A soma das entradas não é igual a 1.")
+    sys.exit()
+    
 #Determina a mensagem a ser enviada
 Message = (Message_alfa * qbit0) + (Message_beta * qbit1)
 print(Message)
 
-#Estado psi_0 (Message + Bell)
-psi_0 = TP(qbit0, qbit00) + TP(qbit0, qbit11) + TP(qbit1,qbit00) + TP(qbit1,qbit11)
+#Estado psi_0 
+psi_0 = TP(qbit0, qbit0, qbit0) + TP(qbit0, qbit1, qbit1) + TP(qbit1,qbit0, qbit0) + TP(qbit1,qbit1,qbit1)
 
 #Aplicação da porta CNOT
-CNOT = np.matrix([[1,0,0,0],[0,1,0,0],[0,0,0,1],[0,0,1,0]])
+#Dimensionamento para 3 qubits
+#Porta I
+I = np.matrix ([[1,0], [0,1]])
 CNOT_I = TP(CNOT,I)
-
-#Estado psi1
+#print(CNOT_I)
 psi_1 = CNOT_I * psi_0
+#print(psi_1)
 
 #Aplicação da porta Hadamard
 H_Message_alfa = H * (Message_alfa * qbit0)
 H_Message_beta = H * (Message_beta * qbit1)
+#print(H_Message_alfa, H_Message_beta)
 
 #Medida e Reconstrução da Mensagem
-
 estadoa0 = float(H_Message_alfa[0][0])
 estadoa1 = float(H_Message_alfa[1][0])
 estadob0 = float(H_Message_beta[0][0])
 estadob1 = float(H_Message_beta[1][0])
+
 
 #Determinação dos estados do qbitmensagem
 a0 = np.matrix([estadoa0,0]).transpose()
 a1 = np.matrix([0,estadoa1]).transpose()
 b0 = np.matrix([estadob0,0]).transpose()
 b1 = np.matrix([0,estadob1]).transpose()
+print(a0,a1,b0,b1)
 
 #Determinação dos possíveis estados da Mensagem
-
 #Medição
-estado_00 = qbit00
-estado_11 = qbit11
-estado_10 = qbit10
-estado_01 = qbit01
+estado_00 = TP(qbit0, qbit0)
+estado_11 = TP(qbit1, qbit1)
+estado_10 = TP(qbit1, qbit0)
+estado_01 = TP(qbit0, qbit1)
 
 group_estados = [estado_00,estado_11,estado_10,estado_01]
 chosen_estados = random.choice(group_estados)
 Medição = chosen_estados
-
 del estado_00, estado_11, estado_10, estado_01
+print(Medição)
 
 #Reconstrução da Mensagem
+#Define o qubit mensagem em função do estado medido
+if  np.all(Medição == (TP(qbit0,qbit0))):
+    Message_tp = (a0-b1)
+elif  np.all(Medição == (TP(qbit1,qbit1))):
+    Message_tp = (a1-b0)
+elif  np.all(Medição == (TP(qbit0,qbit1))):
+    Message_tp = (a1+b0)
+elif np.all(Medição == (TP(qbit1,qbit0))):
+    Message_tp = (a0+b1)
+#print(Message_tp) 
+
+
+#Recupera a mensagem Original
 
 # Define as matrizes de Pauli
 X = np.matrix([[0, 1], [1, 0]])
 Z = np.matrix([[1, 0], [0, -1]])
 
-# Define o qubit mensagem em função do estado medido
-if  np.all(Medição == qbit00):
-    Message_tp = a0-b1
-elif  np.all(Medição == qbit11):
-    Message_tp = a1-b0
-elif  np.all(Medição == qbit01):
-    Message_tp = a1+b0
-else:
-    Message_tp = a0+b1
-
-#Recupera a mensagem Original
-if np.all(Message_tp == a0-b1):
+if np.all(Message_tp == (a0-b1)):
     Message_final = Message_tp
-elif np.all(Message_tp == a1-b0):
-    Message_final = Z * X * Message_tp  
-elif np.all(Message_tp == a1+b0):
+elif np.all(Message_tp == (a1-b0)):
+    Message_final = Z * X * Message_tp 
+elif np.all(Message_tp == (a1+b0)):
     Message_final = X * Message_tp 
-elif np.all(Message_tp == a0+b1):
+elif np.all(Message_tp == (a0+b1)):
     Message_final = Z * Message_tp 
     
-if np.all(Message_final == Message):
+Mensagem_teletransportada = Message_final*sqrt(2)    
+
+print(Mensagem_teletransportada)
+
+
+#Aplicação de ruído
+#Determinando os ruídos
+bitflip = np.matrix([[0, 1], [1, 0]])
+phaseflip = np.matrix([[1, 0], [0, -1]])
+noisebit = 0
+
+# Escolha do ruído aplicado
+while True:
+    noise = input('Escolha o ruído:[0]- sem ruído, [1]- bitflip, [2]- phaseflip: ')
+    if noise in ['0', '1', '2']:
+        noise = int(noise)
+        break
+    else:
+        print("Opção inválida. Por favor, digite 0, 1, ou 2.")
+
+if noise == 1:
+    noisebit = bitflip
+elif noise == 2:
+    noisebit = phaseflip
+elif noise == 0:
+    noisebit = 1
+    
+print(noisebit)
+
+aplicação_noise = noisebit * Mensagem_teletransportada
+print(aplicação_noise)
+
+if np.all(Mensagem_teletransportada == Message):
     print('Teletransporte concluído com sucesso')
 else:
     print('Falha no Teletransporte')
 
-print(Message_final)  
-
+if np.all(aplicação_noise != Message):
+    print('Mensagem com ruídos')
+else:
+    print('Mensagem sem ruídos')
 \end{lstlisting}

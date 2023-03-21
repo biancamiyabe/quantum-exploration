@@ -10,14 +10,14 @@
 
 \chapter{Fundamentação Teórica}
 
-Conforme descrito no Capítulo de Introdução, para o estudo da Computação Quântica e da Informação Quântica são necessários alguns recursos provenientes da Mecânica Quântica, bem como a construção de análogos quânticos para o processamento dessa informação. As seções a seguir apresentarão a fundamentação teórica e os recursos matemáticos necessários para o desenvolvimento da simulação proposta na Metodologia.
+Conforme descrito no Capítulo de Introdução, para o estudo da Computação Quântica e da Informação Quântica são necessários alguns recursos provenientes da MQ, bem como a construção de análogos quânticos para o processamento dessa informação. As seções a seguir apresentarão a fundamentação teórica e os recursos matemáticos necessários para o desenvolvimento da simulação proposta na Metodologia.
 
 \section{Conceitos básicos de Álgebra Linear}\label{sec:algelin}
 A Álgebra Linear é o estudo dos vetores que descrevem um espaço e consequentemente das operações nesses espaços vetoriais. Para o desenvolvimento desse trabalho, serão necessários reconhecer as notações descritas na Tabela~\ref{tab:notação}.
 
 \begin{table}[ht!]
   \centering
-  \caption{Notações utilizadas nas operações de Mecânica Quântica e sua respectiva descrição. O estilo das notações é conhecido como Notação de Dirac para Álgebra Linear.}\label{tab:notação}
+  \caption{Notações utilizadas nas operações de MQ e sua respectiva descrição. O estilo das notações é conhecido como Notação de Dirac para Álgebra Linear.}\label{tab:notação}
   \begin{tabular}{cl}
     \toprule
     {\textbf{Notação}}                 & {\textbf{Descrição}}                                                 \\
@@ -33,7 +33,7 @@ A Álgebra Linear é o estudo dos vetores que descrevem um espaço e consequente
   \fonte{Adaptada de \textcite{chuang}.}
 \end{table}
 
-A descrição da Mecânica Quântica é feita tomando como base um espaço vetorial chamado \textit{Espaço de Hilbert} $\mathcal{H}$, sendo este um espaço complexo, vetorial e linear. Um \textit{ket} é um vetor arbitrário de $\mathcal{H}$, com representação descrita por:
+A descrição da MQ é feita tomando como base um espaço vetorial chamado \textit{Espaço de Hilbert} $\mathcal{H}$, sendo este um espaço complexo, vetorial e linear. Um \textit{ket} é um vetor arbitrário de $\mathcal{H}$, com representação descrita por:
 \begin{equation}\label{eq:ketpsi}
   \ket{\psi} = [\psi_1,...,\psi_n]^T \in \mathcal{H}.
 \end{equation}
@@ -159,7 +159,7 @@ U:\mathcal{H} \otimes \mathcal{H} \rightarrow \mathcal{H} \otimes \mathcal{H}
 
 \subsection{Paradoxo EPR}\label{sec:epr}
 
-O Paradoxo EPR é um famoso argumento em favor da incompletude da MQ, proposto por Albert Einstein, Boris Podolsky e Nathan Rosen em 1935. O paradoxo começa com a observação de que a mecânica quântica prevê que duas partículas emaranhadas podem estar em um estado quântico compartilhado, mesmo que estejam distantes uma da outra.
+O Paradoxo EPR é um famoso argumento em favor da incompletude da MQ, proposto por Albert Einstein, Boris Podolsky e Nathan Rosen em 1935. O paradoxo começa com a observação de que a MQ prevê que duas partículas emaranhadas podem estar em um estado quântico compartilhado, mesmo que estejam distantes uma da outra.
 
 De acordo com a MQ, se duas partículas são emaranhadas, a medição do estado quântico de uma partícula instantaneamente afetará o estado quântico da outra partícula, independentemente da distância entre elas. Isso significa que as partículas emaranhadas parecem estar em comunicação instantânea, o que violaria a teoria da relatividade especial de Einstein, que proíbe a comunicação mais rápida do que a velocidade da luz.
 
@@ -195,9 +195,9 @@ Podemos começar a descrição de um qubit como uma superposição dos estados q
 \end{equation}
 com $\alpha$ e $\beta$ parametrizados por \(\alpha^{2} + \beta^{2} = 1\).
 
-Os números $\alpha$ e $\beta$ são complexos e determinam as amplitudes probabilísticas da obtenção dos estados quânticos. O estado descrito por $\ket{\psi}$ é uma superposição dos estados quânticos $\ket{0}$ e $\ket{1}$, ou seja, seguindo os postulados da mecânica quântica, o qubit pode existir num estado contínuo entre $\ket{0}$ e $\ket{1}$ porém, ao ser medido, colapsando o sistema, retornará apenas os valores de $\ket{0}$ ou $\ket{1}$ com as probabilidades $\alpha$ e $\beta$ associadas.
+Os números $\alpha$ e $\beta$ são complexos e determinam as amplitudes probabilísticas da obtenção dos estados quânticos. O estado descrito por $\ket{\psi}$ é uma superposição dos estados quânticos $\ket{0}$ e $\ket{1}$, ou seja, seguindo os postulados da MQ, o qubit pode existir num estado contínuo entre $\ket{0}$ e $\ket{1}$ porém, ao ser medido, colapsando o sistema, retornará apenas os valores de $\ket{0}$ ou $\ket{1}$ com as probabilidades $\alpha$ e $\beta$ associadas.
 
-Um recurso para visualizar o comportamento de qubits é sua representação geométrica chamada de Esfera de Boch. Como entidades quânticas não são observáveis diretamente e frequentemente são expressas por recursos matemáticos, a visualização da superposição dos estados de um qubit utilizando a Esfera de Boch facilita, ainda que ligeiramente, sua compreensão.
+Um recurso para visualizar o comportamento de qubits é sua representação geométrica chamada de Esfera de Bloch. Como entidades quânticas não são observáveis diretamente e frequentemente são expressas por recursos matemáticos, a visualização da superposição dos estados de um qubit utilizando a Esfera de Bloch facilita, ainda que ligeiramente, sua compreensão.
 
 Em primeiro lugar, vale lembrar que o qubit, descrito por $\ket{\psi}$, está parametrizado e podemos reescrever~\eqref{eq:psi} em coordenadas polares
 \begin{equation}
@@ -212,7 +212,7 @@ Figura~\ref{fig:bloch}.
 
 \begin{figure}[ht!]
 \centering
-\caption{Representação gráfica de um qubit como um ponto sob a superfície da Esfera de Boch.}\label{fig:bloch}
+\caption{Representação gráfica de um qubit como um ponto sob a superfície da Esfera de Bloch.}\label{fig:bloch}
 % Adaptado de https://tex.stackexchange.com/questions/345420/how-to-draw-a-bloch-sphere
 \begin{blochsphere}[radius=3cm,rotation=-110,opacity=0]
   \drawLongitudeCircle[]{-110};
@@ -245,7 +245,7 @@ Figura~\ref{fig:bloch}.
 \fonte{Adaptado de \textcite{chuang}.}
 \end{figure}
 
-Como o qubit funciona sob um regime de superposição de estados, a seta que o representa na esfera de boch pode estar apontada para qualquer direção em sua superfície e essa direção é obtida como uma combinação linear dos estados $\ket{0}$ e $\ket{1}$. Quando medirmos um qubit, ele ainda irá colapsar em um dos estados descritos anteriormente, ou seja $\ket{0}$ ou $\ket{1}$, porém, com probabilidades distintas associadas a cada um destes.
+Como o qubit funciona sob um regime de superposição de estados, a seta que o representa na esfera de Bloch pode estar apontada para qualquer direção em sua superfície e essa direção é obtida como uma combinação linear dos estados $\ket{0}$ e $\ket{1}$. Quando medirmos um qubit, ele ainda irá colapsar em um dos estados descritos anteriormente, ou seja $\ket{0}$ ou $\ket{1}$, porém, com probabilidades distintas associadas a cada um destes.
 
 Para obter os estados de maneira a conseguir respostas, é preciso que esses qubits sejam manipulados de maneira a mudar as probabilidades envolvidas em sua superposição de estados para aquela que é necessária dependendo da manipulação da informação que está sendo realizada. Essa modificação das probabilidades associadas aos possíveis estados de colapso são realizadas utilizando algoritmos. Esses algoritmos realizam operações nos qubits, processando a informação da maneira necessária em cada situação, conforme veremos na seção~\ref{sec:opquantico}
 
@@ -253,7 +253,7 @@ Vale ressaltar que, devido a possibilidade de qubits atuarem em regime de superp
 
 \subsection{Operadores Quânticos}\label{sec:opquantico}
 
-Na Mecânica Quântica, um \textit{Operador Quântico} é um objeto matemático que representa uma propriedade física observável de um sistema quântico. Eles são fundamentais para a teoria quântica pois fornecem uma maneira de descrever e prever os resultados de medidas em sistemas quânticos. Eles são representados por matrizes ou operadores lineares que pertencem a um espaço de Hilbert \(\mathcal{H}\) e são equivalentes às portas lógicas na computação clássica, ou seja, são implementadas como operadores quânticos que atuam em um ou mais qubits. As próximas seções serão utilizadas para explicar os principais operadores/portas lógicas quânticas e como eles atuam em um qubit \cite{jorcuvich}.
+Na MQ, um \textit{Operador Quântico} é um objeto matemático que representa uma propriedade física observável de um sistema quântico. Eles são fundamentais para a teoria quântica pois fornecem uma maneira de descrever e prever os resultados de medidas em sistemas quânticos. Eles são representados por matrizes ou operadores lineares que pertencem a um espaço de Hilbert \(\mathcal{H}\) e são equivalentes às portas lógicas na computação clássica, ou seja, são implementadas como operadores quânticos que atuam em um ou mais qubits. As próximas seções serão utilizadas para explicar os principais operadores/portas lógicas quânticas e como eles atuam em um qubit \cite{jorcuvich}.
 
 \subsubsection{Matrizes de Pauli}\label{sec:pauli}
 
@@ -382,11 +382,11 @@ Neste trabalho, desenvolvemos um protocolo de teletransporte quântico que se en
 \subsection{Protocolo de Teletransporte Quântico}\label{sec:teletransporteprotocolo}
 
 A descrição deste protocolo foi baseada em \textcite{chuang, jorcuvich, CompInfoQuantica, benschu}. A realização de um protocolo de Teletransporte Quântico consiste, essencialmente, em uma série de operações que possuem por objetivo principal fazer com que uma mensagem, ou na linguagem quântica, um estado quântico, se teletransporte entre dois pontos distintos fisicamente.
-Como em qualquer outra operação computacional é necessária a existência de um circuito lógico, nesse caso quântico, que media as operações. Esse circuito consistirá nas combinações das portas lógicas \(\CNOT\), Haddamard, portas de medição e as portas \(\XXX\) e \(\ZZZ\) conforme a Figura~\ref{fig:protocoloteletransporte}.
+Como em qualquer outra operação computacional é necessária a existência de um circuito lógico, nesse caso quântico, que media as operações. Esse circuito consistirá nas combinações das portas lógicas \(\CNOT\), Hadamard, portas de medição e as portas \(\XXX\) e \(\ZZZ\) conforme a Figura~\ref{fig:protocoloteletransporte}.
 
 \begin{figure}[ht!]
 \centering
-\caption{Protocolo de Teletransporte Quântico mediado pelo circuito com as portas \(\CNOT\), Hadamard, bedição aplicadas no Local \(A\) e as portas \(\XXX\) e \(\ZZZ\) aplicadas no Local \(B\).}\label{fig:protocoloteletransporte}
+\caption{Protocolo de Teletransporte Quântico mediado pelo circuito com as portas \(\CNOT\), Hadamard, medição aplicadas no local \(A\) e as portas \(\XXX\) e \(\ZZZ\) aplicadas no local \(B\).}\label{fig:protocoloteletransporte}
 \begin{quantikz}[slice style=blue]
 \lstick{$\ket{\psi}$} & \qw & \qw & \qw \slice{$\ket{\psi_0}$} & \ctrl{1} \slice{$\ket{\psi_1}$} & \gate{H} \slice{$\ket{\psi_2}$} & \meter{$M_1$} & \cw  & \cw & \cwbend{2}\\
 \lstick{$\ket{q_x}$} & \gate{H}\gategroup[2,steps=2,style={dashed,rounded corners,fill=blue!20, inner xsep=2pt}, background,label style={label position=below,anchor=north,yshift=-0.2cm}]{{Emaranhamento}} & \ctrl{1} & \midstick[2]{$\ket{\beta_{00}}$} \qw & \targ{} & \qw & \meter{$M_2$} & \cwbend{1} \\
@@ -510,7 +510,7 @@ Descrição das etapas para o protocolo de teletransporte
 \item Determinar as operações entre os qubits e as portas e a ordem de realização para o emaranhamento
 	\begin{itemize}
 	\item Produto tensorial entre qubit \(x\) e qubit \(y\) $\rightarrow$ qubit \(xy\)
-	\item Produto tensorial entre Porta Haddamard e Matriz Identidade $\rightarrow {\HAD} \otimes$ I
+	\item Produto tensorial entre Porta Hadamard e Matriz Identidade $\rightarrow {\HAD} \otimes$ I
 	\item Multiplicação entre qubit \(xy\) e ${\HAD} \otimes I \rightarrow {\HAD} xy$
 	\item Multiplicação entre \({\HAD} xy\) e a Porta \(\CNOT \rightarrow\beta _{00}\)
 	\end{itemize}
@@ -535,37 +535,63 @@ Descrição das etapas para o protocolo de teletransporte
 \item Apresentar a mensagem original recuperada
 \end{enumerate}
 
-\section{Ruídos}\label{sec:ruidos}
-%Os ruídos no teletransporte de informação quântica são aqueles que se produzem durante o processo de transferência de dados quânticos entre dois sistemas distintos. Esses ruídos podem ser de natureza física ou de natureza lógica.
-%
-%Ruídos físicos são aqueles que se originam de fontes externas, como ruídos elétricos, ruídos electromagnéticos e ruídos térmicos, entre outros. Esses ruídos incluem:
-%\begin{itemize}
-%\item 1. Interferência de radiação: a radiação eletromagnética proveniente de fontes externas, como estações de rádio e antenas, pode interferir no sinal quântico, distorcendo ou desviando-o de seu destino.
-%
-%\item 2. Perda de informação: devido às fracas interações entre os componentes da rede quântica, parte da informação pode ser perdida ao longo do caminho, afetando a qualidade e a confiabilidade da transferência.
-%
-%\item 3. Decoerência: é o fenômeno quântico que pode ocorrer ao longo do caminho, onde a entropia ou o desordem de um sistema aumentam, o que pode levar a erros na recepção de informações.
-%
-%\item 4. Entropia térmica: o calor presente no ambiente pode levar a alterações nos estados quânticos dos componentes da rede, o que pode levar a erros na transferência de informações.
-%
-%\item 5. Interferência mecânica: as vibrações e os ruídos mecânicos presentes no local de transferência de informações podem afetar a qualidade e a confiabilidade dos dados transferidos.
-%\end{itemize}
-%
-%Ruídos lógicos são aqueles que surgem a partir do processo de transferência de dados quânticos, como erros de codificação, erros de decodificação e erros de sincronização. Podemos ressaltar:
-%\begin{itemize}
-%\item 1. Falha na sincronização de tempo: a sincronização de tempo é um passo crítico para o teletransporte quântico. Se os relógios entre os dois locais não estiverem sincronizados, o teletransporte pode falhar.
-%
-%\item 2. Desequilíbrio de energia: o desequilíbrio de energia pode ocorrer devido aos efeitos de decaimento quântico, o que pode causar a falha do teletransporte.
-%
-%\item 3. Interferência de campo: o campo de força entre os dois locais pode interferir com os processos quânticos necessários para o teletransporte.
-%
-%\item 4. Erro de medição: a medição incorreta dos estados quânticos dos dois locais pode resultar em erros que resultam na falha do teletransporte.
-%
-%\item 5. Vazamento de informação: o vazamento de informação pode levar à perda de informação necessária para o teletransporte quântico.
-%\end{itemize}
-%
-%Além disso, existem também ruídos de medição, que são aqueles que surgem durante as medições quânticas, e ruídos de decoerência, que são aqueles que se produzem durante a decoerência do estado quântico.
-%
-%Para minimizar os efeitos dos ruídos no teletransporte de informação quântica, é importante realizar a otimização dos protocolos de teletransporte, otimizar o processo de codificação e decodificação e utilizar técnicas de processamento de sinal quântico.
-~
+\section{Ruídos em sistemas quânticos}\label{sec:ruidos}
 
+Segundo \textcite{conceitoinformação}, o conceito de informação possui seu significado cotidianamente atribuído como \textit{conhecimento comunicado}. Nesse sentido, a informação já existia nas pinturas rupestres há cerca de \num{45.5} mil anos atrás, nas quais estão registradas uma série de imagens no intuito de comunicar, seja um evento ou ainda uma quantidade. Apesar do conceito de informação aparecer desde os primórdios do estabelecimento da humanidade, é apenas na década de 1940 que esta passa a ser objeto de estudo com os trabalhos de Claude Elwood Shannon (1916--2001), que desenvolve uma teoria matemática para a informação \cite{CiênciaTransiçãoSeculosa}.
+
+O objetivo principal da Teoria da Comunicação de Shannon ou \textit{Teoria Matemática da Comunicação} (TMC), era sistematizar o conhecimento acumulado até então acerca da eficiência em sistemas de comunicação, ou seja, de como a informação é transmitida. A teoria descreve o funcionamento lógico-matemático de um destes sistemas, composto por um gerador de informação, um meio de transmissão e um receptor, conforme ilustra a Figura~\ref{comunicshannon} \cite{MTC}.
+
+\begin{figure}[ht!]
+  \centering
+  \caption{Esquema geral de um sistema de comunicação com a Fonte de Informação criando uma Mensagem a ser transmitida pelo Transmissor que a transforma em um Sinal. Na transmissão pode haver uma Fonte de Ruído. O sinal é recebido pelo Receptor e finalmente a mensagem chega ao seu Destino.}\label{comunicshannon}
+  % \includegraphics[width=0.65\textwidth]{comunicadorshannon.png}
+  \begin{tikzpicture}
+    \matrix (A) [matrix of nodes,
+    column sep=25pt,
+    row sep=30pt,
+    nodes={minimum size=35pt}]
+    {
+      \node[label={[labelst]above:Fonte de\\informação},blocoq] (fonte) {}; &
+      \node[label={[labelst]above:Transmissor},blocoq] (trans) {}; &
+      \node[minimum size=10pt,blocoq] (conn) {}; &
+      \node[label={[labelst]above:Receptor},blocoq] (rec) {}; &
+      \node[label={[labelst]above:Destino},blocoq] (dest) {}; \\
+      & & \node[label={[labelst]below:Fonte de \\ruído},blocoq] (ruido) {}; \\
+    };
+    \draw[conecta] (fonte) -- node[pos=0.5,below,labelst,yshift=-20pt] {Mensagem} (trans);
+    \draw[conecta] (trans) -- node[pos=0.5,below,labelst] {Sinal} (conn);
+    \draw[conecta] (conn) --  node[pos=0.5,below,labelst] {Sinal\\recebido} (rec);
+    \draw[conecta] (rec) -- node[pos=0.5,below,labelst,yshift=-20pt] {Mensagem} (dest);
+    \draw[conecta] (ruido) -- (conn);
+  \end{tikzpicture}
+  \fonte{Adaptado de \textcite[p. 380]{MTC}.}
+\end{figure}
+
+De acordo com  a TMC, um \textit{gerador de informação} é um objeto capaz de produzir um conjunto $X$ de $n$ eventos com probabilidade de ocorrência $P(X)$, enquanto um \textit{receptor} possui um conjunto $Y$, também com $n$ eventos, com probabilidades associadas $P(Y)$. Durante a transmissão é possível que parte da informação seja perdida devido a ocorrência de ruídos, o que resulta diretamente na modificação dos valores de probabilidade dos elementos recebidos do conjunto $Y$. Reconhecendo portanto os elementos de $X$ e suas probabilidades associadas, espera-se que uma mensagem bem transmitida, ou seja, sem interferência de ruídos, seja aquela cujas probabilidades dos elementos do conjunto $Y$ sejam as mesmas dos elementos do conjunto $X$. Assim, se essas probabilidades forem distintas, podemos concluir que houve perda de informação na transmissão \cite{mathematical}.
+
+Como na MQ, não sabemos o estado de um qubit até que uma medida seja aplicada e não é possível recuperar um estado após a medida deste, identificar a presença de um ruído torna-se mais complicado do que na transferência de informação clássica. Chamamos de decoerência o processo pelo qual um sistema quântico interage com o ambiente e perde sua coerência quântica, ou seja, sua capacidade de apresentar estados de superposição e entrelaçamento originais. Alguns autores como \textcite{chuang}, utilizam o termo decoerência como sinônimo de ruído quântico.
+
+Os qubits, como unidades básicas de informação em sistemas quânticos, podem ser afetados por diferentes tipos de ruídos que comprometem a coerência dos estados quânticos, causando erros nas operações e nos resultados das medições. Alguns dos principais tipos de ruído que atuam sobre qubits são:
+\begin{description}
+\item [Ruído térmico:] é causado pela interação dos qubits com o ambiente, que gera flutuações de temperatura e pressão ao redor dos qubits, comprometendo sua estabilidade e aumentando as taxas de erros nos cálculos.
+
+\item [Ruído de decoerência:] é causado por interações indesejadas entre os qubits e outras partículas que compõem o ambiente, como fótons, átomos e elétrons. Essas interações podem resultar em mudanças na fase e na amplitude dos estados quânticos, prejudicando a coerência dos qubits.
+
+\item [Ruído de controle:] é causado por erros nas operações de controle dos qubits, que podem levar a variações imprevisíveis nas oscilações e nos estados dos qubits.
+
+\item [Ruído de leitura:] é causado pelas imprecisões nas medições dos estados quânticos, que podem ser influenciadas por fatores como a taxa de amostragem e a sensibilidade dos sensores.
+
+\item [Ruído de acoplamento:] é causado pela interação entre qubits próximos, que podem interferir uns com os outros e afetar suas propriedades individuais, resultando em erros nos cálculos e nas medições.
+\end{description}
+
+Vale ressaltar que o estudo dos ruídos quânticos contribuem para conhecer os efeitos deste e estimar técnicas de correção para o sistema. Essas técnicas envolvem desde a escolha dos materiais e dos métodos de construção dos sistemas até a implementação de algoritmos de correção de erros e aprimoramento da qualidade das medições.
+
+Segundo \textcite{teseufscar}, os principais tipos de ruídos associados à decoerência da informação quântica, ou seja, a sua alteração do estado original são:
+
+\begin{description}
+  \item [Inversão de bit (\textit{bitflip}):] esse ruído consiste essencialmente na inversão do estado dos qubits emaranhados, fazendo com que estes saiam de um chamado estado puro --- essencial para o fenomeno de emaranhamento --- para um estado misto.
+  \item [Inversão de fase (\textit{phaseflip}):] inverte a fase da função de onda que representa os qubits emaranhados.
+  \item [Inversão de bit e fase (\textit{bit-phase flip}):] inverte tanto o estado quanto a fase do qubit.
+\end{description}
+
+\clearpage

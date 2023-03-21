@@ -405,35 +405,35 @@ A primeira etapa da elaboração do protocolo consistiu em importar as bibliotec
 
 Com as bibliotecas carregadas, a primeira etapa foi a construção das variáveis que descrevem os estados quânticos $\ket{0}$ e $\ket{1}$, elas foram feitas com o auxílio da biblioteca \textit{numpy} e da função\textit{matrix} que cria matrizes à partir de listas. Portando o estado $\ket{0}$ foi definido pela variável \begin{tiny}\textbf{$qbit0= np.matrix([1,0]).transpose()$}\end{tiny} e o estado $\ket{1}$ pela variável \begin{tiny}\textbf{$qbit1= np.matrix([0,1]).transpose()$}\end{tiny}.
 
-Conforme a Figura~\ref{fig:protocoloteletransporte}, a primeira operação realizada é a aplicação da porta \(\HAD\) no qubit $\ket{q_x}$ que está no estado $\ket{0}$. Para isso, criou-se a variável $H$, representada por \begin{tiny}\textbf{$H = 1/sqrt(2)*(np.matrix([[1,1], [1,-1]]))$}\end{tiny} e a variável que representa sua aplicação $Hqbit0$ como $H*qbit0$. Nesse momento, os resultados obtidos são comparáveis com a equação~\eqref{eq:Hqbit0}. 
+Conforme a Figura~\ref{fig:protocoloteletransporte}, a primeira operação realizada é a aplicação da porta \(\HAD\) no qubit $\ket{q_x}$ que está no estado $\ket{0}$. Para isso, criou-se a variável \textit{$H$}, representada por \begin{tiny}\textbf{$H = 1/sqrt(2)*(np.matrix([[1,1], [1,-1]]))$}\end{tiny} e a variável que representa sua aplicação \textit{$Hqbit0$} como \begin{tiny}\textbf{$H*qbit0$}\end{tiny}. Nesse momento, os resultados obtidos são comparáveis com a equação~\eqref{eq:Hqbit0}. 
 
-Em seguida, a porta \(\CNOT\) deve ser implementada e aplicada. A variável que a descreve é dada por \begin{tiny}\textbf{$CNOT = np.matrix([[1,0,0,0],[0,1,0,0],[0,0,0,1],[0,0,1,0]])$}\end{tiny}. A definição dos qubits alvo e controle foi implementada na variável $AC$ e é descrita por \begin{tiny}\textbf{$AC= TP(Hqbit0,qbit0)$}\end{tiny}, ou seja, o produto tensorial de todos os estados possíveis dentro do sistema. A aplicação de \(\CNOT\) resulta na base de Bell no estado $\ket{00}$ e é obtida na variável \begin{tiny}\textbf{$Bell00 = CNOT * AC$}\end{tiny}. Nesse momento, temos o sistema descrito pela base de Bell da mesma forma que demonstra a equação~\eqref{eq:matrizbell00}. 
+Em seguida, a porta \(\CNOT\) deve ser implementada e aplicada. A variável que a descreve é dada por \begin{tiny}\textbf{$CNOT = np.matrix([[1,0,0,0],[0,1,0,0],[0,0,0,1],[0,0,1,0]])$}\end{tiny}. A definição dos qubits alvo e controle foi implementada na variável \textit{$AC$} e é descrita por \begin{tiny}\textbf{$AC= TP(Hqbit0,qbit0)$}\end{tiny}, ou seja, o produto tensorial de todos os estados possíveis dentro do sistema. A aplicação de \(\CNOT\) resulta na base de Bell no estado $\ket{00}$ e é obtida na variável \begin{tiny}\textbf{$Bell00 = CNOT * AC$}\end{tiny}. Nesse momento, temos o sistema descrito pela base de Bell da mesma forma que demonstra a equação~\eqref{eq:matrizbell00}. 
 
 No protocolo construído, é solicitado ao usuário que descreva as probabilidades associadas às variáveis $\alpha$ e $\beta$. Para tal, utiliza-se a função input e declarando a variável como decimal (float), solicita ao usuário que entre com os valores desejados para cada variável. Note que, como a superposição de estados tem natureza probabilística, é necessário implementar uma verificação da condição de normalização, para que os valores inseridos pelo usuário contemplem a probabilidade somada de $100\%$ caso contrário, o protocolo é interrompido.
 
-A determinação do qubit que será enviado é construída pela variável \textit{Message} de modo que a probabilidade de $\alpha$ fique associada ao estado $\ket{0}$ e a probabilidade de $\beta$ fique associada ao estado $\ket{1}$, a variável é descrita portanto por \begin{tiny}\textbf{$Message = (Message\_alfa * qbit0) + (Message\_beta * qbit1)$}\end{tiny}.
+A determinação do qubit que será enviado é construída pela variável \textit{$Message$} de modo que a probabilidade de $\alpha$ fique associada ao estado $\ket{0}$ e a probabilidade de $\beta$ fique associada ao estado $\ket{1}$, a variável é descrita portanto por \begin{tiny}\textbf{$Message = (Message\_alfa * qbit0) + (Message\_beta * qbit1)$}\end{tiny}.
 
-A definição do estado $\ket{\psi_0}$ foi realizada segundo as equações~\eqref{eq:psi0cnot} e~\eqref{eq:prodtenspsi0} de modo que sua representação no código foi descrita como \begin{tiny}\textbf{$psi\_0 = TP(qbit0, qbit0, qbit0) + TP(qbit0, qbit1, qbit1) + TP(qbit1,qbit0, qbit0) + TP(qbit1,qbit1,qbit1)$}\end{tiny}. Em seguida, devemos aplicar a porta \(\CNOT\), porém, nesse caso, ela deve atuar sobre 3-qubits e precisa ser dimensionada com a porta \(\III\), cuja implementação foi realizada com a criação da variável \begin{tiny}\textbf{$I = np.matrix ([[1,0], [0,1]])$}\end{tiny}. Portanto, o estado $\ket{psi1}$ é operacionalizado pela multiplicação da porta \(\CNOT\) dimensionada no estado $\ket{\psi_0}$ ficando evidenciada em \begin{tiny}\textbf{$psi\_1 = CNOT\_I * psi\_0$}\end{tiny}.
+A definição do estado $\ket{\psi_0}$ foi realizada segundo as equações~\eqref{eq:psi0cnot} e~\eqref{eq:prodtenspsi0} de modo que sua representação no código foi descrita como \begin{tiny}\textbf{$psi\_0 = TP(qbit0, qbit0, qbit0) + TP(qbit0, qbit1, qbit1) + TP(qbit1,qbit0, qbit0) + TP(qbit1,qbit1,qbit1)$}\end{tiny}. Em seguida, devemos aplicar a porta \(\CNOT\), porém, nesse caso, ela deve atuar sobre 3-qubits e precisa ser dimensionada com a porta \(\III\), cuja implementação foi realizada com a criação da variável \begin{tiny}\textbf{$I = np.matrix ([[1,0], [0,1]])$}\end{tiny}. Portanto, o estado $\ket{\psi_1}$ é operacionalizado pela multiplicação da porta \(\CNOT\) dimensionada no estado $\ket{\psi_0}$ ficando evidenciada em \begin{tiny}\textbf{$psi\_1 = CNOT\_I * psi\_0$}\end{tiny}.
 
-Para proceder com a aplicação da porta Hadamard no qubit de Mensagem, os estados associados a $\alpha$ e $\beta$ foram separados e a porta aplicada em cada um deles individualmente pelas multiplicações \begin{tiny}\textbf{$H\_Message\_alfa = H * (Message\_alfa * qbit0)$}\end{tiny} e \begin{tiny}\textbf{$H\_Message\_beta = H * (Message\_beta * qbit1)$}\end{tiny}. Com esses resultados, foram reestruturados os estados $\alpha\ket{0}, \alpha\ket{1}, \beta\ket{0}, \text e \quad \beta\ket{1}$ conforme é explicitado na equação~\eqref{eq:alfabetasoma}. Para isso, foram construídas quatro variável, uma para cada estado nomeadas \textit{$estadoa0, estadoa1, estadob0 \text e \quad estadob1$}, cada uma dessas variáveis recupera a posição do valor das matrizes \textit{$H\_Message\_alfa$} e \textit{$H\_Message\_beta$} para satisfazer a condição dada em~\eqref{eq:alfabetasoma}, ou seja, o primeiro elemento da matriz está associado aos estados $\alpha\ket{0}$ e $\beta\ket{0}$ e o segundo elemento da matriz associado aos estados $\alpha\ket{1}$ e $\beta\ket{1}$. Essa associação é feita pela posição do elemento na matriz, lembrando que a contagem de matrizes em Python inicia em 0 de modo que as variáveis foram definidas como:
+Para proceder com a aplicação da porta Hadamard no qubit de Mensagem, os estados associados a $\alpha$ e $\beta$ foram separados e a porta aplicada em cada um deles individualmente pelas multiplicações \begin{tiny}\textbf{$H\_Message\_alfa = H * (Message\_alfa * qbit0)$}\end{tiny} e \begin{tiny}\textbf{$H\_Message\_beta = H * (Message\_beta * qbit1)$}\end{tiny}. Com esses resultados, foram reestruturados os estados $\alpha\ket{0}, \alpha\ket{1}, \beta\ket{0}, \text e \beta\ket{1}$ conforme é explicitado na equação~\eqref{eq:alfabetasoma}. Para isso, foram construídas quatro variáveis, uma para cada estado nomeadas \textit{$estadoa0, estadoa1, estadob0 \text e \quad estadob1$}, cada uma dessas variáveis recupera a posição do valor das matrizes \textit{$H\_Message\_alfa$} e \textit{$H\_Message\_beta$} para satisfazer a condição dada em~\eqref{eq:alfabetasoma}, ou seja, o primeiro elemento da matriz está associado aos estados $\alpha\ket{0}$ e $\beta\ket{0}$ e o segundo elemento da matriz associado aos estados $\alpha\ket{1}$ e $\beta\ket{1}$. Essa associação é feita pela posição do elemento na matriz, lembrando que a contagem de matrizes em Python inicia em 0 de modo que as variáveis foram definidas como:
 
 \begin{center}
-\begin{tiny}estadoa0 = float(H\_Message\_alfa[0][0]),estadoa1 = float(H\_Message\_alfa[1][0]),\linebreak
-estadob0 = float(H\_Message\_beta[0][0]), \text e \quad estadob1 = float(H\_Message\_beta[1][0])\end{tiny}
+\begin{tiny}estadoa0 = float(H\_Message\_alfa[0][0]), estadoa1 = float(H\_Message\_alfa[1][0]),\linebreak
+estadob0 = float(H\_Message\_beta[0][0]) e  estadob1 = float(H\_Message\_beta[1][0])\end{tiny}
 \end{center}
 
 Em seguida, recriamos as matrizes que representam os estados de posse dos elementos localizados anteriormente, temos portanto:
 
 \begin{center}
 \begin{tiny}a0 = np.matrix([estadoa0,0]).transpose(),a1 = np.matrix([0,estadoa1]).transpose(),\linebreak
-b0 = np.matrix([estadob0,0]).transpose(),\text e \quad b1 = np.matrix([0,estadob1]).transpose()\end{tiny}
+b0 = np.matrix([estadob0,0]).transpose() e b1 = np.matrix([0,estadob1]).transpose()\end{tiny}
 \end{center}
 
 Nesse momento temos em nosso código dois estados separados para $\ket{\psi_2}$, o estado associado ao qubit mensagem e o estado associado ao par emaranhado. Para recuperar os estados possíveis do par emaranhado, criamos as variáveis \textit{$estado\_00, estado\_11, estado\_10$ e $estado\_01$} usando a função de produto tensorial:
 
 \begin{center}
 \begin{tiny}estado\_00 = TP(qbit0, qbit0), estado\_11 = TP(qbit1, qbit1),\linebreak
-estado\_10 = TP(qbit1, qbit0), \text e \quad estado\_01 = TP(qbit0, qbit1)\end{tiny}
+estado\_10 = TP(qbit1, qbit0) e \quad estado\_01 = TP(qbit0, qbit1)\end{tiny}
 \end{center}
 
 Para simular a operação de medição, criamos uma lista de variáveis, armazenada em \textit{$group\_estados$}, determinamos com a função \textit{$random$} a escolha de um desses estados de maneira aleatória, armazenamos a escolha na variável \textit{Medição} e utilizando a função \textit{$del$} apagamos todos os estados, simulando o colapso do sistema após a medida.
@@ -468,6 +468,25 @@ elif np.all(Message_tp == (a0+b1)):
     Message_final = Z * Message_tp 
 \end{lstlisting}
 \end{center}
+
 Vale ressaltar que durante as operações, herdamos a probabilidade associada dos estados, que nesse caso é $1/4$ e portanto, retiramos ela para recuperar a mensagem idêntica a informada no inicio com a expressão \begin{tiny}\textbf{$Menssagem\_teletransportada = Message\_final*sqrt(2)$}\end{tiny}. Nesse momento, a variável \textit{$Mensagem\_teletransportada$} armazena a mensagem reconstruída no local B. Para verificarmos se o teletransporte teve sucesso, a comparamos com a mensagem original, armazenada na variável \textit{$Message$}, se a comparação for satisfeita, a mensagem \textit{Teletransporte concluído com sucesso} é exibida, caso contrário a mensagem \textit{Falha no Teletransporte} é exibida.
-	
+
+Para simular os ruídos, implementamos as variáveis \textit{$bitflip$}	e \textit{$phaseflip$} equivalentes com as seguintes matrizes\begin{tiny}\textbf{$bitflip = np.matrix([[0, 1], [1, 0]]), phaseflip = np.matrix([[1, 0], [0, -1]])$}\end{tiny}. O usuário pode escolher qual ruído deseja implementar, ou se não deseja implementar ruídos.
+Na aplicação do ruído, a variável \textit{$Mensagem\_teletransportada$} será modificada ou não e no final será exibida a mensagem \textit{'Mensagem com ruídos'} ou \textit{'Mensagem sem ruídos'}.
+
 \clearpage
+
+\chapter{Discussão dos resultados e perspectivas de estudo}\label{sec:resultados}
+
+
+
+
+
+
+
+
+
+
+
+
+O protocolo de teletransporte quântico é um exemplo poderoso de como a criptografia quântica pode ser usada para garantir a segurança na transferência de informações entre duas partes, mesmo que elas estejam a uma grande distância. Os resultados obtidos deste protocolo mostram que as propriedades quânticas podem ser exploradas para criar novas formas de comunicação segura e eficiente.
