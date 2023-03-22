@@ -75,7 +75,6 @@ O conjugado complexo de uma matriz é definido como a matriz transposta dos seus
 
 Os recursos apresentados acima, serão utilizados ao longo do trabalho e principalmente na descrição da Seção~\ref{sec:Mecanicaquantica}.
 
-\clearpage
 
 \section{Mecânica Quântica}\label{sec:Mecanicaquantica}
 
@@ -137,7 +136,7 @@ Para compreender melhor esse fenômeno, podemos pensar na situação onde temos 
 
 \item 3. Operações: Uma vez que os qubits estão entrelaçados, as operações quânticas podem ser realizadas neles. As operações podem incluir a realização de computações quânticas complexas, o armazenamento de informações quânticas ou o envio de informações entre qubits.
 
-\item 4.Saída: Por fim, os qubits podem ser desentrelaçados para obter a saída desejada. A saída pode incluir informações codificadas nos qubits, como um resultado de uma computação quântica.
+\item 4. Saída: Por fim, os qubits podem ser desentrelaçados para obter a saída desejada. A saída pode incluir informações codificadas nos qubits, como um resultado de uma computação quântica.
 \end{itemize}
 
 \subsection{Teorema da Não-Clonagem}\label{sec:naoclonagem}
@@ -178,7 +177,6 @@ Na história, os cientistas Alice e Bob estão localizados em dois laboratórios
 
 Alice realiza então uma série de operações entre suas partículas e para continuar o processo de teletransporte, faz uma medição, colapsando-as e envia, via um canal clássico, a informação dos estados colapsados para Bob. Este por sua vez, por saber qual era o estado inicial de ${A}$ devido ao emaranhamento, consegue reconstruir a mensagem presente originalmente em ${C}$ enviado por Alice. Portanto, a mensagem é reconstruída e não clonada, não violando o princípio da não-clonagem. A não-clonagem fica explicitada no momento em que a medida é realizada em ${A}$ e ${C}$, colapsando-os, de modo que existe apenas uma cópia do estado de ${C}$ dado por $\ket{\psi_{C}}$.
 
-\clearpage
 
 \section{Computação Quântica}\label{sec:compquant}
 As definições apresentadas nessa seção, estabelecem a base para a compreensão do funcionamento de computadores quânticos quanto à sua lógica de funcionamento e a compreensão da informação como uma entidade representada pela MQ.
@@ -282,7 +280,7 @@ A matriz que representa a porta \(\CNOT\) é dada por:
 1 & 0 & 0 & 0 \\
 0 & 1 & 0 & 0 \\
 0 & 0 & 0 & 1 \\
-0 & 1 & 1 & 0
+0 & 0 & 1 & 0
 \end{pmatrix} 
 \end{equation}
 
@@ -340,7 +338,7 @@ Conforme visto na Seção~\ref{sec:opquantico}, a evolução do estado de um qub
 \end{quantikz}
 \end{figure}
 
-Algumas portas quânticas, como a CNOT, dependem de dois qubits para operarem, porém alteram apenas um deles. Chamamos esse tipo de porta de Controlada, e sua representação indica com um ponto o qubit de controle e com um X o qubit alvo, que será alterado. Sua representação pode ser encontrada na figura~\ref{fig:cnot} onde, num primeiro momento $\ket{phi}$ atua como controle e $\ket{\psi}$ é o alvo, e depois $\ket{\psi}$ se torna o controle e $\ket{phi}$ o alvo.
+Algumas portas quânticas, como a CNOT, dependem de dois qubits para operarem, porém alteram apenas um deles. Chamamos esse tipo de porta de Controlada, e sua representação indica com um ponto o qubit de controle e com um X o qubit alvo, que será alterado. Sua representação pode ser encontrada na figura~\ref{fig:cnot} onde, num primeiro momento $\ket{\phi}$ atua como controle e $\ket{\psi}$ é o alvo, e depois $\ket{\psi}$ se torna o controle e $\ket{\phi}$ o alvo.
 
 \begin{figure}[ht!]
 \centering
@@ -365,7 +363,7 @@ Existe ainda o operador Medição, que efetua o colapso do sistema quântico e r
 \subsection{Algoritmos quânticos}\label{sec:algoritmo}
 Conforme descrito na seção~\ref{sec:qubits}, qubits são manipulados através de operações (apresentadas na seção~\ref{sec:opquantico}) para obter o resultado esperado para o problema a ser resolvido, para tal, precisamos construir algoritmos quânticos. Existe uma infinidade de algoritmos quânticos já implementados, nesse trabalho desenvolveremos um destes, porém alguns outros algoritmos são interessantes e serão apresentados nessa seção.
 
-Historicamente o primeiro algoritmo quântico a ser implementado, ainda que de maneira teórica foi o algoritmo de Shor. Nesse algoritmo Peter Shor constrói uma estrutura que responde quais números multiplicados retornam o resultado apresentado. Ou seja, suponha que tenhamos a equação $ A = x * y, com x = 24568 e y=45877$, nesse caso, sem quaisquer problemas um computador clássico seria capaz de encontrar o valor de $A$ pois este conhece as variáveis $x$ e $y$. Agora suponha que o computador conhece $A$ porém desconhece os valores de $x$ e $y$ e os deseja encontrar, ou seja, qual (ou quais) multiplicações de $x$ e $y$ resultam no valor de $A=1127106136$? Esse processo chama-se fatoração e classicamente, não existe nenhum algoritmo eficiente(rápido) para solucionar esse problema. A Fatoração é utilizada para encriptação, ou seja, codificação de contas de banco, senhas de provedores de internet e afins, pois é extremamente difícil encontrar os fatores para o valor encriptado. Por esse motivo, quando Peter Shor apresenta em 1994 o algoritmo quântico capaz de facilmente operar a fatoração, a computação quântica passa a ser levada em consideração \cite{videoyoutube2}.
+Historicamente o primeiro algoritmo quântico a ser implementado, ainda que de maneira teórica foi o algoritmo de Shor. Nesse algoritmo Peter Shor constrói uma estrutura que responde quais números multiplicados retornam o resultado apresentado. Ou seja, suponha que tenhamos a equação $ A = x * y$, com $x = 24568$ e $y=45877$, nesse caso, sem quaisquer problemas um computador clássico seria capaz de encontrar o valor de $A$ pois este conhece as variáveis $x$ e $y$. Agora suponha que o computador conhece $A$ porém desconhece os valores de $x$ e $y$ e os deseja encontrar, ou seja, qual (ou quais) multiplicações de $x$ e $y$ resultam no valor de $A=1127106136$? Esse processo chama-se fatoração e classicamente, não existe nenhum algoritmo eficiente(rápido) para solucionar esse problema. A Fatoração é utilizada para encriptação, ou seja, codificação de contas de banco, senhas de provedores de internet e afins, pois é extremamente difícil encontrar os fatores para o valor encriptado. Por esse motivo, quando Peter Shor apresenta em 1994 o algoritmo quântico capaz de facilmente operar a fatoração, a computação quântica passa a ser levada em consideração \cite{videoyoutube2}.
 
 Alguns outros algoritmos quânticos importantes são:
 \begin{itemize}
@@ -392,7 +390,7 @@ Como em qualquer outra operação computacional é necessária a existência de 
 \lstick{$\ket{q_x}$} & \gate{H}\gategroup[2,steps=2,style={dashed,rounded corners,fill=blue!20, inner xsep=2pt}, background,label style={label position=below,anchor=north,yshift=-0.2cm}]{{Emaranhamento}} & \ctrl{1} & \midstick[2]{$\ket{\beta_{00}}$} \qw & \targ{} & \qw & \meter{$M_2$} & \cwbend{1} \\
 \lstick{$\ket{q_y}$} & \qw & \targ{} \arrow{r} &  & \qw & \qw & \qw & \gate{X} & \qw & \gate{Z} &  \qw\rstick{$\ket{\psi}$}
 \end{quantikz}
-\fonte{Adaptado de }
+\fonte{O Autor. }
 \end{figure}
 
 No inicio do protocolo é necessário que tenhamos um par de qubits emaranhados nas bases de Bell, no estado $\ket{\beta_{00}}$, que podemos representar pela expressão
@@ -404,7 +402,7 @@ Um dos qubits do par emaranhado em~\eqref{eq:bell00} é mantido em \(A\) e o out
  \begin{equation}\label{psi}
   \ket{\psi} = \alpha \ket{0} + \beta \ket{1}.
  \end{equation}
-De posse do par emaranhado e da mensagem, o protocolo é iniciado com a aplicação da porta \(\CNOT\) entre $\ket{\psi}\ket{\beta_{00}}$, que chamaremos de $\ket{\psi_0}$. A porta \(\CNOT\) possui como alvo o qubit $\ket{\beta_00}$ presente em \(A\) e como qubit de controle $\ket{\psi}$. Isso indica que a porta \(\CNOT\) irá modificar $\ket{\beta_00}$ de acordo com o estado de $\ket{\psi}$ confome~\ref{definition:cnot}.
+De posse do par emaranhado e da mensagem, o protocolo é iniciado com a aplicação da porta \(\CNOT\) entre $\ket{\psi}\ket{\beta_{00}}$, que chamaremos de $\ket{\psi_0}$. A porta \(\CNOT\) possui como alvo o qubit $\ket{\beta_{00}}$ presente em \(A\) e como qubit de controle $\ket{\psi}$. Isso indica que a porta \(\CNOT\) irá modificar $\ket{\beta_{00}}$ de acordo com o estado de $\ket{\psi}$ confome~\ref{definition:cnot}.
 
 
 \begin{definition}{Operação \(\CNOT\)}{cnot}
@@ -491,50 +489,6 @@ A aplicação das portas dependerá do resultado da medida enviado por \(A\), se
 \end{table}
 
 
-\subsection{Algoritmo do protocolo de Teletransporte}\label{sec:algoritmo}
-
-Descrição das etapas para o protocolo de teletransporte
-
-\begin{enumerate}
-\item Determinar as funções que descrevem os qubits a serem emaranhados
-	\begin{itemize}
-	\item qubit \(x\)
-	\item qubit \(y\)
-	\end{itemize}
-\item Determinas as matrizes que descrevem as portas utilizadas no emaranhamento
-	\begin{itemize}
-	\item Porta Hadamard
-	\item Porta \(\CNOT\)
-	\item Matriz Identidade
-	\end{itemize}
-\item Determinar as operações entre os qubits e as portas e a ordem de realização para o emaranhamento
-	\begin{itemize}
-	\item Produto tensorial entre qubit \(x\) e qubit \(y\) $\rightarrow$ qubit \(xy\)
-	\item Produto tensorial entre Porta Hadamard e Matriz Identidade $\rightarrow {\HAD} \otimes$ I
-	\item Multiplicação entre qubit \(xy\) e ${\HAD} \otimes I \rightarrow {\HAD} xy$
-	\item Multiplicação entre \({\HAD} xy\) e a Porta \(\CNOT \rightarrow\beta _{00}\)
-	\end{itemize}
-\item Determinar o qubit a ser enviado
-	\begin{itemize}
-	\item Definir a entrada de dados feita pelo usuário
-	\item Verificar a possibilidade de acordo com a normalização $\alpha + \beta =1$
-	\end{itemize}
-\item Aplicar a porta CNOT
-	\begin{itemize}
-	\item Verificar a condição lógica de aplicação da porta \(\CNOT\)
-	\item Aplicar \(\CNOT\) em $\beta_{00} \rightarrow \ket{\psi_1}$
-	\end{itemize}
-\item Aplicar a porta Hadamard em $\ket{\psi _1} \rightarrow \ket{\psi_2}$
-\item Reorganizar e apresentar os estados antes da medição
-\item Realizar a medição
-	\begin{itemize}
-	\item Determinar de modo aleatório qual dos estados serão medidos
-	\end{itemize}
-\item Apresentar a medição -- transmissão clássica da informação
-\item Determinar as operações a serem realizadas de acordo com a medição realizada
-\item Apresentar a mensagem original recuperada
-\end{enumerate}
-
 \section{Ruídos em sistemas quânticos}\label{sec:ruidos}
 
 Segundo \textcite{conceitoinformação}, o conceito de informação possui seu significado cotidianamente atribuído como \textit{conhecimento comunicado}. Nesse sentido, a informação já existia nas pinturas rupestres há cerca de \num{45.5} mil anos atrás, nas quais estão registradas uma série de imagens no intuito de comunicar, seja um evento ou ainda uma quantidade. Apesar do conceito de informação aparecer desde os primórdios do estabelecimento da humanidade, é apenas na década de 1940 que esta passa a ser objeto de estudo com os trabalhos de Claude Elwood Shannon (1916--2001), que desenvolve uma teoria matemática para a informação \cite{CiênciaTransiçãoSeculosa}.
@@ -543,7 +497,7 @@ O objetivo principal da Teoria da Comunicação de Shannon ou \textit{Teoria Mat
 
 \begin{figure}[ht!]
   \centering
-  \caption{Esquema geral de um sistema de comunicação com a Fonte de Informação criando uma Mensagem a ser transmitida pelo Transmissor que a transforma em um Sinal. Na transmissão pode haver uma Fonte de Ruído. O sinal é recebido pelo Receptor e finalmente a mensagem chega ao seu Destino.}\label{comunicshannon}
+  \caption{Esquema geral de um sistema de comunicação com a Fonte de Informação criando uma Mensagem a ser transmitida pelo Transmissor que a transforma em um Sinal. Na transmissão pode haver uma Fonte de Ruído. O sinal é recebido pelo Receptor e a mensagem chega ao seu Destino.}\label{comunicshannon}
   % \includegraphics[width=0.65\textwidth]{comunicadorshannon.png}
   \begin{tikzpicture}
     \matrix (A) [matrix of nodes,
