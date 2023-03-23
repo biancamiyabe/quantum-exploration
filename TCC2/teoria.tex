@@ -10,21 +10,22 @@
 
 \chapter{Fundamentação Teórica}
 
-Conforme descrito no Capítulo de Introdução, para o estudo da Computação Quântica e da Informação Quântica são necessários alguns recursos provenientes da MQ, bem como a construção de análogos quânticos para o processamento dessa informação. As seções a seguir apresentarão a fundamentação teórica e os recursos matemáticos necessários para o desenvolvimento da simulação proposta na Metodologia.
+Para o estudo da Computação Quântica e da Informação Quântica são necessários alguns recursos provenientes da Mecânica Quântica (MQ), bem como a construção de análogos quânticos para o processamento dessa informação. As seções a seguir apresentarão a fundamentação teórica e os recursos matemáticos necessários para o desenvolvimento da simulação proposta na Metodologia.
 
 \section{Conceitos básicos de Álgebra Linear}\label{sec:algelin}
+
 A Álgebra Linear é o estudo dos vetores que descrevem um espaço e consequentemente das operações nesses espaços vetoriais. Para o desenvolvimento desse trabalho, serão necessários reconhecer as notações descritas na Tabela~\ref{tab:notação}.
 
 \begin{table}[ht!]
   \centering
-  \caption{Notações utilizadas nas operações de MQ e sua respectiva descrição. O estilo das notações é conhecido como Notação de Dirac para Álgebra Linear.}\label{tab:notação}
+  \caption{Notações utilizadas nas operações de MQ e sua respectiva descrição. O estilo das notações é conhecido como \textit{Notação de Dirac para Álgebra Linear}.}\label{tab:notação}
   \begin{tabular}{cl}
     \toprule
-    {\textbf{Notação}}                 & {\textbf{Descrição}}                                                 \\
+    \textbf{Notação}                   & \textbf{Descrição}                                                   \\
     \midrule
     $\ket{\psi}$                       & Vetor conhecido como \textit{ket}                                    \\
     $\bra{\psi}$                       & Vetor dual de um \textit{ket} conhecido como \textit{bra}            \\
-    $\braket{\psi\vert\varphi}$        & Produto interno entre os vetores $\ket{\psi}$ e $\ket{\varphi}$      \\
+    $\braket{\psi|\varphi}$           & Produto interno entre os vetores $\ket{\psi}$ e $\ket{\varphi}$      \\
     $\ket{\psi} \otimes \ket{\varphi}$ & Produto tensorial entre os vetores $\ket{\psi}$ e $\ket{\varphi}$    \\
     $\ket{\psi}\ket{\varphi}$          & Abreviação do produto tensorial entre $\ket{\psi}$ e $\ket{\varphi}$ \\
     $A^*$                              & Conjugado complexo da matriz \(A\)                                   \\
@@ -33,18 +34,16 @@ A Álgebra Linear é o estudo dos vetores que descrevem um espaço e consequente
   \fonte{Adaptada de \textcite{chuang}.}
 \end{table}
 
-A descrição da MQ é feita tomando como base um espaço vetorial chamado \textit{Espaço de Hilbert} $\mathcal{H}$, sendo este um espaço complexo, vetorial e linear. Um \textit{ket} é um vetor arbitrário de $\mathcal{H}$, com representação descrita por:
+A descrição da MQ é feita tomando como base um espaço vetorial complexo chamado \textit{Espaço de Hilbert} $\mathcal{H}$. Um \textit{ket} é um vetor arbitrário de $\mathcal{H}$, com representação descrita por:
 \begin{equation}\label{eq:ketpsi}
-  \ket{\psi} = [\psi_1,...,\psi_n]^T \in \mathcal{H}.
+  \ket{\psi} = [\psi_1,...,\psi_n]^{T} \in \mathcal{H}.
 \end{equation}
-
 Todo \textit{ket} possui um vetor dual, ou conjugado complexo que também pertence à $\mathcal{H}$, chamado de \textit{bra}, de modo que:
 \begin{equation}\label{eq:brapsi}
-  \bra{\psi} = [\psi_1^*,...,\psi_n^*] \in \mathcal{H}.
+  \bra{\psi} = [\psi_1^*,...,\psi_n^*]^{T} \in \mathcal{H}.
 \end{equation}
 
 O produto tensorial entre dois \textit{kets} \(\ket{\psi}\) de dimensão \(m\) e \(\ket{\varphi}\) de dimensão \(n\) é definido por:
-
 \begin{equation}\label{eq:tensorket}
   \begin{split}
     \ket{\psi} \otimes \ket{\varphi} &= \ket{\psi}\ket{\varphi} =\ket{\psi \varphi} = \\
@@ -73,28 +72,29 @@ O conjugado complexo de uma matriz é definido como a matriz transposta dos seus
           \end{pmatrix}.
       \end{equation}
 
-Os recursos apresentados acima, serão utilizados ao longo do trabalho e principalmente na descrição da Seção~\ref{sec:Mecanicaquantica}.
-
+Os recursos apresentados acima serão utilizados ao longo do trabalho e principalmente na descrição da Seção~\ref{sec:Mecanicaquantica}.
 
 \section{Mecânica Quântica}\label{sec:Mecanicaquantica}
 
-A teoria da Física intitulada Mecânica Quântica (MQ), surgiu no século XX após uma série de experimentos constatarem que as leis físicas conhecidas até então, não se aplicavam em sistemas da ordem de 1 \AA, ou seja, $10^{-10}m$. Com o avanço dos estudos e experimentos na MQ, foi possível tornar 'visível' uma série de comportamentos da Natureza que antes eram observados apenas em escala macroscópica. Esse aumento na capacidade da descrição da Natureza só foi possível devido a uma série de ferramentas matemáticas e axiomas que constituem a teoria da MQ \cite{jorcuvich}. 
+A teoria da Física intitulada Mecânica Quântica (MQ) surgiu no século XX após uma série de experimentos demonstrarem que as leis físicas conhecidas até então, não se aplicavam em sistemas da ordem de 1 \AA, ou seja, \SI{e-10}{\meter}. Com o avanço dos estudos e experimentos na MQ, foi possível ``tornar visível'' uma série de comportamentos da Natureza que antes eram observados apenas em escala macroscópica. Esse aumento na capacidade da descrição da Natureza só foi possível devido a uma série de ferramentas matemáticas e axiomas que constituem a teoria da MQ \cite{jorcuvich}.
 
-A compreensão dessa teoria física, não foi aceita pela comunidade científica assim que foi sugerida, por volta de 1925, com os trabalhos de vários cientistas, como Max Planck, Albert Einstein, Niels Bohr, Werner Heisenberg, Erwin Schrödinger, entre outros\footnote{Um descrição detalhada dos experimentos e evoluções conceituais que culminaram na estrutura da MQ que conhecemos na atualidade pode ser encontrada no artigo de \textcite{chibeni}.}, principalmente pelo fato de que, naquela época, os recursos tecnológicos para o desenvolvimento de experimentos que confirmassem a teoria proposta era ainda escassa.\cite{chibeni}. 
+\todo[inline]{Eu reorganizei o parágrafo abaixo. Veja se mantive o sentido original.}
 
-Até mesmo Albert Einstein duvidava de alguns aspectos da teoria, como exemplo, conforme veremos nos próximos capítulos, o fenômeno de Emaranhamento Quântico causava em Einstein certa estranheza, em suas próprias palavras "Uma ação fantasmagórica à distância", era a melhor descrição para o fenômeno. O fato da MQ não ser observada diretamente ainda causa estranheza, porém, isso não a torna menos correta que qualquer outra teoria, pelo contrário, atualmente a MQ é considerada uma das teorias mais completas utilizadas para a descrição da Natureza \cite{chuang}. Nas próximas seções, alguns conceitos da MQ serão apresentados para a compreensão do desenvolvimento do trabalho, baseando-se principalmente nas ideias apresentadas por \textcite{chuang,jorcuvich,CompInfoQuantica,grif}.
+Mesmo com os trabalhos de vários cientistas, como Max Planck, Albert Einstein, Niels Bohr, Werner Heisenberg e Erwin Schrödinger, entre outros\footnote{Um descrição detalhada dos experimentos e evoluções conceituais que culminaram na estrutura da MQ que conhecemos na atualidade pode ser encontrada no artigo de \textcite{chibeni}.}, a aceitação dessa teoria física pela comunidade científica não foi imediata, quando se seu surgimento, por volta de 1925. Isso deve-se principalmente ao fato de que, naquela época, os recursos tecnológicos para o desenvolvimento de experimentos que confirmassem a teoria proposta era ainda escassos \cite{chibeni}.
+
+Até mesmo Albert Einstein duvidava de alguns aspectos da teoria. O fenômeno de Emaranhamento Quântico, por exemplo, causava nele certa estranheza. Em suas próprias palavras, ``uma ação fantasmagórica à distância'' era a melhor descrição para o fenômeno. O fato da MQ não ser observada diretamente ainda causa estranheza, porém, isso não a torna menos correta que qualquer outra teoria; pelo contrário, atualmente a MQ é considerada uma das teorias mais completas utilizadas para a descrição da Natureza \cite{chuang}. Nas próximas seções, alguns de seus conceitos serão apresentados para a compreensão do desenvolvimento do trabalho, baseando-se principalmente nas ideias apresentadas por \textcite{chuang,jorcuvich,CompInfoQuantica,grif}.
 
 
 \subsection{Postulados da MQ}\label{sec:postulados}
 
-Os postulados descritos abaixo norteiam a construção das próximas seções. Cada um deles descreve uma característica fundamental da MQ, que posteriormente será utilizada na construção do trabalho.
+Os postulados~\ref{post:p1} a~\ref{post:p4} norteiam a construção das próximas seções. Cada um deles descreve uma característica fundamental da MQ, que posteriormente será utilizada na construção do trabalho.
 
 \begin{post}{Espaço de estados}{p1}
-Considerando todo e qualquer sistema físico que esteja isolado, os estados do sistema estão associados à um espaço de Hilbert $\mathcal{H}$ e podem ser descritos por um vetor de estado unitário $\ket{\psi} \in \mathcal{H}$.
+Considerando todo e qualquer sistema físico que esteja isolado, os estados do sistema estão associados a um espaço de Hilbert $\mathcal{H}$ e podem ser descritos por um vetor de estado unitário $\ket{\psi} \in \mathcal{H}$.
 \end{post}
 
 \begin{post}{Evolução}{p2}
-Ainda considerando um sistema físico isolado, sua evolução, ou seja, sua mudança é descrita por uma transformação unitária, ou seja, para que um sistema mude do estado $\ket{\psi}$ para $\ket{\psi'}$, é necessário que atue sobre ele um operador unitário (que pode ser representado por uma matriz) \textit{U}, de modo que $\ket{\psi'}=\textit{U}\ket{\psi}$. Uma consequência é que a aplicação de um operador unitário, mantém a norma unitária do estado como definido pelo Postulado 1. Outra consequência é que todo operador unitário é inversível, o que implica que as operações quânticas são reversíveis.
+Ainda considerando um sistema físico isolado, sua evolução, ou seja, sua mudança, é descrita por uma transformação unitária. Assim, para que um sistema mude do estado $\ket{\psi}$ para $\ket{\psi'}$, é necessário que atue sobre ele um operador unitário (que pode ser representado por uma matriz) \(U\), de modo que $\ket{\psi'}=U\ket{\psi}$. Uma consequência é que a aplicação de um operador unitário mantém a norma unitária do estado como definido pelo Postulado~\ref{post:p1}. Outra consequência é que todo operador unitário é inversível, o que implica que as operações quânticas são reversíveis.
 \end{post}
 
 \begin{post}{Medição}{p3}
@@ -102,9 +102,9 @@ Quando um sistema quântico é medido, o resultado da medição é um dos possí
 \end{post}
 
 \begin{post}{Composição dos estados}{p4}
-Um espaço de estado de um sistema quântico composto é descrito pelo produto tensorial dos dos espaços de estado que o compõem. Por exemplo, seja o estado quântico $\ket{\Psi}$ composto pelos espaços de estado $\ket{\psi_1}, \ket{\psi_2} e \ket{\psi_3}$, podemos descrevê-lo como 
+Um espaço de estados de um sistema quântico composto é descrito pelo produto tensorial dos espaços de estado que o compõem. Por exemplo, seja o estado quântico $\ket{\Psi}$ composto pelos espaços de estado $\ket{\psi_1}, \ket{\psi_2}$ e $\ket{\psi_3}$. Podemos descrevê-lo como
 \begin{equation}
-\ket{\Psi}=\ket{\psi_1} \otimes \ket{\psi_2} \otimes \ket{\psi_3} = \ket{\psi_1}\ket{\psi_2}\ket{\psi_3}
+  \ket{\Psi}=\ket{\psi_1} \otimes \ket{\psi_2} \otimes \ket{\psi_3} = \ket{\psi_1}\ket{\psi_2}\ket{\psi_3}.
 \end{equation}
 \end{post}
 
@@ -112,48 +112,52 @@ Um espaço de estado de um sistema quântico composto é descrito pelo produto t
 
 A superposição de estados quânticos é uma característica fundamental da MQ que descreve o comportamento de sistemas quânticos em termos de estados que são combinados linearmente. Em outras palavras, quando um sistema quântico está em um estado de superposição, ele está simultaneamente em vários estados possíveis, cada um com uma probabilidade associada.
 
-Essa característica é fundamental para a existência dos qubits conforme veremos na seção~\ref{sec:qubits}. Quando um sistema quântico é medido, ele colapsa em um estado único e observável, conforme explicitado no Postulado~\ref{post:p3}. Isso é conhecido como o colapso da função de onda e a probabilidade de medir cada estado possível é determinada pelas amplitudes de probabilidade associadas aos estados na superposição.
+Essa característica é fundamental para a existência dos qubits conforme veremos na Seção~\ref{sec:qubits}. Quando um sistema quântico é medido, ele colapsa em um estado único e observável, conforme explicitado no Postulado~\ref{post:p3}. Isso é conhecido como o colapso da função de onda e a probabilidade de medir cada estado possível é determinada pelas amplitudes de probabilidade associadas aos estados na superposição.
 
 A superposição de estados quânticos é uma das características mais estranhas e fascinantes da MQ e permite o acontecimento de fenômenos como como o emaranhamento quântico e o teletransporte quântico.
 
 
 \subsection{Emaranhamento Quântico}\label{sec:emaranhamento}
 
-O Emaranhamento quântico é uma propriedade da MQ que descreve a correlação entre dois ou mais sistemas quânticos, de tal forma que o estado quântico de um  não pode ser descrito independentemente do estado dos outros sistemas emaranhados.
+O emaranhamento quântico é uma propriedade da MQ que descreve a correlação entre dois ou mais sistemas quânticos, de tal forma que o estado quântico de um  não pode ser descrito independentemente do estado dos outros sistemas emaranhados.
 
-O emaranhamento quântico tem implicações importantes, como por exemplo, no caso da comunicação quântica que utiliza o emaranhamento quântico para transmitir informações de forma segura, pois qualquer tentativa de interceptar a comunicação alteraria o estado emaranhado e seria detectável.
+O emaranhamento quântico tem implicações importantes, como por exemplo, no caso da comunicação quântica que se utiliza dele para transmitir informações de forma segura, pois qualquer tentativa de interceptar a comunicação alteraria o estado emaranhado e seria detectável.
 
-O emaranhamento quântico também é importante na computação quântica, onde os qubits emaranhados podem ser usados para executar operações de forma mais rápida e eficiente do que seria possível com qubits individuais. Além disso, o emaranhamento quântico tem aplicações em áreas como a criptografia quântica, a simulação quântica e a teletransporte quântico.
+Ele também é importante na computação quântica, onde os qubits emaranhados podem ser usados para executar operações de forma mais rápida e eficiente do que seria possível com qubits individuais. Além disso, pode ser aplicado em áreas como a criptografia quântica, a simulação quântica e a teletransporte quântico.
 
-Para compreender melhor esse fenômeno, podemos pensar na situação onde temos um sistema de dois qubits $\ket{\psi}=\alpha\ket{0}+\beta\ket{1}$ e $\ket{\varphi}=\mu\ket{0}+\eta\ket{1}$. Se em nosso sistema, os dois qubits são independentes, significa que possuirão probabilidades associadas aos estados $\ket{0}$ e $\ket{1}$ distintas, ou seja, $\alpha \neq \beta \neq \mu \neq \eta$. Considerado agora que os qubits $\ket{\psi}$ e $\ket{\varphi}$ estejam emaranhados, os estados não poderão ser mais considerados de forma independente e portanto, as probabilidades são descritas associadas aos estados possívei. Teremos portanto, os estados emaranhados $\ket{00}, \ket{01}, \ket{10} e \ket{11}$ cujas probabilidades dependerão de ambos os qubits. Alterando os estados de um qubit, consequentemente o outro será alterado, fazendo com que passemos a pensar numa distribuição de probabilidade entre os estados. Um processo simplificado da utilização do emaranhamento em computação quântica pode ser encontrado em \ref{list:emaranhamento}.
+\todo[inline]{Atenção! Você fala do qubit mas só introduz formalmente sua representação mais a frente.}
 
-\textbf{Etapas do Emaranhamento Quântico de Qubits}
+Para compreender melhor esse fenômeno, podemos pensar na situação onde temos um sistema de dois qubits $\ket{\psi}=\alpha\ket{0}+\beta\ket{1}$ e $\ket{\varphi}=\mu\ket{0}+\eta\ket{1}$. Se nesse sistema os dois qubits são independentes, significa que possuirão probabilidades associadas aos estados $\ket{0}$ e $\ket{1}$ distintas, ou seja, $\alpha \neq \beta \neq \mu \neq \eta$. Considerado agora que os qubits $\ket{\psi}$ e $\ket{\varphi}$ estejam emaranhados, os estados não poderão ser mais considerados de forma independente e portanto, as probabilidades são descritas associadas aos estados possíveis. Teremos portanto, os estados emaranhados $\ket{00}, \ket{01}, \ket{10}$ e $\ket{11}$, cujas probabilidades dependerão de ambos os qubits. Alterando os estados de um qubit, consequentemente o outro será alterado, fazendo com que passemos a pensar numa distribuição de probabilidade entre os estados. Um processo simplificado da utilização do emaranhamento em computação quântica pode ser conferido na sequência.
 
-\begin{itemize}\label{list:emaranhamento}
-\item 1. Preparação:  O primeiro passo é preparar os qubits individuais. Isso pode ser feito carregando os qubits em computadores quânticos ou usando dispositivos quânticos especializados, como lasers.
+\subsubsection*{Etapas do Emaranhamento Quântico de Qubits}
 
-\item 2. Entrelaçamento: Em seguida, os qubits são entrelaçados, o que significa que eles são interconectados de modo que as informações entre eles sejam compartilhadas. Isso pode ser feito usando técnicas como a interferência quântica.
+\begin{enumerate}
+  \item \textbf{Preparação\enspace} O primeiro passo é preparar os qubits individuais. Isso pode ser feito carregando os qubits em computadores quânticos ou usando dispositivos quânticos especializados, como lasers.
 
-\item 3. Operações: Uma vez que os qubits estão entrelaçados, as operações quânticas podem ser realizadas neles. As operações podem incluir a realização de computações quânticas complexas, o armazenamento de informações quânticas ou o envio de informações entre qubits.
+  \item \textbf{Entrelaçamento\enspace} Em seguida, os qubits são entrelaçados, o que significa que eles são interconectados de modo que as informações entre eles sejam compartilhadas. Isso pode ser feito usando técnicas como a interferência quântica.
 
-\item 4. Saída: Por fim, os qubits podem ser desentrelaçados para obter a saída desejada. A saída pode incluir informações codificadas nos qubits, como um resultado de uma computação quântica.
-\end{itemize}
+  \item \textbf{Operações\enspace} Uma vez que os qubits estão entrelaçados, as operações quânticas podem ser realizadas neles. As operações podem incluir a realização de computações quânticas complexas, o armazenamento de informações quânticas ou o envio de informações entre qubits.
+
+  \item \textbf{Saída\enspace} Por fim, os qubits podem ser desentrelaçados para obter a saída desejada. A saída pode incluir informações codificadas nos qubits, como o resultado de uma computação quântica.
+\end{enumerate}
 
 \subsection{Teorema da Não-Clonagem}\label{sec:naoclonagem}
 
-O teorema da não-clonagem de qubits é um resultado fundamental na teoria da informação quântica que afirma que é impossível fazer uma cópia exata do estado quântico de um qubit arbitrário. Em outras palavras, não é possível criar uma máquina de clonagem quântica que produza uma cópia idêntica de um qubit desconhecido, diferente da informação clássica que pode ser facilmente reproduzida, basta recordar que um livro pode ser impresso com a tiragem de exemplares desejada.
+O teorema da não-clonagem de qubits é um resultado fundamental na teoria da informação quântica que afirma que é impossível fazer uma cópia exata do estado quântico de um qubit arbitrário. Em outras palavras, não é possível criar uma máquina de clonagem quântica que produza uma cópia idêntica de um qubit desconhecido, diferente da informação clássica que pode ser facilmente reproduzida --- basta recordar que um livro pode ser impresso com a tiragem de exemplares desejada.
 
-Esse resultado tem implicações importantes para a criptografia quântica e a segurança da comunicação quântica, pois impede a interceptação e a cópia dos estados quânticos usados para transmitir informações. O teorema da não clonagem foi provado por Wooters e Zurek em 1982, e é um dos resultados fundamentais da teoria da informação quântica \cite{clone}.
+Esse resultado tem implicações importantes para a criptografia quântica e a segurança da comunicação quântica, pois impede a interceptação e a cópia dos estados quânticos usados para transmitir informações. O teorema da não-clonagem foi provado por Wooters e Zurek em 1982, e é um dos resultados fundamentais da teoria da informação quântica \cite{clone}.
 
 Uma das implicações interessantes do teorema da não-clonagem é que a medição de um qubit não é apenas uma operação de leitura, mas também uma operação de destruição do estado quântico. Em outras palavras, ao medir um qubit, o estado quântico original é destruído e uma das possíveis informações clássicas é obtida. 
 
 Podemos formalizar o teorema da seguinte forma:
 
+\todo[inline]{Não pergunte o motivo, mas não consigo por um ponto final na equação abaixo. O {\LaTeX} dá erro!}
+
 \begin{theo}{Não-Clonagem}{clone}
-Seja $\mathcal{H}$ um espaço de Hilbert, não existe transformação que torne possível a seguinte expressão:
-\begin{equation}
-U:\mathcal{H} \otimes \mathcal{H} \rightarrow \mathcal{H} \otimes \mathcal{H}
-\end{equation}
+  Seja $\mathcal{H}$ um espaço de Hilbert. Não existe transformação que torne possível a seguinte expressão:
+  \begin{equation}
+    U: \mathcal{H} \otimes \mathcal{H} \longrightarrow \mathcal{H} \otimes \mathcal{H}
+  \end{equation}
 \end{theo}
 
 \subsection{Paradoxo EPR}\label{sec:epr}
@@ -543,5 +547,3 @@ Segundo \textcite{teseufscar}, os principais tipos de ruídos associados à deco
   \item [Inversão de fase (\textit{phaseflip}):] inverte a fase da função de onda que representa os qubits emaranhados.
   \item [Inversão de bit e fase (\textit{bit-phase flip}):] inverte tanto o estado quanto a fase do qubit.
 \end{description}
-
-\clearpage
