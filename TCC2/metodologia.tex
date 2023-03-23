@@ -441,41 +441,43 @@ Para simular a operação de medição, criamos uma lista de variáveis, armazen
 
 Para reconstruir a mensagem, a condição estabelecida foi associar o estado medido armazenado na variável \textit{Medição} com o estado da mensagem baseando-se na equação~\eqref{eq:final}, pela relação apresentada na Tabela~\ref{tab:medidas}. O código para essa implementação é dado por:
 
-\begin{center}
-\begin{lstlisting}[language=Python, caption=Relação de condição para o estado teletransportado em função do estado medido em A.]
-if  np.all(Medição == (TP(qbit0,qbit0))):
-    estado_tp = (a0-b1)
-elif  np.all(Medição == (TP(qbit1,qbit1))):
-    estado_tp = (a1-b0)
-elif  np.all(Medição == (TP(qbit0,qbit1))):
-    estado_tp = (a1+b0)
-elif np.all(Medição == (TP(qbit1,qbit0))):
-    estado_tp = (a0+b1)
-\end{lstlisting}
-\end{center}
+\begin{listing}[ht!]
+  \caption{Relação de condição para o estado teletransportado em função do estado medido em \(A\).}
+  \begin{pycode}
+      if  np.all(Medição == TP(qbit0, qbit0)):
+          estado_tp = a0-b1
+      elif np.all(Medição == TP(qbit1, qbit1)):
+          estado_tp = a1-b0
+      elif np.all(Medição == TP(qbit0, qbit1)):
+          estado_tp = a1+b0
+      elif np.all(Medição == TP(qbit1, qbit0)):
+          estado_tp = a0+b1
+  \end{pycode}
+\end{listing}
 
 Com a variável \textit{$estado\_tp$}, temos portando o estado que o qubit no local B possui. Para recuperar a mensagem, iremos aplicar as matrizes de Pauli, seguindo as relações propostas na Tabela~\ref{tab:acao-das-portas}. A condição estabelecida foi:
 
-\begin{center}
-\begin{lstlisting}[language=Python, caption=Relação de condição para aplicação das portas de Pauli.]
-if np.all(estado_tp == (a0-b1)):
-    estado_final = estado_tp
-elif np.all(estado_tp == (a1-b0)):
-    estado_final = Z * X * estado_tp 
-elif np.all(estado_tp == (a1+b0)):
-    estado_final = X * estado_tp 
-elif np.all(estado_tp == (a0+b1)):
-    estado_final = Z * estado_tp 
+\begin{listing}[ht!]
+  \caption{Relação de condição para aplicação das portas de Pauli.}
+  \begin{pycode}
+      if np.all(estado_tp == (a0-b1)):
+          estado_final = estado_tp
+      elif np.all(estado_tp == (a1-b0)):
+          estado_final = Z * X * estado_tp
+      elif np.all(estado_tp == (a1+b0)):
+          estado_final = X * estado_tp
+      elif np.all(estado_tp == (a0+b1)):
+          estado_final = Z * estado_tp
     
-estado_teletransportado = estado_final*sqrt(2)    
+      estado_teletransportado = estado_final*sqrt(2)
 
-alfa = float(estado_teletransportado[0][0])
-beta = float(estado_teletransportado[1][0])
+      alfa = float(estado_teletransportado[0][0])
+      beta = float(estado_teletransportado[1][0])
 
-alfa_final = np.matrix([alfa,0]).transpose()
-beta_final = np.matrix([0,beta]).transpose()
-\end{lstlisting}
-\end{center}
+      alfa_final = np.matrix([alfa,0]).transpose()
+      beta_final = np.matrix([0,beta]).transpose()
+  \end{pycode}
+\end{listing}
 
 Vale ressaltar que durante as operações, herdamos a probabilidade associada dos estados, que nesse caso é $1/4$ e portanto, retiramos ela para recuperar a mensagem idêntica a informada no inicio com a expressão Nesse momento, a variável \textit{$estado\_teletransportado$} armazena a mensagem reconstruída no local B. Para verificarmos se o teletransporte teve sucesso, separamos as probabilidades associadas a $\alpha$ e $\beta$ para comparamos com o estado original.
 
