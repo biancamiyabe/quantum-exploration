@@ -49,29 +49,29 @@ O produto tensorial entre dois \textit{kets} \(\ket{\psi}\) de dimensão \(m\) e
 \begin{equation}\label{eq:tensorket}
   \begin{split}
     \ket{\psi} \otimes \ket{\varphi} &= \ket{\psi}\ket{\varphi} =\ket{\psi \varphi} = \\
-    &=\scalebox{0.9}{\(\begin{pmatrix}\psi_1 \varphi_1 & \psi_1 \varphi_2 & \cdots & \psi_1 \varphi_n & \psi_2 \varphi_1 & \psi_2 \varphi_2 & \cdots & \psi_2 \varphi_n & \cdots & \psi_m \varphi_2 & \psi_m \varphi_2 & \cdots & \psi_m \varphi_n\end{pmatrix}^{T}\)}.
+    &=\scalebox{0.9}{\(\begin{bmatrix}\psi_1 \varphi_1 & \psi_1 \varphi_2 & \cdots & \psi_1 \varphi_n & \psi_2 \varphi_1 & \psi_2 \varphi_2 & \cdots & \psi_2 \varphi_n & \cdots & \psi_m \varphi_2 & \psi_m \varphi_2 & \cdots & \psi_m \varphi_n\end{bmatrix}^{T}\)}.
   \end{split}
 \end{equation}
 Podemos também realizar o produto tensorial de duas matrizes \(A\in\mathbb{C}^{m{\times}n}\) e \(B\in\mathbb{C}^{p{\times}q}\), de modo que:
 \begin{equation}\label{eq:tensormatrix}
-  A \otimes B = \begin{pmatrix}
+  A \otimes B = \begin{bmatrix}
                   A_{11} B  & A_{12} B  & \cdots & A_{1 n} B \\
                   A_{21} B  & A_{22} B  & \cdots & A_{2 n} B \\
                   \vdots    & \vdots    & \ddots & \vdots    \\
                   A_{m 1} B & A_{m 2} B & \cdots & A_{m n} B
-                \end{pmatrix}_{m p \times n q}.
+                \end{bmatrix}_{m p \times n q}.
               \end{equation}
 
 O conjugado complexo de uma matriz é definido como a matriz transposta dos seus elementos conjugados, de modo que:
 \begin{equation}\label{eq:conjugadomatrix}
-  A^{\!*} = \begin{pmatrix}
+  A^{\!*} = \begin{bmatrix}
                 a & b \\
                 c & d
-          \end{pmatrix}^{\!\!\!*} =
-          \begin{pmatrix}
+          \end{bmatrix}^{\!*} =
+          \begin{bmatrix}
             a^{*} & c^{*} \\
             b^{*} & d^{*}
-          \end{pmatrix}.
+          \end{bmatrix}.
       \end{equation}
 
 Os recursos apresentados acima serão utilizados ao longo do trabalho e principalmente na descrição da Seção~\ref{sec:Mecanicaquantica}.
@@ -264,16 +264,16 @@ Na MQ, um \textit{Operador Quântico} é um objeto matemático que representa um
 
 Segundo \textcite{chuang}, matrizes de Pauli são um conjunto de três matrizes hermitianas e unitárias, amplamente utilizadas na computação quântica. As matrizes são denotadas por $\sigma_x$, $\sigma_y$ e $\sigma_z$, e são definidas por:
 \begin{equation}
-\sigma_x=\begin{pmatrix}
+\sigma_x=\begin{bmatrix}
 0 & 1 \\
 1 & 0
-\end{pmatrix}, \quad \sigma_y=\begin{pmatrix*}[r]
+\end{bmatrix}, \quad \sigma_y=\begin{bmatrix*}[r]
 0 & -i \\
 i & 0
-\end{pmatrix*}, \quad \sigma_z=\begin{pmatrix*}[r]
+\end{bmatrix*}, \quad \sigma_z=\begin{bmatrix*}[r]
 1 & 0 \\
 0 & -1
-\end{pmatrix*}.
+\end{bmatrix*}.
 \end{equation}
 As matrizes $\sigma_x$, \(\sigma_{y}\) e \(\sigma_{z}\) são também conhecidas como a matrizes de Pauli X, Pauli Y e Pauli Z, respectivamente. As matrizes de Pauli formam a base do espaço de Hilbert de um único qubit, e podem ser usadas para construir operadores mais complexos que atuam em múltiplos qubits.
 
@@ -283,12 +283,12 @@ As matrizes de Pauli são frequentemente usadas na construção de portas lógic
 
 A matriz que representa a porta \(\CNOT\) é dada por:
 \begin{equation}\label{eq:cnot}
-\CNOT = \begin{pmatrix}
+\CNOT = \begin{bmatrix}
 1 & 0 & 0 & 0 \\
 0 & 1 & 0 & 0 \\
 0 & 0 & 0 & 1 \\
 0 & 0 & 1 & 0
-\end{pmatrix} .
+\end{bmatrix}.
 \end{equation}
 A porta lógica \(\CNOT\) é usada para implementar operações condicionais e permutações entre qubits, sendo usada para criar circuitos lógicos quânticos mais complexos como uma versão geral da porta NOT clássica, pois ela pode ser aplicada a todos os qubits e não apenas a dois. Na porta \(\CNOT\), o qubit de controle é usado para controlar o estado do qubit alvo. Se o qubit de controle estiver em $\ket{1}$, o estado do qubit alvo será invertido, mas se o qubit de controle estiver em $\ket{0}$, o estado do qubit alvo não será alterado \cite{chuang}.
 
@@ -298,10 +298,10 @@ A porta lógica \(\CNOT\) é usada para implementar operações condicionais e p
 A Porta Lógica Hadamard Quântica \(\HAD\) é uma porta lógica quântica que transforma o estado de um qubit em seu estado oposto com 50\% de probabilidade associada ao estado. Ela pode ser usada para realizar operações de entrelaçamento entre qubits, o que permite a implementação de algoritmos quânticos como o emaranhamento e o teletransporte quântico. Seu desenvolvimento teve como objetivo permitir o controle preciso de qubits em circuitos quânticos \cite{jorcuvich}. Ela é representada por uma matriz \(2{\times}2\), definida como:
 
 \begin{equation}
-\HAD= \frac{1}{\sqrt{2}} \begin{pmatrix*}[r]
+\HAD= \frac{1}{\sqrt{2}} \begin{bmatrix*}[r]
 1 & 1 \\
 1 & -1
-\end{pmatrix*}
+\end{bmatrix*}
 \end{equation}
 
 \subsection{Bases de Bell}\label{sec:bell}
@@ -407,7 +407,7 @@ Um dos qubits do par emaranhado em~\eqref{eq:bell00} é mantido em \(A\) e o out
  \begin{equation}\label{psi}
   \ket{\psi} = \alpha \ket{0} + \beta \ket{1}.
  \end{equation}
-De posse do par emaranhado e da mensagem, o protocolo é iniciado com a aplicação da porta \(\CNOT\) entre $\ket{\psi}\ket{\beta_{00}}$, que chamaremos de $\ket{\psi_0}$. A porta \(\CNOT\) possui como alvo o qubit $\ket{\beta_{00}}$ presente em \(A\) e como qubit de controle $\ket{\psi}$. Isso indica que a porta \(\CNOT\) irá modificar $\ket{\beta_{00}}$ de acordo com o estado de $\ket{\psi}$ confome a Definição~\ref{definition:cnot}.
+De posse do par emaranhado e da mensagem, o protocolo é iniciado com a aplicação da porta \(\CNOT\) entre $\ket{\psi}\ket{\beta_{00}}$, que chamaremos de $\ket{\psi_0}$. A porta \(\CNOT\) possui como alvo o qubit $\ket{\beta_{00}}$ presente em \(A\) e como qubit de controle $\ket{\psi}$. Isso indica que a porta \(\CNOT\) irá modificar $\ket{\beta_{00}}$ de acordo com o estado de $\ket{\psi}$ conforme a Definição~\ref{definition:cnot}.
 
 \begin{definition}{Operação \(\CNOT\)}{cnot}
   A operação \(\CNOT\):
@@ -451,7 +451,7 @@ O próximo passo do protocolo consiste em realizar medidas em ambos os qubits pr
   \caption{Possíveis resultados das medidas realizadas nos qubits presentes em \(A\) no estado quântico $\ket{\psi_2}$.}\label{tab:medidas}
   \begin{tabular}{cc}
     \toprule
-    {\textbf{Medida realizada}} & {\textbf{Estado quântico associado}}\\
+    Medida realizada & Estado quântico associado\\
     \midrule
     $\ket{00}$   & $\bigl( \alpha \ket{0} + \beta \ket{1} \bigr)$\\
     $\ket{01}$   & $\bigl( \alpha \ket{1} + \beta \ket{0} \bigr)$\\
@@ -481,7 +481,7 @@ A aplicação das portas dependerá do resultado da medida enviado por \(A\), se
   \caption{Aplicação das portas lógicas quânticas, de acordo com a medida da informação enviada por \(A\).}\label{tab:acao-das-portas}
   \begin{tabular}{cp{0.6\linewidth}}
     \toprule
-    \textbf{Resultado medido} & \textbf{Ação} \\
+    Resultado medido & Ação \\
     \midrule
     $\ket{00}$ & Nenhuma porta deve ser aplicada e o estado colapsado em \(B\) é exatamente o mesmo da mensagem enviada em $\ket{\psi}$ \\
     $\ket{10}$ & Apenas a porta \(\ZZZ\) deve ser aplicada \\
@@ -544,7 +544,7 @@ Vale ressaltar que o estudo dos ruídos quânticos contribuem para conhecer os e
 Segundo \textcite{teseufscar}, os principais tipos de ruídos associados à decoerência da informação quântica, ou seja, a sua alteração do estado original são:
 
 \begin{description}\label{tiposruidos}
-  \item [Inversão de bit (\textit{bitflip})] esse ruído consiste essencialmente na inversão do estado dos qubits emaranhados, fazendo com que estes saiam de um chamado estado puro --- essencial para o fenomeno de emaranhamento --- para um estado misto.
+  \item [Inversão de bit (\textit{bitflip})] esse ruído consiste essencialmente na inversão do estado dos qubits emaranhados, fazendo com que estes saiam de um chamado estado puro --- essencial para o fenômeno de emaranhamento --- para um estado misto.
   \item [Inversão de fase (\textit{phaseflip})] inverte a fase da função de onda que representa os qubits emaranhados.
   \item [Inversão de bit e fase (\textit{bit-phase flip})] inverte tanto o estado quanto a fase do qubit.
 \end{description}

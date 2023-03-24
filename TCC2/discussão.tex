@@ -1,0 +1,62 @@
+%%%  ____ ___ ____   ____ _   _ _____ _____
+%%% |  _ \_ _/ ___| / ___| | | |_   _| ____|
+%%% | | | | |\___ \| |   | | | | | | |  _|
+%%% | |_| | | ___) | |___| |_| | | | | |___
+%%% |____/___|____/ \____|\___/  |_| |_____|
+%%%
+%%% TCC de Bianca Miyabe Santos Freitas
+%%% Licenciatura em Física - UFSCar, Sorocaba
+%%%
+\chapter{Discussão dos resultados e perspectivas de estudo}\label{sec:resultados}
+
+Durante a criação da descrição matricial do protocolo apresentado no Apêndice~\ref{app:matricial}, utilizamos matrizes do tipo coluna para representar os estados quânticos e os qubits, pois ambos são vetores. Além disso, pudemos expressar as portas lógicas quânticas como matrizes unitárias, o que permitiu uma implementação eficiente das operações entre as portas e os qubits. Apesar da descrição matricial simplificar o protocolo, desconsiderando a variável temporal, é possível estabelecer uma cronologia das operações, uma vez que algoritmos quânticos podem ser expressos na forma de circuitos.
+
+Durante a construção da descrição matricial, identificamos os seguintes postulados descritos na Seção~\ref{sec:postulados}:
+\begin{itemize}
+  \item O Postulado~\ref{post:p1} mostra que os qubits podem ser representados pela expressão
+        \[
+        \ket{\psi} =
+        \alpha \begin{bmatrix} 1 \\ 0 \end{bmatrix} +
+        \beta \begin{bmatrix} 0 \\ 1 \end{bmatrix},
+        \]
+        que é uma combinação linear de vetores unitários, representados por matrizes coluna.
+
+  \item O Postulado~\ref{post:p2} evidencia que os operadores quânticos, que são as portas lógicas quânticas, são a única operação capaz de alterar os estados quânticos. Na descrição proposta neste trabalho, observamos que, ao realizar uma operação entre qubits, o estado permanece inalterado, mas ao realizar uma operação entre um qubit e uma porta lógica quântica, o primeiro sempre é modificado. É interessante notar que, a menos que se realize uma operação de medida, o estado de um qubit não é modificado definitivamente ao interagir com uma porta lógica quântica, sendo reversível com a aplicação de uma operação inversa.
+
+  \item O Postulado~\ref{post:p4} foi constatado nas operações que envolvem todos os estados do sistema, como na aplicação da porta \(\CNOT\). O estado geral do sistema é obtido com o produto tensorial entre todos os estados que o compõem, o que nos permite descrever detalhadamente as possibilidades de colapso após uma medida em função dos estados obtidos.
+\end{itemize}
+
+A possibilidade de observar os postulados na descrição matricial justifica e valida sua construção, de modo que, apesar de simplificada, ela não viola nenhum dos postulados propostos. Além disso é possível acompanhar a evolução do sistema com o circuito lógico da Figura~\ref{fig:protocoloteletransporte} com a ordem de aplicação das portas e os estados dos qubits sendo modificados.
+
+Sobre o desenvolvimento do protocolo em Python, a utilização da biblioteca \py{numpy} permitiu uma implementação mais eficiente e simplificada, enquanto a função \py{TensorProduct} otimizou as operações de produto tensorial necessárias durante todo o protocolo.
+
+A validação dos resultados ocorreu comparando-os com a descrição teórica do protocolo de teletransporte quântico, e confirmou-se que o simulador reproduziu corretamente o estado final do sistema para todos os valores de probabilidade de $\alpha$ e $\beta$, com precisão de até 15 casas decimais.
+
+\todo[inline]{Pensar em como mover para a seção de resultados.}
+
+O impacto da introdução de ruídos no processo de teletransporte quântico foi analisado comparando as variáveis iniciais e finais do protocolo para as probabilidades $\alpha$ e $\beta$ de modo que os estados obtidos em cada situação estão apresentados na Tabela~\ref{tab:resultadoruidos}.
+
+\begin{table}[ht!]
+  \centering
+  \caption{Resultado dos estados de $\alpha$ e $\beta$ na presença de ruídos.}\label{tab:resultadoruidos}
+  \begin{tabular}{ccccc}
+    \toprule
+    \multirow{2}{*}{Tipo de ruído} & \multicolumn{2}{c}{Valores iniciais} & \multicolumn{2}{c}{Valores finais}                                     \\
+    \cmidrule{2-5}
+                                   & $\alpha$ & $\beta$ & $\alpha$ & $\beta$ \\
+    \midrule
+    \textit{bitflip}   & $\begin{bmatrix} 1 \\ 0 \end{bmatrix}$ & $\begin{bmatrix} 0 \\ 1 \end{bmatrix}$ & $\begin{bmatrix} 0 \\ 1 \end{bmatrix}$ & $\begin{bmatrix} 1 \\ 0 \end{bmatrix}$ \\
+    \textit{phaseflip} & $\begin{bmatrix} 1 \\ 0 \end{bmatrix}$ & $\begin{bmatrix} 0 \\ 1 \end{bmatrix}$ & $\begin{bmatrix} 1 \\ 0 \end{bmatrix}$ & $\begin{bmatrix*}[r] 0 \\ -1 \end{bmatrix*}$ \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Os resultados da Tabela~\ref{tab:resultadoruidos} podem ser comparados com os descritos em~\ref{tiposruidos}, e a inversão de estados é confirmada para o ruído \textit{bitflip} e a de fase para o ruído \textit{phaseflip}, o que demonstra que a presença de ruídos compromete o estado quântico teletransportado, o que é relevante para a implementação prática de sistemas de teletransporte quântico.
+
+Embora o protocolo desenvolvido seja introdutório, sua compreensão permite o desenvolvimento de trabalhos mais complexos, como a implementação de um protocolo que considere a evolução temporal como variável e possibilite a descrição mais precisa dos efeitos de ruídos no sistema, ou ainda, a descrição de qubits utilizando sua função de onda e operando sobre ela.
+
+\todo[inline]{Referência para o Qiskit / site.}
+
+Vale ressaltar que existem algumas ferramentas já consolidadas para o estudo e aperfeiçoamento de algoritmos quânticos, como o Qiskit. O Qiskit é uma plataforma de código aberto desenvolvida pela IBM para programação e simulação de circuitos quânticos, amplamente utilizada em pesquisas e aplicações práticas em diversas áreas, como criptografia, simulação química e inteligência artificial.
+
+Com este estudo introdutório, algumas perspectivas ficam delineadas para estudos futuros, como a implementação do mesmo protocolo utilizando o Qiskit em um ambiente clássico e posteriormente em um ambiente quântico para verificar possíveis divergências nos resultados. Outra perspectiva futura é o mapeamento de erros para o desenvolvimento e aperfeiçoamento de algoritmos de correção de erros quânticos, na tentativa de tornar a implementação de um protocolo de teletransporte real mais efetiva para a evolução da computação quântica.

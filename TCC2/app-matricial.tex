@@ -14,285 +14,279 @@ As representações matriciais dos protocolos de Emaranhamento e Teletransporte 
 
 Para iniciar o protocolo, consideraremos as seguintes representações binárias dos estados quânticos
 \begin{equation} \label{eq:01}
-\ket{0} = \begin{pmatrix}
+\ket{0} = \begin{bmatrix}
 1 \\
 0
-\end{pmatrix} \quad \text{e} \quad
-\ket{1} = \begin{pmatrix}
+\end{bmatrix} \quad \text{e} \quad
+\ket{1} = \begin{bmatrix}
 0 \\
 1
-\end{pmatrix}.
+\end{bmatrix}.
 \end{equation}
 
 Consideraremos também que estados quânticos que dependem de mais de um qubit (emaranhados ou não), são representados pelo produto tensorial dos seus estados internos, como segue o exemplo:
 \begin{equation}\label{eq:00}
-\ket{00} = \begin{pmatrix}
+\ket{00} = \begin{bmatrix}
 1 \\
 0
-\end{pmatrix} \otimes \begin{pmatrix}
+\end{bmatrix} \otimes \begin{bmatrix}
 1 \\
 0
-\end{pmatrix} = \begin{pmatrix}
+\end{bmatrix} = \begin{bmatrix}
 1 \\
 0 \\
 0 \\
 0
-\end{pmatrix}
+\end{bmatrix}
 \end{equation}
 
 A representação gráfica do circuito quântico que realiza o protocolo de emaranhamento possibilita o entendimento dos procedimentos contidos no mesmo, conforme a região destacada da Figura~\ref{fig:protocoloteletransporte}
 
 Para que o emaranhamento seja possível, ambos os qubits representados por $\ket{q_x}$ e $\ket{q_y}$ devem existir no mesmo espaço de Hilbert e portanto a operação de produto tensorial entre eles deve ser possível de modo que, considerando o estado quântico $\ket{0}$:
 \begin{equation}
-\ket{q_x} \otimes \ket{q_y} = \ket{0} \otimes \ket{0} = \ket{00} = \begin{pmatrix}
+\ket{q_x} \otimes \ket{q_y} = \ket{0} \otimes \ket{0} = \ket{00} = \begin{bmatrix}
 1 \\
 0
-\end{pmatrix} \otimes \begin{pmatrix}
+\end{bmatrix} \otimes \begin{bmatrix}
 1 \\
 0
-\end{pmatrix} = \begin{pmatrix}
+\end{bmatrix} = \begin{bmatrix}
 1 \\
 0 \\
 0 \\
 0
-\end{pmatrix}
+\end{bmatrix}
 \end{equation}
 
 Seguindo a Figura~\ref{fig:protocoloteletransporte}, aplicamos a porta Hadamard, \(\HAD\), no estado $\ket{q_x}$:
-
 \begin{equation}\label{eq:Hqbit0}
-\HAD \ket{q_x}= \frac{1}{\sqrt{2}} \begin{pmatrix*}[r]
+\HAD \ket{q_x}= \frac{1}{\sqrt{2}} \begin{bmatrix*}[r]
 1 & 1 \\
 1 & -1
-\end{pmatrix*} \begin{pmatrix}
+\end{bmatrix*} \begin{bmatrix}
 1  \\
 0 
-\end{pmatrix} = \frac{1}{\sqrt{2}} \begin{pmatrix*}[r]
+\end{bmatrix} = \frac{1}{\sqrt{2}} \begin{bmatrix*}[r]
 1 \\
 1
-\end{pmatrix*}
+\end{bmatrix*}
 \end{equation}
-
 
 Em seguida, aplicamos a porta \(\CNOT\) tendo como controle o qubit $\ket{q_x}$, após a aplicação de \(\HAD\) e o alvo o qubit $\ket{q_y}$:
 \begin{equation}\label{eq:matrizbell00}
 	\begin{split}
  		\CNOT \bigl( \ket{q_x}\ket{q_y} \bigr) =& 
-		\begin{pmatrix}
+		\begin{bmatrix}
 		1 & 0 & 0 & 0 \\
 		0 & 1 & 0 & 0 \\
 		0 & 0 & 0 & 1 \\
 		0 & 0 & 1 & 0
-		\end{pmatrix} 
-		\frac{1}{\sqrt{2}} \begin{pmatrix*}[r]
+		\end{bmatrix}
+		\frac{1}{\sqrt{2}} \begin{bmatrix*}[r]
 		1 \\
 		1
-		\end{pmatrix*} \otimes  \begin{pmatrix*}[r]
+		\end{bmatrix*} \otimes  \begin{bmatrix*}[r]
 		1 \\
 		0
-		\end{pmatrix*} = \\
-		&= \begin{pmatrix}
+		\end{bmatrix*} = \\
+		&= \begin{bmatrix}
 		1 & 0 & 0 & 0 \\
 		0 & 1 & 0 & 0 \\
 		0 & 0 & 0 & 1 \\
 		0 & 0 & 1 & 0
-		\end{pmatrix} \frac{1}{\sqrt{2}}\begin{pmatrix}
+		\end{bmatrix} \frac{1}{\sqrt{2}}\begin{bmatrix}
 		1 \\
 		0 \\
 		1 \\
 		0
-		\end{pmatrix} = \frac{1}{\sqrt{2}} \begin{pmatrix}
+		\end{bmatrix} = \frac{1}{\sqrt{2}} \begin{bmatrix}
 		1 \\
 		0 \\
 		0 \\
 		1
-		\end{pmatrix}
+		\end{bmatrix}
 	\end{split}	
 \end{equation}
 
 A equação também é conhecida como uma das Bases de Bell. A comparação da Base de Bell no estado $\ket{00}$ em notação de Dirac e em notação matricial é feita considerando as Equações~\eqref{eq:00} e~\eqref{eq:01} de modo que, seja \(\ket{\beta_{00}}\) a Base de Bell em notação de Dirac dada por \(\frac{1}{\sqrt{2}} \bigl(\ket{00} + \ket{11}\bigr)\), reescrevendo teremos:
 \begin{equation}\label{eq:comparacaobeta}
-\ket{\beta_{00}} = \frac{1}{\sqrt{2}} \left[ \begin{pmatrix}
+\ket{\beta_{00}} = \frac{1}{\sqrt{2}} \left( \begin{bmatrix}
 1 \\
 0
-\end{pmatrix} \otimes \begin{pmatrix}
+\end{bmatrix} \otimes \begin{bmatrix}
 1 \\
 0
-\end{pmatrix} + \begin{pmatrix}
+\end{bmatrix} + \begin{bmatrix}
 0 \\
 1
-\end{pmatrix} \otimes \begin{pmatrix}
+\end{bmatrix} \otimes \begin{bmatrix}
 0 \\
 1
-\end{pmatrix}\right] = \frac{1}{\sqrt{2}} \left[ \begin{pmatrix}
+\end{bmatrix}\right) = \frac{1}{\sqrt{2}} \left( \begin{bmatrix}
 1 \\
 0 \\
 0 \\
 0 
-\end{pmatrix} + \begin{pmatrix}
+\end{bmatrix} + \begin{bmatrix}
 0 \\
 0 \\
 0 \\
 1 
-\end{pmatrix}\right] = \frac{1}{\sqrt{2}} \begin{pmatrix}
+\end{bmatrix}\right) = \frac{1}{\sqrt{2}} \begin{bmatrix}
 1 \\
 0 \\
 0 \\
 1 
-\end{pmatrix}
+\end{bmatrix}
 \end{equation}
 
 O resultado obtido em~\eqref{eq:comparacaobeta} é exatamente o mesmo obtido na~\eqref{eq:bell00}.
 A próxima etapa do protocolo de teletransporte, consiste na aplicação da porta lógica quântica \(\CNOT\). Portanto, seja o estado $\ket{\psi_0}$ descrito por:
 \begin{equation}\label{eq:psi0}
-\ket{\psi_0}=\ket{\psi}\ket{\beta_{00}}=\left[\alpha \begin{pmatrix}
+\ket{\psi_0}=\ket{\psi}\ket{\beta_{00}}=\left(\alpha \begin{bmatrix}
 1 \\
 0 
-\end{pmatrix} + \beta \begin{pmatrix}
+\end{bmatrix} + \beta \begin{bmatrix}
 0 \\
 1
-\end{pmatrix}\right] \left[\frac{1}{\sqrt{2}} \begin{pmatrix}
+\end{bmatrix}\right) \left(\frac{1}{\sqrt{2}} \begin{bmatrix}
 1 \\
 0 \\
 0 \\
 1
-\end{pmatrix}\right]
+\end{bmatrix}\right)
 \end{equation}
 
 Conforme Figura~\ref{fig:protocoloteletransporte}, a porta \(\CNOT\) possui como controle o qubit descrito pelo estado $\ket{\psi}$ e como alvo o par emaranhado presente no local A $\ket{\beta_{00}}$. Sua atuação apenas ocorrerá quando o qubit de controle estiver no estado $\ket{1}$. Desse modo, reescrevendo~\eqref{eq:psi0}
-
 \begin{equation}\label{eq:psi0cnot}
-\ket{\psi_0} = \frac{1}{\sqrt{2}}\left\{\left[\alpha \begin{pmatrix}
+\ket{\psi_0} = \frac{1}{\sqrt{2}}\left\{\left(\alpha \begin{bmatrix}
 1 \\
 0 
-\end{pmatrix}  \begin{pmatrix}
+\end{bmatrix}  \begin{bmatrix}
 1 \\
 0 \\
 0 \\
 1
-\end{pmatrix}\right] + \left[\beta \begin{pmatrix}
+\end{bmatrix}\right) + \left(\beta \begin{bmatrix}
 0 \\
 1
-\end{pmatrix}  \begin{pmatrix}
+\end{bmatrix}  \begin{bmatrix}
 1 \\
 0 \\
 0 \\
 1
-\end{pmatrix}\right] \right\}
+\end{bmatrix}\right) \right\}
 \end{equation}
-
-evidenciando os produtos tensoriais de~\eqref{eq:psi0cnot}
+e evidenciando os produtos tensoriais de~\eqref{eq:psi0cnot}
 \begin{equation}\label{eq:prodtenspsi0}
 	\begin{split}
-\ket{\psi_0} &= \frac{1}{\sqrt{2}}\left\{\alpha \begin{pmatrix}
+\ket{\psi_0} &= \frac{1}{\sqrt{2}}\left\{\alpha \begin{bmatrix}
 1 \\
 0 
-\end{pmatrix} \left[ \begin{pmatrix}
+\end{bmatrix} \left( \begin{bmatrix}
 1 \\
 0 
-\end{pmatrix} \otimes \begin{pmatrix}
+\end{bmatrix} \otimes \begin{bmatrix}
 1 \\
 0
-\end{pmatrix} + \begin{pmatrix}
+\end{bmatrix} + \begin{bmatrix}
 0 \\
 1
-\end{pmatrix} \otimes \begin{pmatrix}
+\end{bmatrix} \otimes \begin{bmatrix}
 0 \\
 1
-\end{pmatrix}\right]\right\} \\
-&+ \frac{1}{\sqrt{2}}\left\{\beta \begin{pmatrix}
+\end{bmatrix}\right)\right\} \\
+&+ \frac{1}{\sqrt{2}}\left\{\beta \begin{bmatrix}
 0 \\
 1
-\end{pmatrix} \left[ \begin{pmatrix}
+\end{bmatrix} \left( \begin{bmatrix}
 1 \\
 0 
-\end{pmatrix} \otimes \begin{pmatrix}
+\end{bmatrix} \otimes \begin{bmatrix}
 1 \\
 0
-\end{pmatrix} + \begin{pmatrix}
+\end{bmatrix} + \begin{bmatrix}
 0 \\
 1
-\end{pmatrix} \otimes \begin{pmatrix}
+\end{bmatrix} \otimes \begin{bmatrix}
 0 \\
 1
-\end{pmatrix}\right]\right\}
+\end{bmatrix}\right)\right\}
 	\end{split}
 \end{equation}
 
 Reagrupando temos portanto, quatro possíveis estados formados por 3-qubits sendo eles:
-
 \begin{equation}\label{eq:3qubit}
 	\begin{split}
-\ket{000} &= \left[ \begin{pmatrix}
+\ket{000} &= \left( \begin{bmatrix}
 1 \\
 0
-\end{pmatrix} \otimes \begin{pmatrix}
+\end{bmatrix} \otimes \begin{bmatrix}
 1 \\
 0
-\end{pmatrix} \otimes \begin{pmatrix}
+\end{bmatrix} \otimes \begin{bmatrix}
 1 \\
 0
-\end{pmatrix}\right] = \begin{pmatrix}
+\end{bmatrix}\right) = \begin{bmatrix}
 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0
-\end{pmatrix}^T \\
-\ket{011} &= \left[ \begin{pmatrix}
+\end{bmatrix}^T \\
+\ket{011} &= \left( \begin{bmatrix}
 1 \\
 0
-\end{pmatrix} \otimes \begin{pmatrix}
+\end{bmatrix} \otimes \begin{bmatrix}
 0 \\
 1
-\end{pmatrix} \otimes \begin{pmatrix}
+\end{bmatrix} \otimes \begin{bmatrix}
 0 \\
 1
-\end{pmatrix}\right] = \begin{pmatrix}
+\end{bmatrix}\right) = \begin{bmatrix}
 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0
-\end{pmatrix}^T \\
-\ket{100} &= \left[ \begin{pmatrix}
+\end{bmatrix}^T \\
+\ket{100} &= \left( \begin{bmatrix}
 0 \\
 1
-\end{pmatrix} \otimes \begin{pmatrix}
+\end{bmatrix} \otimes \begin{bmatrix}
 1 \\
 0
-\end{pmatrix} \otimes \begin{pmatrix}
+\end{bmatrix} \otimes \begin{bmatrix}
 1 \\
 0
-\end{pmatrix}\right] = \begin{pmatrix}
+\end{bmatrix}\right) = \begin{bmatrix}
 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0
-\end{pmatrix}^T \\
-\ket{111} &=\left[ \begin{pmatrix}
+\end{bmatrix}^T \\
+\ket{111} &=\left( \begin{bmatrix}
 0 \\
 1
-\end{pmatrix} \otimes \begin{pmatrix}
+\end{bmatrix} \otimes \begin{bmatrix}
 0 \\
 1
-\end{pmatrix} \otimes \begin{pmatrix}
+\end{bmatrix} \otimes \begin{bmatrix}
 0 \\
 1
-\end{pmatrix}\right] = \begin{pmatrix}
+\end{bmatrix}\right) = \begin{bmatrix}
 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1
-\end{pmatrix}^T
+\end{bmatrix}^T
 	\end{split}
 \end{equation}
 
 Somando todos os estados possíveis temos:
 \begin{equation}\label{eq:3estados}
-\ket{000}+\ket{001}+\ket{100}+\ket{111}= \begin{pmatrix}
+\ket{000}+\ket{001}+\ket{100}+\ket{111}= \begin{bmatrix}
 1 & 0 & 0 & 1 & 1 & 0 & 0 & 1
-\end{pmatrix}^T
+\end{bmatrix}^T
 \end{equation}
 
 Como a porta \(\CNOT\) está dimensionada para dois estados e, nesse caso, possuímos três, iremos aplicar a matriz identidade para dimensioná-la. Desse modo:
-
 \begin{equation}\label{eq:cnotI}
-\CNOT \otimes I = \begin{pmatrix}
+\CNOT \otimes I = \begin{bmatrix}
 		1 & 0 & 0 & 0 \\
 		0 & 1 & 0 & 0 \\
 		0 & 0 & 0 & 1 \\
 		0 & 0 & 1 & 0
-		\end{pmatrix} \otimes \begin{pmatrix}
+		\end{bmatrix} \otimes \begin{bmatrix}
 		1 & 0 \\
 		0 & 1
-		\end{pmatrix} = \begin{pmatrix}
+		\end{bmatrix} = \begin{bmatrix}
 		1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
 		0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
 		0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\
@@ -301,14 +295,13 @@ Como a porta \(\CNOT\) está dimensionada para dois estados e, nesse caso, possu
 		0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 \\
 		0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\
 		0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 		
-		\end{pmatrix}
+		\end{bmatrix}
 \end{equation}
 
 Aplicando~\eqref{eq:cnotI} em~\eqref{eq:3estados}, teremos o estado:
-
 \begin{equation}\label{eq:cnot3estados}
 	\begin{split}
-		\CNOT (\ket{000}\ket{001}\ket{100}\ket{111}) &= \begin{pmatrix}
+		\CNOT (\ket{000}\ket{001}\ket{100}\ket{111}) &= \begin{bmatrix}
 		1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
 		0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
 		0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\
@@ -317,7 +310,7 @@ Aplicando~\eqref{eq:cnotI} em~\eqref{eq:3estados}, teremos o estado:
 		0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 \\
 		0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\
 		0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 		
-		\end{pmatrix} \begin{pmatrix}
+		\end{bmatrix} \begin{bmatrix}
 		1 \\
 		0 \\
 		0 \\
@@ -326,18 +319,17 @@ Aplicando~\eqref{eq:cnotI} em~\eqref{eq:3estados}, teremos o estado:
 		0 \\
 		0 \\
 		1
-		\end{pmatrix} = \\
-		&=\begin{pmatrix}
+		\end{bmatrix} = \\
+		&=\begin{bmatrix}
 		1 & 0 &	0 & 1 &	0 &	1 &	1 &	0
-		\end{pmatrix}^T
+		\end{bmatrix}^T
 	\end{split}
 \end{equation}
 
 Usando a lógica de construção de~\eqref{eq:3estados}, podemos separar as tríades obtidas em~\eqref{eq:cnot3estados}, de modo que:
-
 \begin{equation}
 	\begin{split}
-	\begin{pmatrix}
+	\begin{bmatrix}
 	1 \\
 	0 \\
 	0 \\
@@ -346,7 +338,7 @@ Usando a lógica de construção de~\eqref{eq:3estados}, podemos separar as trí
 	1 \\
 	1 \\
 	0
-	\end{pmatrix} = \begin{pmatrix}
+	\end{bmatrix} = \begin{bmatrix}
 	1 \\
 	0 \\
 	0 \\
@@ -355,7 +347,7 @@ Usando a lógica de construção de~\eqref{eq:3estados}, podemos separar as trí
 	0 \\
 	0 \\
 	0
-	\end{pmatrix} + \begin{pmatrix}
+	\end{bmatrix} + \begin{bmatrix}
 	0 \\
 	0 \\
 	0 \\
@@ -364,7 +356,7 @@ Usando a lógica de construção de~\eqref{eq:3estados}, podemos separar as trí
 	0 \\
 	0 \\
 	0
-	\end{pmatrix} + \begin{pmatrix}
+	\end{bmatrix} + \begin{bmatrix}
 	0 \\
 	0 \\
 	0 \\
@@ -373,7 +365,7 @@ Usando a lógica de construção de~\eqref{eq:3estados}, podemos separar as trí
 	0 \\
 	1 \\
 	0
-	\end{pmatrix} + \begin{pmatrix}
+	\end{bmatrix} + \begin{bmatrix}
 	0 \\
 	0 \\
 	0 \\
@@ -382,282 +374,273 @@ Usando a lógica de construção de~\eqref{eq:3estados}, podemos separar as trí
 	1 \\
 	0 \\
 	0
-	\end{pmatrix} = \ket{000}+\ket{011}+\ket{110}+\ket{101}
+	\end{bmatrix} = \ket{000}+\ket{011}+\ket{110}+\ket{101}
 	\end{split}
 \end{equation}
 
 Portanto, reorganizando e agrupando os estados definidos em~\eqref{eq:cnot3estados}, o estado $\ket{\psi_1}$ pode ser descrito por:
- 
 \begin{equation}\label{eq:psi1}
-\ket{\psi_1} = \frac{1}{\sqrt{2}} \left\{  \alpha \begin{pmatrix}
+\ket{\psi_1} = \frac{1}{\sqrt{2}} \left\{  \alpha \begin{bmatrix}
 1 \\
 0
-\end{pmatrix} \otimes \left[ \begin{pmatrix}
+\end{bmatrix} \otimes \left( \begin{bmatrix}
 1 \\
 0 \\
 0 \\
 0
-\end{pmatrix} + \begin{pmatrix}
+\end{bmatrix} + \begin{bmatrix}
 0 \\
 0 \\
 0 \\
 1
-\end{pmatrix}\right] + \beta \begin{pmatrix}
+\end{bmatrix}\right) + \beta \begin{bmatrix}
 0 \\
 1
-\end{pmatrix} \otimes \left[ \begin{pmatrix}
+\end{bmatrix} \otimes \left( \begin{bmatrix}
 0 \\
 0 \\
 1 \\
 0
-\end{pmatrix} + \begin{pmatrix}
+\end{bmatrix} + \begin{bmatrix}
 0 \\
 1 \\
 0 \\
 0
-\end{pmatrix}\right] \right\}
+\end{bmatrix}\right) \right\}
 \end{equation}
 
 A próxima etapa, consiste na aplicação da porta \(\HAD\) no qubit $\ket{\psi}$, de modo que:
-
 \begin{equation}\label{eq:halfabeta}
   	\begin{split}
-		\HAD \ket{\psi} &= \frac{1}{\sqrt{2}} \begin{pmatrix*}[r]
+		\HAD \ket{\psi} &= \frac{1}{\sqrt{2}} \begin{bmatrix*}[r]
 		1 & 1 \\
 		1 & -1
-		\end{pmatrix*} \frac{1}{\sqrt{2}}\left(\alpha \begin{pmatrix}
+		\end{bmatrix*} \frac{1}{\sqrt{2}}\left(\alpha \begin{bmatrix}
 		1 \\
 		0 
-		\end{pmatrix} + \beta \begin{pmatrix}
+		\end{bmatrix} + \beta \begin{bmatrix}
 		0 \\
 		1
-		\end{pmatrix} \right) = \frac{1}{2} \left[\alpha \begin{pmatrix}
+		\end{bmatrix} \right) = \frac{1}{2} \left(\alpha \begin{bmatrix}
 		1 \\
 		1 
-		\end{pmatrix} + \beta \begin{pmatrix*}[r]
+		\end{bmatrix} + \beta \begin{bmatrix*}[r]
 		1 \\
 		-1
-		\end{pmatrix*} \right]
+		\end{bmatrix*} \right)
   	\end{split}
 \end{equation}
 
 Os resultados de~\eqref{eq:halfabeta} podem ser reescritos como:
 \begin{equation} \label{eq:alfabetasoma}
   \begin{split}
-\frac{1}{2} \alpha \begin{pmatrix}
+\frac{1}{2} \alpha \begin{bmatrix}
 1 \\
 1 
-\end{pmatrix} &= \frac{1}{2} \alpha \begin{pmatrix}
+\end{bmatrix} &= \frac{1}{2} \alpha \begin{bmatrix}
 1 \\
 0 
-\end{pmatrix} + \begin{pmatrix}
+\end{bmatrix} + \begin{bmatrix}
 0 \\
 1 
-\end{pmatrix} \\
-\frac{1}{2} \beta \begin{pmatrix*}[r]
+\end{bmatrix} \\
+\frac{1}{2} \beta \begin{bmatrix*}[r]
 1 \\
 -1
-\end{pmatrix*} &= \frac{1}{2} \beta \begin{pmatrix}
+\end{bmatrix*} &= \frac{1}{2} \beta \begin{bmatrix}
 1 \\
 0
-\end{pmatrix} - \begin{pmatrix}
+\end{bmatrix} - \begin{bmatrix}
 0 \\
 1
-\end{pmatrix} 
+\end{bmatrix}
   \end{split}
 \end{equation}
 
 Portanto, reagrupando~\eqref{eq:psi1} e~\eqref{eq:halfabeta} teremos o estado $\ket{\psi_2}$ que é descrito por:
-
 \begin{align}\label{eq:psi2matrix}
-\ket{\psi_2} = \frac{1}{2} \left\{\left[ \alpha \begin{pmatrix}
+\ket{\psi_2} = \frac{1}{2} \left\{\left( \alpha \begin{bmatrix}
 1 \\
 1 
-\end{pmatrix} \begin{pmatrix}
+\end{bmatrix} \begin{bmatrix}
 1 \\
 0 \\
 0 \\
 0
-\end{pmatrix} +\begin{pmatrix}
+\end{bmatrix} +\begin{bmatrix}
 0 \\
 0 \\
 0 \\
 1
-\end{pmatrix} \right] + \left[\beta \begin{pmatrix*}[r]
+\end{bmatrix} \right) + \left(\beta \begin{bmatrix*}[r]
 1 \\
 -1
-\end{pmatrix*} \begin{pmatrix}
+\end{bmatrix*} \begin{bmatrix}
 0 \\
 1 \\
 0 \\
 0
-\end{pmatrix} + \begin{pmatrix}
+\end{bmatrix} + \begin{bmatrix}
 0 \\
 0 \\
 1 \\
 0
-\end{pmatrix}\right]\right\}
+\end{bmatrix}\right)\right\}
 \end{align}
-
-
 
 No resultado~\eqref{eq:psi2matrix}, podemos evidenciar as seguintes relações:
 \begin{equation}\label{eq:prodtens1}
 	\begin{split}
-&\begin{pmatrix}
+&\begin{bmatrix}
 1 \\
 0 \\
 0 \\
 0
-\end{pmatrix} = \begin{pmatrix}
+\end{bmatrix} = \begin{bmatrix}
 1 \\
 0
-\end{pmatrix} \otimes \begin{pmatrix}
+\end{bmatrix} \otimes \begin{bmatrix}
 1 \\
 0
-\end{pmatrix},
-\begin{pmatrix}
+\end{bmatrix},
+\begin{bmatrix}
 0 \\
 0 \\
 0 \\
 1
-\end{pmatrix} = \begin{pmatrix}
+\end{bmatrix} = \begin{bmatrix}
 0 \\
 1
-\end{pmatrix} \otimes \begin{pmatrix}
+\end{bmatrix} \otimes \begin{bmatrix}
 0 \\
 1
-\end{pmatrix}, \\
-&\begin{pmatrix}
+\end{bmatrix}, \\
+&\begin{bmatrix}
 0 \\
 1 \\
 0 \\
 0
-\end{pmatrix} = \begin{pmatrix}
+\end{bmatrix} = \begin{bmatrix}
 1 \\
 0
-\end{pmatrix} \otimes \begin{pmatrix}
+\end{bmatrix} \otimes \begin{bmatrix}
 0 \\
 1
-\end{pmatrix},
-\begin{pmatrix}
+\end{bmatrix},
+\begin{bmatrix}
 0 \\
 0 \\
 1 \\
 0
-\end{pmatrix} = \begin{pmatrix}
+\end{bmatrix} = \begin{bmatrix}
 0 \\
 1
-\end{pmatrix} \otimes \begin{pmatrix}
+\end{bmatrix} \otimes \begin{bmatrix}
 1 \\
 0
-\end{pmatrix} 
+\end{bmatrix}
 	\end{split}
 \end{equation}
 
 Substituindo as relações de~\eqref{eq:prodtens1} e~\eqref{eq:alfabetasoma} em~\eqref{eq:psi2matrix}
 \begin{equation}\label{eq:help}
   \begin{split}
-\ket{\psi_2} &= \frac{1}{2}\left\{\left[\alpha\begin{pmatrix}
+\ket{\psi_2} &= \frac{1}{2}\left\{\left(\alpha\begin{bmatrix}
 1 \\
 0
-\end{pmatrix}+\alpha\begin{pmatrix}
+\end{bmatrix}+\alpha\begin{bmatrix}
 0 \\
 1
-\end{pmatrix}\right]\left[\left(\begin{pmatrix}
+\end{bmatrix}\right)\left[\left(\begin{bmatrix}
 1 \\
 0
-\end{pmatrix} \otimes \begin{pmatrix}
+\end{bmatrix} \otimes \begin{bmatrix}
 1 \\
 0
-\end{pmatrix}\right) + \left(\begin{pmatrix}
+\end{bmatrix}\right) + \left(\begin{bmatrix}
 0 \\
 1
-\end{pmatrix} \otimes \begin{pmatrix}
+\end{bmatrix} \otimes \begin{bmatrix}
 0 \\
 1
-\end{pmatrix}\right)\right]\right\} \nonumber \\
-&= \frac{1}{2}\left\{\left[\beta\begin{pmatrix}
+\end{bmatrix}\right)\right]\right\} \nonumber \\
+&= \frac{1}{2}\left\{\left(\beta\begin{bmatrix}
 1 \\
 0
-\end{pmatrix}-\beta\begin{pmatrix}
+\end{bmatrix}-\beta\begin{bmatrix}
 0 \\
 1
-\end{pmatrix}\right]\left[\left(\begin{pmatrix}
+\end{bmatrix}\right)\left[\left(\begin{bmatrix}
 1 \\
 0
-\end{pmatrix} \otimes \begin{pmatrix}
+\end{bmatrix} \otimes \begin{bmatrix}
 0 \\
 1
-\end{pmatrix}\right) + \left(\begin{pmatrix}
+\end{bmatrix}\right) + \left(\begin{bmatrix}
 0 \\
 1
-\end{pmatrix} \otimes \begin{pmatrix}
+\end{bmatrix} \otimes \begin{bmatrix}
 1 \\
 0
-\end{pmatrix}\right)\right]\right\}
+\end{bmatrix}\right)\right]\right\}
   \end{split}
 \end{equation}
 Podemos reorganizar~\eqref{eq:help} evidenciando os termos correspondentes às possíveis medidas realizadas no local A e no resultado correspondente do par emaranhado no local B:
-
 \begin{equation}\label{eq:final}
   \begin{split}
-\ket{\psi_2} &=\frac{1}{2} \left\{ \left[\begin{pmatrix}
+\ket{\psi_2} &=\frac{1}{2} \left\{ \left(\begin{bmatrix}
 1 \\
 0
-\end{pmatrix} \otimes \begin{pmatrix}
+\end{bmatrix} \otimes \begin{bmatrix}
 1 \\
 0
-\end{pmatrix}\right] \left[\alpha \begin{pmatrix}
+\end{bmatrix}\right) \left(\alpha \begin{bmatrix}
 1 \\
 0
-\end{pmatrix} + \beta \begin{pmatrix}
+\end{bmatrix} + \beta \begin{bmatrix}
 0 \\
 1
-\end{pmatrix}\right]\right\} \nonumber \\
-&+\frac{1}{2} \left\{ \left[\begin{pmatrix}
+\end{bmatrix}\right)\right\} \nonumber \\
+&+\frac{1}{2} \left\{ \left(\begin{bmatrix}
 0 \\
 1
-\end{pmatrix} \otimes \begin{pmatrix}
+\end{bmatrix} \otimes \begin{bmatrix}
 0 \\
 1
-\end{pmatrix}\right] \left[\alpha \begin{pmatrix}
+\end{bmatrix}\right) \left(\alpha \begin{bmatrix}
 0 \\
 1
-\end{pmatrix} - \beta \begin{pmatrix}
+\end{bmatrix} - \beta \begin{bmatrix}
 1 \\
 0
-\end{pmatrix}\right]\right\} \nonumber \\
-&+\frac{1}{2} \left\{\left[ \begin{pmatrix}
+\end{bmatrix}\right)\right\} \nonumber \\
+&+\frac{1}{2} \left\{\left( \begin{bmatrix}
 1 \\
 0
-\end{pmatrix} \otimes \begin{pmatrix}
+\end{bmatrix} \otimes \begin{bmatrix}
 0 \\
 1
-\end{pmatrix}\right] \left[\alpha \begin{pmatrix}
+\end{bmatrix}\right) \left(\alpha \begin{bmatrix}
 0 \\
 1
-\end{pmatrix} + \beta \begin{pmatrix}
+\end{bmatrix} + \beta \begin{bmatrix}
 1 \\
 0
-\end{pmatrix}\right]\right\} \nonumber \\
-&+\frac{1}{2} \left\{ \left[ \begin{pmatrix}
+\end{bmatrix}\right)\right\} \nonumber \\
+&+\frac{1}{2} \left\{ \left( \begin{bmatrix}
 0 \\
 1
-\end{pmatrix} \otimes \begin{pmatrix}
+\end{bmatrix} \otimes \begin{bmatrix}
 1 \\
 0
-\end{pmatrix}\right] \left[\alpha \begin{pmatrix}
+\end{bmatrix}\right) \left(\alpha \begin{bmatrix}
 1 \\
 0
-\end{pmatrix} - \beta \begin{pmatrix}
+\end{bmatrix} - \beta \begin{bmatrix}
 0 \\
 1
-\end{pmatrix}\right] \right\}
+\end{bmatrix}\right) \right\}
   \end{split}
 \end{equation}
 
 O resultado acima é exatamente mesmo obtido na Tabela~\ref{tab:medidas}.
-
-\clearpage
-

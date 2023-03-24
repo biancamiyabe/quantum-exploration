@@ -1,0 +1,169 @@
+%%%  ____  _____ ____  _   _ _   _____
+%%% |  _ \| ____/ ___|| | | | | |_   _|
+%%% | |_) |  _| \___ \| | | | |   | |
+%%% |  _ <| |___ ___) | |_| | |___| |
+%%% |_| \_\_____|____/ \___/|_____|_|
+%%%
+%%% TCC de Bianca Miyabe Santos Freitas
+%%% Licenciatura em Física - UFSCar, Sorocaba
+%%%
+\chapter{Resultados}
+
+Para aferir a implementação proposta, será apresentado um exemplo com os valores atribuídos de $\alpha = \num{0.75}$ e $\beta = \num{0.25}$, teremos que a mensagem a ser enviada é descrita por:
+\begin{equation}
+  \ket{\psi} = \num{0.75} \begin{bmatrix} 1 \\ 0 \end{bmatrix} +
+  \num{0.25} \begin{bmatrix} 0 \\ 1 \end{bmatrix} =
+  \begin{bmatrix} \num{0.75} \\ 0 \end{bmatrix} +
+  \begin{bmatrix} 0 \\ \num{0.25} \end{bmatrix} =
+  \begin{bmatrix} \num{0.75} \\ \num{0.25} \end{bmatrix}.
+\end{equation}
+O estado $\ket{\psi_0}$ descrito pela Equação~\eqref{eq:psi0} é descrito por:
+\begin{equation}
+  \ket{\psi_0} = \ket{\psi}\ket{\beta_{00}} =
+  \begin{bmatrix} \num{0.75} \\ \num{0.25} \end{bmatrix}
+  \left(\frac{1}{\sqrt{2}} \begin{bmatrix} 1 \\ 0 \\ 0 \\ 1 \end{bmatrix}\right).
+\end{equation}
+Rearranjando os termos segundo~\eqref{eq:psi0cnot}
+\begin{equation}
+  \ket{\psi_0} = \frac{1}{\sqrt{2}}\left(
+      \begin{bmatrix} \num{0.75} \\ 0 \end{bmatrix}
+      \begin{bmatrix} 1 \\ 0 \\ 0 \\ 1 \end{bmatrix} +
+      \begin{bmatrix} 0 \\ \num{0.25} \end{bmatrix}
+      \begin{bmatrix} 1 \\ 0 \\ 0 \\ 1 \end{bmatrix}\right).
+  \end{equation}
+
+Explicitando os estados possíveis conforme~\eqref{eq:3qubit}
+\begin{equation}
+  \begin{split}
+    \ket{\alpha_{00}} &= \begin{bmatrix} \num{0.75} \\ 0 \end{bmatrix} \otimes
+                     \begin{bmatrix} 1 \\ 0 \end{bmatrix} \otimes
+                     \begin{bmatrix} 1 \\ 0 \end{bmatrix} =
+                     \begin{bmatrix} \num{0.75} & 0 & 0 & 0 & 0 & 0 & 0 & 0 \end{bmatrix}^T, \\
+    \ket{\alpha_{11}} &= \begin{bmatrix} \num{0.75} \\ 0 \end{bmatrix} \otimes
+                        \begin{bmatrix} 0 \\ 1 \end{bmatrix} \otimes
+                        \begin{bmatrix} 0 \\ 1 \end{bmatrix} =
+                        \begin{bmatrix} 0 & 0 & 0 & \num{0.75} & 0 & 0 & 0 & 0 \end{bmatrix}^T, \\
+    \ket{\beta_{00}} &= \begin{bmatrix} 0 \\ \num{0.25} \end{bmatrix} \otimes
+                    \begin{bmatrix} 1 \\ 0 \end{bmatrix} \otimes
+                    \begin{bmatrix} 1 \\ 0 \end{bmatrix} =
+                    \begin{bmatrix} 0 & 0 & 0 & 0 & \num{0.25} & 0 & 0 & 0 \end{bmatrix}^T, \\
+    \ket{\beta_{11}} &= \begin{bmatrix} 0 \\ \num{0.25} \end{bmatrix} \otimes
+                       \begin{bmatrix} 0 \\ 1 \end{bmatrix} \otimes
+                       \begin{bmatrix} 0 \\ 1 \end{bmatrix} =
+                       \begin{bmatrix} 0 & 0 & 0 & 0 & 0 & 0 & 0 & \num{0.25} \end{bmatrix}^T.
+  \end{split}
+\end{equation}
+Somando todos os estados possíveis temos:
+\begin{equation}
+  \ket{\alpha_{00}}+\ket{\alpha_{01}}+\ket{\beta_{00}}+\ket{\beta_{11}} =
+  \begin{bmatrix} \num{0.75} & 0 & 0 & \num{0.75} & \num{0.25} & 0 & 0 & \num{0.25} \end{bmatrix}^T.
+\end{equation}
+Aplicando a porta \(\CNOT\)
+\begin{equation}
+  \begin{split}
+    \CNOT (\ket{\alpha_{00}}\ket{\alpha_{01}}\ket{\beta_{00}}\ket{\beta_{11}}) &=
+    \begin{bmatrix}
+    1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+    0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
+    0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 \\
+    0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 \\
+    0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0 & 0 & 1 & 0 & 0
+    \end{bmatrix}
+    \begin{bmatrix} \num{0.75} \\ 0 \\ 0 \\ \num{0.75} \\ \num{0.25} \\ 0 \\ 0 \\ \num{0.25} \end{bmatrix} =
+    \begin{bmatrix} \num{0.75} \\ 0 \\ 0 \\ \num{0.75} \\ 0 \\ \num{0.25} \\ \num{0.25} \\ 0 \end{bmatrix}.
+  \end{split}
+\end{equation}
+
+Reorganizando o estado $\ket{\psi_1}$ temos, segundo~\eqref{eq:psi1}
+\begin{equation}
+  \ket{\psi_1} = \frac{1}{\sqrt{2}} \left\{ \begin{bmatrix} \num{0.75} \\ 0 \end{bmatrix} \otimes
+    \left(
+      \begin{bmatrix} 1 \\ 0 \\ 0 \\ 0 \end{bmatrix} +
+      \begin{bmatrix} 0 \\ 0 \\ 0 \\ 1 \end{bmatrix}
+    \right) +
+    \begin{bmatrix} 0 \\ \num{0.25} \end{bmatrix} \otimes
+    \left(
+      \begin{bmatrix} 0 \\ 0 \\ 1 \\ 0 \end{bmatrix} +
+      \begin{bmatrix} 0 \\ 1 \\ 0 \\ 0 \end{bmatrix}
+    \right) \right\}.
+\end{equation}
+Aplicando a porta \(\HAD\):
+\begin{equation}
+  \HAD \ket{\psi} = \frac{1}{\sqrt{2}}
+  \begin{bmatrix*}[r] 1 & 1 \\ 1 & -1 \end{bmatrix*}
+  \frac{1}{\sqrt{2}}\left(
+    \begin{bmatrix} \num{0.75} \\ 0 \end{bmatrix} +
+    \begin{bmatrix} 0 \\ \num{0.25} \end{bmatrix} \right) =
+  \frac{1}{2} \left( \begin{bmatrix} \num{0.75} \\ \num{0.75} \end{bmatrix} +
+    \beta \begin{bmatrix*}[r] \num{0.25} \\ -\num{0.25} \end{bmatrix*} \right).
+\end{equation}
+
+Reorganizando os resultados para definir o estado $\ket{\psi_2}$ temos
+\begin{equation}
+ \begin{split}
+   \ket{\psi_2} &=\frac{1}{2} \left\{ \left(\begin{bmatrix} 1 \\ 0 \end{bmatrix} \otimes
+                  \begin{bmatrix} 1 \\ 0 \end{bmatrix}\right) \left( \begin{bmatrix} \num{0.75} \\ 0 \end{bmatrix} +
+                  \begin{bmatrix} 0 \\ \num{0.25} \end{bmatrix}\right)\right\} \\
+                &+\frac{1}{2} \left\{ \left(\begin{bmatrix} 0 \\ 1 \end{bmatrix} \otimes
+                  \begin{bmatrix} 0 \\ 1 \end{bmatrix}\right) \left( \begin{bmatrix} 0 \\ \num{0.75} \end{bmatrix} -
+                  \begin{bmatrix} \num{0.25} \\ 0 \end{bmatrix}\right)\right\} \\
+                &+\frac{1}{2} \left\{\left( \begin{bmatrix} 1 \\ 0 \end{bmatrix} \otimes
+                  \begin{bmatrix} 0 \\ 1 \end{bmatrix}\right) \left( \begin{bmatrix} 0 \\ \num{0.75} \end{bmatrix} +
+                  \begin{bmatrix} \num{0.25} \\ 0 \end{bmatrix}\right)\right\} \\
+                &+\frac{1}{2} \left\{ \left[ \begin{bmatrix} 0 \\ 1 \end{bmatrix} \otimes
+                  \begin{bmatrix} 1 \\ 0 \end{bmatrix}\right] \left( \begin{bmatrix} \num{0.75} \\ 0 \end{bmatrix} -
+                  \begin{bmatrix} 0 \\ \num{0.25} \end{bmatrix}\right) \right\}.
+  \end{split}
+\end{equation}
+
+Para reconstruir o estado, aplicando as condições descritas na Tabela~\ref{tab:acao-das-portas} teremos:
+
+\begin{enumerate}
+  \item Se a medida realizada for o estado $\ket{00}$, o estado enviado foi
+        \[\ket{\psi} = \begin{bmatrix} \num{0.75} \\ 0 \end{bmatrix} + \begin{bmatrix} 0 \\ \num{0.25} \end{bmatrix} = \begin{bmatrix} \num{0.75} \\ \num{0.25} \end{bmatrix}. \]
+
+  \item Se a medida realizada for o estado $\ket{11}$:
+        \[
+        \begin{bmatrix} 0 \\ \num{0.75} \end{bmatrix} - \begin{bmatrix} \num{0.25} \\ 0 \end{bmatrix} = \begin{bmatrix*}[r] -\num{0.25} \\ \num{0.75} \end{bmatrix*}.
+        \]
+
+        Aplicando \(\XXX\):
+        \[
+        \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix} \begin{bmatrix*}[r] -\num{0.25} \\ \num{0.75} \end{bmatrix*} = \begin{bmatrix*}[r] \num{0.75} \\ -\num{0.25} \end{bmatrix*}.
+        \]
+
+        Aplicando \(\ZZZ\):
+        \[
+        \begin{bmatrix*}[r] 1 & 0 \\ 0 & -1 \end{bmatrix*}\begin{bmatrix*}[r] \num{0.75} \\ -\num{0.25} \end{bmatrix*} = \begin{bmatrix} \num{0.75} \\ \num{0.25} \end{bmatrix}.
+        \]
+
+        Portanto o estado recuperado é:
+        \[
+        \begin{bmatrix} \num{0.75} \\ \num{0.25} \end{bmatrix} = \begin{bmatrix} \num{0.75} \\ 0 \end{bmatrix} +  \begin{bmatrix} 0 \\ \num{0.25} \end{bmatrix}.
+        \]
+
+  \item Se a medida realizada for o estado $\ket{10}$:
+        \[
+        \begin{bmatrix} \num{0.75} \\ 0 \end{bmatrix} - \begin{bmatrix} 0 \\ \num{0.25} \end{bmatrix} = \begin{bmatrix*}[r] \num{0.75} \\ -\num{0.25} \end{bmatrix*}.
+        \]
+
+        Aplicando \(\ZZZ\):
+        \[
+        \begin{bmatrix*}[r] 1 & 0 \\ 0 & -1 \end{bmatrix*}\begin{bmatrix*}[r] \num{0.75} \\ -\num{0.25} \end{bmatrix*} = \begin{bmatrix} \num{0.75} \\ \num{0.25} \end{bmatrix}.
+        \]
+
+  \item Por último, se a medida realizada for o estado $\ket{01}$:
+        \[
+        \begin{bmatrix} \num{0.25} \\ 0 \end{bmatrix} +  \begin{bmatrix} 0 \\ \num{0.75} \end{bmatrix} = \begin{bmatrix} \num{0.25} \\ \num{0.75} \end{bmatrix}.
+        \]
+
+        Aplicando \(\XXX\):
+        \[
+        \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix} \begin{bmatrix} \num{0.25} \\ \num{0.75} \end{bmatrix} = \begin{bmatrix} \num{0.75} \\ \num{0.25} \end{bmatrix}.
+        \]
+\end{enumerate}
+
+Todos os estados recuperados são iguais aos estados enviados e portanto a dedução apresentada no Apêndice~\ref{app:matricial} pode ser utilizada como um guia para um programa que automatize tais operações.

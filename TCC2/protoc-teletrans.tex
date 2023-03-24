@@ -8,12 +8,11 @@
 %%% Licenciatura em Física - UFSCar, Sorocaba
 %%%
 
-\chapter{Protocolo de Teletransporte na presença de ruídos}\label{app:protocolo}
+\chapter{Implementação do Protocolo de Teletransporte na presença de ruídos}\label{app:protocolo}
 
-Nessa seção, apresentaremos o protocolo de Teletransporte Quântico desenvolvido para simular uma situação de teletransporte com a presença de ruídos. Sua implementação foi realizada utilizando a linguagem de programação Python e sua descrição mais detalhada se encontra no notebook abaixo. O código-fonte do protocolo também pode ser obtido no repositório online \texttt{quantum-exploration} no GitHub \hypertarget{repositório}{https://github.com/biancamiyabe/quantum-exploration}.
+Nessa seção, apresentaremos o protocolo de Teletransporte Quântico desenvolvido para simular uma situação de teletransporte com a presença de ruídos. Sua implementação foi realizada utilizando a linguagem de programação Python e sua descrição mais detalhada se encontra a seguir. O código-fonte do protocolo também pode ser obtido no repositório online \texttt{quantum-exploration} no GitHub em \hypertarget{repositório}{https://github.com/biancamiyabe/quantum-exploration}.
 
-
-Para a implementação do protocolo, iniciaremos carregando as seguintes bibliotecas e funções. Vale ressaltar que as bibliotecas nos fornecem os recursos necessários para o desenvolvimento das operações. As funções \py{TensorProduct} e \py{sqrt} foram importadas para tornar as operações mais objetivas.
+Para a implementação do protocolo, iniciaremos carregando os seguintes pacotes e funções. Vale ressaltar que os pacotes nos fornecem os recursos necessários para o desenvolvimento das operações. As funções \py{TensorProduct} (produto tensorial) e \py{sqrt} (raiz quadrada) foram importadas para tornar as operações mais objetivas.
 
 \begin{pycode}
     import numpy as np
@@ -39,24 +38,24 @@ Devem ser definidos também, todas os operadores ou portas lógicas que atuarão
     0 & 0 & 0 & 1 \\
     0 & 0 & 1 & 0
   \end{bmatrix},\;
-  \HAD = \frac{1}{\sqrt{2}} \begin{bmatrix} 1 & 1 \\ 1 & -1 \end{bmatrix},\;
+  \HAD = \frac{1}{\sqrt{2}} \begin{bmatrix*}[r] 1 & 1 \\ 1 & -1 \end{bmatrix*},\;
   \XXX = \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix},\;
-  \ZZZ = \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix} \quad \text{e} \quad
+  \ZZZ = \begin{bmatrix*}[r] 1 & 0 \\ 0 & -1 \end{bmatrix*} \quad \text{e} \quad
   \III = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix},
 \]
 respectivamente.
 
 \begin{pycode}
-    #Variáveis que descrevem os qubits
+    # Variáveis que descrevem os qubits
     qbit0 = np.matrix([1,0]).transpose()
     qbit1 = np.matrix([0,1]).transpose()
 
-    #Variáveis que descrevem os operadores quânticos
+    # Variáveis que descrevem os operadores quânticos
     CNOT = np.matrix([[1,0,0,0],[0,1,0,0],[0,0,0,1],[0,0,1,0]])  # CNOT
     H = np.matrix([[1, 1], [1, -1]])/sqrt(2)  # Hadamard
-    X = np.matrix([[0, 1], [1, 0]])  # Pauli X
-    Z = np.matrix([[1, 0], [0, -1]])  # Pauli Z
-    I = np.matrix([[1, 0], [0, 1]])  # Identidade
+    X = np.matrix([[0, 1], [1, 0]])           # Pauli X
+    Z = np.matrix([[1, 0], [0, -1]])          # Pauli Z
+    I = np.matrix([[1, 0], [0, 1]])           # Identidade
 \end{pycode}
 
 \section{Emaranhamento}\label{emaranhamento}
@@ -71,9 +70,9 @@ Vale ressaltar que nesse caso estamos emaranhando dois qubits no estado \(\ket{0
 \]
 
 \begin{pycode}
-    Hqbit0 = H*qbit0  #Aplicação da porta Hadamard no qubit-0
-    AC = TP(Hqbit0,qbit0)  #Definição Alvo e Controle
-    Bell00 = CNOT * AC  #Aplicação da porta CNOT
+    Hqbit0 = H * qbit0      # Aplicação da porta Hadamard no qubit-0
+    AC = TP(Hqbit0, qbit0)  # Definição Alvo e Controle
+    Bell00 = CNOT * AC      # Aplicação da porta CNOT
 \end{pycode}
 
 \section{Início do protocolo}\label{emaranhamento}
@@ -86,18 +85,18 @@ Iremos agora definir o estado do qubit que será teletransportado. Para isso é 
 atribuímos os valores inseridos de \(\alpha\) e \(\beta\) ao estado inicial.
 
 \begin{pycode}
-    #Determinação do qubit para o protocolo
+    # Determinação do qubit para o protocolo
     estado_alfa = float(input('Qual o estado alfa do Qubit que deseja enviar?'))
     estado_beta = float(input('Qual o estado beta do Qubit que deseja enviar?'))
 
-    #Verifica se a soma é igual a 1 (condição de normalização)
+    # Verifica se a soma é igual a 1 (condição de normalização)
     if not mt.isclose(estado_alfa + estado_beta, 1.0):
         print("Erro: A soma das entradas não é igual a 1.")
         sys.exit()
 
-    #Determina a mensagem a ser enviada
-    alfa_inicial = (estado_alfa * qbit0)
-    beta_inicial = (estado_beta * qbit1)
+    # Determina a mensagem a ser enviada
+    alfa_inicial = estado_alfa * qbit0
+    beta_inicial = estado_beta * qbit1
     estado_inicial = alfa_inicial + beta_inicial
 
     print(estado_inicial)
@@ -127,18 +126,18 @@ Em seguida, a porta \(\HAD\) é aplicada no qubit a ser teletransportado. Sua ap
 \]
 
 \begin{pycode}
-    #Estado geral (produto tensorial entre os estados de todos os
-    #qubits do sistema)
+    # Estado geral (produto tensorial entre os estados de todos os
+    # qubits do sistema)
     psi_0 = TP(qbit0, qbit0, qbit0) + TP(qbit0, qbit1, qbit1) +
             TP(qbit1,qbit0, qbit0) + TP(qbit1,qbit1,qbit1)
 
-    #Dimensionamento da porta CNOT para 3 qubits
+    # Dimensionamento da porta CNOT para 3 qubits
     CNOT_I = TP(CNOT,I)
 
-    #Aplicação da porta CNOT
+    # Aplicação da porta CNOT
     psi_1 = CNOT_I * psi_0
 
-    #Aplicação da porta Hadamard
+    # Aplicação da porta Hadamard
     H_estado_alfa = H * alfa_inicial
     H_estado_beta = H * beta_inicial
 \end{pycode}
@@ -151,13 +150,13 @@ Para realizar a medição e a reconstrução do estado inicial, iremos separar o
 \]
 
 \begin{pycode}
-    #Separação dos estados Alfa e Beta
+    # Separação dos estados Alfa e Beta
     estadoa0 = float(H_estado_alfa[0][0])
     estadoa1 = float(H_estado_alfa[1][0])
     estadob0 = float(H_estado_beta[0][0])
     estadob1 = float(H_estado_beta[1][0])
 
-    #Determinação dos estados do qbit enviado
+    # Determinação dos estados do qbit enviado
     a0 = np.matrix([estadoa0,0]).transpose()
     a1 = np.matrix([0,estadoa1]).transpose()
     b0 = np.matrix([estadob0,0]).transpose()
@@ -167,7 +166,7 @@ Para realizar a medição e a reconstrução do estado inicial, iremos separar o
 Para realizar a medição, foram estabelecidos os possíveis estados presentes em \(A\), e um deles foi escolhido de maneira aleatória, lembrando que a probabilidade de colapso em cada um dos estados é de \(\frac{1}{4}\). Os estados que não foram escolhidos foram deletados, simulando o colapso do sistema.
 
 \begin{pycode}
-    #Medição
+    # Medição
     estado_00 = TP(qbit0, qbit0)
     estado_11 = TP(qbit1, qbit1)
     estado_10 = TP(qbit1, qbit0)
@@ -198,7 +197,7 @@ As etapas a seguir acontecem no local \(B\) com o qubit do par emaranhado. Segun
 \end{center}
 
 \begin{pycode}
-    #Define o estado em B em função da medição realizada em A
+    # Define o estado em B em função da medição realizada em A
     if np.all(Medição == (TP(qbit0, qbit0))):
         estado_tp = a0-b1
     elif np.all(Medição == (TP(qbit1, qbit1))):
@@ -226,8 +225,8 @@ Agora, de acordo com o estado associado em \(B\), uma sequência de operações 
 Se durante o processo, algum ruído ocorresse, o estado do qubit teletransportado seria alterado. A simulação de uma interação com os ruídos \emph{bitflip} e \emph{phaseflip} foi implementada de modo que o usuário pode selecionar se o teletransporte teve ou não ruído e em caso afirmativo, qual ruído ocorreu. O ruído do tipo \emph{bitflip} inverte o estado do qubit, ou seja, se este era \(\ket{0}\) passa a ser \(\ket{1}\) e vice-versa. O ruído do tipo \emph{phaseflip} inverte a fase do qubit.
 
 \begin{pycode}
-    #Aplicação de ruído
-    #Determinando os ruídos
+    # Aplicação de ruído
+    # Determinando os ruídos
     bitflip = np.matrix([[0, 1], [1, 0]])
     phaseflip = np.matrix([[1, 0], [0, -1]])
     noisebit = 0
