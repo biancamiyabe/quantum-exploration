@@ -9,442 +9,101 @@
 %%%
 
 \chapter{Metodologia}
-Para iniciar o desenvolvimento de um protocolo de teletransporte quântico, inicialmente realizou-se a dedução do mesmo em forma matricial, conforme apresentado detalhadamente no Apêndice~\ref{app:matricial}
 
-Realizando um exemplo com os valores atribuídos de $\alpha=0,75$ e $\beta=0,25$, teremos que a mensagem a ser enviada é descrita por:
-\begin{equation}
-\ket{\psi} = 0,75 \begin{pmatrix}
-1 \\
-0
-\end{pmatrix} + 0,25 \begin{pmatrix}
-0 \\
-1
-\end{pmatrix} = \begin{pmatrix}
-0,75 \\
-0
-\end{pmatrix} + \begin{pmatrix}
-0 \\
-0,25
-\end{pmatrix} = \begin{pmatrix}
-0,75 \\
-0,25
-\end{pmatrix}
-\end{equation} 
+Para iniciar o desenvolvimento de um protocolo de teletransporte quântico, inicialmente realizou-se a dedução do mesmo em forma matricial, conforme apresentado detalhadamente no Apêndice~\ref{app:matricial}.
 
-O estado $\ket{\psi_0}$ descrito pela equação~\eqref{eq:psi0} é descrito por:
-\begin{equation}
-\ket{\psi_0}=\ket{\psi}\ket{\beta_{00}}= \begin{pmatrix}
-0,75 \\
-0,25  
-\end{pmatrix} \left[\frac{1}{\sqrt{2}} \begin{pmatrix}
-1 \\
-0 \\
-0 \\
-1
-\end{pmatrix}\right]
-\end{equation}
-
-Rearranjando os termos segundo~\eqref{eq:psi0cnot}
-\begin{equation}
-\ket{\psi_0} = \frac{1}{\sqrt{2}}\left\{\left[ \begin{pmatrix}
-0,75 \\
-0 
-\end{pmatrix}  \begin{pmatrix}
-1 \\
-0 \\
-0 \\
-1
-\end{pmatrix}\right] + \left[ \begin{pmatrix}
-0 \\
-0,25
-\end{pmatrix}  \begin{pmatrix}
-1 \\
-0 \\
-0 \\
-1
-\end{pmatrix}\right] \right\}
-\end{equation}
-
-Explicitando os estados possíveis conforme~\eqref{eq:3qubit}
-\begin{equation}
-	\begin{split}
-\ket{\alpha00} &= \left[ \begin{pmatrix}
-0,75 \\
-0
-\end{pmatrix} \otimes \begin{pmatrix}
-1 \\
-0
-\end{pmatrix} \otimes \begin{pmatrix}
-1 \\
-0
-\end{pmatrix}\right] = \begin{pmatrix}
-0,75 & 0 & 0 & 0 & 0 & 0 & 0 & 0
-\end{pmatrix}^T \\
-\ket{\alpha11} &= \left[ \begin{pmatrix}
-0,75 \\
-0
-\end{pmatrix} \otimes \begin{pmatrix}
-0 \\
-1
-\end{pmatrix} \otimes \begin{pmatrix}
-0 \\
-1
-\end{pmatrix}\right] = \begin{pmatrix}
-0 & 0 & 0 & 0,75 & 0 & 0 & 0 & 0
-\end{pmatrix}^T \\
-\ket{\beta00} &= \left[ \begin{pmatrix}
-0 \\
-0,25
-\end{pmatrix} \otimes \begin{pmatrix}
-1 \\
-0
-\end{pmatrix} \otimes \begin{pmatrix}
-1 \\
-0
-\end{pmatrix}\right] = \begin{pmatrix}
-0 & 0 & 0 & 0 & 0,25 & 0 & 0 & 0
-\end{pmatrix}^T \\
-\ket{\beta11} &=\left[ \begin{pmatrix}
-0 \\
-0,25
-\end{pmatrix} \otimes \begin{pmatrix}
-0 \\
-1
-\end{pmatrix} \otimes \begin{pmatrix}
-0 \\
-1
-\end{pmatrix}\right] = \begin{pmatrix}
-0 & 0 & 0 & 0 & 0 & 0 & 0 & 0,25
-\end{pmatrix}^T
-	\end{split}
-\end{equation}
-Somando todos os estados possíveis temos:
-\begin{equation}
-\ket{\alpha00}+\ket{\alpha01}+\ket{\beta00}+\ket{\beta11}= \begin{pmatrix}
-0,75 & 0 & 0 & 0,75 & 0,25 & 0 & 0 & 0,25
-\end{pmatrix}^T
-\end{equation}
-
-Aplicando a porta \(\CNOT\)
-\begin{equation}
-\begin{split}
-		\CNOT (\ket{\alpha00}\ket{\alpha01}\ket{\beta00}\ket{\beta11}) &= \begin{pmatrix}
-		1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-		0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
-		0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\
-		0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\
-		0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 \\
-		0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 \\
-		0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\
-		0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 		
-		\end{pmatrix} \begin{pmatrix}
-		0,75 \\
-		0 \\
-		0 \\
-		0,75 \\
-		0,25 \\
-		0 \\
-		0 \\
-		0,25
-		\end{pmatrix} = \\
-		&=\begin{pmatrix}
-		0,75 & 0 &	0 & 0,75 &	0 &	0,25 &	0,25 &	0
-		\end{pmatrix}^T
-	\end{split}
-\end{equation}	
-	
-Reorganizando o estado $\ket{\psi_1}$ temos, segundo~\eqref{eq:psi1}
-\begin{equation}
-\ket{\psi_1} = \frac{1}{\sqrt{2}} \left\{ \begin{pmatrix}
-0,75 \\
-0
-\end{pmatrix} \otimes \left[ \begin{pmatrix}
-1 \\
-0 \\
-0 \\
-0
-\end{pmatrix} + \begin{pmatrix}
-0 \\
-0 \\
-0 \\
-1
-\end{pmatrix}\right] +  \begin{pmatrix}
-0 \\
-0,25
-\end{pmatrix} \otimes \left[ \begin{pmatrix}
-0 \\
-0 \\
-1 \\
-0
-\end{pmatrix} + \begin{pmatrix}
-0 \\
-1 \\
-0 \\
-0
-\end{pmatrix}\right] \right\}
-\end{equation}	
-
-Aplicando a porta \(\HAD\)
-\begin{equation}
-\begin{split}
-		\HAD \ket{\psi} &= \frac{1}{\sqrt{2}} \begin{pmatrix*}[r]
-		1 & 1 \\
-		1 & -1
-		\end{pmatrix*} \frac{1}{\sqrt{2}}\left( \begin{pmatrix}
-		0,75 \\
-		0 
-		\end{pmatrix} +  \begin{pmatrix}
-		0 \\
-		0,25
-		\end{pmatrix} \right) = \frac{1}{2} \left[ \begin{pmatrix}
-		,75 \\
-		0,75 
-		\end{pmatrix} + \beta \begin{pmatrix*}[r]
-		0,25 \\
-		-0,25
-		\end{pmatrix*} \right]
-  	\end{split}
-\end{equation}	
-
-Reorganizando os resultados para definir o estado $\ket{\psi_2}$ temos
-
-\begin{equation}
- \begin{split}
-\ket{\psi_2} &=\frac{1}{2} \left\{ \left[\begin{pmatrix}
-1 \\
-0
-\end{pmatrix} \otimes \begin{pmatrix}
-1 \\
-0
-\end{pmatrix}\right] \left[ \begin{pmatrix}
-0,75 \\
-0
-\end{pmatrix} +  \begin{pmatrix}
-0 \\
-0,25
-\end{pmatrix}\right]\right\} \nonumber \\
-&+\frac{1}{2} \left\{ \left[\begin{pmatrix}
-0 \\
-1
-\end{pmatrix} \otimes \begin{pmatrix}
-0 \\
-1
-\end{pmatrix}\right] \left[ \begin{pmatrix}
-0 \\
-0,75
-\end{pmatrix} -  \begin{pmatrix}
-0,25 \\
-0
-\end{pmatrix}\right]\right\} \nonumber \\
-&+\frac{1}{2} \left\{\left[ \begin{pmatrix}
-1 \\
-0
-\end{pmatrix} \otimes \begin{pmatrix}
-0 \\
-1
-\end{pmatrix}\right] \left[ \begin{pmatrix}
-0 \\
-0,75
-\end{pmatrix} +  \begin{pmatrix}
-0,25 \\
-0
-\end{pmatrix}\right]\right\} \nonumber \\
-&+\frac{1}{2} \left\{ \left[ \begin{pmatrix}
-0 \\
-1
-\end{pmatrix} \otimes \begin{pmatrix}
-1 \\
-0
-\end{pmatrix}\right] \left[ \begin{pmatrix}
-0,75 \\
-0
-\end{pmatrix} -  \begin{pmatrix}
-0 \\
-0,25
-\end{pmatrix}\right] \right\}
-  \end{split}
-\end{equation}	
-	
-Para reconstruir o estado, aplicando as condições descritas na tabela~\ref{tab:acao-das-portas} teremos:
-
-Se a medida realizada for o estado $\ket{00}$, o estado enviado foi $\ket{\psi} = \begin{pmatrix}
-0,75 \\
-0
-\end{pmatrix} +  \begin{pmatrix}
-0 \\
-0,25
-\end{pmatrix}$	
-
-Se a medida realizada for o estado $\ket{11}$:
-
-\begin{equation}
-\begin{pmatrix}
-0 \\
-0,75
-\end{pmatrix} -  \begin{pmatrix}
-0,25 \\
-0
-\end{pmatrix} = \begin{pmatrix}
--0,25 \\
-0,75
-\end{pmatrix}
-\end{equation}
-
-Aplicando \(\XXX\)
-
-\begin{equation}
-\begin{pmatrix}
-0 & 1 \\
-1 & 0
-\end{pmatrix} \begin{pmatrix}
--0,25 \\
-0,75
-\end{pmatrix} = \begin{pmatrix}
-0,75 \\
--0,25
-\end{pmatrix}
-\end{equation}
-
-Aplicando \(\ZZZ\)
-
-\begin{equation}
-\begin{pmatrix}
-1 & 0 \\
-0 & -1
-\end{pmatrix}\begin{pmatrix}
-0,75 \\
--0,25
-\end{pmatrix} = \begin{pmatrix}
-0,75 \\
-0,25
-\end{pmatrix}
-\end{equation}`
-
-Portanto o estado recuperado é:
-
-\begin{equation}
-\begin{pmatrix}
-0,75 \\
-0,25
-\end{pmatrix} = \begin{pmatrix}
-0,75 \\
-0
-\end{pmatrix} +  \begin{pmatrix}
-0 \\
-0,25
-\end{pmatrix}
-\end{equation}
-
-Se a medida realizada for o estado $\ket{10}$:
-
-\begin{equation}
-\begin{pmatrix}
-0,75 \\
-0
-\end{pmatrix} -  \begin{pmatrix}
-0 \\
-0,25
-\end{pmatrix} = \begin{pmatrix}
-0,75 \\
--0,25
-\end{pmatrix}
-\end{equation}
-
-Aplicando \(\ZZZ\)
-
-\begin{equation}
-\begin{pmatrix}
-1 & 0 \\
-0 & -1
-\end{pmatrix}\begin{pmatrix}
-0,75 \\
--0,25
-\end{pmatrix} = \begin{pmatrix}
-0,75 \\
-0,25
-\end{pmatrix}
-\end{equation}
-
-Por último, se a medida realizada for o estado $\ket{01}$:
-
-\begin{equation}
-\begin{pmatrix}
-0,25 \\
-0
-\end{pmatrix} +  \begin{pmatrix}
-0 \\
-0,75
-\end{pmatrix} = \begin{pmatrix}
-0,25 \\
-0,75
-\end{pmatrix}
-\end{equation}
-
-Aplicando \(\XXX\)
-
-\begin{equation}
-\begin{pmatrix}
-0 & 1 \\
-1 & 0
-\end{pmatrix} \begin{pmatrix}
-0,25 \\
-0,75
-\end{pmatrix} = \begin{pmatrix}
-0,75 \\
-0,25
-\end{pmatrix}
-\end{equation}
-
-Todos os estados recuperados são iguais aos estados enviados e portanto a dedução de~\ref{app:matricial} pode ser utilizada como um guia para um programa que automatize tais operações, conforme veremos a seguir.
-
-Para alcançar o objetivo deste trabalho, ou seja, construir uma simulação de um teletransporte quântico, foi necessário inicialmente decidir a linguagem a ser utilizada para o projeto, que nesse caso, foi o Python. Essa escolha foi feita pois, essa linguagem de programação é amplamente utilizada para simular situações físicas e possuí uma série de bibliotecas que permitem desenvolver os mais diversos projetos. As bibliotecas utilizadas no projeto foram a \textit{sympy, numpy, math, sys e random}, e sua utilização será explicitada durante a explicação das etapas do código fonte. Antes de iniciar a construção do código, foi necessário analisar a estrutura de dados que seria utilizada e a escolhida foi a representação matricial. Essa escolha foi fundamentada no fato de que desse modo, as operações ficam mais explicitas, facilitando a compreensão do protocolo.
+Para alcançar o objetivo deste trabalho, ou seja, construir uma simulação de um teletransporte quântico, foi necessário inicialmente decidir a linguagem a ser utilizada para o projeto. A escolha da linguagem Python (versão 3.11) se deveu ao fato dela ser amplamente utilizada para simular situações físicas e possuir uma série de pacotes abrangendo as mais diversas áreas do conhecimento. Os principais pacotes utilizados no projeto foram \py{sympy} \cite{sympy}, \py{numpy} \cite{harris2020array}, \py{math}\footnote{\url{https://docs.python.org/3/library/math.html}}, \py{sys}\footnote{\url{https://docs.python.org/3/library/sys.html}} e \py{random}\footnote{\url{https://docs.python.org/3/library/random.html}}, e sua utilização será explicitada durante a explicação das etapas do código fonte. Antes de iniciar a construção do código, foi necessário analisar a estrutura de dados que seria utilizada e a escolhida foi a representação matricial. Essa escolha foi fundamentada no fato de que desse modo, as operações ficam mais explícitas, facilitando a compreensão do protocolo.
 
 De posse da estrutura de dados a ser operacionalizada, da linguagem de programação e dos pacotes necessários, foi desenvolvido o código apresentado no Apêndice~\ref{app:protocolo}. Vamos detalhar as operações e correlacioná-las a seguir.
 
-A primeira etapa da elaboração do protocolo consistiu em importar as bibliotecas necessárias e algumas funções dessas bibliotecas como a \textit{TensorProduct} em \textit{sympy.physics.quantum}. Essa função irá facilitar a realização dos produtos tensoriais durante o desenvolvimento do protocolo.
+A primeira etapa da elaboração do protocolo consistiu em importar as funções e pacotes necessários como a \py{TensorProduct} em \py{sympy.physics.quantum}. Essa função irá facilitar a realização dos produtos tensoriais durante o desenvolvimento do protocolo.
 
-Com as bibliotecas carregadas, a primeira etapa foi a construção das variáveis que descrevem os estados quânticos $\ket{0}$ e $\ket{1}$, elas foram feitas com o auxílio da biblioteca \textit{numpy} e da função\textit{matrix} que cria matrizes à partir de listas. Portando o estado $\ket{0}$ foi definido pela variável \begin{tiny}\textbf{$qbit0= np.matrix([1,0]).transpose()$}\end{tiny} e o estado $\ket{1}$ pela variável \begin{tiny}\textbf{$qbit1= np.matrix([0,1]).transpose()$}\end{tiny}.
-Foram estabelecidas também as variáveis que representam os operadores quânticos, para a porta \(\HAD\) criou-se a variável \textit{$H$}, representada por \begin{tiny}\textbf{$H = 1/sqrt(2)*(np.matrix([[1,1], [1,-1]]))$}\end{tiny}, para a porta \(\CNOT\) temos a variável \begin{tiny}\textbf{$CNOT = np.matrix([[1,0,0,0],[0,1,0,0],[0,0,0,1],[0,0,1,0]])$}\end{tiny}, para a porta \(\III\) a variável \begin{tiny}\textbf{$I = np.matrix ([[1,0], [0,1]])$}\end{tiny}, para as matrizes de Pauli \(\XXX\) e \(\ZZZ\) as variáveis \begin{tiny}\textbf{$X = np.matrix([[0, 1], [1, 0]]) \quad \text e \quad Z = np.matrix([[1, 0], [0, -1]])$}\end{tiny} respectivamente.
+Em seguida é feita a criação das variáveis que descrevem os estados quânticos $\ket{0}$ e $\ket{1}$ com o auxílio da clase \py{numpy.matrix}, que cria matrizes a partir de listas, como pode ser conferido na Tabela~\ref{tab:cria_quant}.
 
-Conforme a Figura~\ref{fig:protocoloteletransporte}, a primeira operação realizada é o Emaranhamento de dois qubits, que no nosso caso, estão emaranhados pelo estado $\ket{00}$. Iniciamos portanto, com a aplicação da porta \(\HAD\) no qubit $\ket{q_x}$ que está no estado, para isso, criou-se a variável \textit{$Hqbit0$} como \begin{tiny}\textbf{$H*qbit0$}\end{tiny}. Nesse momento, os resultados obtidos são comparáveis com a equação~\eqref{eq:Hqbit0}. 
+\begin{table}[ht!]
+  \centering
+  \caption{Criação dos estados quânticos \(\ket{0}\) e \(\ket{1}\) em Python.} \label{tab:cria_quant}
+  \begin{tabular}{cl}
+    \toprule
+    Estado    & Python                                    \\
+    \midrule
+    $\ket{0}$ & \py{qbit0 = np.matrix([1,0]).transpose()} \\
+    $\ket{1}$ & \py{qbit1 = np.matrix([0,1]).transpose()} \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+Foram estabelecidas também as variáveis que representam os operadores quânticos, para a porta \(\HAD\), \(\CNOT\), \(\III\), \(\XXX\) e \(\ZZZ\) foram criadas as variáveis \py{H}, \py{CNOT}, \py{I}, \py{X} e \py{Z}, respectivamente, de acordo com a Tabela~\ref{tab:op_quant}.
 
-Em seguida, a porta \(\CNOT\) deve ser aplicada e a definição dos qubits alvo e controle foi implementada na variável \textit{$AC$} e é descrita por \begin{tiny}\textbf{$AC= TP(Hqbit0,qbit0)$}\end{tiny}, ou seja, o produto tensorial de todos os estados possíveis dentro do sistema. A aplicação de \(\CNOT\) resulta na base de Bell no estado $\ket{00}$ e é obtida na variável \begin{tiny}\textbf{$Bell00 = CNOT * AC$}\end{tiny}. Nesse momento, temos o sistema descrito pela base de Bell da mesma forma que demonstra a equação~\eqref{eq:matrizbell00}. 
+\begin{table}[ht!]
+  \centering
+  \caption{Operadores quânticos.}\label{tab:op_quant}
+  \begin{tabular}{cl}
+    \toprule
+    Operador  & Python                                                           \\
+    \midrule
+    \(\HAD\)  & \py{H = 1/sqrt(2)*(np.matrix([[1,1], [1,-1]]))}                  \\
+    \(\CNOT\) & \py{CNOT = np.matrix([[1,0,0,0],[0,1,0,0],[0,0,0,1],[0,0,1,0]])} \\
+    \(\III\)  & \py{I = np.matrix ([[1,0], [0,1]])}                              \\
+    \(\XXX\)  & \py{X = np.matrix([[0, 1], [1, 0]])}                             \\
+    \(\ZZZ\)  & \py{Z = np.matrix([[1, 0], [0, -1]])}                            \\
+    \bottomrule
+  \end{tabular}
+\end{table}
 
-No protocolo construído, é solicitado ao usuário que descreva as probabilidades associadas às variáveis $\alpha$ e $\beta$. Para tal, utiliza-se a função \textit{$input$} e declarando a variável como decimal (\textit{$float$}), solicita-se ao usuário que entre com os valores desejados para cada variável. Note que, como a superposição de estados tem natureza probabilística, é necessário implementar uma verificação da condição de normalização, para que os valores inseridos pelo usuário contemplem a probabilidade somada de $100\%$ caso contrário, o protocolo é interrompido.
+Conforme a Figura~\ref{fig:protocoloteletransporte}, a primeira operação realizada é o emaranhamento de dois qubits, que no nosso caso, estão emaranhados pelo estado $\ket{00}$. Iniciamos portanto, com a aplicação da porta \(\HAD\) no qubit $\ket{q_x}$ \textcolor{orange}{que está no estado}, para isso, criou-se a variável \py{Hqbit0} como \py{H*qbit0}. Nesse momento, os resultados obtidos são comparáveis com a Equação~\eqref{eq:Hqbit0}.
 
-A determinação do qubit que será enviado é construída pela variável \textit{$estado_inicial$} de modo que a probabilidade de $\alpha$ fique associada ao estado $\ket{0}$ e a probabilidade de $\beta$ fique associada ao estado $\ket{1}$, a variável é descrita portanto por \begin{tiny}\textbf{$estado_inicial = (estado\_alfa * qbit0) + (estado\_beta * qbit1)$}\end{tiny}.
+Em seguida, a porta \(\CNOT\) deve ser aplicada e a definição dos qubits alvo e controle foi implementada na variável \py{AC} e é definida por \py{AC= TP(Hqbit0, qbit0)}, ou seja, o produto tensorial de todos os estados possíveis dentro do sistema. A aplicação de \(\CNOT\) resulta na base de Bell no estado $\ket{00}$ e é obtida na variável \py{Bell00 = CNOT * AC}. Nesse momento, temos o sistema descrito pela base de Bell da mesma forma da Equação~\eqref{eq:matrizbell00}.
 
-A próxima etapa do protocolo consiste na aplicação da porta CNOT nos três qubits que compõem o estado geral do sistema. Os três qubits são o estado inicial a ser teletransportado atuando como controle e o par emaranhado atuando como alvo. A atuação ocorre apenas no qubit presente no local A, porém afeta probabilisticamente o qubit no local B. Para definir o estado geral são somados os produtos tensoriais de todos os estados dos qubits com sua representação no código descrita como \begin{tiny}\textbf{$psi\_0 = TP(qbit0, qbit0, qbit0) + TP(qbit0, qbit1, qbit1) + TP(qbit1,qbit0, qbit0) + TP(qbit1,qbit1,qbit1)$}\end{tiny}. Em seguida, a porta CNOT é dimensionada para atuar sob três qubits com a realização do produto tensorial entre CNOT e I e por último multiplicamos a porta CNOT pela soma dos estados dos qubits. Portanto, o estado $\ket{\psi_1}$ é operacionalizado pela multiplicação da porta \(\CNOT\) dimensionada no estado $\ket{\psi_0}$ ficando evidenciada em \begin{tiny}\textbf{$psi\_1 = CNOT\_I * psi\_0$}\end{tiny}.
+\todo[inline]{Fiquei pensando\ldots Talvez fosse mais esperto pedir o \(\alpha\) e definir o \(\beta = 1-\alpha\)}
 
-Para proceder com a aplicação da porta Hadamard no qubit de Mensagem, os estados associados a $\alpha$ e $\beta$ foram separados e a porta aplicada em cada um deles individualmente pelas multiplicações \begin{tiny}\textbf{$H\_estado\_alfa = H * (estado\_alfa * qbit0)$}\end{tiny} e \begin{tiny}\textbf{$H\_estado\_beta = H * (estado\_beta * qbit1)$}\end{tiny}. Com esses resultados, foram reestruturados os estados $\alpha\ket{0}, \alpha\ket{1}, \beta\ket{0}, \text e \beta\ket{1}$ conforme é explicitado na equação~\eqref{eq:alfabetasoma}. Para isso, foram construídas quatro variáveis, uma para cada estado nomeadas \textit{$estadoa0, estadoa1, estadob0 \text e \quad estadob1$}, cada uma dessas variáveis recupera a posição do valor das matrizes \textit{$H\_estado\_alfa$} e \textit{$H\_estado\_beta$} para satisfazer a condição dada em~\eqref{eq:alfabetasoma}, ou seja, o primeiro elemento da matriz está associado aos estados $\alpha\ket{0}$ e $\beta\ket{0}$ e o segundo elemento da matriz associado aos estados $\alpha\ket{1}$ e $\beta\ket{1}$. Essa associação é feita pela posição do elemento na matriz, lembrando que a contagem de matrizes em Python inicia em 0 de modo que as variáveis foram definidas como:
+No protocolo construído, é solicitado ao usuário que descreva as probabilidades associadas às variáveis $\alpha$ e $\beta$. Para tal, utiliza-se a função \py{input} e declarando a variável como decimal (\py{float}), solicita-se ao usuário que entre com os valores desejados para cada variável. Note que, como a superposição de estados tem natureza probabilística, é necessário implementar uma verificação da condição de normalização, para que os valores inseridos pelo usuário contemplem a probabilidade somada de $100\%$ caso contrário, o protocolo é interrompido.
 
-\begin{center}
-\begin{tiny}estadoa0 = float(H\_estado\_alfa[0][0]), estadoa1 = float(H\_estado\_alfa[1][0]),\linebreak
-estadob0 = float(H\_estado\_beta[0][0]) e  estadob1 = float(H\_estado\_beta[1][0])\end{tiny}
-\end{center}
+A determinação do qubit que será enviado é construída pela variável \py{estado_inicial} de modo que a probabilidade de $\alpha$ fique associada ao estado $\ket{0}$ e a probabilidade de $\beta$ fique associada ao estado $\ket{1}$, a variável é descrita portanto por
+\begin{pycode}
+  estado_inicial = (estado_alfa * qbit0) + (estado_beta * qbit1)
+\end{pycode}
 
+A próxima etapa do protocolo consiste na aplicação da porta \(\CNOT\) nos três qubits que compõem o estado geral do sistema. Os três qubits são o estado inicial a ser teletransportado atuando como controle e o par emaranhado atuando como alvo. A atuação ocorre apenas no qubit presente no local \(A\), porém afeta probabilisticamente o qubit no local \(B\). Para definir o estado geral são somados os produtos tensoriais de todos os estados dos qubits com sua representação no código descrita como
+\begin{pycode}
+  psi_0 = TP(qbit0, qbit0, qbit0) + TP(qbit0, qbit1, qbit1) + \
+          TP(qbit1, qbit0, qbit0) + TP(qbit1, qbit1, qbit1)
+\end{pycode}
+Em seguida, a porta \(\CNOT\) é dimensionada para atuar sob três qubits com a realização do produto tensorial entre \(\CNOT\) e \(\III\) e por último multiplicamos a porta \(\CNOT\) pela soma dos estados dos qubits. Portanto, o estado $\ket{\psi_1}$ é operacionalizado pela multiplicação da porta \(\CNOT\) dimensionada no estado $\ket{\psi_0}$ ficando evidenciada em \py{psi_1 = CNOT * psi_0}.
+
+Para proceder com a aplicação da porta Hadamard no qubit de mensagem, os estados associados a $\alpha$ e $\beta$ foram separados e a porta aplicada em cada um deles individualmente pelas multiplicações
+\begin{pycode}
+  H_estado_alfa = H * (estado_alfa * qbit0)
+  H_estado_beta = H * (estado_beta * qbit1)
+\end{pycode}
+Com esses resultados, foram reestruturados os estados $\alpha\ket{0}, \alpha\ket{1}, \beta\ket{0},$ e $\beta\ket{1}$ conforme é explicitado na Equação~\eqref{eq:alfabetasoma}. Para isso, foram construídas quatro variáveis, uma para cada estado nomeadas \py{estadoa0}, \py{estadoa1}, \py{estadob0} e \py{estadob1}, cada uma dessas variáveis recupera a posição do valor das matrizes \py{H_estado_alfa} e \py{H_estado_beta} para satisfazer a condição dada em~\eqref{eq:alfabetasoma}, ou seja, o primeiro elemento da matriz está associado aos estados $\alpha\ket{0}$ e $\beta\ket{0}$ e o segundo elemento da matriz associado aos estados $\alpha\ket{1}$ e $\beta\ket{1}$. Essa associação é feita pela posição do elemento na matriz, lembrando que a contagem de matrizes em Python inicia em 0 de modo que as variáveis foram definidas como:
+\begin{pycode}
+  estadoa0 = float(H_estado_alfa[0][0])
+  estadoa1 = float(H_estado_alfa[1][0])
+  estadob0 = float(H_estado_beta[0][0])
+  estadob1 = float(H_estado_beta[1][0])
+\end{pycode}
 Em seguida, recriamos as matrizes que representam os estados de posse dos elementos localizados anteriormente, temos portanto:
+\begin{pycode}
+  a0 = np.matrix([estadoa0,0]).transpose()
+  a1 = np.matrix([0,estadoa1]).transpose()
+  b0 = np.matrix([estadob0,0]).transpose()
+  b1 = np.matrix([0,estadob1]).transpose()
+\end{pycode}
+Nesse momento temos em nosso código dois estados separados para $\ket{\psi_2}$, o estado associado ao qubit mensagem e o estado associado ao par emaranhado. Para recuperar os estados possíveis do par emaranhado, criamos as variáveis \py{estado_00}, \py{estado_11}, \py{estado_10} e \py{estado_01} usando a função de produto tensorial:
+\begin{pycode}
+  estado_00 = TP(qbit0, qbit0)
+  estado_11 = TP(qbit1, qbit1)
+  estado_10 = TP(qbit1, qbit0)
+  estado_01 = TP(qbit0, qbit1)
+\end{pycode}
+Para simular a operação de medição, criamos uma lista de variáveis, armazenada na variável \py{group_estados}, determinamos com a função \py{random} a escolha de um desses estados de maneira aleatória, armazenamos a escolha na variável \py{Medição} e utilizando o comando \py{del} apagamos todos os estados, simulando o colapso do sistema após a medida.
 
-\begin{center}
-\begin{tiny}a0 = np.matrix([estadoa0,0]).transpose(),a1 = np.matrix([0,estadoa1]).transpose(),\linebreak
-b0 = np.matrix([estadob0,0]).transpose() e b1 = np.matrix([0,estadob1]).transpose()\end{tiny}
-\end{center}
-
-Nesse momento temos em nosso código dois estados separados para $\ket{\psi_2}$, o estado associado ao qubit mensagem e o estado associado ao par emaranhado. Para recuperar os estados possíveis do par emaranhado, criamos as variáveis \textit{$estado\_00, estado\_11, estado\_10$ e $estado\_01$} usando a função de produto tensorial:
-
-\begin{center}
-\begin{tiny}estado\_00 = TP(qbit0, qbit0), estado\_11 = TP(qbit1, qbit1),\linebreak
-estado\_10 = TP(qbit1, qbit0) e \quad estado\_01 = TP(qbit0, qbit1)\end{tiny}
-\end{center}
-
-Para simular a operação de medição, criamos uma lista de variáveis, armazenada em \textit{$group\_estados$}, determinamos com a função \textit{$random$} a escolha de um desses estados de maneira aleatória, armazenamos a escolha na variável \textit{Medição} e utilizando a função \textit{$del$} apagamos todos os estados, simulando o colapso do sistema após a medida.
-
-Para reconstruir a mensagem, a condição estabelecida foi associar o estado medido armazenado na variável \textit{Medição} com o estado da mensagem baseando-se na equação~\eqref{eq:final}, pela relação apresentada na Tabela~\ref{tab:medidas}. O código para essa implementação é dado por:
+Para reconstruir a mensagem, a condição estabelecida foi associar o estado medido armazenado na variável \py{Medição} com o estado da mensagem baseando-se na Equação~\eqref{eq:final}, pela relação apresentada na Tabela~\ref{tab:medidas}. O código para essa implementação é apresentado na Listagem~\ref{lst:teleA}.
 
 \begin{listing}[ht!]
-  \caption{Relação de condição para o estado teletransportado em função do estado medido em \(A\).}
+  \caption{Relação de condição para o estado teletransportado em função do estado medido em~\(A\).}\label{lst:teleA}
   \begin{pycode}
-      if  np.all(Medição == TP(qbit0, qbit0)):
+      if np.all(Medição == TP(qbit0, qbit0)):
           estado_tp = a0-b1
       elif np.all(Medição == TP(qbit1, qbit1)):
           estado_tp = a1-b0
@@ -455,10 +114,10 @@ Para reconstruir a mensagem, a condição estabelecida foi associar o estado med
   \end{pycode}
 \end{listing}
 
-Com a variável \textit{$estado\_tp$}, temos portando o estado que o qubit no local B possui. Para recuperar a mensagem, iremos aplicar as matrizes de Pauli, seguindo as relações propostas na Tabela~\ref{tab:acao-das-portas}. A condição estabelecida foi:
+Com a variável \py{estado_tp} temos portando o estado que o qubit no local \(B\) possui. Para recuperar a mensagem, iremos aplicar as matrizes de Pauli, seguindo as relações propostas na Tabela~\ref{tab:acao-das-portas}. A condição estabelecida é dada pelo código da Listagem~\ref{lst:condPauli}.
 
 \begin{listing}[ht!]
-  \caption{Relação de condição para aplicação das portas de Pauli.}
+  \caption{Relação de condição para aplicação das portas de Pauli.}\label{lst:condPauli}
   \begin{pycode}
       if np.all(estado_tp == (a0-b1)):
           estado_final = estado_tp
@@ -479,73 +138,17 @@ Com a variável \textit{$estado\_tp$}, temos portando o estado que o qubit no lo
   \end{pycode}
 \end{listing}
 
-Vale ressaltar que durante as operações, herdamos a probabilidade associada dos estados, que nesse caso é $1/4$ e portanto, retiramos ela para recuperar a mensagem idêntica a informada no inicio com a expressão Nesse momento, a variável \textit{$estado\_teletransportado$} armazena a mensagem reconstruída no local B. Para verificarmos se o teletransporte teve sucesso, separamos as probabilidades associadas a $\alpha$ e $\beta$ para comparamos com o estado original.
+Vale ressaltar que durante as operações, herdamos a probabilidade associada dos estados, que nesse caso é $1/4$ e portanto, a retiramos para recuperar a mensagem idêntica a informada no inicio com a expressão Nesse momento, a variável \py{estado_teletransportado} armazena a mensagem reconstruída no local \(B\). Para verificarmos se o teletransporte teve sucesso, separamos as probabilidades associadas a $\alpha$ e $\beta$ para comparamos com o estado original.
 
-Para simular os ruídos, implementamos as variáveis \textit{$bitflip$}	e \textit{$phaseflip$} equivalentes com as seguintes matrizes\begin{tiny}\textbf{$bitflip = np.matrix([[0, 1], [1, 0]]), phaseflip = np.matrix([[1, 0], [0, -1]])$}\end{tiny}. O usuário pode escolher qual ruído deseja implementar, ou se não deseja implementar ruídos.
-Na aplicação do ruído, as variáveis $alfa\_final$ e $beta\_final$ serão modificadas ou não, segundo as propriedades dos ruídos. Para verificar se o protocolo funcionou, foram realizados uma sequencia de testes comparando os valores dos elementos das matrizes descritas pelas variáveis $alfa\_final$ e $beta\_final$ e $alfa\_inicial$ e $beta\_inicial$. As possibilidades são:
+Para simular os ruídos, implementamos as variáveis \py{bitflip} e \py{phaseflip} equivalentes com as seguintes matrizes
+\begin{pycode}
+  bitflip = np.matrix([[0, 1], [1, 0]])
+  phaseflip = np.matrix([[1, 0], [0, -1]])
+\end{pycode}
+O usuário pode escolher qual ruído deseja implementar, ou se deseja não implementar ruídos. Na aplicação do ruído, as variáveis \py{alfa_final} e \py{beta_final} serão modificadas ou não, segundo as propriedades dos ruídos. Para verificar se o protocolo funcionou, foi realizada uma sequência de testes comparando os valores dos elementos das matrizes descritas pelas variáveis \py{alfa_final} e \py{beta_final} e \py{alfa_inicial} e \py{beta_inicial}. As possibilidades são:
 \begin{description}
-\item [Valores iniciais e finais iguais]: Se todos os elementos das variáveis $\alpha$ e $\beta$ iniciais forem iguais aos elementos das variáveis finais, significa que o protocolo ocorreu com sucesso e não houve a interferência de ruídos no processo.
-\item [Valores iniciais e finais invertidos]: Se a posição dos elementos finais e iniciais estiver invertida, significa que o protocolo ocorreu com sucesso porém houve a interferência de ruídos do tipo \textit{bitflip}.
-\item [Sinal dos valores iniciais e finais invertidos]: Se o sinal dos valores dos elementos iniciais e finais estiver invertido, significa que o protocolo ocorreu com sucesso porém houve a interferência de ruídos do tipo \textit{phaseflip}.
-\item [Valores distintos]: Se os valores dos elementos não forem comparáveis por nenhuma situação descrita acima, significa que houve falha no teletransporte.
+  \item [Valores iniciais e finais iguais] Se todos os elementos das variáveis $\alpha$ e $\beta$ iniciais forem iguais aos elementos das variáveis finais, significa que o protocolo ocorreu com sucesso e não houve a interferência de ruídos no processo.
+  \item [Valores iniciais e finais invertidos] Se a posição dos elementos finais e iniciais estiver invertida, significa que o protocolo ocorreu com sucesso porém houve a interferência de ruídos do tipo \textit{bitflip}.
+  \item [Sinal dos valores iniciais e finais invertidos] Se o sinal dos valores dos elementos iniciais e finais estiver invertido, significa que o protocolo ocorreu com sucesso porém houve a interferência de ruídos do tipo \textit{phaseflip}.
+  \item [Valores distintos] Se os valores dos elementos não forem comparáveis por nenhuma situação descrita acima, significa que houve falha no teletransporte.
 \end{description}
-
-\clearpage
-
-\chapter{Discussão dos resultados e perspectivas de estudo}\label{sec:resultados}
-
-Durante a criação da descrição matricial do protocolo apresentado no Apêndice~\ref{app:matricial}, utilizamos matrizes do tipo coluna para representar os estados quânticos e os qubits, pois ambos são vetores. Além disso, pudemos expressar as portas lógicas quânticas como matrizes unitárias, o que permitiu uma implementação eficiente das operações entre as portas e os qubits. Apesar da descrição matricial simplificar o protocolo, desconsiderando a variável temporal, é possível estabelecer uma cronologia das operações, uma vez que algoritmos quânticos podem ser expressos na forma de circuitos.
-
-Durante a construção da descrição matricial, identificamos os seguintes postulados descritos na seção~\ref{sec:postulados}:
-
-\begin{description}
-\item O Postulado~\ref{post:p1} mostra que os qubits podem ser representados pela expressão $\ket{\psi} = \alpha \begin{bmatrix} 1 \\ 0 \end{bmatrix} + \beta \begin{bmatrix} 0 \\ 1 \end{bmatrix}$, que é uma combinação linear de vetores unitários, representados por matrizes coluna.
-\item O Postulado~\ref{post:p2} evidencia que os operadores quânticos, que são as portas lógicas quânticas, são a única operação capaz de alterar os estados quânticos. Na descrição proposta neste trabalho, observamos que, ao realizar uma operação entre qubits, o estado permanece inalterado, mas ao realizar uma operação entre um qubit e uma porta lógica quântica, o primeiro sempre é modificado. É interessante notar que, a menos que se realize uma operação de medida, o estado de um qubit não é modificado definitivamente ao interagir com uma porta lógica quântica, sendo reversível com a aplicação de uma operação inversa.
-\item O Postulado~\ref{post:p4} foi constatado nas operações que envolvem todos os estados do sistema, como na aplicação da porta \(\CNOT\). O estado geral do sistema é obtido com o produto tensorial entre todos os estados que o compõem, o que nos permite descrever detalhadamente as possibilidades de colapso após uma medida em função dos estados obtidos.
-\end{description}
-
-A possibilidade de observar os postulados na descrição matricial justifica e valida sua construção, de modo que, apesar de simplificada, ela não viola nenhum dos postulados propostos. Além disso é possível acompanhar a evolução do sistema com o circuito lógico da figura~\ref{fig:protocoloteletransporte} com a ordem de aplicação das portas e os estados dos qubits sendo modificados.
-
-Sobre o desenvolvimento do protocolo em Python, a utilização da biblioteca "Numpy" permitiu uma implementação mais eficiente e simplificada, enquanto a função "TensorProduct" otimizou as operações de produto tensorial necessárias durante todo o protocolo.
-
-A validação dos resultados ocorreu comparando-os com a descrição teórica do protocolo de teletransporte quântico, e confirmou-se que o simulador reproduziu corretamente o estado final do sistema para todos os valores de probabilidade de $\alpha$ e $\beta$, com precisão de até 15 casas decimais.
-
-O impacto da introdução de ruídos no processo de teletransporte quântico foi analisado comparando as variáveis iniciais e finais do protocolo para as probabilidades $\alpha$ e $\beta$ de modo que os estados obtidos em cada situação estão apresentados na tabela~\ref{tab:resultadoruidos}.
-
-\begin{table}[ht!]
-  \centering
-  \caption{Resultado dos estados de $\alpha$ e $\beta$ na presença de ruídos}\label{tab:resultadoruidos}
-  \begin{tabular}{ccccc}
-    \toprule
-   		 \textbf{Tipo de ruído} & \textbf{$\alpha_{inicial}$} & \textbf{$\beta_{inicial}$} & \textbf{$\alpha_{final}$} & \textbf{$\beta_{final}$} \\
-   		 \midrule
-   			 \textbf{bitflip} & $\begin{bmatrix} 1 \\ 0 \end{bmatrix}$ & $\begin{bmatrix} 0 \\ 1 \end{bmatrix}$ & $\begin{bmatrix} 0 \\ 1 \end{bmatrix}$ & $\begin{bmatrix} 1 \\ 0 \end{bmatrix}$ \\
-    			\textbf{phaseflip} & $\begin{bmatrix} 1 \\ 0 \end{bmatrix}$ & $\begin{bmatrix} 0 \\ 1 \end{bmatrix}$ & $\begin{bmatrix} 1 \\ 0 \end{bmatrix}$ & $\begin{bmatrix} 0 \\ -1 \end{bmatrix}$   
-  \end{tabular}
-\end{table}
-
-Os resultados da tabela~\ref{tab:resultadoruidos}, pode ser comparado com os descritos em~\ref{tiposruidos} e a inversão de estados é confirmada para o ruído bitflip e a de fase para o ruído phaseflip, o que demonstra que a presença de ruídos compromete o estado quântico teletransportado, o que é relevante para a implementação prática de sistemas de teletransporte quântico.
-
-Embora o protocolo desenvolvido seja introdutório, sua compreensão permite o desenvolvimento de trabalhos mais complexos, como a implementação de um protocolo que considere a evolução temporal como variável e possibilite a descrição mais precisa dos efeitos de ruídos no sistema, ou ainda, a descrição de qubits utilizando sua função de onda e operando sobre ela.
-
-Vale ressaltar que existem algumas ferramentas já consolidadas para o estudo e aperfeiçoamento de algoritmos quânticos, como o Qiskit. O Qiskit é uma plataforma de código aberto desenvolvida pela IBM para programação e simulação de circuitos quânticos, amplamente utilizada em pesquisas e aplicações práticas em diversas áreas, como criptografia, simulação química e inteligência artificial.
-
-Com este estudo introdutório, algumas perspectivas ficam delineadas para estudos futuros, como a implementação do mesmo protocolo utilizando o Qiskit em um ambiente clássico e posteriormente em um ambiente quântico para verificar possíveis divergências nos resultados. Outra perspectiva futura é o mapeamento de erros para o desenvolvimento e aperfeiçoamento de algoritmos de correção de erros quânticos, na tentativa de tornar a implementação de um protocolo de teletransporte real mais efetiva para a evolução da computação quântica.
-
-\clearpage
-
-\chapter{Conclusões}
-
-A realização deste trabalho possibilitou além de desenvolver uma notação matricial para o protocolo de teletransporte o que facilita a visualização da alteração dos estados como também sua implementação como estrutura de dados para a automatização do processo, aprofundando os estudos em MQ em uma aplicação direta de suas propriedades.
-
-Como um computador puramente quântico ainda está em desenvolvimento, os estudos sobre o tema estão em seu auge e a possibilidade de estudar e desenvolver algoritmos que um dia atuarão nestes dispositivos ressalta a necessidade da constante expansão da ciência. Nos últimos 60 anos, vimos o computador clássico passar de uma versão gigantesca para dispositivos miniaturizados e apenas nos últimos 20 o computador quântico saiu do papel com o desenvolvimento de processadores quânticos. Portanto, é plausível acreditar que existe muito ainda por vir.
-
-Para além, os resultados deste estudo introdutório se mostraram otimistas para a compreensão de algoritmos quânticos, seja por sua descrição físico-matemática ou por sua representação gráfica na forma dos circuitos quânticos e podem servir de base para a compreensão de sistemas mais complexos e sofisticados, possíveis de ser implementados com a tecnologia quântica.
-
-Espera-se que este trabalho possa servir para a orientação e o estudo dessa temática visto que, por ainda estar em desenvolvimento, possuí aspectos ainda não consolidados e que dependem de novos estudos.
-
- 
-
-
-
-

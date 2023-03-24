@@ -127,7 +127,8 @@
 \usepackage[backgroundcolor=orange!45]{todonotes}
 % \usepackage{minted}
 \usemintedstyle{colorful}
-\newcommand{\py}[1]{\mintinline{python3}{#1}}
+\newcommand{\py}[1]{\mintinline[breaklines]{python3}{#1}}
+\renewcommand{\listingscaption}{Listagem}
 
 \tikzset{%
   eixos/.style={draw=black!80,text=black!80,arrows=-{Latex[width=4pt,length=6pt]}},
@@ -161,7 +162,25 @@
   listing engine=minted,
   minted language=python3,
   minted options={fontsize=\normalsize,breaklines},
-  colback=blue!3!white,
+  colback=white,
+  %colback=blue!3!white,
+  enhanced,
+  breakable,
+  listing only,
+  colframe=black!10,
+  arc=0mm,
+  top=8pt,
+  bottom=8pt,
+  left=10pt,
+  right=10pt,
+  boxrule=1pt,
+}
+
+\newtcblisting{pycodewhite}{
+  listing engine=minted,
+  minted language=python3,
+  minted options={fontsize=\normalsize,breaklines},
+  colback=white,
   enhanced,
   breakable,
   listing only,
@@ -171,7 +190,7 @@
   bottom=8pt,
   left=10pt,
   right=10pt,
-  boxrule=1pt,
+  boxrule=0pt,
 }
 
 \newtcbtheorem[number within=chapter]{post}{Postulado}{
@@ -381,9 +400,12 @@
 
 \textual
 
-% \input{intro.tex}             % INTRODUÇÃO
+\input{intro.tex}             % INTRODUÇÃO
 \input{teoria.tex}            % FUNDAMENTAÇÃO TEÓRICA
-% \input{metodologia.tex}       % METODOLOGIA
+\input{metodologia.tex}       % METODOLOGIA
+\input{resultados.tex}         % O EXEMPLO
+\input{discussão.tex}          % DISCUSSÃO DOS RESULTADOS
+\input{conclusões.tex}         % FECHAMENTO
 
 % \begin{appendices}
 %   \input{app-matricial.tex}
