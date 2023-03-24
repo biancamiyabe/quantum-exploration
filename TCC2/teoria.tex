@@ -277,7 +277,7 @@ As matrizes $\sigma_x$, \(\sigma_{y}\) e \(\sigma_{z}\) são também conhecidas 
 
 \subsubsection{Porta Lógica Controlled-NOT Quântica}\label{sec:cnot}
 
-As matrizes de Pauli são frequentemente usadas na construção de portas lógicas quânticas. A porta NOT quântica, por exemplo, é usada para inverter o estado de um qubit e é construída a partir da matriz de Pauli X. A porta Controlled-NOT Quântica, ou \(\CNOT\), que é usada para realizar operações lógicas em dois qubits, também é construída a partir de uma combinação das matrizes de Pauli X, Y e Z, além da identidade \cite{CompInfoQuantica}. Esta é uma propriedade geral das portas lógicas quânticas: elas podem ser construídas a partir de matrizes que são combinações das matrizes de Pauli e da matriz de identidade.
+As matrizes de Pauli são frequentemente usadas na construção de portas lógicas quânticas. A porta NOT quântica, por exemplo, é usada para inverter o estado de um qubit e é construída a partir da matriz de Pauli X. A porta Controlled-NOT Quântica, ou \(\CNOT\), que é usada para realizar operações lógicas em dois qubits, também é construída a partir de uma combinação das matrizes de Pauli X, Y e Z, além da identidade \cite{CompInfoQuantica}. Esta é uma propriedade geral das portas lógicas quânticas: elas podem ser construídas a partir de matrizes que são combinações das matrizes de Pauli e da matriz identidade.
 
 A matriz que representa a porta \(\CNOT\) é dada por:
 \begin{equation}\label{eq:cnot}
@@ -286,15 +286,14 @@ A matriz que representa a porta \(\CNOT\) é dada por:
 0 & 1 & 0 & 0 \\
 0 & 0 & 0 & 1 \\
 0 & 0 & 1 & 0
-\end{pmatrix} 
+\end{pmatrix} .
 \end{equation}
-
 A porta lógica \(\CNOT\) é usada para implementar operações condicionais e permutações entre qubits, sendo usada para criar circuitos lógicos quânticos mais complexos como uma versão geral da porta NOT clássica, pois ela pode ser aplicada a todos os qubits e não apenas a dois. Na porta \(\CNOT\), o qubit de controle é usado para controlar o estado do qubit alvo. Se o qubit de controle estiver em $\ket{1}$, o estado do qubit alvo será invertido, mas se o qubit de controle estiver em $\ket{0}$, o estado do qubit alvo não será alterado \cite{chuang}.
 
 
 \subsubsection{Porta Lógica Hadamard Quântica}\label{sec:had}
 
-A Porta Lógica Hadamard Quântica \(\HAD\) é uma porta lógica quântica que transforma o estado de um qubit em seu estado oposto com 50\% de probabilidade associada ao estado. Ela pode ser usada para realizar operações de entrelaçamento entre qubits, o que permite a implementação de algoritmos quânticos como o emaranhamento e o teletransporte quântico. Seu desenvolvimento teve como objetivo permitir o controle preciso de qubits em circuitos quânticos \cite{jorcuvich}. Ela é representada por uma matriz 2x2, definida como:
+A Porta Lógica Hadamard Quântica \(\HAD\) é uma porta lógica quântica que transforma o estado de um qubit em seu estado oposto com 50\% de probabilidade associada ao estado. Ela pode ser usada para realizar operações de entrelaçamento entre qubits, o que permite a implementação de algoritmos quânticos como o emaranhamento e o teletransporte quântico. Seu desenvolvimento teve como objetivo permitir o controle preciso de qubits em circuitos quânticos \cite{jorcuvich}. Ela é representada por uma matriz \(2{\times}2\), definida como:
 
 \begin{equation}
 \HAD= \frac{1}{\sqrt{2}} \begin{pmatrix*}[r]
@@ -306,59 +305,57 @@ A Porta Lógica Hadamard Quântica \(\HAD\) é uma porta lógica quântica que t
 \subsection{Bases de Bell}\label{sec:bell}
 As bases de Bell, também conhecidas como estados de Bell ou pares emaranhados de Bell, são um conjunto de quatro estados quânticos maximamente emaranhados. Eles são importantes na computação quântica porque são usados em protocolos como o teletransporte quântico e o código de correção de erros.
 
-Cada estado de Bell é formado por dois qubits, que estão emaranhados de tal forma que a medição de um afeta instantaneamente o estado do outro, independentemente da distância entre eles. Os quatro estados de Bell são:
-
+Cada estado de Bell é formado por dois qubits emaranhados de tal forma que a medição de um afeta instantaneamente o estado do outro, independentemente da distância entre eles. Os quatro estados de Bell são:
 \begin{equation}
-	\begin{split}
-\Phi_+ &= \frac{1}{\sqrt{2}} \left(\ket{00} + \ket{11} \right) \\
-\Phi_- &= \frac{1}{\sqrt{2}} \left(\ket{00} - \ket{11} \right) \\
-\Psi_+ &= \frac{1}{\sqrt{2}} \left(\ket{01} + \ket{10} \right) \\
-\Psi_- &= \frac{1}{\sqrt{2}} \left(\ket{01} - \ket{10} \right) 
-	\end{split}
+  \begin{aligned}
+    \Phi_+ &= \frac{1}{\sqrt{2}} \bigl(\ket{00} + \ket{11} \bigr), & \qquad \Phi_- &= \frac{1}{\sqrt{2}} \bigl(\ket{00} - \ket{11} \bigr), \\
+    \Psi_+ &= \frac{1}{\sqrt{2}} \bigl(\ket{01} + \ket{10} \bigr), & \qquad \Psi_- &= \frac{1}{\sqrt{2}} \bigl(\ket{01} - \ket{10} \bigr). \\
+  \end{aligned}
 \end{equation}
-
 Quando dois qubits estão emaranhados em um estado de Bell, a medição de um qubit pode ser usada para transmitir informações para outro qubit, sem que terceiros possam interceptar a informação transmitida.
 
-\subsection{Circuitos lógicos Quânticos}\label{sec:circuitos}
-Para compreender a lógica de sistemas quânticos, é comum representá-los graficamente como circuitos. Essa forma de apresentação, estabelece de maneira clara, as operações realizadas, as entidades envolvidas e a informação de entrada e de saída do processo em questão. Para tal, cada parte envolvida no processo possui sua própria representação gráfica, de maneira que ao observar um circuito, possamos ser capazes de reproduzir a evolução do sistema de maneira lógico-matemática.
-Conforme abordado nas seções anteriores, o qubit é a unidade fundamental de expressão de informação dentro da computação quântica, portanto, o circuito se baseia nas interações que um, ou mais qubits terão ao longo do processo. A representação de um qubit é dada pela figura~\ref{fig:qubit} de modo que a linha contínua representa a evolução do estado quântico do qubit no tempo, que evolui da esquerda para a direita. Quando mais de um qubit é necessário no circuito, adicionamos linhas independentes, para que seja possível observar como cada um destes se desenvolve no processo.
+\subsection{Circuitos Lógicos Quânticos}\label{sec:circuitos}
+
+Para compreender a lógica de sistemas quânticos, é comum representá-los graficamente como circuitos. Essa forma de apresentação estabelece de maneira clara as operações realizadas, as entidades envolvidas e a informação de entrada e de saída do processo em questão. Para tal, cada parte envolvida no processo possui sua própria representação gráfica, de maneira que ao observar um circuito, possamos ser capazes de reproduzir a evolução do sistema de maneira lógico-matemática.
+
+Conforme abordado nas seções anteriores, o qubit é a unidade fundamental de expressão de informação dentro da computação quântica, e portanto, o circuito se baseia nas interações que um ou mais qubits terão ao longo do processo. A representação de um qubit é dada pela Figura~\ref{fig:qubit} de modo que a linha contínua representa a evolução do estado quântico do qubit no tempo, que evolui da esquerda para a direita. Quando mais de um qubit é necessário no circuito, adicionamos linhas independentes, para que seja possível observar como cada um destes se desenvolve no processo.
 
 \begin{figure}[ht!]
 \centering
-\caption{Representação gráfica dos qubits $\ket{\psi}$ e $\ket{\phi}$ em um circuito lógico quântico}\label{fig:qubit}
+\caption{Representação gráfica dos qubits $\ket{\psi}$ e $\ket{\phi}$ em um circuito lógico quântico.}\label{fig:qubit}
 \begin{quantikz}
 \lstick{$\ket{\psi}$} & \qw & \qw & \qw & \qw & \qw \\
 \lstick{$\ket{\phi}$} & \qw & \qw & \qw & \qw & \qw
 \end{quantikz}
 \end{figure}
 
-Conforme visto na Seção~\ref{sec:opquantico}, a evolução do estado de um qubit depende de interações unitárias dos chamados operadores quânticos, ou portas lógicas quânticas. Sua representação pode ser encontrada na figura~\ref{fig:opquantico} e sua posição determina a linha temporal de qual qubit está sendo alterada. Por exemplo, a porta \(\XXX\) está atuando sob o qubit $\ket{\psi}$, enquanto a porta \(\ZZZ\) atua sob o qubit $\ket{\phi}$. Seguindo a evolução temporal, é possível ver que a porta lógica \(\ZZZ\) é aplicada antes que a porta \(\XXX\)
+Conforme visto na Seção~\ref{sec:opquantico}, a evolução do estado de um qubit depende de interações unitárias dos chamados operadores quânticos, ou portas lógicas quânticas. Sua representação pode ser encontrada na Figura~\ref{fig:opquantico} e sua posição determina a linha temporal de qual qubit está sendo alterada. Por exemplo, a porta \(\XXX\) está atuando sob o qubit $\ket{\psi}$, enquanto a porta \(\ZZZ\) atua sob o qubit $\ket{\phi}$. Seguindo a evolução temporal, é possível ver que a porta lógica \(\ZZZ\) é aplicada antes que a porta~\(\XXX\)
 
 \begin{figure}[ht!]
 \centering
-\caption{Representação gráfica da atuação das portas lógicas quânticas \(\XXX\) e \(\ZZZ\) nos qubits $\ket{\psi}$ e $\ket{\phi}$ respectivamente, em um circuito lógico quântico}\label{fig:opquantico}
+\caption{Representação gráfica da atuação das portas lógicas quânticas \(\XXX\) e \(\ZZZ\) nos qubits $\ket{\psi}$ e $\ket{\phi}$, respectivamente, em um circuito lógico quântico}\label{fig:opquantico}
 \begin{quantikz}
 \lstick{$\ket{\psi}$} & \qw & \qw & \qw & \qw & \qw & \gate{X} & \qw & \qw \\
 \lstick{$\ket{\phi}$} & \qw & \gate{Z} & \qw & \qw & \qw & \qw & \qw & \qw
 \end{quantikz}
 \end{figure}
 
-Algumas portas quânticas, como a CNOT, dependem de dois qubits para operarem, porém alteram apenas um deles. Chamamos esse tipo de porta de Controlada, e sua representação indica com um ponto o qubit de controle e com um X o qubit alvo, que será alterado. Sua representação pode ser encontrada na figura~\ref{fig:cnot} onde, num primeiro momento $\ket{\phi}$ atua como controle e $\ket{\psi}$ é o alvo, e depois $\ket{\psi}$ se torna o controle e $\ket{\phi}$ o alvo.
+Algumas portas quânticas, como a CNOT, dependem de dois qubits para operarem, porém alteram apenas um deles. Chamamos esse tipo de porta de controlada, e sua representação indica com um ponto o qubit de controle e com um \(X\) o qubit alvo, que será alterado. Sua representação pode ser encontrada na Figura~\ref{fig:cnot} onde, num primeiro momento $\ket{\phi}$ atua como controle e $\ket{\psi}$ é o alvo, e depois $\ket{\psi}$ se torna o controle e $\ket{\phi}$ o alvo.
 
 \begin{figure}[ht!]
 \centering
-\caption{Representação gráfica da atuação da porta lógica quântica CNOT nos qubits $\ket{\psi}$ e $\ket{\phi}$ em um circuito lógico quântico}\label{fig:cnot}
+\caption{Representação gráfica da atuação da porta lógica quântica \(\CNOT\) nos qubits $\ket{\psi}$ e $\ket{\phi}$ em um circuito lógico quântico.}\label{fig:cnot}
 \begin{quantikz}
 \lstick{$\ket{\psi}$} & \qw & \targ{} & \qw & \qw & \qw & \ctrl{1} & \qw & \qw \\
 \lstick{$\ket{\phi}$} & \qw & \ctrl{-1} & \qw & \qw & \qw & \targ{} & \qw & \qw
 \end{quantikz}
 \end{figure}
 
-Existe ainda o operador Medição, que efetua o colapso do sistema quântico e retorna uma medida clássica como resposta. Sua representação ocorre conforme a figura~\ref{fig:medição} e após um operador medição, a linha se torna dupla, para indicar que a informação que está passando naquele trecho do circuito é clássica. Ou seja, linhas simples, indicam informação quântica e linhas duplas indicam informação clássica.
+Existe ainda o operador medição, que efetua o colapso do sistema quântico e retorna uma medida clássica como resposta. Sua representação ocorre conforme a Figura~\ref{fig:medição} e após um operador medição, a linha se torna dupla, para indicar que a informação que está passando naquele trecho do circuito é clássica. Ou seja, linhas simples, indicam informação quântica e linhas duplas indicam informação clássica.
 
 \begin{figure}[ht!]
 \centering
-\caption{Representação gráfica da atuação de uma medição em $\ket{\psi}$ e $\ket{\phi}$ em um circuito lógico quântico}\label{fig:medição}
+\caption{Representação gráfica da atuação de uma medição em $\ket{\psi}$ e $\ket{\phi}$ em um circuito lógico quântico.}\label{fig:medição}
 \begin{quantikz}
 \lstick{$\ket{\psi}$} & \qw &  \qw & \qw & \meter{} & \cw & \cw \\
 \lstick{$\ket{\phi}$} & \qw &  \meter{} & \cw & \cw  & \cw & \cw
@@ -366,30 +363,31 @@ Existe ainda o operador Medição, que efetua o colapso do sistema quântico e r
 \end{figure}
 
 \subsection{Algoritmos quânticos}\label{sec:algoritmo}
-Conforme descrito na seção~\ref{sec:qubits}, qubits são manipulados através de operações (apresentadas na seção~\ref{sec:opquantico}) para obter o resultado esperado para o problema a ser resolvido, para tal, precisamos construir algoritmos quânticos. Existe uma infinidade de algoritmos quânticos já implementados, nesse trabalho desenvolveremos um destes, porém alguns outros algoritmos são interessantes e serão apresentados nessa seção.
 
-Historicamente o primeiro algoritmo quântico a ser implementado, ainda que de maneira teórica foi o algoritmo de Shor. Nesse algoritmo Peter Shor constrói uma estrutura que responde quais números multiplicados retornam o resultado apresentado. Ou seja, suponha que tenhamos a equação $ A = x * y$, com $x = 24568$ e $y=45877$, nesse caso, sem quaisquer problemas um computador clássico seria capaz de encontrar o valor de $A$ pois este conhece as variáveis $x$ e $y$. Agora suponha que o computador conhece $A$ porém desconhece os valores de $x$ e $y$ e os deseja encontrar, ou seja, qual (ou quais) multiplicações de $x$ e $y$ resultam no valor de $A=1127106136$? Esse processo chama-se fatoração e classicamente, não existe nenhum algoritmo eficiente(rápido) para solucionar esse problema. A Fatoração é utilizada para encriptação, ou seja, codificação de contas de banco, senhas de provedores de internet e afins, pois é extremamente difícil encontrar os fatores para o valor encriptado. Por esse motivo, quando Peter Shor apresenta em 1994 o algoritmo quântico capaz de facilmente operar a fatoração, a computação quântica passa a ser levada em consideração \cite{videoyoutube2}.
+Conforme descrito na Seção~\ref{sec:qubits}, qubits são manipulados através de operações (apresentadas na Seção~\ref{sec:opquantico}) para obter o resultado esperado para um problema. O conjunto organizado de todas essas operações quânticas leva o nome de \textit{algoritmo quântico}. Existe uma infinidade de algoritmos quânticos já implementados e alguns serão apresentados nessa seção, além do que foi desenvolvido para este trabalho.
+
+Historicamente, o primeiro algoritmo quântico a ser implementado --- ainda que de maneira teórica --- foi o algoritmo de Shor. Nele Peter Shor constrói uma estrutura que responde quais números multiplicados retornam o resultado apresentado. Ou seja, suponha que tenhamos a expressão $A = x \, y$, com $x = \num{24568}$ e $y = \num{45877}$. Nesse caso, sem quaisquer problemas um computador clássico seria capaz de encontrar o valor de $A$, pois este conhece as variáveis $x$ e $y$. Agora suponha que o computador conhece $A$ porém desconhece os valores de $x$ e $y$ e os deseja encontrar, ou seja, qual (ou quais) multiplicações de $x$ e $y$ resultam no valor de $A = \num{1127106136}$? Esse processo chama-se fatoração e, classicamente, não existe nenhum algoritmo eficiente (rápido) para solucionar esse problema. A fatoração é utilizada para criptografia, ou seja, é vital na codificação de contas de banco, senhas de provedores de internet e afins, pois é extremamente difícil encontrar os fatores para o valor criptografado. Por esse motivo, quando Peter Shor apresenta em 1994 o algoritmo quântico capaz de operar facilmente a fatoração, a computação quântica passa a ser levada em consideração \cite{videoyoutube2}.
 
 Alguns outros algoritmos quânticos importantes são:
-\begin{itemize}
-\item Algoritmo de Deutsch-Jozsa: um algoritmo que determina se uma função é constante ou balanceada, com apenas uma única consulta à função.
-\item Algoritmo de Grover: um algoritmo de busca que encontra a solução para um problema em uma lista desordenada com uma complexidade quadrática em relação ao número de entradas, em contraste com a complexidade linear dos algoritmos clássicos.
-\item Algoritmo de simulação quântica: um algoritmo que simula a evolução de sistemas quânticos com maior eficiência do que os algoritmos clássicos correspondentes.
-\item Algoritmo de codificação de \textit{quantum error correction}: um algoritmo que protege informações quânticas contra erros causados pela interação com o ambiente.
-\end{itemize} 
 
-Vale ressaltar que algoritmos quânticos, alteram o estado de um conjunto de qubits sem que seja necessário modificar todos os qubits envolvidos devido ao fenômeno do emaranhamento. Isso nos leva a outra importante característica de algoritmos, eles não precisam necessariamente medir os qubits para alterar seu estado, fazendo com que seja possível um sistema quântico permanecer em superposição pois não existe necessariamente a ocorrência de uma medida que colapse todo o estado, o que garante que mais informação pode ser processada sem colapsar os estados quânticos do sistema, o que garante que sistemas quânticos sendo processados são também reversíveis.
+\begin{description}
+  \item[Algoritmo de Deutsch-Jozsa] determina se uma função é constante ou balanceada, com apenas uma única consulta à função.
+  \item[Algoritmo de Grover] um algoritmo de busca que encontra a solução para um problema em uma lista desordenada com uma complexidade quadrática em relação ao número de entradas, em contraste com a complexidade linear dos algoritmos clássicos.
+  \item[Algoritmo de simulação quântica] simula a evolução de sistemas quânticos com maior eficiência do que os algoritmos clássicos correspondentes.
+  \item[Algoritmo de codificação de \textit{quantum error correction}] protege informações quânticas contra erros causados pela interação com o ambiente.
+\end{description}
+
+Vale ressaltar que algoritmos quânticos alteram o estado de um conjunto de qubits sem que seja necessário modificar todos os qubits envolvidos devido ao fenômeno do emaranhamento. Isso nos leva a uma outra importante característica desses algoritmos: eles não precisam necessariamente medir os qubits para alterar seu estado, fazendo com que seja possível um sistema quântico permanecer em superposição pois não existe necessariamente a ocorrência de uma medida que colapse todo o estado, o que garante não só que mais informação possa ser processada sem colapsar os estados quânticos do sistema, mas também que sistemas quânticos sendo processados sejam reversíveis.
 
 Neste trabalho, desenvolvemos um protocolo de teletransporte quântico que se enquadra na categoria de algoritmo de simulação quântica na tentativa de melhor descrever uma situação real.
 
 \subsection{Protocolo de Teletransporte Quântico}\label{sec:teletransporteprotocolo}
 
-A descrição deste protocolo foi baseada em \textcite{chuang, jorcuvich, CompInfoQuantica, benschu}. A realização de um protocolo de Teletransporte Quântico consiste, essencialmente, em uma série de operações que possuem por objetivo principal fazer com que uma mensagem, ou na linguagem quântica, um estado quântico, se teletransporte entre dois pontos distintos fisicamente.
-Como em qualquer outra operação computacional é necessária a existência de um circuito lógico, nesse caso quântico, que media as operações. Esse circuito consistirá nas combinações das portas lógicas \(\CNOT\), Hadamard, portas de medição e as portas \(\XXX\) e \(\ZZZ\) conforme a Figura~\ref{fig:protocoloteletransporte}.
+A descrição deste protocolo foi baseada em \textcite{chuang, jorcuvich, CompInfoQuantica, benschu}. A realização de um protocolo de Teletransporte Quântico consiste, essencialmente, em uma série de operações que possuem por objetivo principal fazer com que uma mensagem, ou na linguagem quântica, um estado quântico, se teletransporte entre dois pontos distintos fisicamente. Como em qualquer outra operação computacional é necessária a existência de um circuito lógico, nesse caso quântico, que medie as operações. Esse circuito consistirá nas combinações das portas lógicas \(\CNOT\), Hadamard, portas de medição e as portas \(\XXX\) e \(\ZZZ\) conforme a Figura~\ref{fig:protocoloteletransporte}.
 
 \begin{figure}[ht!]
 \centering
-\caption{Protocolo de Teletransporte Quântico mediado pelo circuito com as portas \(\CNOT\), Hadamard, medição aplicadas no local \(A\) e as portas \(\XXX\) e \(\ZZZ\) aplicadas no local \(B\).}\label{fig:protocoloteletransporte}
+\caption{Protocolo de Teletransporte Quântico mediado pelo circuito com as portas \(\CNOT\), Hadamard e medição aplicadas no local \(A\) e as portas \(\XXX\) e \(\ZZZ\) aplicadas no local \(B\).}\label{fig:protocoloteletransporte}
 \begin{quantikz}[slice style=blue]
 \lstick{$\ket{\psi}$} & \qw & \qw & \qw \slice{$\ket{\psi_0}$} & \ctrl{1} \slice{$\ket{\psi_1}$} & \gate{H} \slice{$\ket{\psi_2}$} & \meter{$M_1$} & \cw  & \cw & \cwbend{2}\\
 \lstick{$\ket{q_x}$} & \gate{H}\gategroup[2,steps=2,style={dashed,rounded corners,fill=blue!20, inner xsep=2pt}, background,label style={label position=below,anchor=north,yshift=-0.2cm}]{{Emaranhamento}} & \ctrl{1} & \midstick[2]{$\ket{\beta_{00}}$} \qw & \targ{} & \qw & \meter{$M_2$} & \cwbend{1} \\
@@ -407,8 +405,7 @@ Um dos qubits do par emaranhado em~\eqref{eq:bell00} é mantido em \(A\) e o out
  \begin{equation}\label{psi}
   \ket{\psi} = \alpha \ket{0} + \beta \ket{1}.
  \end{equation}
-De posse do par emaranhado e da mensagem, o protocolo é iniciado com a aplicação da porta \(\CNOT\) entre $\ket{\psi}\ket{\beta_{00}}$, que chamaremos de $\ket{\psi_0}$. A porta \(\CNOT\) possui como alvo o qubit $\ket{\beta_{00}}$ presente em \(A\) e como qubit de controle $\ket{\psi}$. Isso indica que a porta \(\CNOT\) irá modificar $\ket{\beta_{00}}$ de acordo com o estado de $\ket{\psi}$ confome~\ref{definition:cnot}.
-
+De posse do par emaranhado e da mensagem, o protocolo é iniciado com a aplicação da porta \(\CNOT\) entre $\ket{\psi}\ket{\beta_{00}}$, que chamaremos de $\ket{\psi_0}$. A porta \(\CNOT\) possui como alvo o qubit $\ket{\beta_{00}}$ presente em \(A\) e como qubit de controle $\ket{\psi}$. Isso indica que a porta \(\CNOT\) irá modificar $\ket{\beta_{00}}$ de acordo com o estado de $\ket{\psi}$ confome a Definição~\ref{definition:cnot}.
 
 \begin{definition}{Operação \(\CNOT\)}{cnot}
   A operação \(\CNOT\):
@@ -441,7 +438,6 @@ Aplicando portanto a Definição~\ref{definition:hadamard} em $\ket{\psi_1}$, te
 \end{equation}
 
 O estado obtido em \eqref{eq:hadamartpsi2} pode ser identificado como $\ket{\psi_2}$, evidenciando-se os estados emaranhados deste ao organizá-lo da seguinte maneira:
-
 \begin{equation}\label{eq:psi2}
  \ket{\psi_2} = \frac{1}{2} \Bigl[ \ket{00} \bigl( \alpha \ket{0} + \beta \ket{1} \bigr) + \ket{01} \bigl( \alpha \ket{1} + \beta \ket{0} \bigr) + \ket{10} \bigl( \alpha \ket{0} - \beta \ket{1} \bigr) + \ket{11} \bigl( \alpha \ket{1} - \beta \ket{0} \bigr) \Bigr].
 \end{equation}
@@ -464,9 +460,9 @@ O próximo passo do protocolo consiste em realizar medidas em ambos os qubits pr
   \fonte{Elaborada pelo autor.}
 \end{table}
 
-Os valores dos estados medidos em \(A\), são enviados via canal clássico até \(B\) que, devido ao emaranhamento com o qubit operado em \(A\), terá seu colapso consequentemente em seu estado quântico associado, segundo a Tabela~\ref{tab:medidas}.
+Os valores dos estados medidos em \(A\) são enviados via canal clássico até \(B\) que, devido ao emaranhamento com o qubit operado em \(A\), terá seu colapso consequentemente em seu estado quântico associado, segundo a Tabela~\ref{tab:medidas}.
 
-A última etapa do protocolo, ocorre em \(B\), na tentativa de reconstruir a mensagem original, nesse momento já inexistente, que estava em \(A\). Nessa última etapa, serão utilizadas (ou não) as portas lógicas \(\XXX\) e \(\ZZZ\), cujas operações fazem parte das Definições~\ref{definition:X} e~\ref{definition:Z}
+A última etapa do protocolo ocorre em \(B\), na tentativa de reconstruir a mensagem original, nesse momento já inexistente, que estava em \(A\). Nessa última etapa, serão utilizadas (ou não) as portas lógicas \(\XXX\) e \(\ZZZ\), cujas operações fazem parte das Definições~\ref{definition:X} e~\ref{definition:Z}
 
 \begin{definition}{Operação \(\XXX\)}{X}
 A porta lógica quântica \(\XXX\) deve trocar os estados quânticos, ou seja, torná-lo 1 quando este for 0 e torná-lo 0, quando este for 1.
@@ -498,6 +494,8 @@ A aplicação das portas dependerá do resultado da medida enviado por \(A\), se
 
 Segundo \textcite{conceitoinformação}, o conceito de informação possui seu significado cotidianamente atribuído como \textit{conhecimento comunicado}. Nesse sentido, a informação já existia nas pinturas rupestres há cerca de \num{45.5} mil anos atrás, nas quais estão registradas uma série de imagens no intuito de comunicar, seja um evento ou ainda uma quantidade. Apesar do conceito de informação aparecer desde os primórdios do estabelecimento da humanidade, é apenas na década de 1940 que esta passa a ser objeto de estudo com os trabalhos de Claude Elwood Shannon (1916--2001), que desenvolve uma teoria matemática para a informação \cite{CiênciaTransiçãoSeculosa}.
 
+\todo[inline]{Aqui temos outro problema de ordem. A TMC é mencionada várias vezes anteriormente. Talvez fosse interessante linkar com essa seção\ldots}
+
 O objetivo principal da Teoria da Comunicação de Shannon ou \textit{Teoria Matemática da Comunicação} (TMC), era sistematizar o conhecimento acumulado até então acerca da eficiência em sistemas de comunicação, ou seja, de como a informação é transmitida. A teoria descreve o funcionamento lógico-matemático de um destes sistemas, composto por um gerador de informação, um meio de transmissão e um receptor, conforme ilustra a Figura~\ref{comunicshannon} \cite{MTC}.
 
 \begin{figure}[ht!]
@@ -528,15 +526,15 @@ O objetivo principal da Teoria da Comunicação de Shannon ou \textit{Teoria Mat
 
 De acordo com  a TMC, um \textit{gerador de informação} é um objeto capaz de produzir um conjunto $X$ de $n$ eventos com probabilidade de ocorrência $P(X)$, enquanto um \textit{receptor} possui um conjunto $Y$, também com $n$ eventos, com probabilidades associadas $P(Y)$. Durante a transmissão é possível que parte da informação seja perdida devido a ocorrência de ruídos, o que resulta diretamente na modificação dos valores de probabilidade dos elementos recebidos do conjunto $Y$. Reconhecendo portanto os elementos de $X$ e suas probabilidades associadas, espera-se que uma mensagem bem transmitida, ou seja, sem interferência de ruídos, seja aquela cujas probabilidades dos elementos do conjunto $Y$ sejam as mesmas dos elementos do conjunto $X$. Assim, se essas probabilidades forem distintas, podemos concluir que houve perda de informação na transmissão \cite{mathematical}.
 
-Como na MQ, não sabemos o estado de um qubit até que uma medida seja aplicada e não é possível recuperar um estado após a medida deste, identificar a presença de um ruído torna-se mais complicado do que na transferência de informação clássica. Chamamos de decoerência o processo pelo qual um sistema quântico interage com o ambiente e perde sua coerência quântica, ou seja, sua capacidade de apresentar estados de superposição e entrelaçamento originais. Alguns autores como \textcite{chuang}, utilizam o termo decoerência como sinônimo de ruído quântico.
+Como na MQ não sabemos o estado de um qubit até que uma medida seja aplicada e não é possível recuperar um estado após a medida deste, identificar a presença de um ruído torna-se mais complicado do que na transferência de informação clássica. Chamamos de decoerência o processo pelo qual um sistema quântico interage com o ambiente e perde sua coerência quântica, ou seja, sua capacidade de apresentar estados de superposição e entrelaçamento originais. Alguns autores como \textcite{chuang}, utilizam o termo decoerência como sinônimo de ruído quântico.
 
 Os qubits podem ser afetados por diferentes tipos de ruídos que comprometem a coerência dos estados quânticos, causando erros nas operações e nos resultados das medições. Alguns dos principais tipos de ruído que atuam sobre qubits são:
 \begin{description}
-\item [Ruído térmico:] é causado pela interação dos qubits com o ambiente, que gera flutuações de temperatura e pressão ao redor dos qubits, comprometendo sua estabilidade e aumentando as taxas de erros nos cálculos.
-\item [Ruído de decoerência:] é causado por interações indesejadas entre os qubits e outras partículas que compõem o ambiente, como fótons, átomos e elétrons. Essas interações podem resultar em mudanças na fase e na amplitude dos estados quânticos, prejudicando a coerência dos qubits.
-\item [Ruído de controle:] é causado por erros nas operações de controle dos qubits, que podem levar a variações imprevisíveis nas oscilações e nos estados dos qubits.
-\item [Ruído de leitura:] é causado pelas imprecisões nas medições dos estados quânticos, que podem ser influenciadas por fatores como a taxa de amostragem e a sensibilidade dos sensores.
-\item [Ruído de acoplamento:] é causado pela interação entre qubits próximos, que podem interferir uns com os outros e afetar suas propriedades individuais, resultando em erros nos cálculos e nas medições.
+\item [Ruído térmico] é causado pela interação dos qubits com o ambiente, que gera flutuações de temperatura e pressão ao redor dos qubits, comprometendo sua estabilidade e aumentando as taxas de erros nos cálculos.
+\item [Ruído de decoerência] é causado por interações indesejadas entre os qubits e outras partículas que compõem o ambiente, como fótons, átomos e elétrons. Essas interações podem resultar em mudanças na fase e na amplitude dos estados quânticos, prejudicando a coerência dos qubits.
+\item [Ruído de controle] é causado por erros nas operações de controle dos qubits, que podem levar a variações imprevisíveis nas oscilações e nos estados dos qubits.
+\item [Ruído de leitura] é causado pelas imprecisões nas medições dos estados quânticos, que podem ser influenciadas por fatores como a taxa de amostragem e a sensibilidade dos sensores.
+\item [Ruído de acoplamento] é causado pela interação entre qubits próximos, que podem interferir uns com os outros e afetar suas propriedades individuais, resultando em erros nos cálculos e nas medições.
 \end{description}
 
 Vale ressaltar que o estudo dos ruídos quânticos contribuem para conhecer os efeitos deste e estimar técnicas de correção para o sistema. Essas técnicas envolvem desde a escolha dos materiais e dos métodos de construção dos sistemas até a implementação de algoritmos de correção de erros e aprimoramento da qualidade das medições.
@@ -544,7 +542,7 @@ Vale ressaltar que o estudo dos ruídos quânticos contribuem para conhecer os e
 Segundo \textcite{teseufscar}, os principais tipos de ruídos associados à decoerência da informação quântica, ou seja, a sua alteração do estado original são:
 
 \begin{description}\label{tiposruidos}
-  \item [Inversão de bit (\textit{bitflip}):] esse ruído consiste essencialmente na inversão do estado dos qubits emaranhados, fazendo com que estes saiam de um chamado estado puro --- essencial para o fenomeno de emaranhamento --- para um estado misto.
-  \item [Inversão de fase (\textit{phaseflip}):] inverte a fase da função de onda que representa os qubits emaranhados.
-  \item [Inversão de bit e fase (\textit{bit-phase flip}):] inverte tanto o estado quanto a fase do qubit.
+  \item [Inversão de bit (\textit{bitflip})] esse ruído consiste essencialmente na inversão do estado dos qubits emaranhados, fazendo com que estes saiam de um chamado estado puro --- essencial para o fenomeno de emaranhamento --- para um estado misto.
+  \item [Inversão de fase (\textit{phaseflip})] inverte a fase da função de onda que representa os qubits emaranhados.
+  \item [Inversão de bit e fase (\textit{bit-phase flip})] inverte tanto o estado quanto a fase do qubit.
 \end{description}
