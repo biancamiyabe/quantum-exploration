@@ -12,16 +12,17 @@
 
 Nessa seção, apresentaremos o protocolo de Teletransporte Quântico desenvolvido para simular uma situação de teletransporte com a presença de ruídos. Sua implementação foi realizada utilizando a linguagem de programação Python e sua descrição mais detalhada se encontra a seguir. O código-fonte do protocolo também pode ser obtido no repositório online \texttt{quantum-exploration} no GitHub em \hypertarget{repositório}{https://github.com/biancamiyabe/quantum-exploration}.
 
-Para a implementação do protocolo, iniciaremos carregando os seguintes pacotes e funções. Vale ressaltar que os pacotes nos fornecem os recursos necessários para o desenvolvimento das operações. As funções \py{TensorProduct} (produto tensorial) e \py{sqrt} (raiz quadrada) foram importadas para tornar as operações mais objetivas.
+Para a implementação do protocolo, iniciaremos carregando os seguintes pacotes e funções. Vale ressaltar que os pacotes nos fornecem os recursos necessários para o desenvolvimento das operações. As funções \py{TensorProduct} (produto tensorial) e \py{sqrt} (raiz quadrada) foram importadas para tornar as operações mais objetivas, já o pacote \py{cmath} auxiliou nas operações com números complexos.
 
 \begin{pycode}
     import numpy as np
-    import math as mt
-    import sympy as sp
-    from sympy.physics.quantum import TensorProduct as TP
-    from math import sqrt
-    import sys
-    import random
+	import math as mt
+	import sympy as sp
+	from sympy.physics.quantum import TensorProduct as TP
+	from math import sqrt
+	import sys
+	import random
+	import cmath
 \end{pycode}
 
 \section{Qubits iniciais}\label{qubits-iniciais}
@@ -77,29 +78,47 @@ Vale ressaltar que nesse caso estamos emaranhando dois qubits no estado \(\ket{0
 
 \section{Início do protocolo}\label{emaranhamento}
 
-Iremos agora definir o estado do qubit que será teletransportado. Para isso é solicitado ao usuário que insira as probabilidades desejadas para \(\alpha\) e \(\beta\), lembrando que estas devem estar normalizadas e sua soma deve ser igual a 1, caso contrário o programa não pode continuar operando. Como o estado do qubit generalizado é definido por:
+Iremos agora definir o estado do qubit que será teletransportado. Para isso, geramos valores aleatórios para \(\alpha\) e \(\beta\), lembrando que estas devem estar normalizadas e sua soma deve ser igual a 1, caso contrário o programa não pode continuar operando. Como o estado do qubit generalizado é definido por:
 \[ \ket{\psi} =
   \alpha \begin{bmatrix} 1 \\ 0 \end{bmatrix} +
   \beta \begin{bmatrix} 0 \\ 1 \end{bmatrix},
 \]
-atribuímos os valores inseridos de \(\alpha\) e \(\beta\) ao estado inicial.
+atribuímos os valores \(\alpha\) e \(\beta\) às variáveis \py{alfa_inicial} e \py{beta_inicial} respectivamente.
 
 \begin{pycode}
-    # Determinação do qubit para o protocolo
-    estado_alfa = float(input('Qual o estado alfa do Qubit que deseja enviar?'))
-    estado_beta = float(input('Qual o estado beta do Qubit que deseja enviar?'))
+    # gerando valores aleatórios para alfa e beta
+		a_real = np.random.rand()
+		a_imag = np.random.rand()
+		b_real = np.random.rand()
+		b_imag = np.random.rand()
 
-    # Verifica se a soma é igual a 1 (condição de normalização)
-    if not mt.isclose(estado_alfa + estado_beta, 1.0):
-        print("Erro: A soma das entradas não é igual a 1.")
-        sys.exit()
+	# calculando as amplitudes dos vetores
+		amplitude_a = np.sqrt(a_real**2 + a_imag**2)
+		amplitude_b = np.sqrt(b_real**2 + b_imag**2)
 
-    # Determina a mensagem a ser enviada
-    alfa_inicial = estado_alfa * qbit0
-    beta_inicial = estado_beta * qbit1
-    estado_inicial = alfa_inicial + beta_inicial
+	# normalizando os vetores
+		a_real_norm = a_real / np.sqrt(amplitude_a**2 + amplitude_b**2)
+		a_imag_norm = a_imag / np.sqrt(amplitude_a**2 + amplitude_b**2)
+		b_real_norm = b_real / np.sqrt(amplitude_a**2 + amplitude_b**2)
+		b_imag_norm = b_imag / np.sqrt(amplitude_a**2 + amplitude_b**2)
 
-    print(estado_inicial)
+	# criando os vetores normalizados
+		a = a_real_norm + 1j*a_imag_norm
+		b = b_real_norm + 1j*b_imag_norm
+
+	print(a,b)
+
+	# verificando a condição de normalização com 5 casas decimais
+		if  round(np.abs(a)**2 + np.abs(b)**2, 5) == 1:
+  		  print('Condição de normalização satisfeita')
+		else:
+    		print('Erro na normalização')
+   		 sys.exit()
+
+	alfa_inicial=np.matrix([a,0]).transpose()
+	beta_inicial=np.matrix([0,b]).transpose()
+
+	print(alfa_inicial,beta_inicial)
 \end{pycode}
 
 A próxima etapa do protocolo consiste na aplicação da porta \(\CNOT\) nos três qubits que compõem o estado geral do sistema. Os três qubits são o estado inicial a ser teletransportado atuando como controle e o par emaranhado atuando como alvo. A atuação ocorre apenas no qubit presente no local \(A\), porém afeta probabilisticamente o qubit no local \(B\). Para definir o estado geral são somados os produtos tensoriais de todos os estados dos qubits. Em seguida, a porta \(\CNOT\) é dimensionada para atuar sob três qubits com a realização do produto tensorial entre \(\CNOT\) e \(\III\) e por último multiplicamos a porta \(\CNOT\) pela soma dos estados dos qubits. Esse estado é chamado de \(\ket{\psi_1}\) e pode ser definido por:
@@ -151,16 +170,16 @@ Para realizar a medição e a reconstrução do estado inicial, iremos separar o
 
 \begin{pycode}
     # Separação dos estados Alfa e Beta
-    estadoa0 = float(H_estado_alfa[0][0])
-    estadoa1 = float(H_estado_alfa[1][0])
-    estadob0 = float(H_estado_beta[0][0])
-    estadob1 = float(H_estado_beta[1][0])
+		estadoa0 = H_estado_alfa[0][0]
+		estadoa1 = H_estado_alfa[1][0]
+		estadob0 = H_estado_beta[0][0]
+		estadob1 = H_estado_beta[1][0]
 
-    # Determinação dos estados do qbit enviado
-    a0 = np.matrix([estadoa0,0]).transpose()
-    a1 = np.matrix([0,estadoa1]).transpose()
-    b0 = np.matrix([estadob0,0]).transpose()
-    b1 = np.matrix([0,estadob1]).transpose()
+	# Determinação dos estados do qbit enviado
+		a0 = np.array([complex(estadoa0[0]), 0])
+		a1 = np.array([0, complex(estadoa1[0])])
+		b0 = np.array([complex(estadob0[0]), 0])
+		b1 = np.array([0, complex(estadob1[0])])
 \end{pycode}
 
 Para realizar a medição, foram estabelecidos os possíveis estados presentes em \(A\), e um deles foi escolhido de maneira aleatória, lembrando que a probabilidade de colapso em cada um dos estados é de \(\frac{1}{4}\). Os estados que não foram escolhidos foram deletados, simulando o colapso do sistema.
@@ -197,15 +216,37 @@ As etapas a seguir acontecem no local \(B\) com o qubit do par emaranhado. Segun
 \end{center}
 
 \begin{pycode}
-    # Define o estado em B em função da medição realizada em A
-    if np.all(Medição == (TP(qbit0, qbit0))):
-        estado_tp = a0-b1
-    elif np.all(Medição == (TP(qbit1, qbit1))):
-        estado_tp = a1-b0
-    elif np.all(Medição == (TP(qbit0, qbit1))):
-        estado_tp = a1+b0
-    elif np.all(Medição == (TP(qbit1, qbit0))):
-        estado_tp = a0+b1
+    #Define o estado em B em função da medição realizada em A
+
+		if  np.all(Medição == (TP(qbit0,qbit0))):
+   			 estado_tp = (a0-b1)
+		elif  np.all(Medição == (TP(qbit1,qbit1))):
+    			estado_tp = (a1-b0)
+		elif  np.all(Medição == (TP(qbit0,qbit1))):
+    			estado_tp = (a1+b0)
+		elif np.all(Medição == (TP(qbit1,qbit0))):
+   			 estado_tp = (a0+b1)
+	#Organiza como uma matriz coluna    
+		estado_tp1=estado_tp.reshape(2,1)   
+		print(estado_tp1)
+		
+	#Determina o estado associado à medição	
+		if np.all(estado_tp == (a0-b1)):
+   		 estado_final = estado_tp1
+		elif np.all(estado_tp == (a1-b0)):
+   		 estado_final = Z * X * estado_tp1 
+		elif np.all(estado_tp == (a1+b0)):
+   		 estado_final = X * estado_tp1 
+		elif np.all(estado_tp == (a0+b1)):
+    		estado_final = Z * estado_tp1 
+    
+		estado_teletransportado = estado_final*sqrt(2)    
+
+		alfa = np.array(estado_teletransportado[0][0])
+		beta = np.array(estado_teletransportado[1][0])
+
+		alfa_final = np.matrix([complex(alfa),0]).transpose()
+		beta_final = np.matrix([0,complex(beta)]).transpose()
 \end{pycode}
 
 Agora, de acordo com o estado associado em \(B\), uma sequência de operações deverão ser realizadas conforme a relação:
@@ -256,6 +297,9 @@ Se durante o processo, algum ruído ocorresse, o estado do qubit teletransportad
 
     alfa_final = alfa_noise
     beta_final = beta_noise
+    
+    alfa_final = alfa_noise.reshape(2,1).astype(complex)
+	beta_final = beta_noise.reshape(2,1).astype(complex)
 \end{pycode}
 
 Por fim, para verificar se o teletransporte funcionou e ainda, se houve ou não ruído e qual a natureza deste, a sequência de testes abaixo foi implementada. Neles, comparamos os estados associados as probabilidades \(\alpha\) e \(\beta\) antes (inicial) e depois (final) do teletransporte.

@@ -14,9 +14,15 @@ Para o estudo da Computação Quântica e da Informação Quântica são necess�
 
 \section{Conceitos básicos de Álgebra Linear}\label{sec:algelin}
 
-\todo[inline]{Vou procurar uma definição mais forma do que é AL.}
+A álgebra linear é o ramo da matemática que estuda as propriedades algébricas de estruturas relacionadas a vetores e espaços vetoriais, além disso, ela é responsável por estudar como essas estruturas se comportam quando submetidas a diferentes operações, tais como somas, multiplicações e inversões. Podemos também salientar que a álgebra linear é usada para analisar transformações lineares, que são funções que preservam as propriedades dos espaços vetoriais. É comum que em problemas de natureza quântica, a álgebra linear seja utilizada com o formato estabelecido pela notação de Dirac. Nela, a representação de vetores é feita utilizando os chamados \textit{bra} e \textit{ket}, o que também a torna conhecida como notação de Bra-ket. Considerando um vetor qualquer \textit{$\vec{v}$}, sua representação pode ser feita na forma matricial e na notação de Dirac da seguinte forma:
 
-A Álgebra Linear é o estudo dos vetores que descrevem um espaço e consequentemente das operações nesses espaços vetoriais. Para o desenvolvimento desse trabalho, serão necessários reconhecer as notações descritas na Tabela~\ref{tab:notação}.
+\begin{equation}
+\vec{v}= (v_1, v_2) \Leftrightarrow \ket{v} = \begin{bmatrix} v_1 \\ v_2 \end{bmatrix} \Leftrightarrow \bra{v} = \begin{bmatrix}
+v_1* & v_2* \end{bmatrix},
+\end{equation}
+sendo $\ket{v}$ o \textit{ket} de $v$ e $\bra{v}$ o \textit{bra} de $v$. 
+
+Para o desenvolvimento desse trabalho, serão necessários reconhecer as notações descritas na Tabela~\ref{tab:notação}.
 
 \begin{table}[ht!]
   \centering
@@ -27,9 +33,14 @@ A Álgebra Linear é o estudo dos vetores que descrevem um espaço e consequente
     \midrule
     $\ket{\psi}$                       & Vetor conhecido como \textit{ket}                                    \\
     $\bra{\psi}$                       & Vetor dual de um \textit{ket} conhecido como \textit{bra}            \\
-    $\braket{\psi|\varphi}$           & Produto interno entre os vetores $\ket{\psi}$ e $\ket{\varphi}$      \\
+    $\ket{\psi} + \ket{\varphi}$       & Soma dos vetores $\ket{\psi}$ e $\ket{\varphi}$  \\
+    $\ket{\psi} - \ket{\varphi}$       & Subtração dos vetores $\ket{\psi}$ e $\ket{\varphi}$  \\
+    $\alpha \ket{\psi}$                & Multiplicação de $\ket{\psi}$ pelo escalar $\alpha$ \\
+    $\braket{\psi|\varphi}$            & Produto interno entre os vetores $\ket{\psi}$ e $\ket{\varphi}$      \\
+    $\ket{\psi}\bra{\varphi}$          & Produto externo entre os vetores $\ket{\psi}$ e $\ket{\varphi}$ \\
     $\ket{\psi} \otimes \ket{\varphi}$ & Produto tensorial entre os vetores $\ket{\psi}$ e $\ket{\varphi}$    \\
     $\ket{\psi}\ket{\varphi}$          & Abreviação do produto tensorial entre $\ket{\psi}$ e $\ket{\varphi}$ \\
+    $\rho$                             & Matriz densidade de um sistema quântico representada por $\ket{\psi}\bra{\psi}$ \\
     $A^*$                              & Conjugado complexo da matriz \(A\)                                   \\
     \bottomrule
   \end{tabular}
@@ -42,7 +53,32 @@ A descrição da MQ é feita tomando como base um espaço vetorial complexo cham
 \end{equation}
 Todo \textit{ket} possui um vetor dual, ou conjugado complexo que também pertence à $\mathcal{H}$, chamado de \textit{bra}, de modo que:
 \begin{equation}\label{eq:brapsi}
-  \bra{\psi} = [\psi_1^*,...,\psi_n^*]^{T} \in \mathcal{H}.
+  \bra{\psi} = [\psi_1^*,...,\psi_n^*] \in \mathcal{H}.
+\end{equation}
+
+A soma de dois estados quânticos é descrita por:
+\begin{equation}
+\ket{\psi} + \ket{\varphi} =[\psi_1 + \varphi_1,...,\psi_n + \varphi_n]^{T} \in \mathcal{H}.
+\end{equation}
+
+E, consequentemente a subtração:
+\begin{equation}
+\ket{\psi} - \ket{\varphi} =[\psi_1 - \varphi_1,...,\psi_n - \varphi_n]^{T} \in \mathcal{H}.
+\end{equation}
+
+A multiplicação por um escalar é definida como:
+\begin{equation}
+\alpha \ket{\psi} = \alpha[\psi_1,...,\psi_n]^{T} = [\alpha\psi_1,...,\alpha\psi_n]^{T} \in \mathcal{H}.
+\end{equation}
+
+O produto interno é representado por:
+\begin{equation}
+\braket{\psi|\varphi} = [\psi_1*,...,\psi_n*][\varphi_1,...,\varphi_n]^{T} \in \mathcal{H}.
+\end{equation}
+
+E o produto externo:
+\begin{equation}
+\ket{\psi}\bra{\varphi} = [\psi_1,...,\psi_n]^{T} [\varphi_1*,...,\varphi_n*] \in \mathcal{H}.
 \end{equation}
 
 O produto tensorial entre dois \textit{kets} \(\ket{\psi}\) de dimensão \(m\) e \(\ket{\varphi}\) de dimensão \(n\) é definido por:
@@ -52,6 +88,15 @@ O produto tensorial entre dois \textit{kets} \(\ket{\psi}\) de dimensão \(m\) e
     &=\scalebox{0.9}{\(\begin{bmatrix}\psi_1 \varphi_1 & \psi_1 \varphi_2 & \cdots & \psi_1 \varphi_n & \psi_2 \varphi_1 & \psi_2 \varphi_2 & \cdots & \psi_2 \varphi_n & \cdots & \psi_m \varphi_2 & \psi_m \varphi_2 & \cdots & \psi_m \varphi_n\end{bmatrix}^{T}\)}.
   \end{split}
 \end{equation}
+
+A matriz densidade $\rho$ é descrita como:
+
+\begin{equation}\label{eq:rho}
+\rho_{\psi} = \ket{\psi}\bra{\psi} = [\psi_1,...,\psi_n]^{T} [\psi_1*,...,\psi_n*] \in \mathcal{H}.
+\end{equation}
+
+A matriz resultante em~\eqref{eq:rho} é uma matriz hermitiana, com autovalores não negativos que representam as probabilidades de medir o sistema em um determinado estado. Além disso, a soma dos elementos da diagonal principal da matriz densidade (seu traço) é sempre igual a 1, o que garante a conservação da probabilidade total.
+
 Podemos também realizar o produto tensorial de duas matrizes \(A\in\mathbb{C}^{m{\times}n}\) e \(B\in\mathbb{C}^{p{\times}q}\), de modo que:
 \begin{equation}\label{eq:tensormatrix}
   A \otimes B = \begin{bmatrix}
@@ -80,9 +125,7 @@ Os recursos apresentados acima serão utilizados ao longo do trabalho e principa
 
 A teoria da Física intitulada Mecânica Quântica (MQ) surgiu no século XX após uma série de experimentos demonstrarem que as leis físicas conhecidas até então, não se aplicavam em sistemas da ordem de 1 \AA, ou seja, \SI{e-10}{\meter}. Com o avanço dos estudos e experimentos na MQ, foi possível ``tornar visível'' uma série de comportamentos da Natureza que antes eram observados apenas em escala macroscópica. Esse aumento na capacidade da descrição da Natureza só foi possível devido a uma série de ferramentas matemáticas e axiomas que constituem a teoria da MQ \cite{jorcuvich}.
 
-\todo[inline]{Eu reorganizei o parágrafo abaixo. Veja se mantive o sentido original.}
-
-Mesmo com os trabalhos de vários cientistas, como Max Planck, Albert Einstein, Niels Bohr, Werner Heisenberg e Erwin Schrödinger, entre outros\footnote{Um descrição detalhada dos experimentos e evoluções conceituais que culminaram na estrutura da MQ que conhecemos na atualidade pode ser encontrada no artigo de \textcite{chibeni}.}, a aceitação dessa teoria física pela comunidade científica não foi imediata, quando se seu surgimento, por volta de 1925. Isso deve-se principalmente ao fato de que, naquela época, os recursos tecnológicos para o desenvolvimento de experimentos que confirmassem a teoria proposta era ainda escassos \cite{chibeni}.
+Mesmo com os trabalhos de vários cientistas, como Max Planck, Albert Einstein, Niels Bohr, Werner Heisenberg e Erwin Schrödinger, entre outros\footnote{Um descrição detalhada dos experimentos e evoluções conceituais que culminaram na estrutura da MQ que conhecemos na atualidade pode ser encontrada no artigo de \textcite{chibeni}.}, a aceitação dessa teoria física pela comunidade científica não foi imediata, quando se deu surgimento, por volta de 1925. Isso deve-se principalmente ao fato de que, naquela época, os recursos tecnológicos para o desenvolvimento de experimentos que confirmassem a teoria proposta era ainda escassos \cite{chibeni}.
 
 Até mesmo Albert Einstein duvidava de alguns aspectos da teoria. O fenômeno de Emaranhamento Quântico, por exemplo, causava nele certa estranheza. Em suas próprias palavras, ``uma ação fantasmagórica à distância'' era a melhor descrição para o fenômeno. O fato da MQ não ser observada diretamente ainda causa estranheza, porém, isso não a torna menos correta que qualquer outra teoria; pelo contrário, atualmente a MQ é considerada uma das teorias mais completas utilizadas para a descrição da Natureza \cite{chuang}. Nas próximas seções, alguns de seus conceitos serão apresentados para a compreensão do desenvolvimento do trabalho, baseando-se principalmente nas ideias apresentadas por \textcite{chuang,jorcuvich,CompInfoQuantica,grif}.
 
@@ -125,23 +168,8 @@ O emaranhamento quântico é uma propriedade da MQ que descreve a correlação e
 
 O emaranhamento quântico tem implicações importantes, como por exemplo, no caso da comunicação quântica que se utiliza dele para transmitir informações de forma segura, pois qualquer tentativa de interceptar a comunicação alteraria o estado emaranhado e seria detectável.
 
-Ele também é importante na computação quântica, onde os qubits emaranhados podem ser usados para executar operações de forma mais rápida e eficiente do que seria possível com qubits individuais. Além disso, pode ser aplicado em áreas como a criptografia quântica, a simulação quântica e a teletransporte quântico.
+Para compreender melhor esse fenômeno, podemos pensar na situação onde temos um sistema de duas partículas quânticas\footnote{elétrons, fótons ou, como veremos na seção~\ref{sec:qubits}, qubits} $\ket{\psi}=\alpha\ket{0}+\beta\ket{1}$ e $\ket{\varphi}=\mu\ket{0}+\eta\ket{1}$. Se nesse sistema as partículas são independentes, significa que possuirão probabilidades associadas aos estados $\ket{0}$ e $\ket{1}$ distintas, ou seja, $\alpha \neq \beta \neq \mu \neq \eta$. Considerado agora que as partículas estejam emaranhadas, sua descrição não pode ocorrer de maneira independente e portanto, as probabilidades são descritas associadas aos estados possíveis também não. Teremos portanto, os estados emaranhados $\ket{00}, \ket{01}, \ket{10}$ e $\ket{11}$, cujas probabilidades dependerão de ambas as partículas. Alterando os estados de uma partícula, consequentemente os estados da outra serão alterados, fazendo com que passemos a pensar numa distribuição de probabilidade entre os estados. 
 
-\todo[inline]{Atenção! Você fala do qubit mas só introduz formalmente sua representação mais a frente.}
-
-Para compreender melhor esse fenômeno, podemos pensar na situação onde temos um sistema de dois qubits $\ket{\psi}=\alpha\ket{0}+\beta\ket{1}$ e $\ket{\varphi}=\mu\ket{0}+\eta\ket{1}$. Se nesse sistema os dois qubits são independentes, significa que possuirão probabilidades associadas aos estados $\ket{0}$ e $\ket{1}$ distintas, ou seja, $\alpha \neq \beta \neq \mu \neq \eta$. Considerado agora que os qubits $\ket{\psi}$ e $\ket{\varphi}$ estejam emaranhados, os estados não poderão ser mais considerados de forma independente e portanto, as probabilidades são descritas associadas aos estados possíveis. Teremos portanto, os estados emaranhados $\ket{00}, \ket{01}, \ket{10}$ e $\ket{11}$, cujas probabilidades dependerão de ambos os qubits. Alterando os estados de um qubit, consequentemente o outro será alterado, fazendo com que passemos a pensar numa distribuição de probabilidade entre os estados. Um processo simplificado da utilização do emaranhamento em computação quântica pode ser conferido na sequência.
-
-\subsubsection*{Etapas do Emaranhamento Quântico de Qubits}
-
-\begin{enumerate}
-  \item \textbf{Preparação\enspace} O primeiro passo é preparar os qubits individuais. Isso pode ser feito carregando os qubits em computadores quânticos ou usando dispositivos quânticos especializados, como lasers.
-
-  \item \textbf{Entrelaçamento\enspace} Em seguida, os qubits são entrelaçados, o que significa que eles são interconectados de modo que as informações entre eles sejam compartilhadas. Isso pode ser feito usando técnicas como a interferência quântica.
-
-  \item \textbf{Operações\enspace} Uma vez que os qubits estão entrelaçados, as operações quânticas podem ser realizadas neles. As operações podem incluir a realização de computações quânticas complexas, o armazenamento de informações quânticas ou o envio de informações entre qubits.
-
-  \item \textbf{Saída\enspace} Por fim, os qubits podem ser desentrelaçados para obter a saída desejada. A saída pode incluir informações codificadas nos qubits, como o resultado de uma computação quântica.
-\end{enumerate}
 
 \subsection{Teorema da Não-Clonagem}\label{sec:naoclonagem}
 
@@ -153,12 +181,10 @@ Uma das implicações interessantes do teorema da não-clonagem é que a mediç�
 
 Podemos formalizar o teorema da seguinte forma:
 
-\todo[inline]{Não pergunte o motivo, mas não consigo por um ponto final na equação abaixo. O {\LaTeX} dá erro!}
-
 \begin{theo}{Não-Clonagem}{clone}
   Seja $\mathcal{H}$ um espaço de Hilbert. Não existe transformação que torne possível a seguinte expressão:
   \begin{equation}
-    U: \mathcal{H} \otimes \mathcal{H} \longrightarrow \mathcal{H} \otimes \mathcal{H}
+    U: \mathcal{H} \otimes \mathcal{H} \longrightarrow \mathcal{H} \otimes \mathcal{H}.
   \end{equation}
 \end{theo}
 
@@ -198,9 +224,9 @@ Podemos começar a descrição de um qubit como uma superposição dos estados q
 \begin{equation}\label{eq:psi}
 \ket{\psi} = \alpha \ket{0} + \beta \ket{1},
 \end{equation}
-com $\alpha$ e $\beta$ parametrizados por \(\alpha^{2} + \beta^{2} = 1\).
+com $\alpha$ e $\beta$ complexos parametrizados por \(|\alpha|^{2} + |\beta|^{2} = 1\).
 
-Os números $\alpha$ e $\beta$ são complexos e determinam as amplitudes probabilísticas da obtenção dos estados quânticos. O estado descrito por $\ket{\psi}$ é uma superposição dos estados quânticos $\ket{0}$ e $\ket{1}$, ou seja, seguindo os postulados da MQ, o qubit pode existir num estado contínuo entre $\ket{0}$ e $\ket{1}$ porém, ao ser medido, colapsando o sistema, retornará apenas os valores de $\ket{0}$ ou $\ket{1}$ com as probabilidades $\alpha$ e $\beta$ associadas.
+As variáveis $\alpha$ e $\beta$ são complexas e determinam as amplitudes probabilísticas da obtenção dos estados quânticos podendo ser representadas como $a+bi$ e $c+di$ respectivamente. O estado descrito por $\ket{\psi}$ é uma superposição dos estados quânticos $\ket{0}$ e $\ket{1}$, ou seja, seguindo os postulados da MQ, o qubit pode existir num estado contínuo entre $\ket{0}$ e $\ket{1}$ porém, ao ser medido, colapsando o sistema, retornará apenas os valores de $\ket{0}$ ou $\ket{1}$ com as probabilidades associadas às amplitudes de $\alpha$ e $\beta$.
 
 Um recurso para visualizar o comportamento de qubits é sua representação geométrica chamada de Esfera de Bloch. Como entidades quânticas não são observáveis diretamente e frequentemente são expressas por recursos matemáticos, a visualização da superposição dos estados de um qubit utilizando a Esfera de Bloch facilita, ainda que ligeiramente, sua compreensão.
 
@@ -492,11 +518,9 @@ A aplicação das portas dependerá do resultado da medida enviado por \(A\), se
 \end{table}
 
 
-\section{Ruídos em sistemas quânticos}\label{sec:ruidos}
+\section{Ruídos em sistemas clássicos e quânticos}\label{sec:ruidos}
 
 Segundo \textcite{conceitoinformação}, o conceito de informação possui seu significado cotidianamente atribuído como \textit{conhecimento comunicado}. Nesse sentido, a informação já existia nas pinturas rupestres há cerca de \num{45.5} mil anos atrás, nas quais estão registradas uma série de imagens no intuito de comunicar, seja um evento ou ainda uma quantidade. Apesar do conceito de informação aparecer desde os primórdios do estabelecimento da humanidade, é apenas na década de 1940 que esta passa a ser objeto de estudo com os trabalhos de Claude Elwood Shannon (1916--2001), que desenvolve uma teoria matemática para a informação \cite{CiênciaTransiçãoSeculosa}.
-
-\todo[inline]{Aqui temos outro problema de ordem. A TMC é mencionada várias vezes anteriormente. Talvez fosse interessante linkar com essa seção\ldots}
 
 O objetivo principal da Teoria da Comunicação de Shannon ou \textit{Teoria Matemática da Comunicação} (TMC), era sistematizar o conhecimento acumulado até então acerca da eficiência em sistemas de comunicação, ou seja, de como a informação é transmitida. A teoria descreve o funcionamento lógico-matemático de um destes sistemas, composto por um gerador de informação, um meio de transmissão e um receptor, conforme ilustra a Figura~\ref{comunicshannon} \cite{MTC}.
 
