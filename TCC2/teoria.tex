@@ -143,7 +143,7 @@ Ainda considerando um sistema físico isolado, sua evolução, ou seja, sua muda
 \end{post}
 
 \begin{post}{Medição}{p3}
-Quando um sistema quântico é medido, o resultado da medição é um dos possíveis valores permitidos pelo sistema e a probabilidade de obter cada valor depende do estado do sistema antes da medição. Em outras palavras, quando um sistema quântico é medido, ele colapsa em um dos estados possíveis fazendo com que a medição altere o estado do sistema. 
+Quando um sistema quântico é medido, o resultado da medição é um dos possíveis valores permitidos pelo sistema e a probabilidade de obter cada valor depende do estado do sistema antes da medição. Em outras palavras, quando um sistema quântico é medido, ele colapsa em um dos estados possíveis fazendo com que a medição desfaça a superposição de estados do sistema. 
 \end{post}
 
 \begin{post}{Composição dos estados}{p4}
@@ -164,12 +164,24 @@ A superposição de estados quânticos é uma das características mais estranha
 
 \subsection{Emaranhamento Quântico}\label{sec:emaranhamento}
 
-O emaranhamento quântico é uma propriedade da MQ que descreve a correlação entre dois ou mais sistemas quânticos, de tal forma que o estado quântico de um  não pode ser descrito independentemente do estado dos outros sistemas emaranhados.
+O emaranhamento quântico é uma propriedade da MQ que descreve a correlação entre dois ou mais sistemas quânticos, de tal forma que o estado quântico de um  não pode ser descrito independentemente do estado dos outros sistemas emaranhados, mesmo que esses sistemas estejam distantes fisicamente.
 
-O emaranhamento quântico tem implicações importantes, como por exemplo, no caso da comunicação quântica que se utiliza dele para transmitir informações de forma segura, pois qualquer tentativa de interceptar a comunicação alteraria o estado emaranhado e seria detectável.
+Para compreender melhor esse fenômeno, podemos pensar na situação onde temos um sistema de duas partículas quânticas\footnote{elétrons, fótons ou, como veremos na seção~\ref{sec:qubits}, qubits} $\ket{\psi}=\alpha\ket{0}+\beta\ket{1}$ e $\ket{\varphi}=\mu\ket{0}+\eta\ket{1}$. Se nesse sistema as partículas são independentes, significa que possuirão probabilidades associadas aos estados $\ket{0}$ e $\ket{1}$ distintas, ou seja, $\alpha \neq \beta \neq \mu \neq \eta$. Considerado agora que as partículas estejam emaranhadas, sua descrição não pode ocorrer de maneira independente e portanto, as probabilidades são descritas associadas aos estados possíveis também não. Teremos portanto, os estados emaranhados $\ket{00}, \ket{01}, \ket{10}$ e $\ket{11}$, cujas probabilidades dependerão de ambas as partículas. Alterando os estados de uma partícula, consequentemente os estados da outra serão alterados, fazendo com que passemos a considerar uma distribuição de probabilidade entre os estados.  
 
-Para compreender melhor esse fenômeno, podemos pensar na situação onde temos um sistema de duas partículas quânticas\footnote{elétrons, fótons ou, como veremos na seção~\ref{sec:qubits}, qubits} $\ket{\psi}=\alpha\ket{0}+\beta\ket{1}$ e $\ket{\varphi}=\mu\ket{0}+\eta\ket{1}$. Se nesse sistema as partículas são independentes, significa que possuirão probabilidades associadas aos estados $\ket{0}$ e $\ket{1}$ distintas, ou seja, $\alpha \neq \beta \neq \mu \neq \eta$. Considerado agora que as partículas estejam emaranhadas, sua descrição não pode ocorrer de maneira independente e portanto, as probabilidades são descritas associadas aos estados possíveis também não. Teremos portanto, os estados emaranhados $\ket{00}, \ket{01}, \ket{10}$ e $\ket{11}$, cujas probabilidades dependerão de ambas as partículas. Alterando os estados de uma partícula, consequentemente os estados da outra serão alterados, fazendo com que passemos a pensar numa distribuição de probabilidade entre os estados. 
+Os efeitos do fenômeno do emaranhamento foram questionados pela comunidade científica da época, principalmente por Albert Einstein. Segundo Einstein, o emaranhamento era uma ``ação fantasmagórica à distância'' e algo faltava ou estava incoerente dentro da MQ. Seus questionamentos levaram ao paradoxo EPR.
 
+\subsection{Paradoxo EPR}\label{sec:epr}
+
+O Paradoxo EPR é um famoso argumento em favor da incompletude da MQ, proposto por Albert Einstein, Boris Podolsky e Nathan Rosen em 1935. O paradoxo começa com a observação de que a MQ prevê que duas partículas emaranhadas podem estar em um estado quântico compartilhado, mesmo que estejam distantes uma da outra \cite{epr}.
+
+De acordo com a MQ, se duas partículas são emaranhadas, a medição do estado quântico de uma partícula instantaneamente afetará o estado quântico da outra partícula, independentemente da distância entre elas. Isso significa que as partículas emaranhadas parecem estar em comunicação instantânea, o que violaria a teoria da relatividade especial de Einstein, que proíbe a comunicação mais rápida do que a velocidade da luz.
+
+Em seu artigo \textit{``Can quantum-mechanical description of physical reality be considered complete?''}\footcite{epr}, Einstein, Podolsky e Rosen propuseram um experimento mental para demonstrar essa aparente contradição. No experimento, duas partículas emaranhadas são criadas e separadas a uma grande distância uma da outra. Em seguida, uma propriedade quântica específica de uma das partículas é medida, o que instantaneamente afeta a propriedade quântica da outra partícula, mesmo que esteja a uma grande distância. Isso parece violar a teoria da relatividade especial de Einstein, que proíbe a comunicação mais rápida do que a velocidade da luz.
+
+A proposta do paradoxo foi investigada por John Stewart Bell que propõe uma série de desigualdades que são violadas em sistemas de partículas quânticas \footnote{A descrição completa da proposição de Bell pode ser encontrada no artigo \textcite{Bell}}. A partir do trabalho de Bell, diversos experimentos foram propostos a fim de compreender se a MQ estava incompleta, ou se uma nova interpretação para tais fenômenos seria necessária. O trabalho mais relevante foi proposto por Alain Aspect em 1982 que utilizando a polarização de fótons, confirma que a observação de dois fótons emaranhados, mesmo que distantes é a mesma. Aspect conclui seu trabalho propondo que:
+\begin{citacao} Temos de concluir que um par de fotões entrelaçados é um objecto não separável; ou seja, é impossível atribuir propriedades locais (realidade física local) a cada fotão. Em certo sentido, ambos os fotões permanecem em contacto através do espaço e do tempo. Convém que se diga, no entanto, que a não separabilidade, que é a base da teleportação quântica, não implica a possibilidade prática de comunicação, a velocidade superior à da luz \cite{aspect}. 
+\end{citacao}
+A resolução do paradoxo EPR envolve portanto a concepção de não-localidade para entidades quânticas em regime de emaranhamento de maneira que, a interpretação da realidade para a MQ é distinta da realidade que estamos acostumados a prever pela Mecânica Clássica. 
 
 \subsection{Teorema da Não-Clonagem}\label{sec:naoclonagem}
 
@@ -188,26 +200,15 @@ Podemos formalizar o teorema da seguinte forma:
   \end{equation}
 \end{theo}
 
-\subsection{Paradoxo EPR}\label{sec:epr}
-
-O Paradoxo EPR é um famoso argumento em favor da incompletude da MQ, proposto por Albert Einstein, Boris Podolsky e Nathan Rosen em 1935. O paradoxo começa com a observação de que a MQ prevê que duas partículas emaranhadas podem estar em um estado quântico compartilhado, mesmo que estejam distantes uma da outra.
-
-De acordo com a MQ, se duas partículas são emaranhadas, a medição do estado quântico de uma partícula instantaneamente afetará o estado quântico da outra partícula, independentemente da distância entre elas. Isso significa que as partículas emaranhadas parecem estar em comunicação instantânea, o que violaria a teoria da relatividade especial de Einstein, que proíbe a comunicação mais rápida do que a velocidade da luz.
-
-Einstein, Podolsky e Rosen propuseram um experimento mental para demonstrar essa aparente contradição. No experimento, duas partículas emaranhadas são criadas e separadas a uma grande distância uma da outra. Em seguida, uma propriedade quântica específica de uma das partículas é medida, o que instantaneamente afeta a propriedade quântica da outra partícula, mesmo que esteja a uma grande distância. Isso parece violar a teoria da relatividade especial de Einstein, que proíbe a comunicação mais rápida do que a velocidade da luz.
-
-A resolução do paradoxo EPR veio da própria teoria da MQ e sua interpretação correta. A MQ não viola a relatividade especial de Einstein, pois as partículas emaranhadas não estão realmente em comunicação instantânea --- em vez disso, o estado quântico das partículas emaranhadas é uma superposição de estados possíveis e a medição do estado de uma das partículas colapsa a função de onda do sistema emaranhado como um todo, fazendo com que o estado da outra partícula pareça estar sendo afetado instantaneamente. A explicação correta é que a medição da primeira partícula, que afeta instantaneamente a segunda partícula, não é uma ação física, mas sim uma consequência da natureza probabilística da MQ.
-
-
 \subsection{Teletransporte Quântico}\label{sec:teletransporteteoria}
 
-O Teletransporte Quântico consiste em uma série de operações realizadas por intermédio de um circuito de natureza quântica que pretende enviar uma mensagem de um ponto \(A\) até um ponto \(B\). Essas operações possibilitam descrever no ponto \(B\) um estado existente no ponto \(A\). A princípio, devido ao Teorema da Não-Clonagem (Teorema~\ref{theo:clone}), seria impossível ``clonar'' um estado quântico, ou seja, teletransportar a informação de modo semelhante ao que ocorre com um canal clássico. Porém, segundo \textcite{bennet}, é possível contornar o problema utilizando um canal de informação clássico, semelhante ao apresentado por Shannon em sua Teoria Matemática da Comunicação (TMC), porém utilizando como emissor-receptor um par de partículas emaranhadas quanticamente.
+O Teletransporte Quântico consiste em uma série de operações realizadas por intermédio de um circuito de natureza quântica que pretende enviar uma mensagem de um ponto \(A\) até um ponto \(B\). Essas operações possibilitam descrever no ponto \(B\) um estado existente no ponto \(A\). A princípio, devido ao Teorema da Não-Clonagem (Teorema~\ref{theo:clone}), seria impossível ``clonar'' um estado quântico, ou seja, teletransportar a informação de modo semelhante ao que ocorre com um canal clássico. Porém, é possível contornar o problema utilizando um canal de informação clássico e um par de partículas emaranhadas.
 
 Na literatura encontram-se as mais diversas explicações sobre como funciona o teletransporte quântico \cites{bennet}{experimentalqt}{zeilinger}{brassard1996teleportation}{materialdidaticomecquantica} e na maioria dos casos, os leitores são introduzidos a dois personagens: Alice e Bob.
 
-Na história, os cientistas Alice e Bob estão localizados em dois laboratórios distintos, cada um deles possuindo uma partícula, $A$ e $B$ e estas estão emaranhadas, produzindo um estado quântico emaranhado denominado de $\ket{\psi_{AB}}$. Alice precisa enviar uma mensagem urgente para Bob utilizando um outro estado, $C$. Portanto, no início do processo de teletransporte, Alice possui dois estados, o que ela deseja enviar e o que está emaranhado com o Bob.
+Na história, os cientistas Alice e Bob estão localizados em dois laboratórios distintos, cada um deles possuindo uma partícula, $A$ e $B$ e estas estão emaranhadas, produzindo um estado quântico emaranhado denominado de $\ket{\psi_{AB}}$. Alice precisa enviar uma mensagem para Bob e o faz utilizando um outro estado, $C$. Portanto, no início do processo de teletransporte, Alice possui dois estados, o que ela deseja enviar e o que está emaranhado com o Bob.
 
-Alice realiza então uma série de operações entre suas partículas e para continuar o processo de teletransporte, faz uma medição, colapsando-as e envia, via um canal clássico, a informação dos estados colapsados para Bob. Este por sua vez, por saber qual era o estado inicial de $A$ devido ao emaranhamento, consegue reconstruir a mensagem presente originalmente em $C$ enviado por Alice. Portanto, a mensagem é reconstruída e não clonada, não violando o princípio da não-clonagem. A não-clonagem fica explicitada no momento em que a medida é realizada em $A$ e $C$, colapsando-os, de modo que existe apenas uma cópia do estado de $C$ dado por $\ket{\psi_{C}}$.
+Alice realiza então uma série de operações entre suas partículas e para continuar o processo de teletransporte, faz uma medição, colapsando-as e envia, via um canal clássico, a informação dos estados colapsados para Bob. Este por sua vez, por possuir uma partícula emaranhada com $A$, consegue reconstruir a mensagem presente originalmente em $C$ enviado por Alice. Portanto, a mensagem é reconstruída e não clonada, não violando o princípio da não-clonagem. A não-clonagem fica explicitada no momento em que a medida é realizada em $A$ e $C$, colapsando-os, de modo que existe apenas uma cópia do estado de $C$ dado por $\ket{\psi_{C}}$.
 
 
 \section{Computação Quântica}\label{sec:compquant}
@@ -331,7 +332,7 @@ A Porta Lógica Hadamard Quântica \(\HAD\) é uma porta lógica quântica que t
 \end{equation}
 
 \subsection{Bases de Bell}\label{sec:bell}
-As bases de Bell, também conhecidas como estados de Bell ou pares emaranhados de Bell, são um conjunto de quatro estados quânticos maximamente emaranhados. Eles são importantes na computação quântica porque são usados em protocolos como o teletransporte quântico e o código de correção de erros.
+As bases de Bell, também conhecidas como estados de Bell ou pares emaranhados de Bell, são um conjunto de quatro estados quânticos maximamente emaranhados. Eles são importantes na computação quântica porque são usados em protocolos como o teletransporte quântico e o código de correção de erros \cite{Bell}.
 
 Cada estado de Bell é formado por dois qubits emaranhados de tal forma que a medição de um afeta instantaneamente o estado do outro, independentemente da distância entre eles. Os quatro estados de Bell são:
 \begin{equation}
@@ -344,9 +345,9 @@ Quando dois qubits estão emaranhados em um estado de Bell, a medição de um qu
 
 \subsection{Circuitos Lógicos Quânticos}\label{sec:circuitos}
 
-Para compreender a lógica de sistemas quânticos, é comum representá-los graficamente como circuitos. Essa forma de apresentação estabelece de maneira clara as operações realizadas, as entidades envolvidas e a informação de entrada e de saída do processo em questão. Para tal, cada parte envolvida no processo possui sua própria representação gráfica, de maneira que ao observar um circuito, possamos ser capazes de reproduzir a evolução do sistema de maneira lógico-matemática.
+Para compreender a lógica de sistemas quânticos, é comum representá-los graficamente como circuitos. Essa forma de apresentação estabelece de maneira clara as operações realizadas, as entidades envolvidas e a informação de entrada e de saída do processo em questão. Para tal, cada parte envolvida no processo possui sua própria representação gráfica, de maneira que ao observar um circuito, possamos ser capazes de reproduzir a evolução do sistema de maneira lógico-matemática \cite{chuang}.
 
-Conforme abordado nas seções anteriores, o qubit é a unidade fundamental de expressão de informação dentro da computação quântica, e portanto, o circuito se baseia nas interações que um ou mais qubits terão ao longo do processo. A representação de um qubit é dada pela Figura~\ref{fig:qubit} de modo que a linha contínua representa a evolução do estado quântico do qubit no tempo, que evolui da esquerda para a direita. Quando mais de um qubit é necessário no circuito, adicionamos linhas independentes, para que seja possível observar como cada um destes se desenvolve no processo.
+Conforme abordado nas seções anteriores, o qubit é a unidade fundamental de expressão de informação dentro da computação quântica, e portanto, o circuito se baseia nas interações que um ou mais qubits terão ao longo do processo. A representação de um qubit é dada pela Figura~\ref{fig:qubit} de modo que a linha contínua representa a evolução do estado quântico do qubit no tempo, que evolui da esquerda para a direita. Quando mais de um qubit é necessário no circuito, adicionamos linhas independentes, para que seja possível observar como cada um destes se desenvolve no processo \cite{jorcuvich}.
 
 \begin{figure}[ht!]
 \centering
@@ -554,15 +555,6 @@ De acordo com  a TMC, um \textit{gerador de informação} é um objeto capaz de 
 
 Como na MQ não sabemos o estado de um qubit até que uma medida seja aplicada e não é possível recuperar um estado após a medida deste, identificar a presença de um ruído torna-se mais complicado do que na transferência de informação clássica. Chamamos de decoerência o processo pelo qual um sistema quântico interage com o ambiente e perde sua coerência quântica, ou seja, sua capacidade de apresentar estados de superposição e entrelaçamento originais. Alguns autores como \textcite{chuang}, utilizam o termo decoerência como sinônimo de ruído quântico.
 
-Os qubits podem ser afetados por diferentes tipos de ruídos que comprometem a coerência dos estados quânticos, causando erros nas operações e nos resultados das medições. Alguns dos principais tipos de ruído que atuam sobre qubits são:
-\begin{description}
-\item [Ruído térmico] é causado pela interação dos qubits com o ambiente, que gera flutuações de temperatura e pressão ao redor dos qubits, comprometendo sua estabilidade e aumentando as taxas de erros nos cálculos.
-\item [Ruído de decoerência] é causado por interações indesejadas entre os qubits e outras partículas que compõem o ambiente, como fótons, átomos e elétrons. Essas interações podem resultar em mudanças na fase e na amplitude dos estados quânticos, prejudicando a coerência dos qubits.
-\item [Ruído de controle] é causado por erros nas operações de controle dos qubits, que podem levar a variações imprevisíveis nas oscilações e nos estados dos qubits.
-\item [Ruído de leitura] é causado pelas imprecisões nas medições dos estados quânticos, que podem ser influenciadas por fatores como a taxa de amostragem e a sensibilidade dos sensores.
-\item [Ruído de acoplamento] é causado pela interação entre qubits próximos, que podem interferir uns com os outros e afetar suas propriedades individuais, resultando em erros nos cálculos e nas medições.
-\end{description}
-
 Vale ressaltar que o estudo dos ruídos quânticos contribuem para conhecer os efeitos deste e estimar técnicas de correção para o sistema. Essas técnicas envolvem desde a escolha dos materiais e dos métodos de construção dos sistemas até a implementação de algoritmos de correção de erros e aprimoramento da qualidade das medições.
 
 Segundo \textcite{teseufscar}, os principais tipos de ruídos associados à decoerência da informação quântica, ou seja, a sua alteração do estado original são:
@@ -572,3 +564,5 @@ Segundo \textcite{teseufscar}, os principais tipos de ruídos associados à deco
   \item [Inversão de fase (\textit{phaseflip})] inverte a fase da função de onda que representa os qubits emaranhados.
   \item [Inversão de bit e fase (\textit{bit-phase flip})] inverte tanto o estado quanto a fase do qubit.
 \end{description}
+
+Conhecendo portanto os ruídos, é possível construir mecanismos que os neutralizem durante o processamento da informação quântica, ressaltando mais uma vez que a informação, antes de ser medida, é reversível nesse sistema.
