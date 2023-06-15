@@ -10,13 +10,13 @@
 
 \chapter{Metodologia}
 
-Para iniciar o desenvolvimento de um protocolo de teletransporte quântico, inicialmente realizou-se a dedução do mesmo em forma matricial, conforme apresentado detalhadamente no Apêndice~\ref{app:matricial}.
+Para iniciar o desenvolvimento de um protocolo de teletransporte quântico, realizou-se a dedução do mesmo em forma matricial, conforme apresentado detalhadamente no Apêndice~\ref{app:matricial}.
 
-Para alcançar o objetivo deste trabalho, ou seja, construir uma simulação de um teletransporte quântico, foi necessário inicialmente decidir a linguagem a ser utilizada para o projeto. A escolha da linguagem Python (versão 3.11) se deveu ao fato dela ser amplamente utilizada para simular situações físicas e possuir uma série de pacotes abrangendo as mais diversas áreas do conhecimento. Os principais pacotes utilizados no projeto foram \py{sympy} \cite{sympy}, \py{numpy} \cite{harris2020array}, \py{math}\footnote{\url{https://docs.python.org/3/library/math.html}}, \py{sys}\footnote{\url{https://docs.python.org/3/library/sys.html}} e \py{random}\footnote{\url{https://docs.python.org/3/library/random.html}}, e sua utilização será explicitada durante a explicação das etapas do código fonte. Antes de iniciar a construção do código, foi necessário analisar a estrutura de dados que seria utilizada e a escolhida foi a representação matricial. Essa escolha foi fundamentada no fato de que desse modo, as operações ficam mais explícitas, facilitando a compreensão do protocolo.
+Para alcançar o objetivo deste trabalho, ou seja, construir uma simulação de um teletransporte quântico, foi necessário decidir a linguagem a ser utilizada para o projeto. A escolha da linguagem Python (versão 3.11) se deveu ao fato dela ser amplamente utilizada para simular situações físicas e possuir uma série de pacotes abrangendo as mais diversas áreas do conhecimento. Os principais pacotes utilizados no projeto foram \py{sympy} \cite{sympy}, \py{numpy} \cite{harris2020array}, \py{math}\footnote{\url{https://docs.python.org/3/library/math.html}}, \py{sys}\footnote{\url{https://docs.python.org/3/library/sys.html}} e \py{random}\footnote{\url{https://docs.python.org/3/library/random.html}}, e sua utilização será explicitada durante a explicação das etapas do código fonte. Antes de iniciar a construção do código, foi necessário analisar a estrutura de dados que seria utilizada e a escolhida foi a representação matricial. Essa escolha foi fundamentada no fato de que desse modo, as operações binárias ficam mais explícitas, facilitando a compreensão do protocolo.
 
 De posse da estrutura de dados a ser operacionalizada, da linguagem de programação e dos pacotes necessários, foi desenvolvido o código apresentado no Apêndice~\ref{app:protocolo}. Vamos detalhar as operações e correlacioná-las a seguir.
 
-A primeira etapa da elaboração do protocolo consistiu em importar as funções e pacotes necessários como a \py{TensorProduct} em \py{sympy.physics.quantum}. Essa função irá facilitar a realização dos produtos tensoriais durante o desenvolvimento do protocolo.
+A primeira etapa da elaboração do protocolo consistiu em importar as funções e pacotes necessários como a \py{kron} em \py{numpy}. Essa função irá facilitar a realização dos produtos tensoriais durante o desenvolvimento do protocolo.
 
 Em seguida é feita a criação das variáveis que descrevem os estados quânticos $\ket{0}$ e $\ket{1}$ com o auxílio da classe \py{numpy.matrix}, que cria matrizes a partir de listas, como pode ser conferido na Tabela~\ref{tab:cria_quant}.
 
@@ -58,8 +58,8 @@ No protocolo construído, são associados às variáveis $\alpha$ e $\beta$, val
 
 A próxima etapa do protocolo consiste na aplicação da porta \(\CNOT\) nos três qubits que compõem o estado geral do sistema. Os três qubits são o estado inicial a ser teletransportado atuando como controle e o par emaranhado atuando como alvo. A atuação ocorre apenas no qubit presente no local \(A\), porém afeta probabilisticamente o qubit no local \(B\). Para definir o estado geral são somados os produtos tensoriais de todos os estados dos qubits com sua representação no código descrita como
 \begin{pycode}
-  psi_0 = TP(qbit0, qbit0, qbit0) + TP(qbit0, qbit1, qbit1) + \
-          TP(qbit1, qbit0, qbit0) + TP(qbit1, qbit1, qbit1)
+  psi_0 = np.kron(estado00,qbit0) + np.kron(estado01, qbit1)\\
+   + np.kron(estado10, qbit0) + np.kron(estado11,qbit1)
 \end{pycode}
 Em seguida, a porta \(\CNOT\) é dimensionada para atuar sob três qubits com a realização do produto tensorial entre \(\CNOT\) e \(\III\) e por último multiplicamos a porta \(\CNOT\) pela soma dos estados dos qubits. Portanto, o estado $\ket{\psi_1}$ é operacionalizado pela multiplicação da porta \(\CNOT\) dimensionada no estado $\ket{\psi_0}$ ficando evidenciada em \py{psi_1 = CNOT * psi_0}.
 
@@ -84,10 +84,10 @@ Em seguida, recriamos as matrizes que representam os estados de posse dos elemen
 \end{pycode}
 Nesse momento temos em nosso código dois estados separados para $\ket{\psi_2}$, o estado associado ao qubit mensagem e o estado associado ao par emaranhado. Para recuperar os estados possíveis do par emaranhado, criamos as variáveis \py{estado_00}, \py{estado_11}, \py{estado_10} e \py{estado_01} usando a função de produto tensorial:
 \begin{pycode}
-  estado_00 = TP(qbit0, qbit0)
-  estado_11 = TP(qbit1, qbit1)
-  estado_10 = TP(qbit1, qbit0)
-  estado_01 = TP(qbit0, qbit1)
+  estado_00 = np.kron(qbit0, qbit0)
+  estado_11 = np.kron(qbit1, qbit1)
+  estado_10 = np.kron(qbit1, qbit0)
+  estado_01 = np.kron(qbit0, qbit1)
 \end{pycode}
 Para simular a operação de medição, criamos uma lista de variáveis, armazenada na variável \py{group_estados}, determinamos com a função \py{random} a escolha de um desses estados de maneira aleatória, armazenamos a escolha na variável \py{Medição} e utilizando o comando \py{del} apagamos todos os estados, simulando o colapso do sistema após a medida.
 
@@ -96,14 +96,14 @@ Para reconstruir a mensagem, a condição estabelecida foi associar o estado med
 \begin{listing}[ht!]
   \caption{Relação de condição para o estado teletransportado em função do estado medido em~\(A\).}\label{lst:teleA}
   \begin{pycode}
-      if np.all(Medição == TP(qbit0, qbit0)):
-          estado_tp = a0-b1
-      elif np.all(Medição == TP(qbit1, qbit1)):
-          estado_tp = a1-b0
-      elif np.all(Medição == TP(qbit0, qbit1)):
-          estado_tp = a1+b0
-      elif np.all(Medição == TP(qbit1, qbit0)):
-          estado_tp = a0+b1
+      if  np.all(Medição == (np.kron(qbit0,qbit0))):
+    estado_tp = (a0-b1)
+	  elif  np.all(Medição == (np.kron(qbit1,qbit1))):
+    estado_tp = (a1-b0)
+      elif  np.all(Medição == (np.kron(qbit0,qbit1))):
+    estado_tp = (a1+b0)
+      elif np.all(Medição == (np.kron(qbit1,qbit0))):
+    estado_tp = (a0+b1)
   \end{pycode}
 \end{listing}
 
