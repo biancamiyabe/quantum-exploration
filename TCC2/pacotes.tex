@@ -1,0 +1,261 @@
+%%%
+%%%  ____                 _
+%%% |  _ \ __ _  ___ ___ | |_ ___  ___
+%%% | |_) / _` |/ __/ _ \| __/ _ \/ __|
+%%% |  __/ (_| | (_| (_) | ||  __/\__ \
+%%% |_|   \__,_|\___\___/ \__\___||___/
+%%%
+%%% TCC de Bianca Miyabe Santos Freitas
+%%% Licenciatura em Física - UFSCar, Sorocaba
+%%%
+%%% TCC: Documento modelo em LaTeX, padrão ABNT usando ABNTeX2
+%%%
+
+%%% Pacotes padrão da American Mathematical Society
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{indentfirst}
+\usepackage{fontawesome5}
+
+\setcounter{MaxMatrixCols}{20}
+
+%%% FONTES
+%%% ----------------------------------------------------------------------------
+%%% Essas fontes são *opcionais*. Se você comentar as linhas com \setmainfont,
+%%% \setsansfont e \setmonofont, o LaTeX usará as fontes padrão.
+%%%
+%%% São usadas as fontes:
+%%% - Crimsom Pro: texto principal
+%%% - Noto Sans: sem serifa, usada nas seções, subseções, etc
+%%% - DejaVu Sans Mono: monoespaçada para listagems, URLs, etc
+%%%
+\usepackage{fontspec}
+% CrimsonText é similar à Minion Pro, que é comercial
+\setmainfont{CrimsonPro}[
+  Path           = ./fonts/,
+  Extension      = .ttf,
+  UprightFont    = *-Regular,
+  BoldFont       = *-Bold,
+  ItalicFont     = *-Italic,
+  BoldItalicFont = *-BoldItalic,
+  SmallCapsFont  = AlegreyaSC-Regular
+]
+% NotoSans é similar à Myriad Pro, que é comercial
+\setsansfont{NotoSans}[
+  Path           = ./fonts/,
+  Extension      = .ttf,
+  UprightFont    = *-Regular,
+  BoldFont       = *-Bold,
+  ItalicFont     = *-Italic,
+  BoldItalicFont = *-BoldItalic
+]
+\setmonofont[Scale=0.75]{DejaVuSansMono}[
+  Path           = ./fonts/,
+  Extension      = .ttf,
+  UprightFont    = *,
+  BoldFont       = *-Bold,
+  ItalicFont     = *-Oblique,
+  BoldItalicFont = *-BoldOblique
+]
+
+\usepackage[euler-hat-accent,small]{eulervm}
+
+%%% IDIOMAS: PORTUGUÊS E INGLÊS
+%%% ----------------------------------------------------------------------------
+%%% Certifique-se de ter os pacotes corretos (GNU/Linux)!
+%%%
+%%% O TeXLive (recomendo no caso do Windows) em geral já tem esses pacotes instalados
+%%%
+\usepackage{polyglossia}
+\setmainlanguage{portuges}
+\setotherlanguage{english}
+\usepackage{csquotes}
+
+%%%
+%%% Outros pacotes úteis
+%%%
+\usepackage{graphicx}         % Figuras em vários formatos (png, pdf)
+\usepackage{color}            % Cores
+\usepackage{multicol}         % Documentos com várias colunas
+\usepackage{booktabs}         % Tabelas profissionais
+\usepackage[final,nopatch=toc]{microtype} % Pequenos ajustes tipográficos
+\usepackage{siunitx}          % Pacote para unidades físicas (recomendo muito!)
+\sisetup{output-decimal-marker={,}}
+\sisetup{mode=text}
+\sisetup{detect-all=true}
+\usepackage{placeins}
+\usepackage[xindy,abbreviations]{glossaries-extra}
+\makeglossaries
+\usepackage{blochsphere}
+\usepackage{braket}
+\usepackage{makecell}
+\usepackage{enumitem}
+\usepackage{multirow}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{angles,matrix,arrows.meta,calc,positioning,intersections,shadows,plotmarks,3d,quotes,quantikz}
+
+%%%
+%%% CORES MANEIRÍSSIMAS
+%%%
+\definecolor{green}{RGB}{174,226,57}    % colourlovers.com/palette/46688/fresh_cut_day (atomic bikini)
+\definecolor{yellow}{RGB}{237,229,116}  % colourlovers.com/palette/937624/Dance_To_Forget (Give Your Heart)
+\definecolor{orange}{RGB}{255,164,70}   % colourlovers.com/palette/1107950/Indecent_Proposal (exotic orange)
+\definecolor{onlyorange}{RGB}{191,77,40}% colourlovers.com/palette/953498/Headache (Only Orange)
+\definecolor{cyan}{RGB}{108,243,213}    % colourlovers.com/palette/940927/Acused (wrong cyan)
+\definecolor{red}{RGB}{199,8,8}         % colourlovers.com/palette/79468/LipstickOnHisCollar (Flagged Down)
+\definecolor{melon}{RGB}{209,49,92}     % colourlovers.com/palette/2350697/This_is_for_YOU! (melon)
+\definecolor{blue}{RGB}{62,122,162}     % colourlovers.com/palette/794774/be_here_for_me (kreuger)
+\definecolor{berry}{RGB}{95,13,59}      % colourlovers.com/palette/117122/BurberryTenderTouch (BurberryTender)
+\definecolor{violet}{RGB}{87,30,240}    % From the original template (Violet Thanos)
+\definecolor{hymnroyale}{RGB}{42,4,72}  % colourlovers.com/palette/81885/Hymn_For_My_Soul (Hymn Royale)
+\definecolor{think}{HTML}{607848}       % colourlovers.com/palette/38562/Hands_On
+\definecolor{gray}{HTML}{444444}
+\definecolor{intelligentsia}{RGB}{7,69,111} % colourlovers.com/palette/4792400/Intelligentsia (Intelligentsia circle)
+
+\usepackage{tcolorbox}
+\tcbuselibrary{many}
+\tcbuselibrary{theorems}
+\tcbuselibrary{minted}
+\usepackage[backgroundcolor=orange!45]{todonotes}
+% \usepackage{minted}
+\usemintedstyle{colorful}
+\newcommand{\py}[1]{\mintinline[breaklines]{python3}{#1}}
+\renewcommand{\listingscaption}{Listagem}
+
+%%%
+%%% TIKZ
+%%%
+\tikzset{%
+  eixos/.style={draw=black!80,text=black!80,arrows=-{Latex[width=4pt,length=6pt]}},
+  eixos sem flecha/.style={draw=black!80,text=black!80},
+  eixos fantasma/.style={draw=black!20,text=black!60,arrows=-{Latex[width=4pt,length=6pt]}},
+  vetor/.style={draw=blue!80,text=blue!80,cap=round,arrows=-{Triangle[width=5pt,length=7pt]},very thick},
+  linhaforte/.style={draw=#1,ultra thick,cap=round},
+  linhamedia/.style={draw=#1,thick,cap=round},
+  ponto/.style={fill=#1!40,draw=#1,semithick,inner sep=2pt,circle},
+  pontinho/.style={fill=#1,draw=#1,semithick,inner sep=1pt,circle},
+  projecao/.style={draw=#1,densely dotted,thick},
+  projecao 2/.style={draw=#1,densely dash dot,thin},
+  etiqueta/.style n args={3}{text=#1,draw=#2,fill=#3,solid,font=\scriptsize,inner sep=2pt,minimum height=13pt,drop shadow={opacity=0.8,shadow xshift=.3ex,shadow yshift=-.3ex}},
+  face/.style={draw=black,fill=white,thick,cap=round},
+  blocoq/.style={very thick,draw=black!70,fill=black!5,inner sep=8pt,align=center,drop shadow={opacity=0.8,shadow xshift=.3ex,shadow yshift=-.3ex}},
+  blocor/.style={very thick,draw=red!20,fill=red!5,inner sep=8pt,align=center,rounded corners,drop shadow={opacity=0.8,shadow xshift=.3ex,shadow yshift=-.3ex}},
+  blococ/.style={very thick,draw=green!20,ellipse,fill=green!5,inner sep=8pt,align=center,rounded corners,drop shadow={opacity=0.8,shadow xshift=.3ex,shadow yshift=-.3ex}},
+  conecta/.style={draw=black!50,text=black!80,cap=round,arrows=-{Triangle[width=5pt,length=7pt]},thick},
+  labelst/.style={label distance=-6pt,font=\scriptsize\scshape,align=center,black!80,inner sep=2pt}
+}
+
+%%%
+%%% Color boxes
+%%%
+\newtcolorbox{destaque}{
+  breakable,
+  notitle,
+  boxrule=0pt,
+  colback=yellow,
+  colframe=yellow
+}
+
+\newtcblisting{pycode}{
+  listing engine=minted,
+  minted language=python3,
+  minted options={fontsize=\normalsize,breaklines},
+  colback=white,
+  %colback=blue!3!white,
+  enhanced,
+  breakable,
+  listing only,
+  colframe=black!10,
+  arc=0mm,
+  top=8pt,
+  bottom=8pt,
+  left=10pt,
+  right=10pt,
+  boxrule=1pt,
+}
+
+\newtcblisting{pycodewhite}{
+  listing engine=minted,
+  minted language=python3,
+  minted options={fontsize=\normalsize,breaklines},
+  colback=white,
+  enhanced,
+  breakable,
+  listing only,
+  colframe=black!30,
+  arc=0mm,
+  top=8pt,
+  bottom=8pt,
+  left=10pt,
+  right=10pt,
+  boxrule=0pt,
+}
+
+\newtcbtheorem[number within=chapter]{post}{Postulado}{
+  enhanced,
+  %skin=bicolor,
+  arc=0mm,
+  colback=black!3,
+  colframe=black!50,
+  colbacktitle=white,
+  colbacklower=white,
+  coltitle=black,
+  fonttitle=\small,
+  toptitle=3pt,
+  bottomtitle=3pt,
+  top=5pt,
+  bottom=5pt,
+  left=10pt,
+  right=10pt,
+  boxrule=0pt,
+  titlerule=0pt}{post}
+
+\newtcbtheorem[number within=chapter]{definition}{Definição}{
+  enhanced,
+  %skin=bicolor,
+  arc=0mm,
+  colback=black!3,
+  colframe=black!50,
+  colbacktitle=white,
+  colbacklower=white,
+  coltitle=black,
+  fonttitle=\small,
+  toptitle=3pt,
+  bottomtitle=3pt,
+  top=5pt,
+  bottom=5pt,
+  left=10pt,
+  right=10pt,
+  boxrule=0pt,
+  titlerule=0pt}{definition}
+
+\newtcbtheorem[number within=chapter]{theo}{Teorema}{
+  enhanced,
+  %skin=bicolor,
+  arc=0mm,
+  colback=black!3,
+  colframe=black!50,
+  colbacktitle=white,
+  colbacklower=white,
+  coltitle=black,
+  fonttitle=\small,
+  toptitle=3pt,
+  bottomtitle=3pt,
+  top=5pt,
+  bottom=5pt,
+  left=10pt,
+  right=10pt,
+  boxrule=0pt,
+  titlerule=0pt}{theo}
+
+%%% Função seno em PT-BR
+\DeclareMathOperator{\sen}{sen}
+\DeclareMathOperator{\CNOT}{\textsc{cnot}}
+\DeclareMathOperator{\HAD}{\textsc{h}}
+\DeclareMathOperator{\XXX}{\textsc{x}}
+\DeclareMathOperator{\ZZZ}{\textsc{z}}
+\DeclareMathOperator{\III}{\textsc{i}}
+
+%%% end of pacotes.tex
