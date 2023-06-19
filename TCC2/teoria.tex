@@ -14,15 +14,12 @@ Para o estudo da Computação Quântica e da Informação Quântica são necess�
 
 \section{Conceitos básicos de Álgebra Linear}\label{sec:algelin}
 
-A álgebra linear é o ramo da matemática que estuda as propriedades algébricas de estruturas relacionadas a vetores e espaços vetoriais, além disso, ela é responsável por estudar como essas estruturas se comportam quando submetidas a diferentes operações, tais como somas, multiplicações e inversões. Podemos também salientar que a álgebra linear é usada para analisar transformações lineares, que são funções que preservam as propriedades dos espaços vetoriais. É comum que em problemas de natureza quântica, a álgebra linear seja utilizada com o formato estabelecido pela notação de Dirac. Nela, a representação de vetores é feita utilizando os chamados \textit{bra} e \textit{ket}, o que também a torna conhecida como notação de Bra-ket. Considerando um vetor qualquer \textit{$\vec{v}$}, sua representação pode ser feita na forma matricial e na notação de Dirac da seguinte forma:
-
+A \textit{Álgebra Linear} é o ramo da Matemática que onde se estudam as propriedades algébricas de estruturas relacionadas a vetores e espaços vetoriais. Além disso, nela também são analisadas como essas estruturas se comportam quando submetidas a diferentes operações, tais como somas, multiplicações e inversões. Podemos também salientar que a Álgebra Linear é usada para analisar transformações lineares, que são funções que preservam as propriedades dos espaços vetoriais. É comum que em problemas de natureza quântica a Álgebra Linear seja utilizada com o formato estabelecido pela notação de Dirac. Nela, a representação de vetores é feita utilizando os chamados \textit{bra} e \textit{ket}, também conhecida como notação de Bra-ket. Considerando um vetor qualquer \(\vec{v}\), sua representação pode ser feita na forma matricial e na notação de Dirac da seguinte forma:
 \begin{equation}
-\vec{v}= (v_1, v_2) \Leftrightarrow \ket{v} = \begin{bmatrix} v_1 \\ v_2 \end{bmatrix} \Leftrightarrow \bra{v} = \begin{bmatrix}
-v_1* & v_2* \end{bmatrix},
+\vec{v}= (v_1, v_2) \quad\Leftrightarrow\quad \ket{v} = \begin{bmatrix} v_1 \\ v_2 \end{bmatrix} \quad\Leftrightarrow\quad \bra{v} = \bigl[
+v_1^{\star}, v_2^{\star} \bigr],
 \end{equation}
-sendo $\ket{v}$ o \textit{ket} de $v$ e $\bra{v}$ o \textit{bra} de $v$. 
-
-Para o desenvolvimento desse trabalho, serão necessários reconhecer as notações descritas na Tabela~\ref{tab:notação}.
+sendo $\ket{v}$ o \textit{ket} de $v$ e $\bra{v}$ o \textit{bra} de $v$, com \(\star\) indicando o conjugado complexo. Para o desenvolvimento desse trabalho, serão necessários reconhecer as notações descritas na Tabela~\ref{tab:notação}.
 
 \begin{table}[ht!]
   \centering
@@ -49,36 +46,30 @@ Para o desenvolvimento desse trabalho, serão necessários reconhecer as notaç�
 
 A descrição da MQ é feita tomando como base um espaço vetorial complexo chamado \textit{Espaço de Hilbert} $\mathcal{H}$. Um \textit{ket} é um vetor arbitrário de $\mathcal{H}$, com representação descrita por:
 \begin{equation}\label{eq:ketpsi}
-  \ket{\psi} = [\psi_1,...,\psi_n]^{T} \in \mathcal{H}.
+  \ket{\psi} = \bigl[\psi_1,\ldots,\psi_n\bigr]^{T} \in \mathcal{H}.
 \end{equation}
 Todo \textit{ket} possui um vetor dual, ou conjugado complexo que também pertence à $\mathcal{H}$, chamado de \textit{bra}, de modo que:
 \begin{equation}\label{eq:brapsi}
-  \bra{\psi} = [\psi_1^*,...,\psi_n^*] \in \mathcal{H}.
+  \bra{\psi} = \bigl[\psi_1^{\star},\ldots,\psi_n^{\star}\bigr] \in \mathcal{H}.
 \end{equation}
 
-A soma de dois estados quânticos é descrita por:
+A adição e a subtração de dois estados quânticos são descritas por:
 \begin{equation}
-\ket{\psi} + \ket{\varphi} =[\psi_1 + \varphi_1,...,\psi_n + \varphi_n]^{T} \in \mathcal{H}.
-\end{equation}
-
-E, consequentemente a subtração:
-\begin{equation}
-\ket{\psi} - \ket{\varphi} =[\psi_1 - \varphi_1,...,\psi_n - \varphi_n]^{T} \in \mathcal{H}.
+\ket{\psi} \pm \ket{\varphi} =\bigl[\psi_1 \pm \varphi_1,\ldots,\psi_n \pm \varphi_n\bigr]^{T} \in \mathcal{H}.
 \end{equation}
 
 A multiplicação por um escalar é definida como:
 \begin{equation}
-\alpha \ket{\psi} = \alpha[\psi_1,...,\psi_n]^{T} = [\alpha\psi_1,...,\alpha\psi_n]^{T} \in \mathcal{H}.
+\alpha \ket{\psi} = \alpha\bigl[\psi_1,\ldots,\psi_n\bigr]^{T} = \bigl[\alpha\psi_1,\ldots,\alpha\psi_n\bigr]^{T} \in \mathcal{H}.
 \end{equation}
 
 O produto interno é representado por:
 \begin{equation}
-\braket{\psi|\varphi} = [\psi_1*,...,\psi_n*][\varphi_1,...,\varphi_n]^{T} \in \mathcal{H}.
+\braket{\psi|\varphi} = \bigl[\psi_1^{\star},\ldots,\psi_n^{\star}\bigr]\;\bigl[\varphi_1,\ldots,\varphi_n\bigr]^{T} \in \mathcal{H},
 \end{equation}
-
-E o produto externo:
+enquanto o produto externo é definido como:
 \begin{equation}
-\ket{\psi}\bra{\varphi} = [\psi_1,...,\psi_n]^{T} [\varphi_1*,...,\varphi_n*] \in \mathcal{H}.
+\ket{\psi}\bra{\varphi} = \bigl[\psi_1,\ldots,\psi_n\bigr]^{T} \bigl[\varphi_1^{\star},\ldots,\varphi_n^{\star}\bigr] \in \mathcal{H}.
 \end{equation}
 
 O produto tensorial entre dois \textit{kets} \(\ket{\psi}\) de dimensão \(m\) e \(\ket{\varphi}\) de dimensão \(n\) é definido por:
