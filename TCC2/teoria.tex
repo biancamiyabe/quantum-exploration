@@ -19,7 +19,7 @@ A \textit{Álgebra Linear} é o ramo da Matemática que onde se estudam as propr
 \vec{v}= (v_1, v_2) \quad\Leftrightarrow\quad \ket{v} = \begin{bmatrix} v_1 \\ v_2 \end{bmatrix} \quad\Leftrightarrow\quad \bra{v} = \bigl[
 v_1^{\star}, v_2^{\star} \bigr],
 \end{equation}
-sendo $\ket{v}$ o \textit{ket} de $v$ e $\bra{v}$ o \textit{bra} de $v$, com \(\star\) indicando o conjugado complexo. Para o desenvolvimento desse trabalho, serão necessários reconhecer as notações descritas na Tabela~\ref{tab:notação}.
+sendo $\ket{v}$ o \textit{ket} de $v$ e $\bra{v}$ o \textit{bra} de $v$, com \(\star\) indicando o conjugado complexo. Para o desenvolvimento desse trabalho, será necessário reconhecer as notações descritas na Tabela~\ref{tab:notação}.
 
 \begin{table}[ht!]
   \centering
@@ -72,7 +72,7 @@ enquanto o produto externo é definido como:
 \ket{\psi}\bra{\varphi} = \bigl[\psi_1,\ldots,\psi_n\bigr]^{T} \bigl[\varphi_1^{\star},\ldots,\varphi_n^{\star}\bigr] \in \mathcal{H}.
 \end{equation}
 
-O produto tensorial entre dois \textit{kets} \(\ket{\psi}\) de dimensão \(m\) e \(\ket{\varphi}\) de dimensão \(n\) é definido por:
+O produto tensorial entre \(\ket{\psi}\) de dimensão \(m\) e \(\ket{\varphi}\) de dimensão \(n\) é definido por:
 \begin{equation}\label{eq:tensorket}
   \begin{split}
     \ket{\psi} \otimes \ket{\varphi} &= \ket{\psi}\ket{\varphi} =\ket{\psi \varphi} = \\
@@ -80,14 +80,26 @@ O produto tensorial entre dois \textit{kets} \(\ket{\psi}\) de dimensão \(m\) e
   \end{split}
 \end{equation}
 
-A matriz densidade $\rho$ é descrita como:
+O conjugado complexo de uma matriz é definido como a matriz transposta dos seus elementos conjugados, de modo que:
+\begin{equation}\label{eq:conjugadomatrix}
+  A^{\!\star} = \begin{bmatrix}
+                a & b \\
+                c & d
+          \end{bmatrix}^{\!\star} =
+          \begin{bmatrix}
+            a^{\star} & c^{\star} \\
+            b^{\star} & d^{\star}
+          \end{bmatrix}.
+      \end{equation}
 
+A matriz densidade $\rho$ é descrita como:
 \begin{equation}\label{eq:rho}
-\rho_{\psi} = \ket{\psi}\bra{\psi} = [\psi_1,...,\psi_n]^{T} [\psi_1*,...,\psi_n*] \in \mathcal{H}.
+\rho_{\psi} = \ket{\psi}\bra{\psi} = \bigl[\psi_1,\ldots,\psi_n\bigr]^{T} \bigl[\psi_1^{\star},\ldots,\psi_n^{\star}] \in \mathcal{H}.
 \end{equation}
 
-A matriz resultante em~\eqref{eq:rho} é uma matriz hermitiana, com autovalores não negativos que representam as probabilidades de medir o sistema em um determinado estado. Além disso, a soma dos elementos da diagonal principal da matriz densidade (seu traço) é sempre igual a 1, o que garante a conservação da probabilidade total.
+A matriz resultante em~\eqref{eq:rho} é uma matriz hermitiana\footnote{Uma matriz \(A \in \mathbb{C}^{m{\times}m}\) é dita \textit{hermitiana} se \(A  = A^{\!\star}\).}, com autovalores não negativos que representam as probabilidades de medir o sistema em um determinado estado. Além disso, a soma dos elementos da diagonal principal da matriz densidade (seu traço) é sempre igual a 1, o que garante a conservação da probabilidade total.
 
+\todo[inline]{\(\text{tr}(\rho_{\psi}) = 1\) não ficou claro pra mim\ldots}
 Podemos também realizar o produto tensorial de duas matrizes \(A\in\mathbb{C}^{m{\times}n}\) e \(B\in\mathbb{C}^{p{\times}q}\), de modo que:
 \begin{equation}\label{eq:tensormatrix}
   A \otimes B = \begin{bmatrix}
@@ -98,25 +110,13 @@ Podemos também realizar o produto tensorial de duas matrizes \(A\in\mathbb{C}^{
                 \end{bmatrix}_{m p \times n q}.
               \end{equation}
 
-O conjugado complexo de uma matriz é definido como a matriz transposta dos seus elementos conjugados, de modo que:
-\begin{equation}\label{eq:conjugadomatrix}
-  A^{\!*} = \begin{bmatrix}
-                a & b \\
-                c & d
-          \end{bmatrix}^{\!*} =
-          \begin{bmatrix}
-            a^{*} & c^{*} \\
-            b^{*} & d^{*}
-          \end{bmatrix}.
-      \end{equation}
-
 Os recursos apresentados acima serão utilizados ao longo do trabalho e principalmente na descrição da Seção~\ref{sec:Mecanicaquantica}.
 
 \section{Mecânica Quântica}\label{sec:Mecanicaquantica}
 
 A teoria da Física intitulada Mecânica Quântica (MQ) surgiu no século XX após uma série de experimentos demonstrarem que as leis físicas conhecidas até então, não se aplicavam em sistemas da ordem de 1 \AA, ou seja, \SI{e-10}{\meter}. Com o avanço dos estudos e experimentos na MQ, foi possível ``tornar visível'' uma série de comportamentos da Natureza que antes eram observados apenas em escala macroscópica. Esse aumento na capacidade da descrição da Natureza só foi possível devido a uma série de ferramentas matemáticas e axiomas que constituem a teoria da MQ \cite{jorcuvich}.
 
-Mesmo com os trabalhos de vários cientistas, como Max Planck, Albert Einstein, Niels Bohr, Werner Heisenberg e Erwin Schrödinger, entre outros\footnote{Um descrição detalhada dos experimentos e evoluções conceituais que culminaram na estrutura da MQ que conhecemos na atualidade pode ser encontrada no artigo de \textcite{chibeni}.}, a aceitação dessa teoria física pela comunidade científica não foi imediata, quando se deu surgimento, por volta de 1925. Isso deve-se principalmente ao fato de que, naquela época, os recursos tecnológicos para o desenvolvimento de experimentos que confirmassem a teoria proposta era ainda escassos \cite{chibeni}.
+Mesmo com os trabalhos de vários cientistas, como Max Planck, Albert Einstein, Niels Bohr, Werner Heisenberg e Erwin Schrödinger, entre outros\footnote{Um descrição detalhada dos experimentos e evoluções conceituais que culminaram na estrutura da MQ que conhecemos na atualidade pode ser encontrada no artigo de \textcite{chibeni}.}, a aceitação dessa teoria física pela comunidade científica não foi imediata, quando de seu surgimento, por volta de 1925. Isso deve-se principalmente ao fato de que, naquela época, os recursos tecnológicos para o desenvolvimento de experimentos que confirmassem a teoria proposta era ainda escassos \cite{chibeni}.
 
 Até mesmo Albert Einstein duvidava de alguns aspectos da teoria. O fenômeno de Emaranhamento Quântico, por exemplo, causava nele certa estranheza. Em suas próprias palavras, ``uma ação fantasmagórica à distância'' era a melhor descrição para o fenômeno. O fato da MQ não ser observada pela nossa realidade ``normal'' não a torna menos correta que qualquer outra teoria; pelo contrário, atualmente a MQ é considerada uma das teorias mais completas utilizadas para a descrição da Natureza \cite{chuang}. Nas próximas seções, alguns de seus conceitos serão apresentados para a compreensão do desenvolvimento do trabalho, baseando-se principalmente nas ideias apresentadas por \textcite{chuang,jorcuvich,CompInfoQuantica,grif}.
 
