@@ -123,10 +123,10 @@ Até mesmo Albert Einstein duvidava de alguns aspectos da teoria. O fenômeno de
 
 \subsection{Postulados da MQ}\label{sec:postulados}
 
-Os postulados~\ref{post:p1} a~\ref{post:p4} norteiam a construção das próximas seções. Cada um deles descreve uma característica fundamental da MQ, que posteriormente será utilizada na construção do trabalho.
+Os Postulados~\ref{post:p1} a~\ref{post:p4} norteiam a construção das próximas seções. Cada um deles descreve uma característica fundamental da MQ, que posteriormente será fundamental no decorrer do texto.
 
 \begin{post}{Espaço de estados}{p1}
-Considerando todo e qualquer sistema físico que esteja isolado, os estados do sistema estão associados a um espaço de Hilbert $\mathcal{H}$ e podem ser descritos por um vetor de estado unitário $\ket{\psi} \in \mathcal{H}$.
+Considerando todo e qualquer sistema físico que esteja isolado, os estados do sistema estão associados a um espaço de Hilbert $\mathcal{H}$ e podem ser descritos por um vetor de estado unitário $\ket{\psi} \in \mathcal{H}$. A essa combinação de espaço e estado dá-se o nome de \textit{espaço de estados}.
 \end{post}
 
 \begin{post}{Evolução}{p2}
@@ -150,12 +150,13 @@ A superposição de estados quânticos é uma característica fundamental da MQ 
 
 Essa característica é fundamental para a existência dos qubits conforme veremos na Seção~\ref{sec:qubits}. Quando um sistema quântico é medido, ele colapsa em um estado único e observável, conforme explicitado no Postulado~\ref{post:p3}. Isso é conhecido como o colapso da função de onda e a probabilidade de medir cada estado possível é determinada pelas amplitudes de probabilidade associadas aos estados na superposição.
 
-
 \subsection{Emaranhamento Quântico}\label{sec:emaranhamento}
 
 O emaranhamento quântico é uma propriedade da MQ que descreve a correlação entre dois ou mais sistemas quânticos, de tal forma que o estado quântico de um  não pode ser descrito independentemente do estado dos outros sistemas emaranhados, mesmo que esses sistemas estejam distantes fisicamente.
 
-Para compreender melhor esse fenômeno, podemos pensar na situação onde temos um sistema de duas partículas quânticas\footnote{elétrons, fótons ou, como veremos na seção~\ref{sec:qubits}, qubits} $\ket{\psi}=\alpha\ket{0}+\beta\ket{1}$ e $\ket{\varphi}=\mu\ket{0}+\eta\ket{1}$. Se nesse sistema as partículas são independentes, significa que possuirão probabilidades associadas aos estados $\ket{0}$ e $\ket{1}$ distintas, ou seja, $\alpha \neq \beta \neq \mu \neq \eta$. Considerado agora que as partículas estejam emaranhadas, sua descrição não pode ocorrer de maneira independente e portanto, as probabilidades são descritas associadas aos estados possíveis também não. Teremos portanto, os estados emaranhados $\ket{00}, \ket{01}, \ket{10}$ e $\ket{11}$, cujas probabilidades dependerão de ambas as partículas. Alterando os estados de uma partícula, consequentemente os estados da outra serão alterados, fazendo com que passemos a considerar uma distribuição de probabilidade entre os estados.  
+\todo[inline]{Fica claro pra mim que \(\ket{0}\) e \(\ket{1}\) são dois estados em algum espaço de Hilbert. Até ai ok. Mas o que significam exatamente o \(0\) e o \(1\)? Pensando em AL, imagino que o primeiro seja um vetor de zeros (nulo), mas e o segundo? Acho interessante deixar explícito. Ou já foi definido e eu não achei?}
+
+Para compreender melhor esse fenômeno, podemos pensar na situação onde temos um sistema de duas partículas quânticas\footnote{Elétrons, fótons ou, como veremos na Seção~\ref{sec:qubits}, qubits.} $\ket{\psi}=\alpha\ket{0}+\beta\ket{1}$ e $\ket{\varphi}=\mu\ket{0}+\eta\ket{1}$. Se nesse sistema as partículas são independentes, significa que possuirão probabilidades associadas aos estados $\ket{0}$ e $\ket{1}$ distintas, ou seja, $\alpha \neq \beta \neq \mu \neq \eta$. Considerado agora que as partículas estejam emaranhadas, sua descrição não pode ocorrer de maneira independente e portanto, as probabilidades associadas aos estados possíveis também não. Teremos portanto, os estados emaranhados $\ket{00}, \ket{01}, \ket{10}$ e $\ket{11}$, cujas probabilidades dependerão de ambas as partículas. Alterando os estados de uma partícula, consequentemente os estados da outra serão alterados, fazendo com que passemos a considerar uma distribuição de probabilidade entre os estados.
 
 Os efeitos do fenômeno do emaranhamento foram questionados pela comunidade científica da época, principalmente por Albert Einstein. Segundo Einstein, o emaranhamento era uma ``ação fantasmagórica à distância'' e algo faltava ou estava incoerente dentro da MQ. Seus questionamentos levaram ao paradoxo EPR.
 
@@ -165,12 +166,16 @@ O Paradoxo EPR é um famoso argumento em favor da incompletude da MQ, proposto p
 
 De acordo com a MQ, se duas partículas são emaranhadas, a medição do estado quântico de uma partícula instantaneamente afetará o estado quântico da outra partícula, independentemente da distância entre elas. Isso significa que as partículas emaranhadas parecem estar em comunicação instantânea, o que violaria a teoria da relatividade especial de Einstein, que proíbe a comunicação mais rápida do que a velocidade da luz.
 
-Em seu artigo \textit{``Can quantum-mechanical description of physical reality be considered complete?''}\footcite{epr}, Einstein, Podolsky e Rosen propuseram um experimento mental para demonstrar essa aparente contradição. No experimento, duas partículas emaranhadas são criadas e separadas a uma grande distância uma da outra. Em seguida, uma propriedade quântica específica de uma das partículas é medida, o que instantaneamente afeta a propriedade quântica da outra partícula, mesmo que esteja a uma grande distância. Isso parece violar a teoria da relatividade especial de Einstein, que proíbe a comunicação mais rápida do que a velocidade da luz.
+Em seu artigo \textit{\citetitle*{epr}}, Einstein, Podolsky e Rosen propuseram um experimento mental para demonstrar essa aparente contradição \cite{epr}. No experimento, duas partículas emaranhadas são criadas e separadas a uma grande distância uma da outra. Em seguida, uma propriedade quântica específica de uma das partículas é medida, o que instantaneamente afeta a propriedade quântica da outra partícula, mesmo que esteja a uma grande distância, aparentemente violando a teoria da relatividade especial de Einstein.
 
-A proposta do paradoxo foi investigada por John Stewart Bell que propõe uma série de desigualdades que são violadas em sistemas de partículas quânticas \footnote{A descrição completa da proposição de Bell pode ser encontrada no artigo \textcite{Bell}}. A partir do trabalho de Bell, diversos experimentos foram propostos a fim de compreender se a MQ estava incompleta, ou se uma nova interpretação para tais fenômenos seria necessária. O trabalho mais relevante foi proposto por Alain Aspect em 1982 que utilizando a polarização de fótons, confirma que a observação de dois fótons emaranhados, mesmo que distantes é a mesma. Aspect conclui seu trabalho propondo que:
-\begin{citacao} Temos de concluir que um par de fotões entrelaçados é um objecto não separável; ou seja, é impossível atribuir propriedades locais (realidade física local) a cada fotão. Em certo sentido, ambos os fotões permanecem em contacto através do espaço e do tempo. Convém que se diga, no entanto, que a não separabilidade, que é a base da teleportação quântica, não implica a possibilidade prática de comunicação, a velocidade superior à da luz \cite{aspect}. 
+\todo[inline]{Alain Aspect é 1982 ou 1999?}
+
+A proposta do paradoxo foi investigada por John Stewart Bell que propõe uma série de desigualdades que são violadas em sistemas de partículas quânticas\footnote{A descrição completa da proposição de Bell pode ser encontrada no artigo \textcite{Bell}.}. A partir do trabalho de Bell, diversos experimentos foram propostos a fim de compreender se a MQ estava incompleta, ou se uma nova interpretação para tais fenômenos seria necessária. O trabalho mais relevante foi proposto por Alain Aspect em 1982 que utilizando a polarização de fótons, confirma que a observação de dois fótons emaranhados, mesmo que distantes é a mesma. Aspect conclui seu trabalho propondo que:
+
+\begin{citacao}
+  Temos de concluir que um par de fotões entrelaçados é um objecto não separável; ou seja, é impossível atribuir propriedades locais (realidade física local) a cada fotão. Em certo sentido, ambos os fotões permanecem em contacto através do espaço e do tempo. Convém que se diga, no entanto, que a não separabilidade, que é a base da teleportação quântica, não implica a possibilidade prática de comunicação, a velocidade superior à da luz \cite{aspect}.
 \end{citacao}
-A resolução do paradoxo EPR envolve portanto a concepção de não-localidade para entidades quânticas em regime de emaranhamento de maneira que, a interpretação da realidade para a MQ é distinta da realidade que estamos acostumados a prever pela Mecânica Clássica. 
+A resolução do paradoxo EPR envolve portanto a concepção de não-localidade para entidades quânticas em regime de emaranhamento de maneira que, a interpretação da realidade para a MQ é distinta da realidade a que estamos acostumados pela óptica da Mecânica Clássica.
 
 \subsection{Teorema da Não-Clonagem}\label{sec:naoclonagem}
 
@@ -197,7 +202,7 @@ Na literatura encontram-se as mais diversas explicações sobre como funciona o 
 
 Na história, os cientistas Alice e Bob estão localizados em dois laboratórios distintos, cada um deles possuindo uma partícula, $A$ e $B$ e estas estão emaranhadas, produzindo um estado quântico emaranhado denominado de $\ket{\psi_{AB}}$. Alice precisa enviar uma mensagem para Bob e o faz utilizando um outro estado, $C$. Portanto, no início do processo de teletransporte, Alice possui dois estados, o que ela deseja enviar e o que está emaranhado com o Bob.
 
-Alice realiza então uma série de operações entre suas partículas e para continuar o processo de teletransporte, faz uma medição, colapsando-as e envia, via um canal clássico, a informação dos estados colapsados para Bob. Este por sua vez, por possuir uma partícula emaranhada com $A$, consegue reconstruir a mensagem presente originalmente em $C$ enviado por Alice. Portanto, a mensagem é reconstruída e não clonada, não violando o princípio da não-clonagem. A não-clonagem fica explicitada no momento em que a medida é realizada em $A$ e $C$, colapsando-os, de modo que existe apenas uma cópia do estado de $C$ dado por $\ket{\psi_{C}}$.
+Alice realiza então uma série de operações entre suas partículas e para continuar o processo de teletransporte, faz uma medição, colapsando-as e envia, via um canal clássico, a informação dos estados colapsados para Bob. Este por sua vez, por possuir uma partícula emaranhada com $A$, consegue reconstruir a mensagem presente originalmente em $C$ enviado por Alice. Portanto, a mensagem é \textit{reconstruída} e não clonada, não violando o princípio da não-clonagem. A não-clonagem fica explicitada no momento em que a medida é realizada em $A$ e $C$, colapsando-os, de modo que existe apenas uma cópia do estado de $C$ dado por $\ket{\psi_{C}}$.
 
 
 \section{Computação Quântica}\label{sec:compquant}
@@ -210,6 +215,8 @@ As definições de qubits descritas nesse tópico baseiam-se principalmente nas 
 
 Qubits são elementos fundamentais da computação quântica. Eles são usados para representar informações binárias (zeros e uns) e são capazes de armazenar e processar muito mais informações que os bits convencionais usados na computação clássica. Isso é possível graças ao fato de que, enquanto os bits tradicionais podem estar em dois estados (ligado ou desligado), os qubits podem estar em um estado de superposição, o que permite que eles representem simultaneamente vários estados ou informações diferentes. Isso significa que os qubits podem armazenar muito mais informação em um espaço muito menor conforme salientado na Tabela~\ref{tabelabit}.
 
+\todo[inline]{Ver comentário anterior sobre \(\ket{0}\) e \(\ket{1}\).}
+
 Podemos começar a descrição de um qubit como uma superposição dos estados quânticos $\ket{0}$ e $\ket{1}$, de modo a representá-los pela combinação linear dada por
 \begin{equation}\label{eq:psi}
 \ket{\psi} = \alpha \ket{0} + \beta \ket{1},
@@ -220,16 +227,20 @@ As variáveis $\alpha$ e $\beta$ são complexas e determinam as amplitudes proba
 
 Um recurso para visualizar o comportamento de qubits é sua representação geométrica chamada de Esfera de Bloch. Como entidades quânticas não são observáveis diretamente e frequentemente são expressas por recursos matemáticos, a visualização da superposição dos estados de um qubit utilizando a Esfera de Bloch facilita, ainda que ligeiramente, sua compreensão.
 
+\todo[inline]{Estou um pouco em dúvida sobre essa representação, mas imagino que você tenha feito as contas, certo? Primiro porque aparece um \(\theta/2\) na expressão e só \(\theta\) na figura. Segundo, há um termo \(e^{i \varphi}\) que não está fazendo muito sentido pra mim.}
+
 Em primeiro lugar, vale lembrar que o qubit, descrito por $\ket{\psi}$, está parametrizado e podemos reescrever~\eqref{eq:psi} em coordenadas polares
 \begin{equation}
 \ket{\psi}=e^{i \gamma}\Biggl(\cos \frac{\theta}{2}\ket{0}+e^{i \varphi} \sen \frac{\theta}{2}\ket{1}\Biggr).
 \end{equation}
-O termo \(e^{i\gamma}\) não possui efeitos observáveis na representação geométrica e portanto, podemos simplificar a equação acima, obtendo
+O termo \(e^{i\gamma}\) não possui efeitos observáveis na representação geométrica e portanto, podemos simplificar a expressão acima, obtendo
 \begin{equation}\label{eq:coordpolarpsi}
-\ket{\psi}=\Biggl(\cos \frac{\theta}{2}\ket{0}+e^{i \varphi} \sen \frac{\theta}{2}\ket{1}\Biggr),
+\ket{\psi}=\cos \frac{\theta}{2}\ket{0}+e^{i \varphi} \sen \frac{\theta}{2}\ket{1},
 \end{equation}
 com $\theta$ e $\varphi$ sendo números reais correspondentes aos ângulos entre os eixos $z, y$ e $y, x$ respectivamente, conforme a
 Figura~\ref{fig:bloch}.
+
+\todo[inline]{A esfera possui raio unitário?}
 
 \begin{figure}[ht!]
 \centering
@@ -274,7 +285,7 @@ Vale ressaltar que, devido a possibilidade de qubits atuarem em regime de superp
 
 \subsection{Operadores Quânticos}\label{sec:opquantico}
 
-Na MQ, um \textit{Operador Quântico} é um objeto matemático que representa uma propriedade física observável de um sistema quântico. Eles são fundamentais para a teoria quântica pois fornecem uma maneira de descrever e prever os resultados de medidas em sistemas quânticos. Eles são representados por matrizes ou operadores lineares que pertencem a um espaço de Hilbert \(\mathcal{H}\) e são equivalentes às portas lógicas na computação clássica, ou seja, são implementadas como operadores quânticos que atuam em um ou mais qubits. As próximas seções serão utilizadas para explicar os principais operadores/portas lógicas quânticas e como eles atuam em um qubit \cite{jorcuvich}.
+Na MQ, um \textit{Operador Quântico} é um objeto matemático que representa uma propriedade física observável de um sistema quântico. Eles são fundamentais para a teoria quântica pois fornecem uma maneira de descrever e prever os resultados de medidas em sistemas quânticos. Eles são representados por matrizes ou operadores lineares que operam em um espaço de Hilbert \(\mathcal{H}\) e são equivalentes às portas lógicas na computação clássica, ou seja, são implementadas como operadores quânticos que atuam em um ou mais qubits. As próximas seções serão utilizadas para explicar os principais operadores/portas lógicas quânticas e como eles atuam em um qubit \cite{jorcuvich}.
 
 \subsubsection{Matrizes de Pauli}\label{sec:pauli}
 
@@ -292,6 +303,8 @@ i & 0
 \end{bmatrix*}.
 \end{equation}
 As matrizes $\sigma_x$, \(\sigma_{y}\) e \(\sigma_{z}\) são também conhecidas como a matrizes de Pauli X, Pauli Y e Pauli Z, respectivamente. As matrizes de Pauli formam a base do espaço de Hilbert de um único qubit, e podem ser usadas para construir operadores mais complexos que atuam em múltiplos qubits.
+
+\todo[inline]{Quando você diz ``base do espaço de Hilbert'', é uma base no sentido de AL? Ou seja, \(\mathcal{H}\) é construído com essas matrizes?}
 
 \subsubsection{Porta Lógica Controlled-NOT Quântica}\label{sec:cnot}
 
@@ -351,18 +364,18 @@ Conforme visto na Seção~\ref{sec:opquantico}, a evolução do estado de um qub
 
 \begin{figure}[ht!]
 \centering
-\caption{Representação gráfica da atuação das portas lógicas quânticas \(\XXX\) e \(\ZZZ\) nos qubits $\ket{\psi}$ e $\ket{\phi}$, respectivamente, em um circuito lógico quântico}\label{fig:opquantico}
+\caption{Representação gráfica da atuação das portas lógicas quânticas \(\XXX\) e \(\ZZZ\) nos qubits $\ket{\psi}$ e $\ket{\phi}$, respectivamente, em um circuito lógico quântico. Pela posição, a porta lógica \(\ZZZ\) é aplicada antes da porta lógica \(\XXX\).}\label{fig:opquantico}
 \begin{quantikz}
 \lstick{$\ket{\psi}$} & \qw & \qw & \qw & \qw & \qw & \gate{X} & \qw & \qw \\
 \lstick{$\ket{\phi}$} & \qw & \gate{Z} & \qw & \qw & \qw & \qw & \qw & \qw
 \end{quantikz}
 \end{figure}
 
-Algumas portas quânticas, como a CNOT, dependem de dois qubits para operarem, porém alteram apenas um deles. Chamamos esse tipo de porta de controlada, e sua representação indica com um ponto o qubit de controle e com um \(X\) o qubit alvo, que será alterado. Sua representação pode ser encontrada na Figura~\ref{fig:cnot} onde, num primeiro momento $\ket{\phi}$ atua como controle e $\ket{\psi}$ é o alvo, e depois $\ket{\psi}$ se torna o controle e $\ket{\phi}$ o alvo.
+Algumas portas quânticas, como a \(\CNOT\), dependem de dois qubits para operarem, porém alteram apenas um deles. Chamamos esse tipo de porta de controlada, e sua representação indica com um ponto o qubit de controle e com um\begin{quantikz}[yshift=4pt]\targ{}\end{quantikz} o qubit alvo, que será alterado. Sua representação pode ser encontrada na Figura~\ref{fig:cnot} onde, num primeiro momento $\ket{\phi}$ atua como controle e $\ket{\psi}$ é o alvo, e depois $\ket{\psi}$ se torna o controle e $\ket{\phi}$ o alvo.
 
 \begin{figure}[ht!]
 \centering
-\caption{Representação gráfica da atuação da porta lógica quântica \(\CNOT\) nos qubits $\ket{\psi}$ e $\ket{\phi}$ em um circuito lógico quântico.}\label{fig:cnot}
+\caption{Representação gráfica da atuação da porta lógica quântica \(\CNOT\) nos qubits $\ket{\psi}$ e $\ket{\phi}$ em um circuito lógico quântico. Inicialmente $\ket{\phi}$ atua como controle e $\ket{\psi}$ é o alvo, e depois $\ket{\psi}$ se torna o controle e $\ket{\phi}$ o alvo.}\label{fig:cnot}
 \begin{quantikz}
 \lstick{$\ket{\psi}$} & \qw & \targ{} & \qw & \qw & \qw & \ctrl{1} & \qw & \qw \\
 \lstick{$\ket{\phi}$} & \qw & \ctrl{-1} & \qw & \qw & \qw & \targ{} & \qw & \qw
@@ -373,7 +386,7 @@ Existe ainda o operador medição, que efetua o colapso do sistema quântico e r
 
 \begin{figure}[ht!]
 \centering
-\caption{Representação gráfica da atuação de uma medição em $\ket{\psi}$ e $\ket{\phi}$ em um circuito lógico quântico.}\label{fig:medição}
+\caption{Representação gráfica da atuação de uma medição em $\ket{\psi}$ e $\ket{\phi}$ em um circuito lógico quântico. Note que após o medidor, a linha se torna dupla, indicando uma informação clássica.}\label{fig:medição}
 \begin{quantikz}
 \lstick{$\ket{\psi}$} & \qw &  \qw & \qw & \meter{} & \cw & \cw \\
 \lstick{$\ket{\phi}$} & \qw &  \meter{} & \cw & \cw  & \cw & \cw
@@ -382,9 +395,9 @@ Existe ainda o operador medição, que efetua o colapso do sistema quântico e r
 
 \subsection{Algoritmos quânticos}\label{sec:algoritmo}
 
-Conforme descrito na Seção~\ref{sec:qubits}, qubits são manipulados através de operações (apresentadas na Seção~\ref{sec:opquantico}) para obter o resultado esperado para um problema. O conjunto organizado de todas essas operações quânticas leva o nome de \textit{algoritmo quântico}. Existe uma infinidade de algoritmos quânticos já implementados e alguns serão apresentados nessa seção, além do que foi desenvolvido para este trabalho.
+Conforme descrito na Seção~\ref{sec:qubits}, qubits são manipulados através das operações apresentadas na Seção~\ref{sec:opquantico}, para obter o resultado esperado para um problema. O conjunto organizado de todas essas operações quânticas leva o nome de \textit{algoritmo quântico}. Existe uma infinidade de algoritmos quânticos já implementados e alguns serão apresentados nessa seção, além do que foi desenvolvido para este trabalho.
 
-Historicamente, o primeiro algoritmo quântico a ser implementado --- ainda que de maneira teórica --- foi o algoritmo de Shor. Nele Peter Shor constrói uma estrutura que responde quais números multiplicados retornam o resultado apresentado. Ou seja, suponha que tenhamos a expressão $A = x \, y$, com $x = \num{24568}$ e $y = \num{45877}$. Nesse caso, sem quaisquer problemas um computador clássico seria capaz de encontrar o valor de $A$, pois este conhece as variáveis $x$ e $y$. Agora suponha que o computador conhece $A$ porém desconhece os valores de $x$ e $y$ e os deseja encontrar, ou seja, qual (ou quais) multiplicações de $x$ e $y$ resultam no valor de $A = \num{1127106136}$? Esse processo chama-se fatoração e, classicamente, não existe nenhum algoritmo eficiente (rápido) para solucionar esse problema. A fatoração é utilizada para criptografia, ou seja, é vital na codificação de contas de banco, senhas de provedores de internet e afins, pois é extremamente difícil encontrar os fatores para o valor criptografado. Por esse motivo, quando Peter Shor apresenta em 1994 o algoritmo quântico capaz de operar facilmente a fatoração, a computação quântica passa a ser levada em consideração \cite{videoyoutube2}.
+Historicamente, o primeiro algoritmo quântico a ser implementado --- ainda que de maneira teórica --- foi o algoritmo de Shor. Nele Peter Shor constrói uma estrutura que responde quais números multiplicados retornam o resultado apresentado. Suponha que tenhamos a expressão $A = x \, y$, com $x = \num{24568}$ e $y = \num{45877}$. Nesse caso, sem quaisquer dificuldades, um computador clássico seria capaz de encontrar o valor de $A$, pois este conhece as variáveis $x$ e $y$. Agora suponha que o computador conhece $A$ porém desconhece os valores de $x$ e $y$ e os deseja encontrar, ou seja, qual (ou quais) multiplicações de $x$ e $y$ resultam no valor de $A = \num{1127106136}$? Esse processo chama-se fatoração e, classicamente, não existe nenhum algoritmo eficiente (rápido) para solucionar esse problema. A fatoração é utilizada para criptografia, ou seja, é vital na codificação de contas de banco, senhas de provedores de internet e afins, pois é extremamente difícil encontrar os fatores para o valor criptografado. Por esse motivo, quando Peter Shor apresenta em 1994 o algoritmo quântico capaz de operar facilmente a fatoração, a computação quântica passa a ser levada em consideração \cite{videoyoutube2}.
 
 Alguns outros algoritmos quânticos importantes são:
 
@@ -403,6 +416,7 @@ Neste trabalho, desenvolvemos um protocolo de teletransporte quântico que se en
 
 A descrição deste protocolo foi baseada em \textcite{chuang, jorcuvich, CompInfoQuantica, benschu}. A realização de um protocolo de Teletransporte Quântico consiste, essencialmente, em uma série de operações que possuem por objetivo principal fazer com que uma mensagem, ou na linguagem quântica, um estado quântico, se teletransporte entre dois pontos distintos fisicamente. Como em qualquer outra operação computacional é necessária a existência de um circuito lógico, nesse caso quântico, que medie as operações. Esse circuito consistirá nas combinações das portas lógicas \(\CNOT\), Hadamard, portas de medição e as portas \(\XXX\) e \(\ZZZ\) conforme a Figura~\ref{fig:protocoloteletransporte}.
 
+\todo[inline]{Adicionar à figura o \(A\) e o \(B\), para orientar melhor o leitor.}
 \begin{figure}[ht!]
 \centering
 \caption{Protocolo de Teletransporte Quântico mediado pelo circuito com as portas \(\CNOT\), Hadamard e medição aplicadas no local \(A\) e as portas \(\XXX\) e \(\ZZZ\) aplicadas no local \(B\).}\label{fig:protocoloteletransporte}
@@ -411,7 +425,7 @@ A descrição deste protocolo foi baseada em \textcite{chuang, jorcuvich, CompIn
 \lstick{$\ket{q_x}$} & \gate{H}\gategroup[2,steps=2,style={dashed,rounded corners,fill=blue!20, inner xsep=2pt}, background,label style={label position=below,anchor=north,yshift=-0.2cm}]{{Emaranhamento}} & \ctrl{1} & \midstick[2]{$\ket{\beta_{00}}$} \qw & \targ{} & \qw & \meter{$M_2$} & \cwbend{1} \\
 \lstick{$\ket{q_y}$} & \qw & \targ{} \arrow{r} &  & \qw & \qw & \qw & \gate{X} & \qw & \gate{Z} &  \qw\rstick{$\ket{\psi}$}
 \end{quantikz}
-\fonte{O Autor. }
+\fonte{De autoria própria.}
 \end{figure}
 
 No inicio do protocolo é necessário que tenhamos um par de qubits emaranhados nas bases de Bell, no estado $\ket{\beta_{00}}$, que podemos representar pela expressão
@@ -460,7 +474,11 @@ O estado obtido em \eqref{eq:hadamartpsi2} pode ser identificado como $\ket{\psi
  \ket{\psi_2} = \frac{1}{2} \Bigl[ \ket{00} \bigl( \alpha \ket{0} + \beta \ket{1} \bigr) + \ket{01} \bigl( \alpha \ket{1} + \beta \ket{0} \bigr) + \ket{10} \bigl( \alpha \ket{0} - \beta \ket{1} \bigr) + \ket{11} \bigl( \alpha \ket{1} - \beta \ket{0} \bigr) \Bigr].
 \end{equation}
 
+\todo[inline]{Essa expressão está correta? Não ficou claro pra mim como chegamos nela.}
+
 O próximo passo do protocolo consiste em realizar medidas em ambos os qubits presentes em \(A\). Essas medidas farão com que os estados quânticos sejam colapsados e deixem de coexistir, passando a ser considerados clássicos. As medidas possíveis de serem obtidas em \(A\) são apresentadas na Tabela~\ref{tab:medidas}.
+
+\todo[inline]{Exatamente qual o papel de \(\mathcal{M_{1}}\) e \(\mathcal{M_{2}}\) aqui?}
 
 \begin{table}[ht!]
   \centering
@@ -475,7 +493,7 @@ O próximo passo do protocolo consiste em realizar medidas em ambos os qubits pr
     $\ket{11}$   & $\bigl( \alpha \ket{1} - \beta \ket{0} \bigr)$\\
     \bottomrule
   \end{tabular}
-  \fonte{Elaborada pelo autor.}
+  \fonte{De autoria própria.}
 \end{table}
 
 Os valores dos estados medidos em \(A\) são enviados via canal clássico até \(B\) que, devido ao emaranhamento com o qubit operado em \(A\), terá seu colapso consequentemente em seu estado quântico associado, segundo a Tabela~\ref{tab:medidas}.
@@ -544,7 +562,7 @@ De acordo com  a TMC, um \textit{gerador de informação} é um objeto capaz de 
 
 Como na MQ não sabemos o estado de um qubit até que uma medida seja aplicada e não é possível recuperar um estado após a medida deste, identificar a presença de um ruído torna-se mais complicado do que na transferência de informação clássica. Chamamos de decoerência o processo pelo qual um sistema quântico interage com o ambiente e perde sua coerência quântica, ou seja, sua capacidade de apresentar estados de superposição e entrelaçamento originais. Alguns autores como \textcite{chuang}, utilizam o termo decoerência como sinônimo de ruído quântico.
 
-Vale ressaltar que o estudo dos ruídos quânticos contribuem para conhecer os efeitos deste e estimar técnicas de correção para o sistema. Essas técnicas envolvem desde a escolha dos materiais e dos métodos de construção dos sistemas até a implementação de algoritmos de correção de erros e aprimoramento da qualidade das medições.
+Vale ressaltar que o estudo dos ruídos quânticos contribui para conhecer os efeitos destes e propor técnicas de correção para o sistema. Essas técnicas envolvem desde a escolha dos materiais e dos métodos de construção dos sistemas até a implementação de algoritmos de correção de erros e aprimoramento da qualidade das medições.
 
 Segundo \textcite{teseufscar}, os principais tipos de ruídos associados à decoerência da informação quântica, ou seja, a sua alteração do estado original são:
 
