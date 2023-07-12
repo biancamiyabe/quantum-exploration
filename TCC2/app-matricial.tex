@@ -10,7 +10,7 @@
 
 \chapter{Representação Matricial dos protocolos de Emaranhamento e Teletransporte}\label{app:matricial}
 
-As representações matriciais dos protocolos de Emaranhamento e Teletransporte nos permitem observar com maior clareza a natureza binária dos qubits numa representação de como seria seu comportamento em uma situação real. Para todos os efeitos não é considerada a origem do qubit mas sim sua natureza, ou seja, uma entidade quântica. A notação de \textit{bracket} permite que as operações sejam realizadas considerando os estados quânticos possíveis armazenados dentro do qubit como versores num espaço complexo.
+As representações matriciais dos protocolos de emaranhamento e teletransporte nos permitem observar com maior clareza a natureza binária dos qubits numa representação de como seria seu comportamento em uma situação real. Para todos os efeitos não é considerada a origem do qubit mas sim sua natureza, ou seja, uma entidade quântica. A notação de \textit{bracket} permite que as operações sejam realizadas considerando os estados quânticos possíveis armazenados dentro do qubit como versores num espaço complexo.
 
 Para iniciar o protocolo, consideraremos as seguintes representações binárias dos estados quânticos
 \begin{equation} \label{eq:01}
@@ -75,7 +75,7 @@ Seguindo a Figura~\ref{fig:protocoloteletransporte}, aplicamos a porta Hadamard,
 Em seguida, aplicamos a porta \(\CNOT\) tendo como controle o qubit $\ket{q_x}$, após a aplicação de \(\HAD\) e o alvo o qubit $\ket{q_y}$:
 \begin{equation}\label{eq:matrizbell00}
 	\begin{split}
- 		\CNOT \bigl( \ket{q_x}\ket{q_y} \bigr) =& 
+ 		\CNOT \bigl( \ket{q_x}\ket{q_y} \bigr) &=
 		\begin{bmatrix}
 		1 & 0 & 0 & 0 \\
 		0 & 1 & 0 & 0 \\
@@ -108,7 +108,7 @@ Em seguida, aplicamos a porta \(\CNOT\) tendo como controle o qubit $\ket{q_x}$,
 	\end{split}	
 \end{equation}
 
-A equação também é conhecida como uma das Bases de Bell. A comparação da Base de Bell no estado $\ket{00}$ em notação de Dirac e em notação matricial é feita considerando as Equações~\eqref{eq:00} e~\eqref{eq:01} de modo que, seja \(\ket{\beta_{00}}\) a Base de Bell em notação de Dirac dada por \(\frac{1}{\sqrt{2}} \bigl(\ket{00} + \ket{11}\bigr)\), reescrevendo teremos:
+A equação também é conhecida como uma das Bases de Bell. A comparação da Base de Bell no estado $\ket{00}$ em notação de Dirac e em notação matricial é feita considerando as Equações~\eqref{eq:00} e~\eqref{eq:01}: seja \(\ket{\beta_{00}}\) a Base de Bell em notação de Dirac dada por \(\frac{1}{\sqrt{2}} \bigl(\ket{00} + \ket{11}\bigr)\). Reescrevendo teremos:
 \begin{equation}\label{eq:comparacaobeta}
 \ket{\beta_{00}} = \frac{1}{\sqrt{2}} \left( \begin{bmatrix}
 1 \\
@@ -140,8 +140,7 @@ A equação também é conhecida como uma das Bases de Bell. A comparação da B
 \end{bmatrix}
 \end{equation}
 
-O resultado obtido em~\eqref{eq:comparacaobeta} é exatamente o mesmo obtido na~\eqref{eq:bell00}.
-A próxima etapa do protocolo de teletransporte, consiste na aplicação da porta lógica quântica \(\CNOT\). Portanto, seja o estado $\ket{\psi_0}$ descrito por:
+O resultado obtido em~\eqref{eq:comparacaobeta} é exatamente o mesmo obtido na~\eqref{eq:bell00}. A próxima etapa do protocolo de teletransporte, consiste na aplicação da porta lógica quântica \(\CNOT\). Portanto, seja o estado $\ket{\psi_0}$ descrito por:
 \begin{equation}\label{eq:psi0}
 \ket{\psi_0}=\ket{\psi}\ket{\beta_{00}}=\left(\alpha \begin{bmatrix}
 1 \\
@@ -157,7 +156,7 @@ A próxima etapa do protocolo de teletransporte, consiste na aplicação da port
 \end{bmatrix}\right)
 \end{equation}
 
-Conforme Figura~\ref{fig:protocoloteletransporte}, a porta \(\CNOT\) possui como controle o qubit descrito pelo estado $\ket{\psi}$ e como alvo o par emaranhado presente no local A $\ket{\beta_{00}}$. Sua atuação apenas ocorrerá quando o qubit de controle estiver no estado $\ket{1}$. Desse modo, reescrevendo~\eqref{eq:psi0}
+Conforme a Figura~\ref{fig:protocoloteletransporte}, a porta \(\CNOT\) possui como controle o qubit descrito pelo estado $\ket{\psi}$ e como alvo o par emaranhado presente no local \(A\) $\ket{\beta_{00}}$. Sua atuação apenas ocorrerá quando o qubit de controle estiver no estado $\ket{1}$. Desse modo, reescrevendo~\eqref{eq:psi0}
 \begin{equation}\label{eq:psi0cnot}
 \ket{\psi_0} = \frac{1}{\sqrt{2}}\left\{\left(\alpha \begin{bmatrix}
 1 \\
@@ -175,7 +174,7 @@ Conforme Figura~\ref{fig:protocoloteletransporte}, a porta \(\CNOT\) possui como
 0 \\
 0 \\
 1
-\end{bmatrix}\right) \right\}
+\end{bmatrix}\right) \right\},
 \end{equation}
 e evidenciando os produtos tensoriais de~\eqref{eq:psi0cnot}
 \begin{equation}\label{eq:prodtenspsi0}
@@ -212,7 +211,7 @@ e evidenciando os produtos tensoriais de~\eqref{eq:psi0cnot}
 0 \\
 1
 \end{bmatrix}\right)\right\}
-	\end{split}
+	\end{split}.
 \end{equation}
 
 Reagrupando temos portanto, quatro possíveis estados formados por 3-qubits sendo eles:
@@ -229,7 +228,7 @@ Reagrupando temos portanto, quatro possíveis estados formados por 3-qubits send
 0
 \end{bmatrix}\right) = \begin{bmatrix}
 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0
-\end{bmatrix}^T \\
+\end{bmatrix}^T, \\
 \ket{011} &= \left( \begin{bmatrix}
 1 \\
 0
@@ -241,7 +240,7 @@ Reagrupando temos portanto, quatro possíveis estados formados por 3-qubits send
 1
 \end{bmatrix}\right) = \begin{bmatrix}
 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0
-\end{bmatrix}^T \\
+\end{bmatrix}^T, \\
 \ket{100} &= \left( \begin{bmatrix}
 0 \\
 1
@@ -253,7 +252,7 @@ Reagrupando temos portanto, quatro possíveis estados formados por 3-qubits send
 0
 \end{bmatrix}\right) = \begin{bmatrix}
 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0
-\end{bmatrix}^T \\
+\end{bmatrix}^T, \\
 \ket{111} &=\left( \begin{bmatrix}
 0 \\
 1
@@ -265,15 +264,14 @@ Reagrupando temos portanto, quatro possíveis estados formados por 3-qubits send
 1
 \end{bmatrix}\right) = \begin{bmatrix}
 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1
-\end{bmatrix}^T
+\end{bmatrix}^T.
 	\end{split}
 \end{equation}
-
-Somando todos os estados possíveis temos:
+que somados resulta em
 \begin{equation}\label{eq:3estados}
 \ket{000}+\ket{001}+\ket{100}+\ket{111}= \begin{bmatrix}
 1 & 0 & 0 & 1 & 1 & 0 & 0 & 1
-\end{bmatrix}^T
+\end{bmatrix}^T.
 \end{equation}
 
 Como a porta \(\CNOT\) está dimensionada para dois estados e, nesse caso, possuímos três, iremos aplicar a matriz identidade para dimensioná-la. Desse modo:
@@ -295,13 +293,13 @@ Como a porta \(\CNOT\) está dimensionada para dois estados e, nesse caso, possu
 		0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 \\
 		0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\
 		0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 		
-		\end{bmatrix}
+		\end{bmatrix}.
 \end{equation}
 
 Aplicando~\eqref{eq:cnotI} em~\eqref{eq:3estados}, teremos o estado:
 \begin{equation}\label{eq:cnot3estados}
 	\begin{split}
-		\CNOT (\ket{000}\ket{001}\ket{100}\ket{111}) &= \begin{bmatrix}
+		\CNOT (\ket{000}+\ket{001}+\ket{100}+\ket{111}) &= \begin{bmatrix}
 		1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
 		0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
 		0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\
@@ -322,7 +320,7 @@ Aplicando~\eqref{eq:cnotI} em~\eqref{eq:3estados}, teremos o estado:
 		\end{bmatrix} = \\
 		&=\begin{bmatrix}
 		1 & 0 &	0 & 1 &	0 &	1 &	1 &	0
-		\end{bmatrix}^T
+		\end{bmatrix}^T.
 	\end{split}
 \end{equation}
 
@@ -374,7 +372,7 @@ Usando a lógica de construção de~\eqref{eq:3estados}, podemos separar as trí
 	1 \\
 	0 \\
 	0
-	\end{bmatrix} = \ket{000}+\ket{011}+\ket{110}+\ket{101}
+	\end{bmatrix} = \ket{000}+\ket{011}+\ket{110}+\ket{101}.
 	\end{split}
 \end{equation}
 
@@ -406,7 +404,7 @@ Portanto, reorganizando e agrupando os estados definidos em~\eqref{eq:cnot3estad
 1 \\
 0 \\
 0
-\end{bmatrix}\right) \right\}
+\end{bmatrix}\right) \right\}.
 \end{equation}
 
 A próxima etapa, consiste na aplicação da porta \(\HAD\) no qubit $\ket{\psi}$, de modo que:
@@ -430,8 +428,7 @@ A próxima etapa, consiste na aplicação da porta \(\HAD\) no qubit $\ket{\psi}
 		\end{bmatrix*} \right)
   	\end{split}
 \end{equation}
-
-Os resultados de~\eqref{eq:halfabeta} podem ser reescritos como:
+que reescritos tornam-se
 \begin{equation} \label{eq:alfabetasoma}
   \begin{split}
 \frac{1}{2} \alpha \begin{bmatrix}
@@ -443,7 +440,7 @@ Os resultados de~\eqref{eq:halfabeta} podem ser reescritos como:
 \end{bmatrix} + \begin{bmatrix}
 0 \\
 1 
-\end{bmatrix} \\
+\end{bmatrix}, \\
 \frac{1}{2} \beta \begin{bmatrix*}[r]
 1 \\
 -1
@@ -453,11 +450,11 @@ Os resultados de~\eqref{eq:halfabeta} podem ser reescritos como:
 \end{bmatrix} - \begin{bmatrix}
 0 \\
 1
-\end{bmatrix}
+\end{bmatrix}.
   \end{split}
 \end{equation}
 
-Portanto, reagrupando~\eqref{eq:psi1} e~\eqref{eq:halfabeta} teremos o estado $\ket{\psi_2}$ que é descrito por:
+Reagrupando~\eqref{eq:psi1} e~\eqref{eq:halfabeta} teremos o estado $\ket{\psi_2}$ que é descrito por:
 \begin{align}\label{eq:psi2matrix}
 \ket{\psi_2} = \frac{1}{2} \left\{\left( \alpha \begin{bmatrix}
 1 \\
@@ -485,10 +482,9 @@ Portanto, reagrupando~\eqref{eq:psi1} e~\eqref{eq:halfabeta} teremos o estado $\
 0 \\
 1 \\
 0
-\end{bmatrix}\right)\right\}
+\end{bmatrix}\right)\right\},
 \end{align}
-
-No resultado~\eqref{eq:psi2matrix}, podemos evidenciar as seguintes relações:
+de onde podemos evidenciar as seguintes relações:
 \begin{equation}\label{eq:prodtens1}
 	\begin{split}
 &\begin{bmatrix}
@@ -538,7 +534,7 @@ No resultado~\eqref{eq:psi2matrix}, podemos evidenciar as seguintes relações:
 \end{bmatrix} \otimes \begin{bmatrix}
 1 \\
 0
-\end{bmatrix}
+\end{bmatrix}.
 	\end{split}
 \end{equation}
 
@@ -582,10 +578,10 @@ Substituindo as relações de~\eqref{eq:prodtens1} e~\eqref{eq:alfabetasoma} em~
 \end{bmatrix} \otimes \begin{bmatrix}
 1 \\
 0
-\end{bmatrix}\right)\right]\right\}
+\end{bmatrix}\right)\right]\right\}.
   \end{split}
 \end{equation}
-Podemos reorganizar~\eqref{eq:help} evidenciando os termos correspondentes às possíveis medidas realizadas no local A e no resultado correspondente do par emaranhado no local B:
+Podemos reorganizar~\eqref{eq:help} evidenciando os termos correspondentes às possíveis medidas realizadas no local \(A\) e no resultado correspondente do par emaranhado no local \(B\):
 \begin{equation}\label{eq:final}
   \begin{split}
 \ket{\psi_2} &=\frac{1}{2} \left\{ \left(\begin{bmatrix}
@@ -639,8 +635,9 @@ Podemos reorganizar~\eqref{eq:help} evidenciando os termos correspondentes às p
 \end{bmatrix} - \beta \begin{bmatrix}
 0 \\
 1
-\end{bmatrix}\right) \right\}
+\end{bmatrix}\right) \right\},
   \end{split}
 \end{equation}
+resultado idêntico ao mostrado na Tabela~\ref{tab:medidas}.
 
-O resultado acima é exatamente mesmo obtido na Tabela~\ref{tab:medidas}.
+% app-matricial.tex

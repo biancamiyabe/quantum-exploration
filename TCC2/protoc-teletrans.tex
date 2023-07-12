@@ -10,18 +10,20 @@
 
 \chapter{Implementação do Protocolo de Teletransporte na presença de ruídos}\label{app:protocolo}
 
-Nessa seção, apresentaremos o protocolo de Teletransporte Quântico desenvolvido para simular uma situação de teletransporte com a presença de ruídos. Sua implementação foi realizada utilizando a linguagem de programação Python e sua descrição mais detalhada se encontra a seguir. O código-fonte do protocolo também pode ser obtido no repositório online \texttt{quantum-exploration} no GitHub em \hypertarget{repositório}{https://github.com/biancamiyabe/quantum-exploration}.
+Nessa seção, apresentaremos o protocolo desenvolvido para simular o teletransporte quântico com a presença de ruídos. Sua implementação foi realizada utilizando a linguagem de programação Python e sua descrição mais detalhada encontra-se a seguir. O código fonte do protocolo também pode ser obtido no repositório online \texttt{quantum-exploration} no GitHub em \hypertarget{repositório}{https://github.com/biancamiyabe/quantum-exploration}.
 
 Para a implementação do protocolo, iniciaremos carregando os seguintes pacotes e funções. Vale ressaltar que os pacotes nos fornecem os recursos necessários para o desenvolvimento das operações. As funções \py{TensorProduct} (produto tensorial) e \py{sqrt} (raiz quadrada) foram importadas para tornar as operações mais objetivas, já o pacote \py{cmath} auxiliou nas operações com números complexos.
 \begin{pycode}
     import numpy as np
-	import math
-	import sympy
-	from math import sqrt
-	import sys
-	import random
-	import cmath
+    import math
+    import sympy
+    from math import sqrt
+    import sys
+    import random
+    import cmath
 \end{pycode}
+
+\todo[inline]{Não aparece \py{TensorProduct}\ldots}
 
 \section{Qubits iniciais}\label{qubits-iniciais}
 
@@ -29,7 +31,7 @@ Para iniciar o protocolo, iremos definir os possíveis estados de entrada dos qu
 
 \section{Operadores quânticos}\label{operadores-quuxe2nticos}
 
-Devem ser definidos também, todas os operadores ou portas lógicas que atuarão durante o protocolo. São eles os operadores \(\CNOT\), Hadamard, Pauli X, Pauli Z e Identidade. Suas representações matriciais são descritas por:
+Devem ser definidos todos os operadores ou portas lógicas que atuarão durante o protocolo. São eles os operadores \(\CNOT\), Hadamard, Pauli \(\XXX\), Pauli \(\ZZZ\) e Identidade. Suas representações matriciais são descritas por:
 \[ \CNOT =
   \begin{bmatrix}
     1 & 0 & 0 & 0 \\
@@ -42,14 +44,15 @@ Devem ser definidos também, todas os operadores ou portas lógicas que atuarão
   \ZZZ = \begin{bmatrix*}[r] 1 & 0 \\ 0 & -1 \end{bmatrix*} \quad \text{e} \quad
   \III = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix},
 \]
-respectivamente.
+respectivamente. Sua implementação em Python segue.
 \begin{pycode}
     # Variáveis que descrevem os qubits
-    qbit0 = np.matrix([1,0]).transpose()
-    qbit1 = np.matrix([0,1]).transpose()
+    qbit0 = np.matrix([1, 0]).transpose()
+    qbit1 = np.matrix([0, 1]).transpose()
 
     # Variáveis que descrevem os operadores quânticos
-    CNOT = np.matrix([[1,0,0,0],[0,1,0,0],[0,0,0,1],[0,0,1,0]])  # CNOT
+    CNOT = np.matrix([[1, 0, 0, 0],[0, 1, 0, 0],
+                      [0, 0, 0, 1],[0, 0, 1, 0]])  # CNOT
     H = np.matrix([[1, 1], [1, -1]])/sqrt(2)  # Hadamard
     X = np.matrix([[0, 1], [1, 0]])           # Pauli X
     Z = np.matrix([[1, 0], [0, -1]])          # Pauli Z
@@ -81,8 +84,7 @@ Iremos agora definir o estado do qubit que será teletransportado. Para isso, ge
 \]
 atribuímos os valores \(\alpha\) e \(\beta\) às variáveis \py{alfa_inicial} e \py{beta_inicial} respectivamente.
 \begin{pycode}
-    #Informação gerada para teletransporte
-
+# Informação gerada para teletransporte
 def gerar_funcao_psi():
     real_a = np.random.rand()  
     imag_a = np.random.rand()  
@@ -93,23 +95,26 @@ def gerar_funcao_psi():
     a = real_a + imag_a * 1j
     b = real_b + imag_b * 1j
     
-    #Normalização para satisfazer |a|^2 + |b|^2 = 1
+    # Normalização para satisfazer |a|^2 + |b|^2 = 1
     norm = np.sqrt(abs(a)**2 + abs(b)**2)
     a /= norm
     b /= norm
     
-    #Verificação da normalização
+    # Verificação da normalização
     condicao_normalizacao = np.isclose(abs(a)**2 + abs(b)**2, 1)
     
-    #Crie a função psi = a|0⟩ + b|1⟩
+    # Cria a função psi = a|0⟩ + b|1⟩
     psi = a * np.array([1, 0]) + b * np.array([0, 1])
     
     return psi, a, b, condicao_normalizacao
+\end{pycode}
 
+\begin{pycode}
+# Testando a função
 psi, a, b, condicao_normalizacao = gerar_funcao_psi()
 
-alfa_inicial=np.matrix([a,0]).transpose()
-beta_inicial=np.matrix([0,b]).transpose()
+alfa_inicial=np.matrix([a, 0]).transpose()
+beta_inicial=np.matrix([0, b]).transpose()
 
 print(alfa_inicial,beta_inicial)
 \end{pycode}
@@ -137,22 +142,25 @@ Em seguida, a porta \(\HAD\) é aplicada no qubit a ser teletransportado. Sua ap
 \]
 
 \begin{pycode}
-    #Estado geral (produto tensorial entre os estados de todos os qubits do sistema)
-	estado00 = np.kron(qbit0,qbit0)
-	estado01 = np.kron(qbit0, qbit1)
-	estado11 = np.kron(qbit1, qbit1)
-	estado10 = np.kron(qbit1,qbit0)
-	psi_0 = np.kron(estado00,qbit0) + np.kron(estado01, qbit1) + np.kron(estado10, qbit0) + np.kron(estado11,qbit1)
+  # Estado geral (produto tensorial entre os estados
+  # de todos os qubits do sistema)
+  estado00 = np.kron(qbit0,qbit0)
+  estado01 = np.kron(qbit0, qbit1)
+  estado11 = np.kron(qbit1, qbit1)
+  estado10 = np.kron(qbit1,qbit0)
 
-	#Dimensionamento da porta CNOT para 3 qubits
-	CNOT_I = np.kron(CNOT,I)
+  psi_0 = np.kron(estado00,qbit0) + np.kron(estado01, qbit1) +
+          np.kron(estado10, qbit0) + np.kron(estado11,qbit1)
 
-	#Aplicação da porta CNOT
-	psi_1 = CNOT_I * psi_0
+  # Dimensionamento da porta CNOT para 3 qubits
+  CNOT_I = np.kron(CNOT,I)
 
-	#Aplicação da porta Hadamard
-	H_estado_alfa = H * alfa_inicial
-	H_estado_beta = H * beta_inicial
+  # Aplicação da porta CNOT
+  psi_1 = CNOT_I * psi_0
+
+  # Aplicação da porta Hadamard
+  H_estado_alfa = H * alfa_inicial
+  H_estado_beta = H * beta_inicial
 \end{pycode}
 
 Para realizar a medição e a reconstrução do estado inicial, iremos separar os estados associados às probabilidades \(\alpha\) e \(\beta\) de modo que:
@@ -162,34 +170,34 @@ Para realizar a medição e a reconstrução do estado inicial, iremos separar o
   \beta \begin{bmatrix*}[r] 1 \\ -1 \end{bmatrix*} = \beta \begin{bmatrix} 1 \\ 0 \end{bmatrix} - \beta \begin{bmatrix} 0 \\ 1 \end{bmatrix}.
 \]
 \begin{pycode}
-    # Separação dos estados Alfa e Beta
-		estadoa0 = H_estado_alfa[0][0]
-		estadoa1 = H_estado_alfa[1][0]
-		estadob0 = H_estado_beta[0][0]
-		estadob1 = H_estado_beta[1][0]
+  # Separação dos estados Alfa e Beta
+  estadoa0 = H_estado_alfa[0][0]
+  estadoa1 = H_estado_alfa[1][0]
+  estadob0 = H_estado_beta[0][0]
+  estadob1 = H_estado_beta[1][0]
 
-	# Determinação dos estados do qbit enviado
-		a0 = np.array([complex(estadoa0[0]), 0])
-		a1 = np.array([0, complex(estadoa1[0])])
-		b0 = np.array([complex(estadob0[0]), 0])
-		b1 = np.array([0, complex(estadob1[0])])
+  # Determinação dos estados do qbit enviado
+  a0 = np.array([complex(estadoa0[0]), 0])
+  a1 = np.array([0, complex(estadoa1[0])])
+  b0 = np.array([complex(estadob0[0]), 0])
+  b1 = np.array([0, complex(estadob1[0])])
 \end{pycode}
 
-Para realizar a medição, foram estabelecidos os possíveis estados presentes em \(A\), e um deles foi escolhido de maneira aleatória, lembrando que a probabilidade de colapso em cada um dos estados é de \(\frac{1}{4}\). Os estados que não foram escolhidos foram deletados, simulando o colapso do sistema.
+Para realizar a medição, foram estabelecidos os possíveis estados presentes em \(A\), e um deles foi escolhido de maneira aleatória, lembrando que a probabilidade de colapso em cada um dos estados é de \(1/4\). Os estados que não foram escolhidos são deletados, simulando o colapso do sistema.
 \begin{pycode}
-    #Medição
-	estado_00 = np.kron(qbit0, qbit0)
-	estado_11 = np.kron(qbit1, qbit1)
-	estado_10 = np.kron(qbit1, qbit0)
-	estado_01 = np.kron(qbit0, qbit1)
+  # Medição
+  estado_00 = np.kron(qbit0, qbit0)
+  estado_11 = np.kron(qbit1, qbit1)
+  estado_10 = np.kron(qbit1, qbit0)
+  estado_01 = np.kron(qbit0, qbit1)
 
-	group_estados = [estado_00,estado_11,estado_10,estado_01]
-	chosen_estados = random.choice(group_estados)
-	Medição = chosen_estados
+  group_estados = [estado_00,estado_11,estado_10,estado_01]
+  chosen_estados = random.choice(group_estados)
+  Medição = chosen_estados
 
-	del estado_00, estado_11, estado_10, estado_01
+  del estado_00, estado_11, estado_10, estado_01
 
-	print(Medição)
+  print(Medição)
 \end{pycode}
 As etapas a seguir acontecem no local \(B\) com o qubit do par emaranhado. Segundo o estado colapsado enviado por \(A\), o qubit em \(B\) terá um estado correspondente de acordo com a relação:
 \begin{center}
@@ -205,39 +213,39 @@ As etapas a seguir acontecem no local \(B\) com o qubit do par emaranhado. Segun
   \end{tabular}
 \end{center}
 \begin{pycode}
-    #Definição do estado em B em função da medição realizada em A
-	if  np.all(Medição == (np.kron(qbit0,qbit0))):
-    		estado_tp = (a0-b1)
-	elif  np.all(Medição == (np.kron(qbit1,qbit1))):
-    		estado_tp = (a1-b0)
-	elif  np.all(Medição == (np.kron(qbit0,qbit1))):
-   		estado_tp = (a1+b0)
-	elif np.all(Medição == (np.kron(qbit1,qbit0))):
-    		estado_tp = (a0+b1)
+  # Definição do estado em B em função da medição realizada em A
+  if np.all(Medição == np.kron(qbit0,qbit0)):
+      estado_tp = (a0-b1)
+  elif np.all(Medição == np.kron(qbit1,qbit1)):
+      estado_tp = (a1-b0)
+  elif np.all(Medição == np.kron(qbit0,qbit1)):
+      estado_tp = (a1+b0)
+  elif np.all(Medição == np.kron(qbit1,qbit0)):
+      estado_tp = (a0+b1)
     
-	estado_tp1=estado_tp.reshape(2,1)   
-	print(estado_tp1)
-		
-	#Determina o estado associado à medição	
-		if np.all(estado_tp == (a0-b1)):
-    			estado_final = estado_tp1
-		elif np.all(estado_tp == (a1-b0)):
-    			estado_final = Z * X * estado_tp1 
-		elif np.all(estado_tp == (a1+b0)):
-   			estado_final = X * estado_tp1 
-		elif np.all(estado_tp == (a0+b1)):
-   			estado_final = Z * estado_tp1 
+  estado_tp1=estado_tp.reshape(2,1)
+  print(estado_tp1)
+
+  # Determina o estado associado à medição
+  if np.all(estado_tp == a0-b1):
+      estado_final = estado_tp1
+  elif np.all(estado_tp == a1-b0):
+      estado_final = Z * X * estado_tp1
+  elif np.all(estado_tp == a1+b0):
+      estado_final = X * estado_tp1
+  elif np.all(estado_tp == a0+b1):
+      estado_final = Z * estado_tp1
     
-	estado_teletransportado = estado_final*sqrt(2)    
+  estado_teletransportado = estado_final*sqrt(2)
 
-	alfa = np.array(estado_teletransportado[0][0])
-	beta = np.array(estado_teletransportado[1][0])
+  alfa = np.array(estado_teletransportado[0][0])
+  beta = np.array(estado_teletransportado[1][0])
 
-	alfa_final = np.matrix([complex(alfa),0]).transpose()
-	beta_final = np.matrix([0,complex(beta)]).transpose()
+a  lfa_final = np.matrix([complex(alfa), 0]).transpose()
+b  eta_final = np.matrix([0, complex(beta)]).transpose()
 \end{pycode}
 
-Agora, de acordo com o estado associado em \(B\), uma sequência de operações deverão ser realizadas conforme a relação:
+Agora, de acordo com o estado associado em \(B\), uma sequência de operações deverá ser realizadas conforme a relação:
 \begin{center}
   \begin{tabular}{cc}
     \toprule
@@ -251,44 +259,44 @@ Agora, de acordo com o estado associado em \(B\), uma sequência de operações 
   \end{tabular}
 \end{center}
 
-Se durante o processo, algum ruído ocorresse, o estado do qubit teletransportado seria alterado. A simulação de uma interação com os ruídos \emph{bitflip} e \emph{phaseflip} foi implementada de modo que o usuário pode selecionar se o teletransporte teve ou não ruído e em caso afirmativo, qual ruído ocorreu. O ruído do tipo \emph{bitflip} inverte o estado do qubit, ou seja, se este era \(\ket{0}\) passa a ser \(\ket{1}\) e vice-versa. O ruído do tipo \emph{phaseflip} inverte a fase do qubit.
+Se durante o processo, algum ruído ocorresse, o estado do qubit teletransportado seria alterado. A simulação de uma interação com os ruídos \emph{bitflip} e \emph{phaseflip} foi implementada de modo a permitir ao usuário escolher se o teletransporte teve ou não ruído e em caso afirmativo, qual ruído ocorreu. O ruído do tipo \emph{bitflip} inverte o estado do qubit, ou seja, se este era \(\ket{0}\) passa a ser \(\ket{1}\) e vice-versa. O ruído do tipo \emph{phaseflip} inverte a fase do qubit.
 
 \begin{pycode}
-    # Aplicação de ruído
-    # Determinando os ruídos
-    bitflip = np.matrix([[0, 1], [1, 0]])
-    phaseflip = np.matrix([[1, 0], [0, -1]])
-    noisebit = 0
+  # Aplicação de ruído
+  # Determinando os ruídos
+  bitflip = np.matrix([[0, 1], [1, 0]])
+  phaseflip = np.matrix([[1, 0], [0, -1]])
+  noisebit = 0
 
-    # Escolha do ruído aplicado
-    while True:
-        print('Escolha o ruído:')
-        noise = input('[0]- sem ruído, [1]- bitflip, [2]- phaseflip: ')
-        if noise in ['0', '1', '2']:
-            noise = int(noise)
-            break
-        else:
-            print("Opção inválida. Por favor, digite 0, 1 ou 2.")
+  # Escolha do ruído aplicado
+  while True:
+      print('Escolha o ruído:')
+      noise = input('[0]- sem ruído, [1]- bitflip, [2]- phaseflip: ')
+      if noise in ['0', '1', '2']:
+          noise = int(noise)
+          break
+      else:
+          print("Opção inválida. Por favor, digite 0, 1 ou 2.")
 
-    if noise == 1:
-        noisebit = bitflip
-    elif noise == 2:
-        noisebit = phaseflip
-    elif noise == 0:
-        noisebit = 1
+  if noise == 1:
+      noisebit = bitflip
+  elif noise == 2:
+      noisebit = phaseflip
+  elif noise == 0:
+      noisebit = 1
 
-    aplicação_noise_a = noisebit * alfa_final
-    aplicação_noise_b = noisebit * beta_final
+  aplicação_noise_a = noisebit * alfa_final
+  aplicação_noise_b = noisebit * beta_final
 
-    alfa_noise = aplicação_noise_a
-    beta_noise = aplicação_noise_b
+  alfa_noise = aplicação_noise_a
+  beta_noise = aplicação_noise_b
 
-    alfa_final = alfa_noise
-    beta_final = beta_noise
-    
-    alfa_final = alfa_noise.reshape(2,1).astype(complex)
-	beta_final = beta_noise.reshape(2,1).astype(complex)
-	Info_TP = (alfa_final+beta_final)
+  alfa_final = alfa_noise
+  beta_final = beta_noise
+
+  alfa_final = alfa_noise.reshape(2,1).astype(complex)
+  beta_final = beta_noise.reshape(2,1).astype(complex)
+  Info_TP = (alfa_final+beta_final)
 \end{pycode}
 
 Por fim, para verificar se o teletransporte funcionou e ainda, se houve ou não ruído e qual a natureza deste, a sequência de testes abaixo foi implementada. Neles, comparamos os estados associados as probabilidades \(\alpha\) e \(\beta\) antes (inicial) e depois (final) do teletransporte.
@@ -312,3 +320,5 @@ Por fim, para verificar se o teletransporte funcionou e ainda, se houve ou não 
 \end{pycode}
 
 Vale ressaltar que o protocolo acima é uma simplificação de uma situação real e tem como finalidade compreender os procedimentos associados a ele.
+
+% protoc-teletrans.tex

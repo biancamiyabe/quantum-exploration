@@ -504,11 +504,13 @@ A última etapa do protocolo ocorre em \(B\), na tentativa de reconstruir a mens
 A porta lógica quântica \(\XXX\) deve trocar os estados quânticos, ou seja, torná-lo 1 quando este for 0 e torná-lo 0, quando este for 1.
 \end{definition}
 
+\todo[inline]{Você não havia falado de \textbf{fase} ainda. O que é, e o que significa negativa e positiva?}
+
 \begin{definition}{Operação \(\ZZZ\)}{Z}
 A porta lógica quântica \(\ZZZ\) deve inverter a fase do estado quântico, ou seja, torná-la negativa quando esta for positiva e torná-la positiva quando esta for negativa.
 \end{definition}
 
-A aplicação das portas dependerá do resultado da medida enviado por \(A\), seguindo o estipulado na Tabela~\ref{tab:acao-das-portas}. Com isso, o protocolo se encerra e a mensagem é teletransportada do ponto \(A\) para o ponto \(B\), sem que nenhum teorema da física quântica seja violado.
+A aplicação das portas dependerá do resultado da medida enviado por \(A\), seguindo o estipulado na Tabela~\ref{tab:acao-das-portas}. Com isso, o protocolo se encerra e a mensagem é teletransportada do ponto \(A\) para o ponto \(B\), sem que nenhum teorema da Física Quântica seja violado.
 
 \begin{table}[ht!]
   \centering
@@ -528,7 +530,7 @@ A aplicação das portas dependerá do resultado da medida enviado por \(A\), se
 
 \section{Ruídos em sistemas clássicos e quânticos}\label{sec:ruidos}
 
-Segundo \textcite{conceitoinformação}, o conceito de informação possui seu significado cotidianamente atribuído como \textit{conhecimento comunicado}. Nesse sentido, a informação já existia nas pinturas rupestres há cerca de \num{45.5} mil anos atrás, nas quais estão registradas uma série de imagens no intuito de comunicar, seja um evento ou ainda uma quantidade. Apesar do conceito de informação aparecer desde os primórdios do estabelecimento da humanidade, é apenas na década de 1940 que esta passa a ser objeto de estudo com os trabalhos de Claude Elwood Shannon (1916--2001), que desenvolve uma teoria matemática para a informação \cite{CiênciaTransiçãoSeculosa}.
+Segundo \textcite{conceitoinformação}, o conceito de informação possui seu significado cotidianamente atribuído como \textit{conhecimento comunicado}. Nesse sentido, a informação já existia nas pinturas rupestres há cerca de \num{45.5} mil anos atrás, nas quais estão registradas uma série de imagens no intuito de comunicar, seja um evento, seja uma quantidade. Apesar do conceito de informação aparecer desde os primórdios do estabelecimento da humanidade, é apenas na década de 1940 que esta passa a ser objeto de estudo com os trabalhos de Claude Elwood Shannon (1916-2001), que desenvolve uma teoria matemática para a informação \cite{CiênciaTransiçãoSeculosa}.
 
 O objetivo principal da Teoria da Comunicação de Shannon ou \textit{Teoria Matemática da Comunicação} (TMC), era sistematizar o conhecimento acumulado até então acerca da eficiência em sistemas de comunicação, ou seja, de como a informação é transmitida. A teoria descreve o funcionamento lógico-matemático de um destes sistemas, composto por um gerador de informação, um meio de transmissão e um receptor, conforme ilustra a Figura~\ref{comunicshannon} \cite{MTC}.
 
@@ -573,3 +575,5 @@ Segundo \textcite{teseufscar}, os principais tipos de ruídos associados à deco
 \end{description}
 
 Conhecendo portanto os ruídos, é possível construir mecanismos que os neutralizem durante o processamento da informação quântica, ressaltando mais uma vez que a informação, antes de ser medida, é reversível nesse sistema.
+
+% teoria.tex

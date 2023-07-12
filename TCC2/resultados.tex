@@ -9,13 +9,13 @@
 %%%
 \chapter{Resultados}
 
-Para aferir a implementação proposta, será apresentado um exemplo com os valores atribuídos de $\alpha = {0.75+0i}$ e $\beta = {+0.25i}$, teremos que a mensagem a ser enviada é descrita por:
+Para aferir a implementação proposta, será apresentado um exemplo com os valores atribuídos de $\alpha = {0.75+0i}$ e $\beta = {0+0.25i}$. Assim, a mensagem a ser enviada é descrita por:
 \begin{equation}
   \ket{\psi} =  \begin{bmatrix} {0.75+0i} \\ 0 \end{bmatrix} +
   \begin{bmatrix} 0 \\ {0+0.25i} \end{bmatrix} =
   \begin{bmatrix} {0.75+0i} \\ {0+0.25i} \end{bmatrix}.
 \end{equation}
-O estado $\ket{\psi_0}$ descrito pela Equação~\eqref{eq:psi0} é descrito por:
+O estado $\ket{\psi_0}$ descrito pela Equação~\eqref{eq:psi0} torna-se:
 \begin{equation}
   \ket{\psi_0} = \ket{\psi}\ket{\beta_{00}} =
   \begin{bmatrix} {0.75+0i} \\ {0+0.25i} \end{bmatrix}
@@ -59,7 +59,7 @@ Somando todos os estados possíveis temos:
 Aplicando a porta \(\CNOT\)
 \begin{equation}
   \begin{split}
-    \CNOT (\ket{\alpha_{00}}\ket{\alpha_{01}}\ket{\beta_{00}}\ket{\beta_{11}}) &=
+    \CNOT (\ket{\alpha_{00}}+\ket{\alpha_{01}}+\ket{\beta_{00}}+\ket{\beta_{11}}) &=
     \begin{bmatrix}
     1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
     0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
@@ -75,7 +75,7 @@ Aplicando a porta \(\CNOT\)
   \end{split}
 \end{equation}
 
-Reorganizando o estado $\ket{\psi_1}$ temos, segundo~\eqref{eq:psi1}
+Reorganizando o estado $\ket{\psi_1}$ temos, segundo~\eqref{eq:psi1},
 \begin{equation}
   \ket{\psi_1} = \frac{1}{\sqrt{2}} \left\{ \begin{bmatrix} {0.75+0i} \\ 0 \end{bmatrix} \otimes
     \left(
@@ -90,15 +90,18 @@ Reorganizando o estado $\ket{\psi_1}$ temos, segundo~\eqref{eq:psi1}
 \end{equation}
 Aplicando a porta \(\HAD\):
 \begin{equation}
-  \HAD \ket{\psi} = \frac{1}{\sqrt{2}}
-  \begin{bmatrix*}[r] 1 & 1 \\ 1 & -1 \end{bmatrix*}
-  \frac{1}{\sqrt{2}}\left(
-    \begin{bmatrix} {0.75+0i} \\ 0 \end{bmatrix} +
-    \begin{bmatrix} 0 \\ {0+0.25i} \end{bmatrix} \right) =
-  \frac{1}{2} \left( \begin{bmatrix} {0.75+0i} \\ {0.75+0i} \end{bmatrix} +
-    \beta \begin{bmatrix*}[r] {0+0.25i} \\ -{0+0.25i} \end{bmatrix*} \right).
+  \label{eq:1}
+  \begin{aligned}
+    \HAD \ket{\psi_{1}} &= \frac{1}{\sqrt{2}}
+                          \begin{bmatrix*}[r] 1 & 1 \\ 1 & -1 \end{bmatrix*}
+                          \frac{1}{\sqrt{2}}\left(
+                          \begin{bmatrix} {0.75+0i} \\ 0 \end{bmatrix} +
+                          \begin{bmatrix} 0 \\ {0+0.25i} \end{bmatrix} \right)\\
+                        &= \frac{1}{2} \left(
+                          \begin{bmatrix} {0.75+0i} \\ {0.75+0i} \end{bmatrix} +
+                          \beta \begin{bmatrix*}[r] {0+0.25i} \\ -{0+0.25i} \end{bmatrix*} \right).
+  \end{aligned}
 \end{equation}
-
 Reorganizando os resultados para definir o estado $\ket{\psi_2}$ temos
 \begin{equation}
  \begin{split}
@@ -163,6 +166,7 @@ Para reconstruir o estado, aplicando as condições descritas na Tabela~\ref{tab
         \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix} \begin{bmatrix} {0+0.25i} \\ {0.75+0i} \end{bmatrix} = \begin{bmatrix} {0.75+0i} \\ {0+0.25i} \end{bmatrix}.
         \]
 \end{enumerate}
+
 Todos os estados recuperados são iguais aos estados enviados e portanto a dedução apresentada no Apêndice~\ref{app:matricial} pode ser utilizada como um guia para um programa que automatize tais operações.
 \begin{table}[ht!]
   \centering
@@ -178,6 +182,8 @@ Todos os estados recuperados são iguais aos estados enviados e portanto a dedu�
     \bottomrule
   \end{tabular}
 \end{table}
-O protocolo de teletransporte quântico elaborado, possuí como entradas os valores de probabilidade associados ao estado que se deseja teletransportar e como saída a comparação deste com possíveis interações com ruídos. O impacto da introdução de ruídos no processo de teletransporte quântico foi analisado comparando as variáveis iniciais e finais do protocolo para as amplitudes de probabilidades $\alpha$ e $\beta$ de modo que os estados obtidos em cada situação estão apresentados na Tabela~\ref{tab:resultadoruidos}.
+O protocolo de teletransporte quântico apresentado possui como entradas os valores de probabilidade associados ao estado que se deseja teletransportar, e como saída a comparação deste com possíveis interações com ruídos. O impacto da introdução de ruídos no processo de teletransporte quântico foi analisado comparando as variáveis iniciais e finais do protocolo para as amplitudes de probabilidades $\alpha$ e $\beta$ de modo que os estados obtidos em cada situação estão apresentados na Tabela~\ref{tab:resultadoruidos}.
 
-Portanto, de acordo com o resultado obtido pelo protocolo, é possível saber se o protocolo foi realizado ou não na presença de ruídos, e ainda, qual o tipo de ruído interferiu no estado que foi teletransportado.
+Portanto, de acordo com o resultado obtido pelo protocolo, é possível saber se ele foi realizado na presença ou não de ruídos, e ainda qual o tipo de ruído interferiu no estado que foi teletransportado.
+
+% resultados.tex

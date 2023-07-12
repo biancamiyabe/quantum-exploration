@@ -10,13 +10,13 @@
 
 \chapter{Metodologia}
 
-Para iniciar o desenvolvimento de um protocolo de teletransporte quântico, realizou-se a dedução do mesmo em forma matricial, conforme apresentado detalhadamente no Apêndice~\ref{app:matricial}.
+Para iniciar o desenvolvimento de um protocolo de teletransporte quântico, realizou-se a dedução do mesmo em forma matricial, conforme apresentado de forma detalhada no Apêndice~\ref{app:matricial}.
 
-Para alcançar o objetivo deste trabalho, ou seja, construir uma simulação de um teletransporte quântico, foi necessário decidir a linguagem a ser utilizada para o projeto. A escolha da linguagem Python (versão 3.11) se deveu ao fato dela ser amplamente utilizada para simular situações físicas e possuir uma série de pacotes abrangendo as mais diversas áreas do conhecimento. Os principais pacotes utilizados no projeto foram \py{sympy} \cite{sympy}, \py{numpy} \cite{harris2020array}, \py{math}\footnote{\url{https://docs.python.org/3/library/math.html}}, \py{sys}\footnote{\url{https://docs.python.org/3/library/sys.html}} e \py{random}\footnote{\url{https://docs.python.org/3/library/random.html}}, e sua utilização será explicitada durante a explicação das etapas do código fonte. Antes de iniciar a construção do código, foi necessário analisar a estrutura de dados que seria utilizada e a escolhida foi a representação matricial. Essa escolha foi fundamentada no fato de que desse modo, as operações binárias ficam mais explícitas, facilitando a compreensão do protocolo.
+Para alcançar o objetivo neste trabalho, ou seja, construir uma simulação de um teletransporte quântico, foi necessário decidir a linguagem a ser utilizada para o projeto. A escolha da linguagem Python (versão 3.11) deveu-se ao fato dela ser amplamente utilizada para simular situações físicas e possuir uma série de pacotes abrangendo as mais diversas áreas do conhecimento. Os principais pacotes utilizados no projeto foram \py{sympy}\footnote{\url{https://www.sympy.org/}} \cite{sympy}, \py{numpy}\footnote{\url{https://numpy.org}} \cite{harris2020array}, \py{math}\footnote{\url{https://docs.python.org/3/library/math.html}}, \py{sys}\footnote{\url{https://docs.python.org/3/library/sys.html}} e \py{random}\footnote{\url{https://docs.python.org/3/library/random.html}}, e sua utilização será explicitada durante a explicação das etapas do código fonte. Antes de iniciar a construção do código, foi necessário analisar a estrutura de dados que seria utilizada e a escolhida foi a representação matricial. Essa escolha foi fundamentada no fato de que desse modo as operações binárias ficam mais explícitas, facilitando a compreensão do protocolo.
 
 De posse da estrutura de dados a ser operacionalizada, da linguagem de programação e dos pacotes necessários, foi desenvolvido o código apresentado no Apêndice~\ref{app:protocolo}. Vamos detalhar as operações e correlacioná-las a seguir.
 
-A primeira etapa da elaboração do protocolo consistiu em importar as funções e pacotes necessários como a \py{kron} em \py{numpy}. Essa função irá facilitar a realização dos produtos tensoriais durante o desenvolvimento do protocolo.
+A primeira etapa da elaboração do protocolo consistiu em importar as funções e pacotes necessários como a \py{kron()} em \py{numpy}. Essa função irá facilitar a realização dos produtos tensoriais durante o desenvolvimento do protocolo.
 
 Em seguida é feita a criação das variáveis que descrevem os estados quânticos $\ket{0}$ e $\ket{1}$ com o auxílio da classe \py{numpy.matrix}, que cria matrizes a partir de listas, como pode ser conferido na Tabela~\ref{tab:cria_quant}.
 
@@ -27,12 +27,12 @@ Em seguida é feita a criação das variáveis que descrevem os estados quântic
     \toprule
     Estado    & Python                                    \\
     \midrule
-    $\ket{0}$ & \py{qbit0 = np.matrix([1,0]).transpose()} \\
-    $\ket{1}$ & \py{qbit1 = np.matrix([0,1]).transpose()} \\
+    $\ket{0}$ & \py{qbit0 = np.matrix([1, 0]).transpose()} \\
+    $\ket{1}$ & \py{qbit1 = np.matrix([0, 1]).transpose()} \\
     \bottomrule
   \end{tabular}
 \end{table}
-Foram estabelecidas também as variáveis que representam os operadores quânticos, para a porta \(\HAD\), \(\CNOT\), \(\III\), \(\XXX\) e \(\ZZZ\) foram criadas as variáveis \py{H}, \py{CNOT}, \py{I}, \py{X} e \py{Z}, respectivamente, de acordo com a Tabela~\ref{tab:op_quant}.
+Foram estabelecidas também as variáveis que representam os operadores quânticos. Para as portas \(\HAD\), \(\CNOT\), \(\III\), \(\XXX\) e \(\ZZZ\) foram criadas as variáveis \py{H}, \py{CNOT}, \py{I}, \py{X} e \py{Z}, respectivamente, de acordo com a Tabela~\ref{tab:op_quant}.
 
 \begin{table}[ht!]
   \centering
@@ -41,41 +41,41 @@ Foram estabelecidas também as variáveis que representam os operadores quântic
     \toprule
     Operador  & Python                                                           \\
     \midrule
-    \(\HAD\)  & \py{H = 1/sqrt(2)*(np.matrix([[1,1], [1,-1]]))}                  \\
-    \(\CNOT\) & \py{CNOT = np.matrix([[1,0,0,0],[0,1,0,0],[0,0,0,1],[0,0,1,0]])} \\
-    \(\III\)  & \py{I = np.matrix ([[1,0], [0,1]])}                              \\
+    \(\HAD\)  & \py{H = 1/sqrt(2)*(np.matrix([[1, 1], [1, -1]]))}                  \\
+    \(\CNOT\) & \py{CNOT = np.matrix([[1, 0, 0, 0],[0, 1, 0, 0],[0, 0, 0, 1],[0, 0, 1, 0]])} \\
+    \(\III\)  & \py{I = np.matrix ([[1, 0], [0, 1]])}                              \\
     \(\XXX\)  & \py{X = np.matrix([[0, 1], [1, 0]])}                             \\
     \(\ZZZ\)  & \py{Z = np.matrix([[1, 0], [0, -1]])}                            \\
     \bottomrule
   \end{tabular}
 \end{table}
 
-Conforme a Figura~\ref{fig:protocoloteletransporte}, a primeira operação realizada é o emaranhamento de dois qubits, que no nosso caso, estão emaranhados pelo estado $\ket{00}$. Iniciamos portanto, com a aplicação da porta \(\HAD\) no qubit $\ket{q_x}$ que está no estado $\ket{0}$, para isso, criou-se a variável \py{Hqbit0} como \py{H*qbit0}. Nesse momento, os resultados obtidos são comparáveis com a Equação~\eqref{eq:Hqbit0}.
+Conforme a Figura~\ref{fig:protocoloteletransporte}, a primeira operação realizada é o emaranhamento de dois qubits, que no nosso caso, estão emaranhados pelo estado $\ket{00}$. Iniciamos portanto, com a aplicação da porta \(\HAD\) no qubit $\ket{q_x}$ que está no estado $\ket{0}$. Para isso, criou-se a variável \py{Hqbit0 = H*qbit0}. Nesse momento, os resultados obtidos são comparáveis com a Equação~\eqref{eq:Hqbit0}.
 
-Em seguida, a porta \(\CNOT\) deve ser aplicada e a definição dos qubits alvo e controle foi implementada na variável \py{AC} e é definida por \py{AC= TP(Hqbit0, qbit0)}, ou seja, o produto tensorial de todos os estados possíveis dentro do sistema. A aplicação de \(\CNOT\) resulta na base de Bell no estado $\ket{00}$ e é obtida na variável \py{Bell00 = CNOT * AC}. Nesse momento, temos o sistema descrito pela base de Bell da mesma forma da Equação~\eqref{eq:matrizbell00}.
+Em seguida, a porta \(\CNOT\) deve ser aplicada. A definição dos qubits alvo e controle foi implementada na variável \py{AC}, definida por \py{AC = TP(Hqbit0, qbit0)}, onde \py{TP} é o produto tensorial (do Inglês, \textit{tensor product}) de todos os estados possíveis dentro do sistema. A aplicação de \(\CNOT\) resulta na base de Bell no estado $\ket{00}$ e é obtida na variável \py{Bell00 = CNOT * AC}. Nesse momento, temos o sistema descrito pela base de Bell da mesma forma da Equação~\eqref{eq:matrizbell00}.
 
-No protocolo construído, são associados às variáveis $\alpha$ e $\beta$, valores aleatórios para sua parte real e imaginária. Para tal, utiliza-se \py{np.random.rand()}. Note que, como a superposição de estados tem natureza probabilística, e para que a condição de normalização $|\alpha|² + |\beta|² = 1$ seja satisfeita, os vetores são normalizados pela relação $\widehat{v}= \frac{\vec{v}}{|v|}$ e assim, determinamos os estados iniciais \py{alfa_inicial, beta_inicial}.
+No protocolo construído, são associados valores aleatórios às variáveis $\alpha$ e $\beta$, para suas partes reais e imaginárias. Para tal, utiliza-se o pacote \py{random} de geração de números aleatórios, com a função \py{rand()}: \py{np.random.rand()}. Note que, como a superposição de estados tem natureza probabilística, e para que a condição de normalização $\lvert\alpha\rvert² + \lvert\beta\rvert² = 1$ seja satisfeita, os vetores são normalizados pela relação $\widehat{v} = \vec{v}/\lvert v\rvert$ e assim, determinamos os estados iniciais \py{alfa_inicial, beta_inicial}.
 
 A próxima etapa do protocolo consiste na aplicação da porta \(\CNOT\) nos três qubits que compõem o estado geral do sistema. Os três qubits são o estado inicial a ser teletransportado atuando como controle e o par emaranhado atuando como alvo. A atuação ocorre apenas no qubit presente no local \(A\), porém afeta probabilisticamente o qubit no local \(B\). Para definir o estado geral são somados os produtos tensoriais de todos os estados dos qubits com sua representação no código descrita como
 \begin{pycode}
-  psi_0 = np.kron(estado00,qbit0) + np.kron(estado01, qbit1)\\
-   + np.kron(estado10, qbit0) + np.kron(estado11,qbit1)
+  psi_0 = np.kron(estado00, qbit0) + np.kron(estado01, qbit1)
+        + np.kron(estado10, qbit0) + np.kron(estado11, qbit1)
 \end{pycode}
-Em seguida, a porta \(\CNOT\) é dimensionada para atuar sob três qubits com a realização do produto tensorial entre \(\CNOT\) e \(\III\) e por último multiplicamos a porta \(\CNOT\) pela soma dos estados dos qubits. Portanto, o estado $\ket{\psi_1}$ é operacionalizado pela multiplicação da porta \(\CNOT\) dimensionada no estado $\ket{\psi_0}$ ficando evidenciada em \py{psi_1 = CNOT * psi_0}.
+Em seguida, a porta \(\CNOT\) é dimensionada para atuar sob três qubits com a realização do produto tensorial entre \(\CNOT\) e \(\III\) e por último multiplicamos a porta \(\CNOT\) pela soma dos estados dos qubits. Portanto, o estado $\ket{\psi_1}$ é operacionalizado pela multiplicação da porta \(\CNOT\) dimensionada no estado $\ket{\psi_0}$ sendo armazenada em \py{psi_1 = CNOT * psi_0}.
 
 Para proceder com a aplicação da porta Hadamard no qubit de mensagem, os estados associados a $\alpha$ e $\beta$ foram separados e a porta aplicada em cada um deles individualmente pelas multiplicações
 \begin{pycode}
   H_estado_alfa = H * alfa_inicial
   H_estado_beta = H * beta_inicial
 \end{pycode}
-Com esses resultados, foram reestruturados os estados $\alpha\ket{0}, \alpha\ket{1}, \beta\ket{0},$ e $\beta\ket{1}$ conforme é explicitado na Equação~\eqref{eq:alfabetasoma}. Para isso, foram construídas quatro variáveis, uma para cada estado nomeadas \py{estadoa0}, \py{estadoa1}, \py{estadob0} e \py{estadob1}, cada uma dessas variáveis recupera a posição do valor das matrizes \py{H_estado_alfa} e \py{H_estado_beta} para satisfazer a condição dada em~\eqref{eq:alfabetasoma}, ou seja, o primeiro elemento da matriz está associado aos estados $\alpha\ket{0}$ e $\beta\ket{0}$ e o segundo elemento da matriz associado aos estados $\alpha\ket{1}$ e $\beta\ket{1}$. Essa associação é feita pela posição do elemento na matriz, lembrando que a contagem de matrizes em Python inicia em 0 de modo que as variáveis foram definidas como:
+Com esses resultados, foram reestruturados os estados $\alpha\ket{0}, \alpha\ket{1}, \beta\ket{0},$ e $\beta\ket{1}$ conforme a Equação~\eqref{eq:alfabetasoma}. Para esse fim, foram construídas quatro variáveis, uma para cada estado, nomeadas \py{estadoa0}, \py{estadoa1}, \py{estadob0} e \py{estadob1}. Cada uma delas recupera a posição do valor das matrizes \py{H_estado_alfa} e \py{H_estado_beta} para satisfazer a condição dada em~\eqref{eq:alfabetasoma}, ou seja, o primeiro elemento da matriz está associado aos estados $\alpha\ket{0}$ e $\beta\ket{0}$ e o segundo elemento da matriz associado aos estados $\alpha\ket{1}$ e $\beta\ket{1}$. Essa associação é feita pela posição do elemento na matriz (a indexação de matrizes em Python inicia em 0) de modo que as variáveis foram definidas como:
 \begin{pycode}
-  estadoa0 = (H_estado_alfa[0][0])
-  estadoa1 = (H_estado_alfa[1][0])
-  estadob0 = (H_estado_beta[0][0])
-  estadob1 = (H_estado_beta[1][0])
+  estadoa0 = H_estado_alfa[0][0]
+  estadoa1 = H_estado_alfa[1][0]
+  estadob0 = H_estado_beta[0][0]
+  estadob1 = H_estado_beta[1][0]
 \end{pycode}
-Em seguida, recriamos as matrizes que representam os estados de posse dos elementos localizados anteriormente, temos portanto:
+Em seguida, recriamos as matrizes que representam os estados de posse dos elementos localizados anteriormente:
 \begin{pycode}
   a0 = np.array([complex(estadoa0[0]), 0])
   a1 = np.array([0, complex(estadoa1[0])])
@@ -89,59 +89,63 @@ Nesse momento temos em nosso código dois estados separados para $\ket{\psi_2}$,
   estado_10 = np.kron(qbit1, qbit0)
   estado_01 = np.kron(qbit0, qbit1)
 \end{pycode}
-Para simular a operação de medição, criamos uma lista de variáveis, armazenada na variável \py{group_estados}, determinamos com a função \py{random} a escolha de um desses estados de maneira aleatória, armazenamos a escolha na variável \py{Medição} e utilizando o comando \py{del} apagamos todos os estados, simulando o colapso do sistema após a medida.
+Para simular a operação de medição, criamos uma lista de variáveis em \py{group_estados}, e escolhemos aleatoriamente com o pacote \py{random} um desses estados. Esta escolha é armazenada na variável \py{Medição} e utilizando o comando \py{del} apagamos todos os estados, simulando o colapso do sistema após a medida.
+
+\todo[inline]{Qual a diferença entre \py{kron} e \py{TP}?}
 
 Para reconstruir a mensagem, a condição estabelecida foi associar o estado medido armazenado na variável \py{Medição} com o estado da mensagem baseando-se na Equação~\eqref{eq:final}, pela relação apresentada na Tabela~\ref{tab:medidas}. O código para essa implementação é apresentado na Listagem~\ref{lst:teleA}.
 
 \begin{listing}[ht!]
   \caption{Relação de condição para o estado teletransportado em função do estado medido em~\(A\).}\label{lst:teleA}
   \begin{pycode}
-      if  np.all(Medição == (np.kron(qbit0,qbit0))):
-    estado_tp = (a0-b1)
-	  elif  np.all(Medição == (np.kron(qbit1,qbit1))):
-    estado_tp = (a1-b0)
-      elif  np.all(Medição == (np.kron(qbit0,qbit1))):
-    estado_tp = (a1+b0)
-      elif np.all(Medição == (np.kron(qbit1,qbit0))):
-    estado_tp = (a0+b1)
+  if np.all(Medição == np.kron(qbit0,qbit0)):
+      estado_tp = (a0-b1)
+  elif np.all(Medição == np.kron(qbit1,qbit1)):
+      estado_tp = (a1-b0)
+  elif np.all(Medição == np.kron(qbit0,qbit1)):
+      estado_tp = (a1+b0)
+  elif np.all(Medição == np.kron(qbit1,qbit0)):
+      estado_tp = (a0+b1)
   \end{pycode}
 \end{listing}
 
-Com a variável \py{estado_tp} temos portando o estado que o qubit no local \(B\) possui. Reorganizamos sua apresentação para que seja apresentado como uma matriz coluna com a função \py{estado_tp1=estado_tp.reshape(2,1)}. Para recuperar a mensagem, iremos aplicar as matrizes de Pauli, seguindo as relações propostas na Tabela~\ref{tab:acao-das-portas}. A condição estabelecida é dada pelo código da Listagem~\ref{lst:condPauli}.
+A variável \py{estado_tp} passa a representar, portanto, o estado do qubit no local \(B\). A variável é reorganizada como uma matriz coluna com a função \py{estado_tp1 = estado_tp.reshape(2, 1)}. Para recuperar a mensagem iremos aplicar as matrizes de Pauli, seguindo as relações propostas na Tabela~\ref{tab:acao-das-portas}. A condição estabelecida é dada pelo código da Listagem~\ref{lst:condPauli}.
 
 \begin{listing}[ht!]
-  \caption{Relação de condição para aplicação das portas de Pauli.}\label{lst:condPauli}
+  \caption{Relação de condição para aplicação das portas de Pauli, seguindo o apresentado na Tabela~\ref{tab:acao-das-portas}.}\label{lst:condPauli}
   \begin{pycode}
-      if np.all(estado_tp == (a0-b1)):
-          estado_final = estado_tp1
-      elif np.all(estado_tp == (a1-b0)):
-          estado_final = Z * X * estado_tp1
-      elif np.all(estado_tp == (a1+b0)):
-          estado_final = X * estado_tp1
-      elif np.all(estado_tp == (a0+b1)):
-          estado_final = Z * estado_tp1
-    
-      estado_teletransportado = estado_final*sqrt(2)
+    if np.all(estado_tp == a0-b1):
+        estado_final = estado_tp1
+    elif np.all(estado_tp == a1-b0):
+        estado_final = Z * X * estado_tp1
+    elif np.all(estado_tp == a1+b0):
+        estado_final = X * estado_tp1
+    elif np.all(estado_tp == a0+b1):
+        estado_final = Z * estado_tp1
 
-      alfa = np.array(estado_teletransportado[0][0])
-	  beta = np.array(estado_teletransportado[1][0])
+    estado_teletransportado = estado_final*sqrt(2)
 
-      alfa_final = np.matrix([complex(alfa),0]).transpose()
-      beta_final = np.matrix([0,complex(beta)]).transpose()
+    alfa = np.array(estado_teletransportado[0][0])
+    beta = np.array(estado_teletransportado[1][0])
+
+    alfa_final = np.matrix([complex(alfa), 0]).transpose()
+    beta_final = np.matrix([0, complex(beta)]).transpose()
   \end{pycode}
 \end{listing}
 
-Vale ressaltar que durante as operações, herdamos a probabilidade associada dos estados, que nesse caso é $1/4$ e portanto, a retiramos para recuperar a mensagem idêntica a informada no inicio com a expressão Nesse momento, a variável \py{estado_teletransportado} armazena a mensagem reconstruída no local \(B\). Para verificarmos se o teletransporte teve sucesso, separamos as probabilidades associadas a $\alpha$ e $\beta$ para comparamos com o estado original.
+Vale ressaltar que durante as operações herdamos a probabilidade associada dos estados, nesse caso $1/4$, e portanto a retiramos para recuperar a mensagem idêntica à informada no início com a expressão \todo{vazio?}. Nesse momento, a variável \py{estado_teletransportado} armazena a mensagem reconstruída no local \(B\). Para verificarmos se o teletransporte teve sucesso, separamos as probabilidades associadas a $\alpha$ e $\beta$ para comparamos com o estado original.
 
 Para simular os ruídos, implementamos as variáveis \py{bitflip} e \py{phaseflip} equivalentes com as seguintes matrizes
 \begin{pycode}
   bitflip = np.matrix([[0, 1], [1, 0]])
   phaseflip = np.matrix([[1, 0], [0, -1]])
 \end{pycode}
-O usuário pode escolher qual ruído deseja implementar, ou se deseja não implementar ruídos. Na aplicação do ruído, as variáveis \py{alfa_final} e \py{beta_final} serão modificadas ou não, segundo as propriedades dos ruídos. Para verificar se o protocolo funcionou, foi realizada uma sequência de testes comparando os valores dos elementos das matrizes descritas pelas variáveis \py{alfa_final} e \py{beta_final} e \py{alfa_inicial} e \py{beta_inicial}. As possibilidades são:
+O usuário pode escolher qual ruído deseja implementar, ou se não deseja não implementá-los. Na aplicação do ruído, as variáveis \py{alfa_final} e \py{beta_final} serão modificadas ou não, segundo as propriedades dos ruídos. Para verificar se o protocolo funcionou, foi realizada uma sequência de testes comparando os valores dos elementos das matrizes descritas pelas variáveis \py{alfa_final} e \py{beta_final} e \py{alfa_inicial} e \py{beta_inicial}. As possibilidades são:
 \begin{description}
   \item [Valores iniciais e finais iguais] Se todos os elementos das variáveis $\alpha$ e $\beta$ iniciais forem iguais aos elementos das variáveis finais, significa que o protocolo ocorreu com sucesso e não houve a interferência de ruídos no processo.
   \item [Valores iniciais e finais invertidos] Se a posição dos elementos finais e iniciais estiver invertida, significa que o protocolo ocorreu com sucesso porém houve a interferência de ruídos do tipo \textit{bitflip}.
   \item [Sinal dos valores iniciais e finais invertidos] Se o sinal dos valores dos elementos iniciais e finais estiver invertido, significa que o protocolo ocorreu com sucesso porém houve a interferência de ruídos do tipo \textit{phaseflip}.
   \item [Valores distintos] Se os valores dos elementos não forem comparáveis por nenhuma situação descrita acima, significa que houve falha no teletransporte.
 \end{description}
+
+% metodologia.tex
