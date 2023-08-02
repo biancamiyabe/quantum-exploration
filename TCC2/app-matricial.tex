@@ -108,9 +108,9 @@ Em seguida, aplicamos a porta \(\CNOT\) tendo como controle o qubit $\ket{q_x}$,
 	\end{split}	
 \end{equation}
 
-A equação também é conhecida como uma das Bases de Bell. A comparação da Base de Bell no estado $\ket{00}$ em notação de Dirac e em notação matricial é feita considerando as Equações~\eqref{eq:00} e~\eqref{eq:01}: seja \(\ket{\beta_{00}}\) a Base de Bell em notação de Dirac dada por \(\frac{1}{\sqrt{2}} \bigl(\ket{00} + \ket{11}\bigr)\). Reescrevendo teremos:
+A equação também é conhecida como uma das Bases de Bell. A comparação da Base de Bell no estado $\ket{00}$ em notação de Dirac e em notação matricial é feita considerando as Equações~\eqref{eq:00} e~\eqref{eq:01}: seja \(\ket{\Phi_+}\) a Base de Bell em notação de Dirac dada por \(\frac{1}{\sqrt{2}} \bigl(\ket{00} + \ket{11}\bigr)\). Reescrevendo teremos:
 \begin{equation}\label{eq:comparacaobeta}
-\ket{\beta_{00}} = \frac{1}{\sqrt{2}} \left( \begin{bmatrix}
+\ket{\\Phi_+} = \frac{1}{\sqrt{2}} \left( \begin{bmatrix}
 1 \\
 0
 \end{bmatrix} \otimes \begin{bmatrix}
@@ -142,7 +142,7 @@ A equação também é conhecida como uma das Bases de Bell. A comparação da B
 
 O resultado obtido em~\eqref{eq:comparacaobeta} é exatamente o mesmo obtido na~\eqref{eq:bell00}. A próxima etapa do protocolo de teletransporte, consiste na aplicação da porta lógica quântica \(\CNOT\). Portanto, seja o estado $\ket{\psi_0}$ descrito por:
 \begin{equation}\label{eq:psi0}
-\ket{\psi_0}=\ket{\psi}\ket{\beta_{00}}=\left(\alpha \begin{bmatrix}
+\ket{\psi_0}=\ket{\psi}\ket{\Phi_+}=\left(\alpha \begin{bmatrix}
 1 \\
 0 
 \end{bmatrix} + \beta \begin{bmatrix}
@@ -156,7 +156,7 @@ O resultado obtido em~\eqref{eq:comparacaobeta} é exatamente o mesmo obtido na~
 \end{bmatrix}\right)
 \end{equation}
 
-Conforme a Figura~\ref{fig:protocoloteletransporte}, a porta \(\CNOT\) possui como controle o qubit descrito pelo estado $\ket{\psi}$ e como alvo o par emaranhado presente no local \(A\) $\ket{\beta_{00}}$. Sua atuação apenas ocorrerá quando o qubit de controle estiver no estado $\ket{1}$. Desse modo, reescrevendo~\eqref{eq:psi0}
+Conforme a Figura~\ref{fig:protocoloteletransporte}, a porta \(\CNOT\) possui como controle o qubit descrito pelo estado $\ket{\psi}$ e como alvo o par emaranhado presente no local \(A\) $\ket{\Phi_+}$. Sua atuação apenas ocorrerá quando o qubit de controle estiver no estado $\ket{1}$. Desse modo, reescrevendo~\eqref{eq:psi0}
 \begin{equation}\label{eq:psi0cnot}
 \ket{\psi_0} = \frac{1}{\sqrt{2}}\left\{\left(\alpha \begin{bmatrix}
 1 \\
@@ -498,7 +498,7 @@ de onde podemos evidenciar as seguintes relações:
 \end{bmatrix} \otimes \begin{bmatrix}
 1 \\
 0
-\end{bmatrix},
+\end{bmatrix}, \quad
 \begin{bmatrix}
 0 \\
 0 \\
@@ -522,7 +522,7 @@ de onde podemos evidenciar as seguintes relações:
 \end{bmatrix} \otimes \begin{bmatrix}
 0 \\
 1
-\end{bmatrix},
+\end{bmatrix}, \quad
 \begin{bmatrix}
 0 \\
 0 \\

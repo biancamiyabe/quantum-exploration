@@ -63,6 +63,11 @@ A multiplicação por um escalar é definida como:
 \alpha \ket{\psi} = \alpha\bigl[\psi_1,\ldots,\psi_n\bigr]^{T} = \bigl[\alpha\psi_1,\ldots,\alpha\psi_n\bigr]^{T} \in \mathcal{H}.
 \end{equation}
 
+Pode-se ainda evidenciar a propriedade associativa de modo que:
+\begin{equation}\label{comutation}
+K \ket{\psi} \ket{\varphi} \ket{\phi} = K\ket{\psi\varphi\phi} = K\ket{\psi}\ket{\varphi\phi} = K\ket{\psi\varphi}\ket{\phi}
+\end{equation}
+
 O produto interno é representado por:
 \begin{equation}
 \braket{\psi|\varphi} = \bigl[\psi_1^{\star},\ldots,\psi_n^{\star}\bigr]\;\bigl[\varphi_1,\ldots,\varphi_n\bigr]^{T} \in \mathcal{H},
@@ -97,9 +102,8 @@ A matriz densidade $\rho$ é descrita como:
 \rho_{\psi} = \ket{\psi}\bra{\psi} = \bigl[\psi_1,\ldots,\psi_n\bigr]^{T} \bigl[\psi_1^{\star},\ldots,\psi_n^{\star}] \in \mathcal{H}.
 \end{equation}
 
-A matriz resultante em~\eqref{eq:rho} é uma matriz hermitiana\footnote{Uma matriz \(A \in \mathbb{C}^{m{\times}m}\) é dita \textit{hermitiana} se \(A  = A^{\!\star}\).}, com autovalores não negativos que representam as probabilidades de medir o sistema em um determinado estado. Além disso, a soma dos elementos da diagonal principal da matriz densidade (seu traço) é sempre igual a 1, o que garante a conservação da probabilidade total.
+A matriz resultante em~\eqref{eq:rho} é uma matriz hermitiana\footnote{Uma matriz \(A \in \mathbb{C}^{m{\times}m}\) é dita \textit{hermitiana} se \(A  = A^{\!\star}\).}, com autovalores não negativos que representam as probabilidades de medir o sistema em um determinado estado. Além disso, para o caso de matrizes de densidade de sistemas quânticos, como esta, a soma dos elementos da diagonal principal da matriz densidade (seu traço) é sempre igual a 1, o que garante a conservação da probabilidade total. Essa constatação decorre também do processo de normalização das variáveis $\alpha$ e $\beta$, conforme explicitado na condição de parametrização da Eq. \eqref{eq:psi}.
 
-\todo[inline]{\(\text{tr}(\rho_{\psi}) = 1\) não ficou claro pra mim\ldots}
 Podemos também realizar o produto tensorial de duas matrizes \(A\in\mathbb{C}^{m{\times}n}\) e \(B\in\mathbb{C}^{p{\times}q}\), de modo que:
 \begin{equation}\label{eq:tensormatrix}
   A \otimes B = \begin{bmatrix}
@@ -154,9 +158,7 @@ Essa característica é fundamental para a existência dos qubits conforme verem
 
 O emaranhamento quântico é uma propriedade da MQ que descreve a correlação entre dois ou mais sistemas quânticos, de tal forma que o estado quântico de um  não pode ser descrito independentemente do estado dos outros sistemas emaranhados, mesmo que esses sistemas estejam distantes fisicamente.
 
-\todo[inline]{Fica claro pra mim que \(\ket{0}\) e \(\ket{1}\) são dois estados em algum espaço de Hilbert. Até ai ok. Mas o que significam exatamente o \(0\) e o \(1\)? Pensando em AL, imagino que o primeiro seja um vetor de zeros (nulo), mas e o segundo? Acho interessante deixar explícito. Ou já foi definido e eu não achei?}
-
-Para compreender melhor esse fenômeno, podemos pensar na situação onde temos um sistema de duas partículas quânticas\footnote{Elétrons, fótons ou, como veremos na Seção~\ref{sec:qubits}, qubits.} $\ket{\psi}=\alpha\ket{0}+\beta\ket{1}$ e $\ket{\varphi}=\mu\ket{0}+\eta\ket{1}$. Se nesse sistema as partículas são independentes, significa que possuirão probabilidades associadas aos estados $\ket{0}$ e $\ket{1}$ distintas, ou seja, $\alpha \neq \beta \neq \mu \neq \eta$. Considerado agora que as partículas estejam emaranhadas, sua descrição não pode ocorrer de maneira independente e portanto, as probabilidades associadas aos estados possíveis também não. Teremos portanto, os estados emaranhados $\ket{00}, \ket{01}, \ket{10}$ e $\ket{11}$, cujas probabilidades dependerão de ambas as partículas. Alterando os estados de uma partícula, consequentemente os estados da outra serão alterados, fazendo com que passemos a considerar uma distribuição de probabilidade entre os estados.
+Para compreender melhor esse fenômeno, podemos pensar na situação onde temos um sistema de duas partículas quânticas\footnote{Elétrons, fótons ou, como veremos na Seção~\ref{sec:qubits}, qubits.} $\ket{\psi}=\alpha\ket{0}+\beta\ket{1}$ e $\ket{\varphi}=\mu\ket{0}+\eta\ket{1}$. Os estados do sistema $\ket{0}$ e $\ket{1}$ são definidos com essas nomenclaturas por serem análogos aos bits clássicos `zero' e um'. Nesse caso, $\ket{0}$ não é um vetor nulo, e sim um estado que representa o ``desligado'' do circuito, representado pelo vetor $\ket{0} = \bigl[1\quad 0\bigr]^{T}$. Já o estado $\ket{1}$ descreve o análogo ao ``ligado'' e é representado pelo vetor $\ket{0} = \bigl[0\quad 1\bigr]^{T}$. Se nesse sistema as partículas são independentes, significa que possuirão probabilidades associadas aos estados $\ket{1}$ e $\ket{1}$ distintas, ou seja, $\alpha \neq \beta \neq \mu \neq \eta$. Considerado agora que as partículas estejam emaranhadas, sua descrição não pode ocorrer de maneira independente e portanto, as probabilidades associadas aos estados possíveis também não. Teremos portanto, os estados emaranhados $\ket{00}, \ket{01}, \ket{10}$ e $\ket{11}$, cujas probabilidades dependerão de ambas as partículas. Alterando os estados de uma partícula, consequentemente os estados da outra serão alterados, fazendo com que passemos a considerar uma distribuição de probabilidade entre os estados.
 
 Os efeitos do fenômeno do emaranhamento foram questionados pela comunidade científica da época, principalmente por Albert Einstein. Segundo Einstein, o emaranhamento era uma ``ação fantasmagórica à distância'' e algo faltava ou estava incoerente dentro da MQ. Seus questionamentos levaram ao paradoxo EPR.
 
@@ -168,10 +170,7 @@ De acordo com a MQ, se duas partículas são emaranhadas, a medição do estado 
 
 Em seu artigo \textit{\citetitle*{epr}}, Einstein, Podolsky e Rosen propuseram um experimento mental para demonstrar essa aparente contradição \cite{epr}. No experimento, duas partículas emaranhadas são criadas e separadas a uma grande distância uma da outra. Em seguida, uma propriedade quântica específica de uma das partículas é medida, o que instantaneamente afeta a propriedade quântica da outra partícula, mesmo que esteja a uma grande distância, aparentemente violando a teoria da relatividade especial de Einstein.
 
-\todo[inline]{Alain Aspect é 1982 ou 1999?}
-
-A proposta do paradoxo foi investigada por John Stewart Bell que propõe uma série de desigualdades que são violadas em sistemas de partículas quânticas\footnote{A descrição completa da proposição de Bell pode ser encontrada no artigo \textcite{Bell}.}. A partir do trabalho de Bell, diversos experimentos foram propostos a fim de compreender se a MQ estava incompleta, ou se uma nova interpretação para tais fenômenos seria necessária. O trabalho mais relevante foi proposto por Alain Aspect em 1982 que utilizando a polarização de fótons, confirma que a observação de dois fótons emaranhados, mesmo que distantes é a mesma. Aspect conclui seu trabalho propondo que:
-
+A proposta do paradoxo foi investigada por John Stewart Bell que propõe uma série de desigualdades que são violadas em sistemas de partículas quânticas\footnote{A descrição completa da proposição de Bell pode ser encontrada no artigo \textcite{Bell}.}. A partir do trabalho de Bell, diversos experimentos foram propostos a fim de compreender se a MQ estava incompleta, ou se uma nova interpretação para tais fenômenos seria necessária. O trabalho mais relevante foi proposto por Alain Aspect que utilizando a polarização de fótons, confirma que a observação de dois fótons emaranhados, mesmo que distantes é a mesma. Aspect conclui seu trabalho propondo que:
 \begin{citacao}
   Temos de concluir que um par de fotões entrelaçados é um objecto não separável; ou seja, é impossível atribuir propriedades locais (realidade física local) a cada fotão. Em certo sentido, ambos os fotões permanecem em contacto através do espaço e do tempo. Convém que se diga, no entanto, que a não separabilidade, que é a base da teleportação quântica, não implica a possibilidade prática de comunicação, a velocidade superior à da luz \cite{aspect}.
 \end{citacao}
@@ -215,8 +214,6 @@ As definições de qubits descritas nesse tópico baseiam-se principalmente nas 
 
 Qubits são elementos fundamentais da computação quântica. Eles são usados para representar informações binárias (zeros e uns) e são capazes de armazenar e processar muito mais informações que os bits convencionais usados na computação clássica. Isso é possível graças ao fato de que, enquanto os bits tradicionais podem estar em dois estados (ligado ou desligado), os qubits podem estar em um estado de superposição, o que permite que eles representem simultaneamente vários estados ou informações diferentes. Isso significa que os qubits podem armazenar muito mais informação em um espaço muito menor conforme salientado na Tabela~\ref{tabelabit}.
 
-\todo[inline]{Ver comentário anterior sobre \(\ket{0}\) e \(\ket{1}\).}
-
 Podemos começar a descrição de um qubit como uma superposição dos estados quânticos $\ket{0}$ e $\ket{1}$, de modo a representá-los pela combinação linear dada por
 \begin{equation}\label{eq:psi}
 \ket{\psi} = \alpha \ket{0} + \beta \ket{1},
@@ -227,9 +224,7 @@ As variáveis $\alpha$ e $\beta$ são complexas e determinam as amplitudes proba
 
 Um recurso para visualizar o comportamento de qubits é sua representação geométrica chamada de Esfera de Bloch. Como entidades quânticas não são observáveis diretamente e frequentemente são expressas por recursos matemáticos, a visualização da superposição dos estados de um qubit utilizando a Esfera de Bloch facilita, ainda que ligeiramente, sua compreensão.
 
-\todo[inline]{Estou um pouco em dúvida sobre essa representação, mas imagino que você tenha feito as contas, certo? Primiro porque aparece um \(\theta/2\) na expressão e só \(\theta\) na figura. Segundo, há um termo \(e^{i \varphi}\) que não está fazendo muito sentido pra mim.}
-
-Em primeiro lugar, vale lembrar que o qubit, descrito por $\ket{\psi}$, está parametrizado e podemos reescrever~\eqref{eq:psi} em coordenadas polares
+Em primeiro lugar, vale lembrar que o qubit, descrito por $\ket{\psi}$, está parametrizado e podemos reescrever~\eqref{eq:psi} em coordenadas polares\footnote{Uma descrição detalhada da parametrização do qubit para a Esfera de Bloch pode ser encontrada em \textcite{bloch}.}
 \begin{equation}
 \ket{\psi}=e^{i \gamma}\Biggl(\cos \frac{\theta}{2}\ket{0}+e^{i \varphi} \sen \frac{\theta}{2}\ket{1}\Biggr).
 \end{equation}
@@ -239,8 +234,6 @@ O termo \(e^{i\gamma}\) não possui efeitos observáveis na representação geom
 \end{equation}
 com $\theta$ e $\varphi$ sendo números reais correspondentes aos ângulos entre os eixos $z, y$ e $y, x$ respectivamente, conforme a
 Figura~\ref{fig:bloch}.
-
-\todo[inline]{A esfera possui raio unitário?}
 
 \begin{figure}[ht!]
 \centering
@@ -277,11 +270,11 @@ Figura~\ref{fig:bloch}.
 \fonte{Adaptado de \textcite{chuang}.}
 \end{figure}
 
-Como o qubit funciona sob um regime de superposição de estados, a seta que o representa na esfera de Bloch pode estar apontada para qualquer direção em sua superfície e essa direção é obtida como uma combinação linear dos estados $\ket{0}$ e $\ket{1}$. Quando medirmos um qubit, ele ainda irá colapsar em um dos estados descritos anteriormente, ou seja $\ket{0}$ ou $\ket{1}$, porém, com probabilidades distintas associadas a cada um destes.
+Como o qubit funciona sob um regime de superposição de estados, o vetor que o representa na esfera de Bloch pode estar apontado para qualquer direção em sua superfície e essa direção é obtida como uma combinação linear dos estados $\ket{0}$ e $\ket{1}$. Na Esfera de Bloch, o estado $\ket{1}$ será um vetor que aponta para o polo Sul com coordenadas $(0,0,-1)$ e o estado $\ket{0}$ será um vetor que aponta para o polo Norte com coordenadas $(0,0,1)$. Quando medirmos um qubit, ele ainda irá colapsar em um dos estados descritos anteriormente, ou seja $\ket{0}$ ou $\ket{1}$, porém, com probabilidades distintas associadas a cada um destes.
 
 Para obter os estados de maneira a conseguir respostas, é preciso que esses qubits sejam manipulados de forma a mudar as probabilidades envolvidas em sua superposição de estados para aquela que é necessária, dependendo da manipulação da informação que está sendo realizada. Essa modificação das probabilidades associadas aos possíveis estados de colapso são realizadas utilizando algoritmos. Esses algoritmos realizam operações nos qubits, processando a informação da maneira necessária em cada situação, conforme veremos na Seção~\ref{sec:opquantico}
 
-Vale ressaltar que, devido a possibilidade de qubits atuarem em regime de superposição, isso os torna poderosos armazenadores de informação, porém nem sempre quantidade significa qualidade nesse caso. Existe na atualidade uma busca pelo aumento da quantidade de qubits operando simultaneamente em razão da qualidade da informação que este armazena. Na prática, qubits, por serem entidades quânticas, podem ser representados como funções de onda e sua superposição é uma combinação de todas as funções dos estados envolvidos. Isso faz com que ruídos possam interferir em sua estrutura e a informação não consiga ser obtida com a qualidade esperada. Os estudos atuais se dedicam a aperfeiçoar a operação simultânea de qubits não apenas aumentando sua quantidade, mas desenvolvendo técnicas para manter todo o sistema coeso e com resultados confiáveis após as operações.
+Vale ressaltar que, devido a possibilidade de qubits atuarem em regime de superposição, isso os torna poderosos armazenadores de informação, porém quantidade não significa qualidade, nesse caso. Existe na atualidade uma busca pelo aumento da quantidade de qubits operando simultaneamente em razão da qualidade da informação que este armazena. Na prática, qubits, por serem entidades quânticas, podem ser representados como funções de onda e sua superposição é uma combinação de todas as funções dos estados envolvidos. Isso faz com que ruídos possam interferir em sua estrutura e a informação não consiga ser obtida com a qualidade esperada. Os estudos atuais se dedicam a aperfeiçoar a operação simultânea de qubits não apenas aumentando sua quantidade, mas desenvolvendo técnicas para manter todo o sistema coeso e com resultados confiáveis após as operações.
 
 \subsection{Operadores Quânticos}\label{sec:opquantico}
 
@@ -302,9 +295,7 @@ i & 0
 0 & -1
 \end{bmatrix*}.
 \end{equation}
-As matrizes $\sigma_x$, \(\sigma_{y}\) e \(\sigma_{z}\) são também conhecidas como a matrizes de Pauli X, Pauli Y e Pauli Z, respectivamente. As matrizes de Pauli formam a base do espaço de Hilbert de um único qubit, e podem ser usadas para construir operadores mais complexos que atuam em múltiplos qubits.
-
-\todo[inline]{Quando você diz ``base do espaço de Hilbert'', é uma base no sentido de AL? Ou seja, \(\mathcal{H}\) é construído com essas matrizes?}
+As matrizes $\sigma_x$, \(\sigma_{y}\) e \(\sigma_{z}\) são também conhecidas como a matrizes de Pauli X, Pauli Y e Pauli Z, respectivamente. As matrizes de Pauli, em conjunto com a matriz identidade formam a base do espaço de Hilbert de um único qubit, e podem ser usadas para construir operadores mais complexos que atuam em múltiplos qubits.
 
 \subsubsection{Porta Lógica Controlled-NOT Quântica}\label{sec:cnot}
 
@@ -393,6 +384,8 @@ Existe ainda o operador medição, que efetua o colapso do sistema quântico e r
 \end{quantikz}
 \end{figure}
 
+A leitura de um circuito quântico deve sempre levar em consideração que o espaço é descrito verticalmente e o tempo evolui horizontalmente da esquerda para a direita.
+
 \subsection{Algoritmos quânticos}\label{sec:algoritmo}
 
 Conforme descrito na Seção~\ref{sec:qubits}, qubits são manipulados através das operações apresentadas na Seção~\ref{sec:opquantico}, para obter o resultado esperado para um problema. O conjunto organizado de todas essas operações quânticas leva o nome de \textit{algoritmo quântico}. Existe uma infinidade de algoritmos quânticos já implementados e alguns serão apresentados nessa seção, além do que foi desenvolvido para este trabalho.
@@ -416,28 +409,27 @@ Neste trabalho, desenvolvemos um protocolo de teletransporte quântico que se en
 
 A descrição deste protocolo foi baseada em \textcite{chuang, jorcuvich, CompInfoQuantica, benschu}. A realização de um protocolo de Teletransporte Quântico consiste, essencialmente, em uma série de operações que possuem por objetivo principal fazer com que uma mensagem, ou na linguagem quântica, um estado quântico, se teletransporte entre dois pontos distintos fisicamente. Como em qualquer outra operação computacional é necessária a existência de um circuito lógico, nesse caso quântico, que medie as operações. Esse circuito consistirá nas combinações das portas lógicas \(\CNOT\), Hadamard, portas de medição e as portas \(\XXX\) e \(\ZZZ\) conforme a Figura~\ref{fig:protocoloteletransporte}.
 
-\todo[inline]{Adicionar à figura o \(A\) e o \(B\), para orientar melhor o leitor.}
 \begin{figure}[ht!]
 \centering
 \caption{Protocolo de Teletransporte Quântico mediado pelo circuito com as portas \(\CNOT\), Hadamard e medição aplicadas no local \(A\) e as portas \(\XXX\) e \(\ZZZ\) aplicadas no local \(B\).}\label{fig:protocoloteletransporte}
 \begin{quantikz}[slice style=blue]
-\lstick{$\ket{\psi}$} & \qw & \qw & \qw \slice{$\ket{\psi_0}$} & \ctrl{1} \slice{$\ket{\psi_1}$} & \gate{H} \slice{$\ket{\psi_2}$} & \meter{$M_1$} & \cw  & \cw & \cwbend{2}\\
-\lstick{$\ket{q_x}$} & \gate{H}\gategroup[2,steps=2,style={dashed,rounded corners,fill=blue!20, inner xsep=2pt}, background,label style={label position=below,anchor=north,yshift=-0.2cm}]{{Emaranhamento}} & \ctrl{1} & \midstick[2]{$\ket{\beta_{00}}$} \qw & \targ{} & \qw & \meter{$M_2$} & \cwbend{1} \\
-\lstick{$\ket{q_y}$} & \qw & \targ{} \arrow{r} &  & \qw & \qw & \qw & \gate{X} & \qw & \gate{Z} &  \qw\rstick{$\ket{\psi}$}
+\lstick{\(A\)} &&&&& \lstick{$\ket{\psi}$} & \slice{$\ket{\psi_0}$} & \ctrl{1} \slice{$\ket{\psi_1}$} & \gate{H} \slice{$\ket{\psi_2}$} & \meter{$M_1$} & \cw  & \cw & \cwbend{2}\\
+\lstick{$\ket{q_x}$} & \gate{H}\gategroup[2,steps=2,style={dashed,rounded corners,fill=blue!20, inner xsep=2pt}, background,label style={label position=below,anchor=north,yshift=-0.2cm}]{{Emaranhamento}} & \ctrl{1} & \qw \rstick[2,brackets=left]{} && \lstick{\(A\)} & \lstick[2, brackets=right]{}  & \targ{} & \qw & \meter{$M_2$} & \cwbend{1} \\
+\lstick{$\ket{q_y}$} & \qw & \targ{} & \qw && \lstick{\(B\)} && \qw & \qw & \qw & \gate{X} & \qw & \gate{Z} &  \qw\rstick{$\ket{\psi}$}
 \end{quantikz}
 \fonte{De autoria própria.}
 \end{figure}
 
-No inicio do protocolo é necessário que tenhamos um par de qubits emaranhados nas bases de Bell, no estado $\ket{\beta_{00}}$, que podemos representar pela expressão
+No inicio do protocolo é necessário que tenhamos um par de qubits emaranhados nas bases de Bell, no estado $\ket{\Phi_+}$, que podemos representar pela expressão
 \begin{equation}\label{eq:bell00}
- \ket{\beta_{00}} = \frac{\ket{00} + \ket{11}}{\sqrt{2}}.
+ \ket{\Phi_+} = \frac{\ket{00} + \ket{11}}{\sqrt{2}}.
 \end{equation}
 
 Um dos qubits do par emaranhado em~\eqref{eq:bell00} é mantido em \(A\) e o outro necessariamente precisa estar em \(B\) para que exista um canal de comunicação entre essas partes. Além do par emaranhado, em \(A\) teremos o estado quântico a ser enviado, ou seja sua mensagem dada por $\ket{\psi}$, segundo a Equação~\eqref{eq:psi}.
  \begin{equation}\label{psi}
   \ket{\psi} = \alpha \ket{0} + \beta \ket{1}.
  \end{equation}
-De posse do par emaranhado e da mensagem, o protocolo é iniciado com a aplicação da porta \(\CNOT\) entre $\ket{\psi}\ket{\beta_{00}}$, que chamaremos de $\ket{\psi_0}$. A porta \(\CNOT\) possui como alvo o qubit $\ket{\beta_{00}}$ presente em \(A\) e como qubit de controle $\ket{\psi}$. Isso indica que a porta \(\CNOT\) irá modificar $\ket{\beta_{00}}$ de acordo com o estado de $\ket{\psi}$ conforme a Definição~\ref{definition:cnot}.
+De posse do par emaranhado e da mensagem, o protocolo é iniciado com a aplicação da porta \(\CNOT\) entre $\ket{\psi}\ket{\Phi_+}$, que chamaremos de $\ket{\psi_0}$. A porta \(\CNOT\) possui como alvo o qubit $\ket{\Phi_+}$ presente em \(A\) e como qubit de controle $\ket{\psi}$. Isso indica que a porta \(\CNOT\) irá modificar $\ket{\Phi_+}$ de acordo com o estado de $\ket{\psi}$ conforme a Definição~\ref{definition:cnot}.
 
 \begin{definition}{Operação \(\CNOT\)}{cnot}
   A operação \(\CNOT\):
@@ -449,7 +441,7 @@ De posse do par emaranhado e da mensagem, o protocolo é iniciado com a aplicaç
 
 Dessa maneira, aplicando a Definição~\ref{definition:cnot} no estado dado por $\ket{\psi_0}$
 \begin{align}\label{eq:cnotpsi0}
-  \CNOT \ket{\psi_0} &= \CNOT \ket{\psi} \ket{\beta_{00}} \nonumber \\
+  \CNOT \ket{\psi_0} &= \CNOT \ket{\psi} \ket{\Phi_+} \nonumber \\
                      &= \CNOT \frac{1}{\sqrt{2}} \Bigl[ \alpha \ket{0} \bigl( \ket{00} + \ket{11} \bigr) + \beta \ket{1} \bigl( \ket{00} + \ket{11} \bigr)\Bigr] \nonumber \\
                      &= \frac{1}{\sqrt{2}} \Bigl[\alpha \ket{0} \bigl( \ket{00} + \ket{11} \bigr) + \beta \ket{1} \bigl( \ket{10} + \ket{01} \bigr) \Bigr].
 \end{align}
@@ -459,8 +451,8 @@ A operação descrita pela Equação~\eqref{eq:cnotpsi0} resulta no estado que c
 \begin{definition}{Operação Hadamard}{hadamard}
   A operação Hadamard deve:
   \begin{enumerate}[label=\roman*.]
-    \item Aplicar no estado 0 a operação $\frac{1}{\sqrt{2}} \bigl(\ket{0}+\ket{1}\bigr)$;
-    \item Aplicar no estado 1 a operação $\frac{1}{\sqrt{2}} \bigl(\ket{0}-\ket{1}\bigr)$.
+    \item Aplicar no estado $\ket{0}$ a operação $\frac{1}{\sqrt{2}} \bigl(\ket{0}+\ket{1}\bigr)$;
+    \item Aplicar no estado $\ket{1}$ a operação $\frac{1}{\sqrt{2}} \bigl(\ket{0}-\ket{1}\bigr)$.
   \end{enumerate}
 \end{definition}
 
@@ -469,16 +461,13 @@ Aplicando portanto a Definição~\ref{definition:hadamard} em $\ket{\psi_1}$, te
  \HAD \ket{\psi_1} = \Biggl( \frac{1}{\sqrt{2}}\Biggr)^{\!\!2} \Bigl[ \alpha \bigl( \ket{0} + \ket{1} \bigr)\bigl( \ket{00} +\ket{11} \bigr)+ \beta \bigl( \ket{0} - \ket{1} \bigr) \bigl( \ket{10} + \ket{01} \bigr) \Bigr].
 \end{equation}
 
-O estado obtido em \eqref{eq:hadamartpsi2} pode ser identificado como $\ket{\psi_2}$, evidenciando-se os estados emaranhados deste ao organizá-lo da seguinte maneira:
+O estado obtido em \eqref{eq:hadamartpsi2} pode ser identificado como $\ket{\psi_2}$, evidenciando-se os estados emaranhados deste, utilizando a propriedade descrita em~\eqref{comutation}, ao organizá-lo da seguinte maneira:
 \begin{equation}\label{eq:psi2}
  \ket{\psi_2} = \frac{1}{2} \Bigl[ \ket{00} \bigl( \alpha \ket{0} + \beta \ket{1} \bigr) + \ket{01} \bigl( \alpha \ket{1} + \beta \ket{0} \bigr) + \ket{10} \bigl( \alpha \ket{0} - \beta \ket{1} \bigr) + \ket{11} \bigl( \alpha \ket{1} - \beta \ket{0} \bigr) \Bigr].
 \end{equation}
 
-\todo[inline]{Essa expressão está correta? Não ficou claro pra mim como chegamos nela.}
-
 O próximo passo do protocolo consiste em realizar medidas em ambos os qubits presentes em \(A\). Essas medidas farão com que os estados quânticos sejam colapsados e deixem de coexistir, passando a ser considerados clássicos. As medidas possíveis de serem obtidas em \(A\) são apresentadas na Tabela~\ref{tab:medidas}.
 
-\todo[inline]{Exatamente qual o papel de \(M_{1}\) e \(M_{2}\) aqui?}
 
 \begin{table}[ht!]
   \centering
@@ -503,8 +492,6 @@ A última etapa do protocolo ocorre em \(B\), na tentativa de reconstruir a mens
 \begin{definition}{Operação \(\XXX\)}{X}
 A porta lógica quântica \(\XXX\) deve trocar os estados quânticos, ou seja, torná-lo 1 quando este for 0 e torná-lo 0, quando este for 1.
 \end{definition}
-
-\todo[inline]{Você não havia falado de \textbf{fase} ainda. O que é, e o que significa negativa e positiva?}
 
 \begin{definition}{Operação \(\ZZZ\)}{Z}
 A porta lógica quântica \(\ZZZ\) deve inverter a fase do estado quântico, ou seja, torná-la negativa quando esta for positiva e torná-la positiva quando esta for negativa.

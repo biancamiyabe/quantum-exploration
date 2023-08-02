@@ -9,58 +9,58 @@
 %%%
 \chapter{Resultados}
 
-Para aferir a implementação proposta, será apresentado um exemplo com os valores atribuídos de $\alpha = {0.75+0i}$ e $\beta = {0+0.25i}$. Assim, a mensagem a ser enviada é descrita por:
+Para aferir a implementação proposta, será apresentado um exemplo com os valores atribuídos de \alpha = \norma\ e \beta = \normb.  Assim, a mensagem a ser enviada é descrita por:
 \begin{equation}
-  \ket{\psi} =  \begin{bmatrix} {0.75+0i} \\ 0 \end{bmatrix} +
-  \begin{bmatrix} 0 \\ {0+0.25i} \end{bmatrix} =
-  \begin{bmatrix} {0.75+0i} \\ {0+0.25i} \end{bmatrix}.
+  \ket{\psi} =  \begin{bmatrix} {\norma} \\ 0 \end{bmatrix} +
+  \begin{bmatrix} 0 \\ {\normb} \end{bmatrix} =
+  \begin{bmatrix} {\norma} \\ {\normb} \end{bmatrix}.
 \end{equation}
 O estado $\ket{\psi_0}$ descrito pela Equação~\eqref{eq:psi0} torna-se:
 \begin{equation}
-  \ket{\psi_0} = \ket{\psi}\ket{\beta_{00}} =
-  \begin{bmatrix} {0.75+0i} \\ {0+0.25i} \end{bmatrix}
+  \ket{\psi_0} = \ket{\psi}\ket{\Phi_+} =
+  \begin{bmatrix} {\norma} \\ {\normb} \end{bmatrix}
   \left(\frac{1}{\sqrt{2}} \begin{bmatrix} 1 \\ 0 \\ 0 \\ 1 \end{bmatrix}\right).
 \end{equation}
 Rearranjando os termos segundo~\eqref{eq:psi0cnot}
 \begin{equation}
   \ket{\psi_0} = \frac{1}{\sqrt{2}}\left(
-      \begin{bmatrix} {0.75+0i} \\ 0 \end{bmatrix}
+      \begin{bmatrix} {\norma} \\ 0 \end{bmatrix}
       \begin{bmatrix} 1 \\ 0 \\ 0 \\ 1 \end{bmatrix} +
-      \begin{bmatrix} 0 \\ {0+0.25i} \end{bmatrix}
+      \begin{bmatrix} 0 \\ {\normb} \end{bmatrix}
       \begin{bmatrix} 1 \\ 0 \\ 0 \\ 1 \end{bmatrix}\right).
   \end{equation}
 
 Explicitando os estados possíveis conforme~\eqref{eq:3qubit}
 \begin{equation}
   \begin{split}
-    \ket{\alpha_{00}} &= \begin{bmatrix} {0.75+0i} \\ 0 \end{bmatrix} \otimes
+    \ket{\alpha 00} &= \begin{bmatrix} {\norma} \\ 0 \end{bmatrix} \otimes
                      \begin{bmatrix} 1 \\ 0 \end{bmatrix} \otimes
                      \begin{bmatrix} 1 \\ 0 \end{bmatrix} =
-                     \begin{bmatrix} {0.75+0i} & 0 & 0 & 0 & 0 & 0 & 0 & 0 \end{bmatrix}^T, \\
-    \ket{\alpha_{11}} &= \begin{bmatrix} {0.75+0i} \\ 0 \end{bmatrix} \otimes
+                     \begin{bmatrix} {\norma} & 0 & 0 & 0 & 0 & 0 & 0 & 0 \end{bmatrix}^T, \\
+    \ket{\alpha 11} &= \begin{bmatrix} {\norma} \\ 0 \end{bmatrix} \otimes
                         \begin{bmatrix} 0 \\ 1 \end{bmatrix} \otimes
                         \begin{bmatrix} 0 \\ 1 \end{bmatrix} =
-                        \begin{bmatrix} 0 & 0 & 0 & {0.75+0i} & 0 & 0 & 0 & 0 \end{bmatrix}^T, \\
-    \ket{\beta_{00}} &= \begin{bmatrix} 0 \\ {0+0.25i} \end{bmatrix} \otimes
+                        \begin{bmatrix} 0 & 0 & 0 & {\norma} & 0 & 0 & 0 & 0 \end{bmatrix}^T, \\
+    \ket{\beta 00} &= \begin{bmatrix} 0 \\ {\normb} \end{bmatrix} \otimes
                     \begin{bmatrix} 1 \\ 0 \end{bmatrix} \otimes
                     \begin{bmatrix} 1 \\ 0 \end{bmatrix} =
-                    \begin{bmatrix} 0 & 0 & 0 & 0 & {0+0.25i} & 0 & 0 & 0 \end{bmatrix}^T, \\
-    \ket{\beta_{11}} &= \begin{bmatrix} 0 \\ {0+0.25i} \end{bmatrix} \otimes
+                    \begin{bmatrix} 0 & 0 & 0 & 0 & {\normb} & 0 & 0 & 0 \end{bmatrix}^T, \\
+    \ket{\beta 11} &= \begin{bmatrix} 0 \\ {\normb} \end{bmatrix} \otimes
                        \begin{bmatrix} 0 \\ 1 \end{bmatrix} \otimes
                        \begin{bmatrix} 0 \\ 1 \end{bmatrix} =
-                       \begin{bmatrix} 0 & 0 & 0 & 0 & 0 & 0 & 0 & {0+0.25i} \end{bmatrix}^T.
+                       \begin{bmatrix} 0 & 0 & 0 & 0 & 0 & 0 & 0 & {\normb} \end{bmatrix}^T.
   \end{split}
 \end{equation}
 Somando todos os estados possíveis temos:
 \begin{equation}
-  \ket{\alpha_{00}}+\ket{\alpha_{01}}+\ket{\beta_{00}}+\ket{\beta_{11}} =
-  \begin{bmatrix} {0.75+0i} & 0 & 0 & {0.75+0i} & {0+0.25i} & 0 & 0 & {0+0.25i} \end{bmatrix}^T.
+  \ket{\alpha 00}+\ket{\alpha 01}+\ket{\beta 00}+\ket{\beta 11} =
+  \begin{bmatrix} {\norma} & 0 & 0 & {\norma} & {\normb} & 0 & 0 & {\normb} \end{bmatrix}^T.
 \end{equation}
 Aplicando a porta \(\CNOT\)
 \begin{equation}
   \begin{split}
-    \CNOT (\ket{\alpha_{00}}+\ket{\alpha_{01}}+\ket{\beta_{00}}+\ket{\beta_{11}}) &=
-    \begin{bmatrix}
+    \ket{\psi_1} = \CNOT (\ket{\alpha 00}+\ket{\alpha 01}+\ket{\beta 00}+\ket{\beta 11}) = \\
+   = \begin{bmatrix}
     1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
     0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
     0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\
@@ -70,19 +70,19 @@ Aplicando a porta \(\CNOT\)
     0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\
     0 & 0 & 0 & 0 & 0 & 1 & 0 & 0
     \end{bmatrix}
-    \begin{bmatrix} {0.75+0i} \\ 0 \\ 0 \\ {0.75+0i} \\ {0+0.25i} \\ 0 \\ 0 \\ {0+0.25i} \end{bmatrix} =
-    \begin{bmatrix} {0.75+0i} \\ 0 \\ 0 \\ {0.75+0i} \\ 0 \\ {0+0.25i} \\ {0+0.25i} \\ 0 \end{bmatrix}.
+    \begin{bmatrix} {\norma} \\ 0 \\ 0 \\ {\norma} \\ {\normb} \\ 0 \\ 0 \\ {\normb} \end{bmatrix} =
+    \begin{bmatrix} {\norma} \\ 0 \\ 0 \\ {\norma} \\ 0 \\ {\normb} \\ {\normb} \\ 0 \end{bmatrix}.
   \end{split}
 \end{equation}
 
 Reorganizando o estado $\ket{\psi_1}$ temos, segundo~\eqref{eq:psi1},
 \begin{equation}
-  \ket{\psi_1} = \frac{1}{\sqrt{2}} \left\{ \begin{bmatrix} {0.75+0i} \\ 0 \end{bmatrix} \otimes
+  \ket{\psi_1} = \frac{1}{\sqrt{2}} \left\{ \begin{bmatrix} {\norma} \\ 0 \end{bmatrix} \otimes
     \left(
       \begin{bmatrix} 1 \\ 0 \\ 0 \\ 0 \end{bmatrix} +
       \begin{bmatrix} 0 \\ 0 \\ 0 \\ 1 \end{bmatrix}
     \right) +
-    \begin{bmatrix} 0 \\ {0+0.25i} \end{bmatrix} \otimes
+    \begin{bmatrix} 0 \\ {\normb} \end{bmatrix} \otimes
     \left(
       \begin{bmatrix} 0 \\ 0 \\ 1 \\ 0 \end{bmatrix} +
       \begin{bmatrix} 0 \\ 1 \\ 0 \\ 0 \end{bmatrix}
@@ -95,28 +95,28 @@ Aplicando a porta \(\HAD\):
     \HAD \ket{\psi_{1}} &= \frac{1}{\sqrt{2}}
                           \begin{bmatrix*}[r] 1 & 1 \\ 1 & -1 \end{bmatrix*}
                           \frac{1}{\sqrt{2}}\left(
-                          \begin{bmatrix} {0.75+0i} \\ 0 \end{bmatrix} +
-                          \begin{bmatrix} 0 \\ {0+0.25i} \end{bmatrix} \right)\\
+                          \begin{bmatrix} {\norma} \\ 0 \end{bmatrix} +
+                          \begin{bmatrix} 0 \\ {\normb} \end{bmatrix} \right)\\
                         &= \frac{1}{2} \left(
-                          \begin{bmatrix} {0.75+0i} \\ {0.75+0i} \end{bmatrix} +
-                          \beta \begin{bmatrix*}[r] {0+0.25i} \\ -{0+0.25i} \end{bmatrix*} \right).
+                          \begin{bmatrix} {\norma} \\ {\norma} \end{bmatrix} +
+                          \beta \begin{bmatrix*}[r] {\normb} \\ {0,3-0,6i} \end{bmatrix*} \right).
   \end{aligned}
 \end{equation}
 Reorganizando os resultados para definir o estado $\ket{\psi_2}$ temos
 \begin{equation}
  \begin{split}
    \ket{\psi_2} &=\frac{1}{2} \left\{ \left(\begin{bmatrix} 1 \\ 0 \end{bmatrix} \otimes
-                  \begin{bmatrix} 1 \\ 0 \end{bmatrix}\right) \left( \begin{bmatrix} {0.75+0i} \\ 0 \end{bmatrix} +
-                  \begin{bmatrix} 0 \\ {0+0.25i} \end{bmatrix}\right)\right\} \\
+                  \begin{bmatrix} 1 \\ 0 \end{bmatrix}\right) \left( \begin{bmatrix} {\norma} \\ 0 \end{bmatrix} +
+                  \begin{bmatrix} 0 \\ {\normb} \end{bmatrix}\right)\right\} \\
                 &+\frac{1}{2} \left\{ \left(\begin{bmatrix} 0 \\ 1 \end{bmatrix} \otimes
-                  \begin{bmatrix} 0 \\ 1 \end{bmatrix}\right) \left( \begin{bmatrix} 0 \\ {0.75+0i} \end{bmatrix} -
-                  \begin{bmatrix} {0+0.25i} \\ 0 \end{bmatrix}\right)\right\} \\
+                  \begin{bmatrix} 0 \\ 1 \end{bmatrix}\right) \left( \begin{bmatrix} 0 \\ {\norma} \end{bmatrix} -
+                  \begin{bmatrix} {\normb} \\ 0 \end{bmatrix}\right)\right\} \\
                 &+\frac{1}{2} \left\{\left( \begin{bmatrix} 1 \\ 0 \end{bmatrix} \otimes
-                  \begin{bmatrix} 0 \\ 1 \end{bmatrix}\right) \left( \begin{bmatrix} 0 \\ {0.75+0i} \end{bmatrix} +
-                  \begin{bmatrix} {0+0.25i} \\ 0 \end{bmatrix}\right)\right\} \\
+                  \begin{bmatrix} 0 \\ 1 \end{bmatrix}\right) \left( \begin{bmatrix} 0 \\ {\norma} \end{bmatrix} +
+                  \begin{bmatrix} {\normb} \\ 0 \end{bmatrix}\right)\right\} \\
                 &+\frac{1}{2} \left\{ \left[ \begin{bmatrix} 0 \\ 1 \end{bmatrix} \otimes
-                  \begin{bmatrix} 1 \\ 0 \end{bmatrix}\right] \left( \begin{bmatrix} {0.75+0i} \\ 0 \end{bmatrix} -
-                  \begin{bmatrix} 0 \\ {0+0.25i} \end{bmatrix}\right) \right\}.
+                  \begin{bmatrix} 1 \\ 0 \end{bmatrix}\right] \left( \begin{bmatrix} {\norma} \\ 0 \end{bmatrix} -
+                  \begin{bmatrix} 0 \\ {\normb} \end{bmatrix}\right) \right\}.
   \end{split}
 \end{equation}
 
@@ -124,51 +124,51 @@ Para reconstruir o estado, aplicando as condições descritas na Tabela~\ref{tab
 
 \begin{enumerate}
   \item Se a medida realizada for o estado $\ket{00}$, o estado enviado foi
-        \[\ket{\psi} = \begin{bmatrix} {0.75+0i} \\ 0 \end{bmatrix} + \begin{bmatrix} 0 \\ {0+0.25i} \end{bmatrix} = \begin{bmatrix} {0.75+0i} \\ {0+0.25i} \end{bmatrix}. \]
+        \[\ket{\psi} = \begin{bmatrix} {\norma} \\ 0 \end{bmatrix} + \begin{bmatrix} 0 \\ {\normb} \end{bmatrix} = \begin{bmatrix} {\norma} \\ {\normb} \end{bmatrix}. \]
 
   \item Se a medida realizada for o estado $\ket{11}$:
         \[
-        \begin{bmatrix} 0 \\ {0.75+0i} \end{bmatrix} - \begin{bmatrix} {0+0.25i} \\ 0 \end{bmatrix} = \begin{bmatrix*}[r] -{0+0.25i} \\ {0.75+0i} \end{bmatrix*}.
+        \begin{bmatrix} 0 \\ {\norma} \end{bmatrix} - \begin{bmatrix} {\normb} \\ 0 \end{bmatrix} = \begin{bmatrix*}[r] {0,3-0,6i} \\ {\norma} \end{bmatrix*}.
         \]
 
         Aplicando \(\XXX\):
         \[
-        \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix} \begin{bmatrix*}[r] -{0+0.25i} \\ {0.75+0i} \end{bmatrix*} = \begin{bmatrix*}[r] {0.75+0i} \\ -{0+0.25i} \end{bmatrix*}.
+        \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix} \begin{bmatrix*}[r] {0,3-0,6i} \\ {\norma} \end{bmatrix*} = \begin{bmatrix*}[r] {\norma} \\ {0,3-0,6i} \end{bmatrix*}.
         \]
 
         Aplicando \(\ZZZ\):
         \[
-        \begin{bmatrix*}[r] 1 & 0 \\ 0 & -1 \end{bmatrix*}\begin{bmatrix*}[r] {0.75+0i} \\ -{0+0.25i} \end{bmatrix*} = \begin{bmatrix} {0.75+0i} \\ {0+0.25i} \end{bmatrix}.
+        \begin{bmatrix*}[r] 1 & 0 \\ 0 & -1 \end{bmatrix*}\begin{bmatrix*}[r] {\norma} \\ {0,3-0,6i} \end{bmatrix*} = \begin{bmatrix} {\norma} \\ {\normb} \end{bmatrix}.
         \]
 
         Portanto o estado recuperado é:
         \[
-        \begin{bmatrix} {0.75+0i} \\ {0+0.25i} \end{bmatrix} = \begin{bmatrix} {0.75+0i} \\ 0 \end{bmatrix} +  \begin{bmatrix} 0 \\ {0+0.25i} \end{bmatrix}.
+        \begin{bmatrix} {\norma} \\ {\normb} \end{bmatrix} = \begin{bmatrix} {\norma} \\ 0 \end{bmatrix} +  \begin{bmatrix} 0 \\ {\normb} \end{bmatrix}.
         \]
 
   \item Se a medida realizada for o estado $\ket{10}$:
         \[
-        \begin{bmatrix} {0.75+0i} \\ 0 \end{bmatrix} - \begin{bmatrix} 0 \\ {0+0.25i} \end{bmatrix} = \begin{bmatrix*}[r] {0.75+0i} \\ -{0+0.25i} \end{bmatrix*}.
+        \begin{bmatrix} {\norma} \\ 0 \end{bmatrix} - \begin{bmatrix} 0 \\ {\normb} \end{bmatrix} = \begin{bmatrix*}[r] {\norma} \\ {0,3-0,6i} \end{bmatrix*}.
         \]
 
         Aplicando \(\ZZZ\):
         \[
-        \begin{bmatrix*}[r] 1 & 0 \\ 0 & -1 \end{bmatrix*}\begin{bmatrix*}[r] {0.75+0i} \\ -{0+0.25i} \end{bmatrix*} = \begin{bmatrix} {0.75+0i} \\ {0+0.25i} \end{bmatrix}.
+        \begin{bmatrix*}[r] 1 & 0 \\ 0 & -1 \end{bmatrix*}\begin{bmatrix*}[r] {\norma} \\ {0,3-0,6i} \end{bmatrix*} = \begin{bmatrix} {\norma} \\ {\normb} \end{bmatrix}.
         \]
 
   \item Por último, se a medida realizada for o estado $\ket{01}$:
         \[
-        \begin{bmatrix} {0+0.25i} \\ 0 \end{bmatrix} +  \begin{bmatrix} 0 \\ {0.75+0i} \end{bmatrix} = \begin{bmatrix} {0+0.25i} \\ {0.75+0i} \end{bmatrix}.
+        \begin{bmatrix} {\normb} \\ 0 \end{bmatrix} +  \begin{bmatrix} 0 \\ {\norma} \end{bmatrix} = \begin{bmatrix} {\normb} \\ {\norma} \end{bmatrix}.
         \]
 
         Aplicando \(\XXX\):
         \[
-        \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix} \begin{bmatrix} {0+0.25i} \\ {0.75+0i} \end{bmatrix} = \begin{bmatrix} {0.75+0i} \\ {0+0.25i} \end{bmatrix}.
+        \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix} \begin{bmatrix} {\normb} \\ {\norma} \end{bmatrix} = \begin{bmatrix} {\norma} \\ {\normb} \end{bmatrix}.
         \]
 \end{enumerate}
 
 Todos os estados recuperados são iguais aos estados enviados e portanto a dedução apresentada no Apêndice~\ref{app:matricial} pode ser utilizada como um guia para um programa que automatize tais operações.
-\begin{table}[ht!]
+\begin{table}[ht]
   \centering
   \caption{Resultado dos estados de $\alpha$ e $\beta$ na presença de ruídos.}\label{tab:resultadoruidos}
   \begin{tabular}{ccccc}

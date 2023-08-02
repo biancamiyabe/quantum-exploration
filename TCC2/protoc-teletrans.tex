@@ -10,9 +10,9 @@
 
 \chapter{Implementação do Protocolo de Teletransporte na presença de ruídos}\label{app:protocolo}
 
-Nessa seção, apresentaremos o protocolo desenvolvido para simular o teletransporte quântico com a presença de ruídos. Sua implementação foi realizada utilizando a linguagem de programação Python e sua descrição mais detalhada encontra-se a seguir. O código fonte do protocolo também pode ser obtido no repositório online \texttt{quantum-exploration} no GitHub em \hypertarget{repositório}{https://github.com/biancamiyabe/quantum-exploration}.
+Nessa seção, apresentaremos a documentação do desenvolvimento do protocolo de simulação do teletransporte quântico com a presença de ruídos. Sua implementação foi realizada utilizando a linguagem de programação Python e sua descrição mais detalhada encontra-se a seguir. O código fonte do protocolo também pode ser obtido no repositório online \texttt{quantum-exploration} no GitHub em \hypertarget{repositório}{https://github.com/biancamiyabe/quantum-exploration}.
 
-Para a implementação do protocolo, iniciaremos carregando os seguintes pacotes e funções. Vale ressaltar que os pacotes nos fornecem os recursos necessários para o desenvolvimento das operações. As funções \py{TensorProduct} (produto tensorial) e \py{sqrt} (raiz quadrada) foram importadas para tornar as operações mais objetivas, já o pacote \py{cmath} auxiliou nas operações com números complexos.
+Para a implementação do protocolo, iniciaremos carregando as seguintes bibliotecas e funções. Vale ressaltar que as bibliotecas nos fornecem os recursos necessários para o desenvolvimento das operações. As funções kron() e sqrt() foram importadas para tornar as operações mais objetivas e a biblioteca cmath permite trabalhar com números complexos.
 \begin{pycode}
     import numpy as np
     import math
@@ -22,8 +22,6 @@ Para a implementação do protocolo, iniciaremos carregando os seguintes pacotes
     import random
     import cmath
 \end{pycode}
-
-\todo[inline]{Não aparece \py{TensorProduct}\ldots}
 
 \section{Qubits iniciais}\label{qubits-iniciais}
 

@@ -12,7 +12,7 @@
 
 Para iniciar o desenvolvimento de um protocolo de teletransporte quântico, realizou-se a dedução do mesmo em forma matricial, conforme apresentado de forma detalhada no Apêndice~\ref{app:matricial}.
 
-Para alcançar o objetivo neste trabalho, ou seja, construir uma simulação de um teletransporte quântico, foi necessário decidir a linguagem a ser utilizada para o projeto. A escolha da linguagem Python (versão 3.11) deveu-se ao fato dela ser amplamente utilizada para simular situações físicas e possuir uma série de pacotes abrangendo as mais diversas áreas do conhecimento. Os principais pacotes utilizados no projeto foram \py{sympy}\footnote{\url{https://www.sympy.org/}} \cite{sympy}, \py{numpy}\footnote{\url{https://numpy.org}} \cite{harris2020array}, \py{math}\footnote{\url{https://docs.python.org/3/library/math.html}}, \py{sys}\footnote{\url{https://docs.python.org/3/library/sys.html}} e \py{random}\footnote{\url{https://docs.python.org/3/library/random.html}}, e sua utilização será explicitada durante a explicação das etapas do código fonte. Antes de iniciar a construção do código, foi necessário analisar a estrutura de dados que seria utilizada e a escolhida foi a representação matricial. Essa escolha foi fundamentada no fato de que desse modo as operações binárias ficam mais explícitas, facilitando a compreensão do protocolo.
+Para alcançar o objetivo neste trabalho, ou seja, construir uma simulação de um teletransporte quântico, foi necessário decidir a linguagem a ser utilizada para o projeto. A escolha da linguagem Python (versão 3.11) deveu-se ao fato dela ser amplamente utilizada para simular situações físicas e possuir uma série de pacotes abrangendo as mais diversas áreas do conhecimento. Os principais pacotes utilizados no projeto foram \py{sympy}\footnote{\url{https://www.sympy.org/}} \cite{sympy}, \py{numpy}\footnote{\url{https://numpy.org}} \cite{harris2020array}, \py{math}\footnote{\url{https://docs.python.org/3/library/math.html}}, \py{sys}\footnote{\url{https://docs.python.org/3/library/sys.html}}, \py{cmath}\footnote{\url{https://docs.python.org/3/library/cmath.html}} e \py{random}\footnote{\url{https://docs.python.org/3/library/random.html}}, e sua utilização será explicitada durante a explicação das etapas do código fonte. Antes de iniciar a construção do código, foi necessário analisar a estrutura de dados que seria utilizada e a escolhida foi a representação matricial. Essa escolha foi fundamentada no fato de que, desse modo, as operações binárias ficam mais explícitas, facilitando a compreensão do protocolo.
 
 De posse da estrutura de dados a ser operacionalizada, da linguagem de programação e dos pacotes necessários, foi desenvolvido o código apresentado no Apêndice~\ref{app:protocolo}. Vamos detalhar as operações e correlacioná-las a seguir.
 
@@ -52,7 +52,7 @@ Foram estabelecidas também as variáveis que representam os operadores quântic
 
 Conforme a Figura~\ref{fig:protocoloteletransporte}, a primeira operação realizada é o emaranhamento de dois qubits, que no nosso caso, estão emaranhados pelo estado $\ket{00}$. Iniciamos portanto, com a aplicação da porta \(\HAD\) no qubit $\ket{q_x}$ que está no estado $\ket{0}$. Para isso, criou-se a variável \py{Hqbit0 = H*qbit0}. Nesse momento, os resultados obtidos são comparáveis com a Equação~\eqref{eq:Hqbit0}.
 
-Em seguida, a porta \(\CNOT\) deve ser aplicada. A definição dos qubits alvo e controle foi implementada na variável \py{AC}, definida por \py{AC = TP(Hqbit0, qbit0)}, onde \py{TP} é o produto tensorial (do Inglês, \textit{tensor product}) de todos os estados possíveis dentro do sistema. A aplicação de \(\CNOT\) resulta na base de Bell no estado $\ket{00}$ e é obtida na variável \py{Bell00 = CNOT * AC}. Nesse momento, temos o sistema descrito pela base de Bell da mesma forma da Equação~\eqref{eq:matrizbell00}.
+Em seguida, a porta \(\CNOT\) deve ser aplicada. A definição dos qubits alvo e controle foi implementada na variável \py{AC}, definida por \py{AC = np.kron(Hqbit0, qbit0)}, onde \py{kron()} é o produto tensorial de todos os estados possíveis dentro do sistema. A aplicação de \(\CNOT\) resulta na base de Bell no estado $\ket{00}$ e é obtida na variável \py{Bell00 = CNOT * AC}. Nesse momento, temos o sistema descrito pela base de Bell da mesma forma da Equação~\eqref{eq:matrizbell00}.
 
 No protocolo construído, são associados valores aleatórios às variáveis $\alpha$ e $\beta$, para suas partes reais e imaginárias. Para tal, utiliza-se o pacote \py{random} de geração de números aleatórios, com a função \py{rand()}: \py{np.random.rand()}. Note que, como a superposição de estados tem natureza probabilística, e para que a condição de normalização $\lvert\alpha\rvert² + \lvert\beta\rvert² = 1$ seja satisfeita, os vetores são normalizados pela relação $\widehat{v} = \vec{v}/\lvert v\rvert$ e assim, determinamos os estados iniciais \py{alfa_inicial, beta_inicial}.
 
@@ -90,8 +90,6 @@ Nesse momento temos em nosso código dois estados separados para $\ket{\psi_2}$,
   estado_01 = np.kron(qbit0, qbit1)
 \end{pycode}
 Para simular a operação de medição, criamos uma lista de variáveis em \py{group_estados}, e escolhemos aleatoriamente com o pacote \py{random} um desses estados. Esta escolha é armazenada na variável \py{Medição} e utilizando o comando \py{del} apagamos todos os estados, simulando o colapso do sistema após a medida.
-
-\todo[inline]{Qual a diferença entre \py{kron} e \py{TP}?}
 
 Para reconstruir a mensagem, a condição estabelecida foi associar o estado medido armazenado na variável \py{Medição} com o estado da mensagem baseando-se na Equação~\eqref{eq:final}, pela relação apresentada na Tabela~\ref{tab:medidas}. O código para essa implementação é apresentado na Listagem~\ref{lst:teleA}.
 
@@ -133,7 +131,7 @@ A variável \py{estado_tp} passa a representar, portanto, o estado do qubit no l
   \end{pycode}
 \end{listing}
 
-Vale ressaltar que durante as operações herdamos a probabilidade associada dos estados, nesse caso $1/4$, e portanto a retiramos para recuperar a mensagem idêntica à informada no início com a expressão \todo{vazio?}. Nesse momento, a variável \py{estado_teletransportado} armazena a mensagem reconstruída no local \(B\). Para verificarmos se o teletransporte teve sucesso, separamos as probabilidades associadas a $\alpha$ e $\beta$ para comparamos com o estado original.
+Nesse momento, a variável \py{estado_teletransportado} armazena a mensagem reconstruída no local \(B\). Para verificarmos se o teletransporte teve sucesso, separamos as probabilidades associadas a $\alpha$ e $\beta$ para comparamos com o estado original.
 
 Para simular os ruídos, implementamos as variáveis \py{bitflip} e \py{phaseflip} equivalentes com as seguintes matrizes
 \begin{pycode}
