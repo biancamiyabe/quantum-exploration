@@ -1,0 +1,184 @@
+% Teste de figuras Tikz
+
+\documentclass[tikz]{standalone}
+
+\usetikzlibrary{angles,arrows.meta,calc,positioning,intersections,shadows,plotmarks,3d,quotes}
+
+% \usepackage{venturis2}
+\usepackage[small]{eulervm}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{blochsphere}
+\usepackage{braket}
+
+\usepackage{xcolor}
+\definecolor{green}{RGB}{174,226,57}     % From https://www.colourlovers.com/palette/46688/fresh_cut_day (atomic bikini)
+
+\definecolor{yellow}{RGB}{237,229,116}   % From https://www.colourlovers.com/palette/937624/Dance_To_Forget (Give Your Heart)
+\definecolor{orange}{RGB}{255,164,70}    % From https://www.colourlovers.com/palette/1107950/Indecent_Proposal (exotic orange)
+\definecolor{cyan}{RGB}{108,243,213}     % From https://www.colourlovers.com/palette/940927/Acused (wrong cyan)
+\definecolor{red}{RGB}{199,8,8}          % From https://www.colourlovers.com/palette/79468/LipstickOnHisCollar (Flagged Down)
+\definecolor{blue}{RGB}{62,122,162}      % From https://www.colourlovers.com/palette/794774/be_here_for_me (kreuger)
+\definecolor{berry}{RGB}{95,13,59}       % From https://www.colourlovers.com/palette/117122/BurberryTenderTouch (BurberryTender)
+\definecolor{violet}{RGB}{87,30,240}     % From the original template (Violet Thanos)
+\definecolor{think}{HTML}{607848}        % From https://www.colourlovers.com/palette/38562/Hands_On
+
+\tikzset{%
+  eixos/.style={draw=black!80,text=black!80,arrows=-{Latex[width=4pt,length=6pt]}},
+  eixos sem flecha/.style={draw=black!80,text=black!80},
+  eixos fantasma/.style={draw=black!20,text=black!60,arrows=-{Latex[width=4pt,length=6pt]}},
+  vetor/.style={draw=blue!80,text=blue!80,cap=round,arrows=-{Triangle[width=5pt,length=7pt]},very thick},
+  linhaforte/.style={draw=#1,ultra thick,cap=round},
+  linhamedia/.style={draw=#1,thick,cap=round},
+  ponto/.style={fill=#1!40,draw=#1,semithick,inner sep=2pt,circle},
+  pontinho/.style={fill=#1,draw=#1,semithick,inner sep=1pt,circle},
+  projecao/.style={draw=#1,densely dotted,thick},
+  projecao 2/.style={draw=#1,densely dash dot,thin},
+  etiqueta/.style n args={3}{text=#1,draw=#2,fill=#3,solid,font=\scriptsize,inner sep=2pt,minimum height=13pt,drop shadow={opacity=0.8,shadow xshift=.3ex,shadow yshift=-.3ex}},
+  face/.style={draw=black,fill=white,thick,cap=round}
+}
+
+\begin{document}
+
+% Adaptado de https://tex.stackexchange.com/questions/345420/how-to-draw-a-bloch-sphere
+\begin{blochsphere}[radius=3cm,rotation=-110,opacity=0]
+  \drawLongitudeCircle[]{-110};
+  \drawLatitudeCircle[style={dashed}]{0};
+  \labelLatLon{ket0}{90}{0};
+  \labelLatLon{ket1}{-90}{0};
+  \labelLatLon{ketminus}{0}{180};
+  \labelLatLon{ketplus}{00}{0};
+  \labelLatLon{ketpluspi2}{0}{-90};  % Longitude seems to be defined in the "wrong" direction, hence the minus
+  \labelLatLon{ketplus3pi2}{0}{-270};
+  \labelLatLon{psi}{45}{-45};
+
+  \draw[-latex] (0,0) -- (ket0) node[pontinho=blue] {} node[below right,inner sep=.5mm] at (ket0) {$z$} node[above,inner sep=.5mm] at (ket0) {$\ket{0}$};
+  \draw[-latex,dashed,opacity=0.2] (0,0) -- (ket1);
+  \node[pontinho=blue] at (ket1) {} node[below,inner sep=.5mm] at (ket1) {$\ket{1}$};
+  \draw[-latex] (0,0) -- (ketplus) node[below,inner sep=.5mm] at (ketplus) {$x$};
+  \draw[-latex] (0,0) -- (ketpluspi2) node[below,inner sep=.5mm] at (ketpluspi2) {$y$};
+  \draw[-latex] (0,0) -- (psi) node[pontinho=blue] {} node[above] {$\ket{\psi}$};
+
+  \coordinate (origin) at (0,0);
+  {
+    \setDrawingPlane{0}{0}
+    \draw[current plane,dashed] (0,0) -- (-90+45:{cos(45)*3cm}) coordinate (psiProjectedEquat) -- (psi);
+    \pic[current plane,draw,fill=orange!20,fill opacity=.5,text opacity=1,"$\varphi$",angle eccentricity=2.2,left]{angle=ketplus--origin--psiProjectedEquat};
+  }
+  { \setLongitudinalDrawingPlane{45}
+    % Draw the angle
+    \pic[current plane,draw,fill=orange!20,fill opacity=.5,text opacity=1,"$\theta$",angle eccentricity=1.5]{angle=psi--origin--ket0};
+  }
+\end{blochsphere}
+
+% \begin{tikzpicture}[line join=round]
+%   \begin{scope}[x={(1,0)},y={(0.5,0.5)},z={(0,1)}]
+%     \draw (-1, -1) -- (1, -1) -- (1, 1) -- (-1, 1) -- cycle;
+%     \draw[yshift=-1pt] (-1, -1) -- (1, -1) -- (1, 1);
+%     \draw (-1, -1) -- +(0, -1pt);
+%     \draw (1, -1) -- +(0, -1pt);
+%     \draw (1, 1) -- +(0, -1pt);
+%   \end{scope}
+% \end{tikzpicture}
+
+% \begin{tikzpicture}
+%   \draw[linhaforte] (0, 0) circle [radius=1.6];
+%   \node at (90:2.1) {\(i\)};
+%   \node at (330:2.1) {\(j\)};
+%   \node at (210:2.1) {\(k\)};
+%   \draw[linhamedia,-{Triangle[width=5pt,length=7pt]},blue] (280:1.35) arc [start angle=280, delta angle=342, radius=1.35];
+%   \node[linhamedia,blue,circle,inner sep=0pt] at (270:1.35) {\(-\)};
+%   \draw[linhamedia,-{Triangle[width=5pt,length=7pt]},red] (263:1.85) arc [start angle=263, delta angle=-347, radius=1.85];
+%   \node[linhamedia,red,circle,inner sep=0pt] at (270:1.85) {\(+\)};
+% \end{tikzpicture}
+
+% \begin{tikzpicture}
+%   % \filldraw [gray] (0,0) circle [radius=2pt] node {A}
+%   %                  (1,3) circle [radius=2pt] node {B}
+%   %                  (3,3) circle [radius=2pt] node {C}
+%   %                  (3.5,0) circle [radius=2pt] node {D}
+%   %                  (4,-2) circle [radius=2pt] node {E}
+%   %                  (2.5,-1) circle [radius=2pt] node {F}
+%   %                  (1.5,-2.5) circle [radius=2pt] node {G}
+%   %                  (-0.5,-2) circle [radius=2pt] node {H}
+%   %                  (0.5,-2) circle [radius=2pt] node {I};
+
+%   \clip (-0.2, -2.6) rectangle (8.7, 4.3);
+%   \foreach \x\y in {0cm/0cm, 5cm/2cm}{
+%     \begin{scope}[shift={(\x,\y)}]
+%       \draw[linhamedia] (0,0) .. controls (1,3) and (3,3) .. (3.5,0);
+%       \draw[linhamedia] (3.5,0) .. controls (4,-2) and (2.5,-1) .. (1.5,-2.5);
+%       \draw[linhamedia] (0,0) .. controls (-0.5,-2) and (0.5,-2) .. (1.5,-2.5);
+%     \end{scope}
+%   }
+
+%   \coordinate (A1) at (1.5, 1);
+%   \coordinate (B1) at (3, -0.5);
+%   \coordinate (C1) at (0.5, -0.5);
+
+%   \coordinate (A2) at (6.5, 3);
+%   \coordinate (B2) at (8, 1.5);
+%   \coordinate (C2) at (5.5, 1.5);
+
+%   \draw[linhamedia,black] (A1) -- (A2);
+%   \draw[linhamedia,blue] (B1) -- (B2);
+%   \draw[linhamedia,red] (C1) -- (C2);
+
+%   \draw[line width=4pt,black,-{Latex[scale=0.7]}] ($(A1)!.45!(A2)$) -- ($(A1)!.65!(A2)$);
+%   \draw[line width=4pt,blue,-{Latex[scale=0.7]}] ($(B1)!.17!(B2)$) -- ($(B1)!.37!(B2)$);
+%   \draw[line width=4pt,red,-{Latex[scale=0.7]}] ($(C1)!.65!(C2)$) -- ($(C1)!.85!(C2)$);
+
+%   \filldraw [black] (A1) circle [radius=2pt] node[above left] {A};
+%   \filldraw [blue] (B1) circle [radius=2pt] node[above left] {B};
+%   \filldraw [red] (C1) circle [radius=2pt] node[above left] {C};
+
+%   \filldraw [black] (A2) circle [radius=2pt] node[above left] {A};
+%   \filldraw [blue] (B2) circle [radius=2pt] node[above left] {B};
+%   \filldraw [red] (C2) circle [radius=2pt] node[above left] {C};
+% \end{tikzpicture}
+
+% \begin{tikzpicture}[apertado/.style={inner sep=0pt,minimum size=0pt},
+%   fonte angulo 30/.style={rotate=30,above,font=\scriptsize,inner sep=2pt},
+%   fonte angulo -55/.style={rotate=-55,above,font=\scriptsize,inner sep=2pt},
+%   angulo/.style={pic text=\(\varphi\),draw,angle radius=12mm,black,thin,->,angle eccentricity=0.8}]
+%   \coordinate (O) at (0, 0, 0);
+
+%   \draw [eixos] (-0.3, 0) -- node [apertado,label=below:\(O\)] {} (O) -- node (x) [apertado,pos=0.7,label=below right:\(x\)] {} (3, 0) node[label=below:\(\Re\)] {};
+%   \draw [eixos] (0, -4) -- node (y-) [apertado,pos=0.1,label=left:\(-y\)] {} node (y+) [apertado,pos=0.9,label=left:\(y\)] {} (0, 4) node[label=left:\(\Im\)] {};
+
+%   \path [name path=x+ tracejado] (x) -- +(0, 4);
+%   \path [name path=x- tracejado] (x) -- +(0, -4);
+%   \path [name path=y+ tracejado] (y+) -- +(3, 0);
+%   \path [name path=y- tracejado] (y-) -- +(3, 0);
+
+%   \draw [name intersections={of=x+ tracejado and y+ tracejado, by=p1}] [projecao] (x) -- (p1) -- (y+);
+%   \draw [name intersections={of=x- tracejado and y- tracejado, by=p2}] [projecao] (x) -- (p2) -- (y-);
+%   \draw [linhaforte=blue] (p1) -- node[pos=0.5,label=\(r\)] {} (O) -- node[pos=0.5,label=below:\(r\)] {} (p2) pic ["\(\theta\)",angle eccentricity=1.4,fill=orange!20,thick] {angle=p2--O--x} pic ["\(\theta\)",angle eccentricity=1.4,fill=orange!20,thick] {angle=x--O--p1};
+
+%   \filldraw [blue] (p1) node [apertado,label={\(z=x+iy\)}] {} circle [radius=2pt];
+%   \filldraw [blue] (p2) node [apertado,label=below:{\(\overline{z}=x-iy\)}] {} circle [radius=2pt];
+% \end{tikzpicture}
+
+% \begin{tikzpicture}[apertado/.style={inner sep=0pt,minimum size=0pt}]
+%   \coordinate (O) at (0, 0, 0);
+
+%   \draw [eixos] (-0.3, 0) -- node [apertado,label=below:\(O\)] {} (O) -- node (x) [apertado,pos=0.7] {} (3, 0) node[label=above:\(\Re\)] {};
+%   \draw [eixos] (0, -0.3) -- node (y+) [apertado,pos=0.9] {} (0, 4) node[label=left:\(\Im\)] {};
+
+%   \path [name path=x+ tracejado] (x) -- +(0, 4);
+%   \path [name path=y+ tracejado] (y+) -- +(3, 0);
+
+%   \draw [name intersections={of=x+ tracejado and y+ tracejado, by=p1}] [projecao] (x) -- (p1) -- (y+);
+%   % \draw [linhaforte=blue] (p1) -- node[pos=0.5,label=\(r\)] {} (O) -- node[pos=0.5,label=below:\(r\)] {} (p2) pic ["\(\theta\)",angle eccentricity=1.4,fill=orange!20,thick] {angle=p2--O--x} pic ["\(\theta\)",angle eccentricity=1.4,fill=orange!20,thick] {angle=x--O--p1};
+
+%   \draw [linhaforte=green] (O) -- (y+) node [apertado,label={[rotate=90,anchor=south east,green]\(a = \lvert z\rvert \sin\theta\)}] {};
+%   \draw [linhaforte=blue] (p1) -- node[pos=0.5,label=\(\lvert z\rvert\)] {} (O) pic [fill=orange!30,angle radius=25pt,angle eccentricity=1.4,pic text=\(\theta\)] {angle=x--O--p1};
+%   \draw [linhaforte=red] (O) -- (x) node [apertado,label={[red]below:{\(a = \lvert z\rvert \cos\theta\)}}] {};
+
+%   \filldraw [blue] (p1) node [apertado,label=above:{\(z=x+iy\)}] {} circle [radius=2pt];
+%   \filldraw [red] (x) circle [radius=2pt];
+%   \filldraw [green] (y+) circle [radius=2pt];
+% \end{tikzpicture}
+
+\end{document}
